@@ -117,6 +117,24 @@ class AssistantGateway {
     return reply;
   }
 
+  /// Tests Cloud boost end to end with [cloudCheckPrompt], a fixed sentence with nothing
+  /// about her. Runs only when the bridge can check, her master switch is on and [consent]
+  /// allows questions; otherwise null. The call is kept in her AI ledger with what was sent.
+  Future<CloudCheck?> checkCloud(CloudConsent consent) async {
+    final bridge = _bridge;
+    if (bridge is! CloudChecker || !assistantBuildEnabled || !_enabled() || !consent.allows(CloudPurpose.questions)) {
+      return null;
+    }
+    CloudCheck result;
+    try {
+      result = await (bridge as CloudChecker).checkCloud().timeout(assistantCallTimeout + const Duration(seconds: 2));
+    } on Object {
+      result = const CloudCheck(ok: false, reason: 'timeout');
+    }
+    _log(AssistantUse.askInCloud, cloud: true, answered: result.ok, sent: cloudCheckPrompt);
+    return result;
+  }
+
   /// Ask femio on the phone: a cited summary of [passages] for her [question].
   Future<AssistantResult<CitedAnswer>> answerOnPhone(
     String question,

@@ -277,7 +277,7 @@ number is a prompt to talk to a clinician, never a diagnosis. Sources are as cit
 | MR-32 | Blood-pressure reference text only, never applied to a reading (v1.1): 140/90 mmHg hypertension in pregnancy, 160/110 severe, 135/85 NICE treatment target; postpartum check by 7-10 days (72 hours if severe) | as written | NICE NG133, ACOG (in `PREGNANCY_BP_SAFETY.md`) | C | n/a (no BP feature) |
 | MR-33 | Aspirin, cabergoline, letrozole, clomifene, metformin, inositol, progesterone: educational only, "what guidelines describe", clinician routing, **never a dose, never a start or stop date**. Single exception: folic acid 400 mcg (MR-22) | no mg or mcg anywhere else | `HEALTH_APP_CLAIMS_AND_DATA_SAFETY.md`; `REPRODUCTIVE_TREATMENT_SAFETY.md`; C6 §D | C, L | No lint |
 | MR-34 | PCOS in pregnancy: capture PCOS status; mention an early glucose test (before pregnancy, at the first visit, at 24-28 weeks) as a question for her clinician | 24-28 weeks | 2023 PCOS guideline (C6 §D) | C, S | No |
-| MR-35 | Loss and ending: use her own term; stop all reminders at once; no pregnancy-week card; keep her data | n/a | `REPRODUCTIVE_TREATMENT_SAFETY.md`; D1 spec | U, S | No (A-07) |
+| MR-35 | Loss and ending: use her own term; stop all reminders at once; no pregnancy-week card; keep her data | n/a | `REPRODUCTIVE_TREATMENT_SAFETY.md`; D1 spec; NHS Miscarriage (2026) for the urgent line | U, S | Yes, 2026-11-27 (R14.22): `Profile.endPregnancy`, `domain/pregnancy_end.dart`, `test/r14_stage_moves_test.dart`; log/period/appointment reminders off, medicine reminders kept; neutral wording, a choice of her own term is open |
 
 ### 4.4 Mood, crisis, claims and display
 

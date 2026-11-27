@@ -2,20 +2,24 @@
 //
 // Why it exists: on-device AI depends on the phone (Gemini Nano through Android AICore), and
 // Cloud boost (ADR-079) depends on the build and on her choice. She should see both plainly,
-// download Nano when her phone offers it, switch Cloud boost on only through its consent screen
-// (or off in one tap), and read in one paragraph what stays on the phone and what may leave it.
+// download Nano when her phone offers it, and change the AI or Cloud boost only through the one
+// wizard (owner 2026-11-27), which keeps a sealed receipt of every choice. While Cloud boost is
+// on she can check it really reaches Google and, if not, read why (the reason comes from the
+// native call). She reads in one paragraph what stays on the phone and what may leave it.
 
 import 'package:flutter/material.dart';
 
 import '../../app.dart';
 import '../../data/assistant_channel.dart';
+import '../../domain/assistant/cloud_consent.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/spacing.dart';
+import 'ai_choices_record_screen.dart';
+import 'ai_choices_wizard.dart';
 import 'ai_ledger_screen.dart';
 import 'ai_sees_screen.dart';
 import 'assistant_scope.dart';
-import 'cloud_boost_screen.dart';
 
 /// The assistant's status page.
 class AssistantSettingsScreen extends StatefulWidget {
@@ -30,6 +34,21 @@ class AssistantSettingsScreen extends StatefulWidget {
 class _AssistantSettingsScreenState extends State<AssistantSettingsScreen> {
   AssistantStatus? _status;
   bool _downloading = false;
+  bool _checking = false;
+  CloudCheck? _check;
+
+  Future<void> _runCheck(CloudConsent consent) async {
+    setState(() {
+      _checking = true;
+      _check = null;
+    });
+    final result = await AssistantScope.gatewayOf(context).checkCloud(consent);
+    if (!mounted) return;
+    setState(() {
+      _checking = false;
+      _check = result;
+    });
+  }
 
   @override
   void didChangeDependencies() {
@@ -74,16 +93,20 @@ class _AssistantSettingsScreenState extends State<AssistantSettingsScreen> {
                   listenable: widget.controller,
                   builder: (context, _) {
                     final settings = widget.controller.profile?.settings;
-                    final on = settings?.assistantOn ?? true;
-                    return SwitchListTile(
+                    final consent = settings?.cloud ?? const CloudConsent();
+                    final mode = currentAiMode(assistantOn: settings?.assistantOn ?? true, cloud: consent);
+                    return ListTile(
                       contentPadding: EdgeInsets.zero,
-                      secondary: Icon(Icons.auto_awesome_rounded, color: p.primary),
-                      title: Text(l.assistantMasterTitle),
-                      subtitle: Text(on ? l.assistantMasterOn : l.assistantMasterOff),
-                      value: on,
-                      onChanged: settings == null
-                          ? null
-                          : (value) => widget.controller.setSettings(settings.copyWith(assistantOn: value)),
+                      leading: Icon(Icons.auto_awesome_rounded, color: p.primary),
+                      title: Text(l.aiChoicesTitle),
+                      subtitle: Text(switch (mode) {
+                        AiMode.off => l.aiChoicesSubOff,
+                        AiMode.phone => l.aiChoicesSubPhone,
+                        AiMode.cloud => l.aiChoicesSubCloud(
+                            purposeNames(l, [for (final c in CloudPurpose.values) if (consent.allows(c)) c])),
+                      }),
+                      trailing: const Icon(Icons.chevron_right_rounded),
+                      onTap: settings == null ? null : () => openAiChoicesWizard(context, widget.controller),
                     );
                   },
                 ),
@@ -109,39 +132,63 @@ class _AssistantSettingsScreenState extends State<AssistantSettingsScreen> {
                   listenable: widget.controller,
                   builder: (context, _) {
                     final settings = widget.controller.profile?.settings;
+                    final consent = settings?.cloud ?? const CloudConsent();
                     final on = settings?.cloudBoost ?? false;
-                    return SwitchListTile(
-                      contentPadding: EdgeInsets.zero,
-                      secondary: Icon(Icons.cloud_outlined, color: p.primary),
-                      title: Text(l.assistantCloudTitle),
-                      subtitle: Text(
-                        !s.canRunHybrid
-                            ? l.assistantCloudNotBuilt
-                            : on
-                            ? l.assistantCloudOn
-                            : l.assistantCloudOff,
-                      ),
-                      value: on,
-                      onChanged: settings == null || (!s.canRunHybrid && !on)
-                          ? null
-                          : (value) => value
-                                ? Navigator.of(context).push(
-                                    MaterialPageRoute<void>(
-                                      builder: (_) => CloudBoostScreen(
-                                        controller: widget.controller,
-                                      ),
-                                    ),
-                                  )
-                                : widget.controller.setSettings(
-                                    settings.copyWith(
-                                      cloud: settings.cloud.withdraw(
-                                        DateTime.now().toUtc().toIso8601String(),
-                                        lang: Localizations.localeOf(context).languageCode,
-                                      ),
-                                    ),
-                                  ),
+                    final check = _check;
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        ListTile(
+                          contentPadding: EdgeInsets.zero,
+                          leading: Icon(Icons.cloud_outlined, color: p.primary),
+                          title: Text(l.assistantCloudTitle),
+                          subtitle: Text(
+                            !s.canRunHybrid ? l.assistantCloudNotBuilt : (on ? l.assistantCloudOn : l.assistantCloudOff),
+                          ),
+                        ),
+                        // The check exists only on the real Android bridge, and only while
+                        // Cloud boost for questions is on (it sends one fixed sentence).
+                        if (on &&
+                            consent.allows(CloudPurpose.questions) &&
+                            AssistantScope.of(context) is CloudChecker) ...[
+                          Text(l.cloudCheckNote, style: t.bodySmall),
+                          const SizedBox(height: space2),
+                          Align(
+                            alignment: AlignmentDirectional.centerStart,
+                            child: OutlinedButton.icon(
+                              onPressed: _checking ? null : () => _runCheck(consent),
+                              icon: const Icon(Icons.network_check_rounded),
+                              label: Text(_checking ? l.cloudCheckRunning : l.cloudCheckButton),
+                            ),
+                          ),
+                          if (check != null) ...[
+                            const SizedBox(height: space2),
+                            Text(
+                              check.ok
+                                  ? l.cloudCheckOk(((check.ms ?? 0) / 1000).toStringAsFixed(1))
+                                  : l.cloudCheckFailed(check.reason ?? 'other'),
+                              style: t.bodyMedium?.copyWith(color: check.ok ? p.primary : p.dangerText),
+                            ),
+                            if (!check.ok)
+                              Text(l.cloudCheckCode(check.reason ?? 'other'), style: t.labelSmall?.copyWith(color: p.textMuted)),
+                          ],
+                          const SizedBox(height: space2),
+                        ],
+                      ],
                     );
                   },
+                ),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: Icon(Icons.verified_outlined, color: p.primary),
+                  title: Text(l.aiRecordTitle),
+                  subtitle: Text(l.aiRecordSub),
+                  trailing: const Icon(Icons.chevron_right_rounded),
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => AiChoicesRecordScreen(controller: widget.controller),
+                    ),
+                  ),
                 ),
                 ListTile(
                   contentPadding: EdgeInsets.zero,

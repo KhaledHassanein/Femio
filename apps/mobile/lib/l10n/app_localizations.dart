@@ -3488,7 +3488,7 @@ abstract class L10n {
   /// No description provided for @aiWizardPhoneBody.
   ///
   /// In en, this message translates to:
-  /// **'Your words and your record are read only on this phone, by Gemini Nano where your phone has it. femio\'s safety rules always run first: warning signs and help-now numbers never wait for the AI. Answers are wellness information with their sources, not a diagnosis or treatment. The AI never changes your record unless you confirm.'**
+  /// **'Your words and your record are read only on this phone, by Gemini Nano where your phone has it. femio\'s safety rules always run first: warning signs and help-now numbers never wait for the AI. Answers are wellness information with their sources, to talk over with your clinician. The AI never changes your record unless you confirm.'**
   String get aiWizardPhoneBody;
 
   /// No description provided for @aiWizardConfirmHeading.
@@ -3500,7 +3500,7 @@ abstract class L10n {
   /// No description provided for @aiAckWellness.
   ///
   /// In en, this message translates to:
-  /// **'I understand that femio\'s AI gives wellness information from trusted sources. It does not diagnose or treat, and I will talk to a clinician about my health.'**
+  /// **'I understand that femio\'s AI gives wellness information from trusted sources, not medical advice, and that I should talk to a clinician about my health.'**
   String get aiAckWellness;
 
   /// No description provided for @aiAckNotice.
@@ -3632,7 +3632,7 @@ abstract class L10n {
   /// No description provided for @aiAckShortWellness.
   ///
   /// In en, this message translates to:
-  /// **'wellness, not diagnosis'**
+  /// **'wellness information only'**
   String get aiAckShortWellness;
 
   /// No description provided for @aiAckShortNotice.
@@ -3872,7 +3872,7 @@ abstract class L10n {
   /// No description provided for @boostExplicit.
   ///
   /// In en, this message translates to:
-  /// **'These facts and questions are about your health. By ticking a box and pressing I agree, you give your explicit consent to that use only. femio keeps a dated record of your choice on this phone, which you can see here.'**
+  /// **'These facts and questions are about your health. By ticking a box and pressing Confirm my choice, you give your explicit consent to that use only. femio keeps a dated, sealed record of your choice on this phone, which you can see in My AI choices.'**
   String get boostExplicit;
 
   /// No description provided for @boostAgree.
@@ -7168,6 +7168,102 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Try again'**
   String get saveFailedRetry;
+
+  /// Today, under the title: the life stage femio follows now.
+  ///
+  /// In en, this message translates to:
+  /// **'Now: {stage}'**
+  String stageNow(String stage);
+
+  /// Today: opens the stage questions with her answers filled in.
+  ///
+  /// In en, this message translates to:
+  /// **'Change'**
+  String get stageChange;
+
+  /// Stage name after a recorded birth.
+  ///
+  /// In en, this message translates to:
+  /// **'After birth'**
+  String get stageAfterBirth;
+
+  /// Stage name with the breastfeeding layer.
+  ///
+  /// In en, this message translates to:
+  /// **'{stage} · breastfeeding'**
+  String stageWithBreastfeeding(String stage);
+
+  /// Pregnancy Today: the way out of pregnancy without a birth (MR-35).
+  ///
+  /// In en, this message translates to:
+  /// **'My pregnancy has ended'**
+  String get endedAction;
+
+  /// Sheet title above the calendar.
+  ///
+  /// In en, this message translates to:
+  /// **'When did your pregnancy end?'**
+  String get endedTitle;
+
+  /// Sheet note: what femio changes and keeps (MR-35).
+  ///
+  /// In en, this message translates to:
+  /// **'femio will stop the week cards, the countdown and your reminders. Everything you logged stays on your phone.'**
+  String get endedNote;
+
+  /// After-loss card heading.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'re so sorry'**
+  String get endedCardTitle;
+
+  /// After-loss card body: what femio changed; the last sentence follows NHS Miscarriage (2026).
+  ///
+  /// In en, this message translates to:
+  /// **'femio has stopped the week cards, the countdown and your log, period and appointment reminders, and kept everything you logged. You can turn reminders back on in Settings. When your period comes back, log its first day and your ranges start again from it. It may take a few months for periods to settle.'**
+  String get endedCardBody;
+
+  /// After-loss urgent card heading.
+  ///
+  /// In en, this message translates to:
+  /// **'Get help now if'**
+  String get endedUrgentTitle;
+
+  /// After-loss urgent signs, from NHS Miscarriage (call 999 list).
+  ///
+  /// In en, this message translates to:
+  /// **'the bleeding is heavy (soaking a pad soon after putting it on), you have severe pain in your tummy or shoulder, or you feel faint or dizzy.'**
+  String get endedUrgentBody;
+
+  /// Source line under the after-loss urgent signs.
+  ///
+  /// In en, this message translates to:
+  /// **'Source: NHS, Miscarriage (2026).'**
+  String get endedSource;
+
+  /// After-birth Today: the breastfeeding layer switch.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'m breastfeeding'**
+  String get feedingTitle;
+
+  /// Breastfeeding switch subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'femio shows the breastfeeding guides here. Turn it off any time; nothing is deleted.'**
+  String get feedingSub;
+
+  /// Link to the reviewed guide breastfeeding-first-two-weeks.
+  ///
+  /// In en, this message translates to:
+  /// **'Breastfeeding: the first two weeks'**
+  String get feedingGuideFirst;
+
+  /// Link to the reviewed guide when-breastfeeding-is-not-working.
+  ///
+  /// In en, this message translates to:
+  /// **'When breastfeeding is not working'**
+  String get feedingGuideHelp;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

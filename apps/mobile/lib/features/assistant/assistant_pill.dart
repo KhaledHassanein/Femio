@@ -14,7 +14,7 @@ import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/spacing.dart';
 import 'ask_screen.dart';
-import 'cloud_boost_screen.dart';
+import 'ai_choices_wizard.dart';
 import 'say_it_sheet.dart';
 import 'visit_summary_screen.dart';
 
@@ -117,7 +117,7 @@ class AssistantIntroSheet extends StatelessWidget {
           OutlinedButton(
             onPressed: () async {
               final nav = Navigator.of(context);
-              await nav.push(MaterialPageRoute<void>(builder: (_) => CloudBoostScreen(controller: controller)));
+              await openAiChoicesWizard(context, controller, start: AiMode.cloud);
               nav.pop(true);
             },
             child: Text(l.assistIntroCloudAction),

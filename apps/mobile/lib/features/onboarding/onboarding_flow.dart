@@ -54,10 +54,14 @@ enum _Step {
 /// flow starts at the goal with her answers filled in, skips the age questions she already
 /// answered, keeps everything she logged ([Profile.withAnswers]) and closes when done.
 class OnboardingFlow extends StatefulWidget {
-  const OnboardingFlow({super.key, required this.controller, this.today, this.editing = false});
+  const OnboardingFlow({super.key, required this.controller, this.today, this.editing = false, this.startGoal});
   final FemioController controller;
   final String? today;
   final bool editing;
+
+  /// Editing only: the goal she already chose elsewhere (the "I'm pregnant" button on the
+  /// trying-to-conceive Today), so the flow opens at that goal's next question.
+  final Goal? startGoal;
 
   @override
   State<OnboardingFlow> createState() => _OnboardingFlowState();
@@ -102,6 +106,15 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
     _irregular = p.irregular;
     _trying = p.tryingFor;
     if (p.periodStarts.isNotEmpty) _lastPeriod = fromISO(p.periodStarts.last);
+    final start = widget.startGoal;
+    if (start != null) {
+      _goal = start;
+      _history.add(switch (start) {
+        Goal.period || Goal.ttc => _Step.lastPeriod,
+        Goal.pregnant => _Step.dueMethod,
+        Goal.menopause => _Step.menoLast,
+      });
+    }
   }
 
   String get _todayISO => widget.today ?? todayISO();

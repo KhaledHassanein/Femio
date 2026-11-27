@@ -10,6 +10,74 @@ import 'package:femio/domain/assistant/cloud_consent.dart';
 void main() {
   const at = '2026-11-24T10:00:00Z';
 
+  group('sealed receipts (owner 2026-11-27)', () {
+    test('a wizard choice records the AI switch, the purposes and the ticked statements', () {
+      final c = const CloudConsent().choose(
+        ai: true,
+        purposes: {CloudPurpose.questions},
+        at: at,
+        lang: 'ar',
+        acks: const [AiAck.wellness, AiAck.notice, AiAck.cloud],
+      );
+      final e = c.current!;
+      expect(e.ai, isTrue);
+      expect(e.acks, [AiAck.wellness, AiAck.notice, AiAck.cloud]);
+      expect(c.allows(CloudPurpose.questions), isTrue);
+      expect(e.seal, hasLength(64));
+      expect(e.prev, isNull);
+      expect(c.sealIntact, isTrue);
+    });
+
+    test('each receipt names the seal before it, and survives a save and load', () {
+      final c = const CloudConsent()
+          .choose(ai: true, purposes: const {}, at: at, acks: const [AiAck.wellness, AiAck.notice])
+          .choose(ai: false, purposes: const {}, at: '2026-11-25T08:00:00Z');
+      expect(c.log[1].prev, c.log[0].seal);
+      final back = CloudConsent.fromJson(c.toJson());
+      expect(back.sealIntact, isTrue);
+      expect(back.log[1].seal, c.log[1].seal);
+      expect(back.current!.ai, isFalse);
+    });
+
+    test('an edited receipt no longer matches its seal', () {
+      final c = const CloudConsent().choose(ai: true, purposes: const {CloudPurpose.tips}, at: at, acks: const [AiAck.cloud]);
+      final json = (c.toJson()! as List).cast<Map<String, Object?>>();
+      final edited = [
+        {...json.single, 'purposes': ['questions', 'tips']},
+      ];
+      expect(CloudConsent.fromJson(edited).sealIntact, isFalse);
+    });
+
+    test('a receipt removed from the middle breaks the chain', () {
+      var c = const CloudConsent();
+      for (var i = 0; i < 3; i += 1) {
+        c = c.choose(ai: i.isEven, purposes: const {}, at: '2026-11-2${i}T08:00:00Z');
+      }
+      final json = (c.toJson()! as List).cast<Map<String, Object?>>();
+      expect(CloudConsent.fromJson([json[0], json[2]]).sealIntact, isFalse);
+    });
+
+    test('receipts written before seals existed still read, and the chain starts after them', () {
+      final old = CloudConsent.fromJson([
+        {'purposes': ['questions'], 'at': at, 'version': 2, 'lang': 'en'},
+      ]);
+      final c = old.choose(ai: true, purposes: const {}, at: '2026-11-27T09:00:00Z');
+      expect(c.log.first.seal, isNull);
+      expect(c.log.last.prev, isNull);
+      expect(c.sealIntact, isTrue);
+    });
+
+    test('the oldest receipts drop off at the limit and the chain still checks', () {
+      var c = const CloudConsent();
+      for (var i = 0; i < cloudConsentLogLimit + 5; i += 1) {
+        c = c.choose(ai: true, purposes: const {}, at: '2026-11-27T09:00:${(i % 60).toString().padLeft(2, '0')}Z');
+      }
+      expect(c.log, hasLength(cloudConsentLogLimit));
+      expect(c.log.first.prev, isNotNull, reason: 'the first kept receipt still names the one before it');
+      expect(CloudConsent.fromJson(c.toJson()).sealIntact, isTrue);
+    });
+  });
+
   test('no choice means nothing is allowed', () {
     const c = CloudConsent();
     expect(c.any, isFalse);
@@ -39,8 +107,9 @@ void main() {
   });
 
   test('a consent given on the version 1 text (which promised names were removed) lapses', () {
-    // Version 2 corrected the redaction sentence (PRIV-1); she must agree again to the new text.
-    expect(cloudConsentVersion, 2);
+    // Version 2 corrected the redaction sentence (PRIV-1); version 3 is the one AI wizard. Each
+    // time she must agree again to the new text.
+    expect(cloudConsentVersion, 3);
     final v1 = CloudConsent.fromJson([
       {'purposes': ['questions', 'tips'], 'at': at, 'version': 1},
     ]);

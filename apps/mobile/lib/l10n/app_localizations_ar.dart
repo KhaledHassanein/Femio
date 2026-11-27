@@ -2098,14 +2098,14 @@ class L10nAr extends L10n {
 
   @override
   String get aiWizardPhoneBody =>
-      'تُقرأ كلماتكِ وسجلّكِ على هذا الهاتف فقط، بواسطة Gemini Nano إن وُجد في هاتفكِ. تعمل قواعد السلامة في femio أولًا دائمًا: علامات الخطر وأرقام المساعدة الفورية لا تنتظر الذكاء الاصطناعي. الإجابات معلومات عافية مع مصادرها، وليست تشخيصًا أو علاجًا. لا يغيّر الذكاء الاصطناعي سجلّكِ إلا بعد تأكيدكِ.';
+      'تُقرأ كلماتك وسجلك على هذا الهاتف فقط، بواسطة Gemini Nano إن كان هاتفك يدعمه. تعمل قواعد السلامة في femio أولًا دائمًا: علامات الخطر وأرقام المساعدة لا تنتظر الذكاء الاصطناعي. الإجابات معلومات صحية عامة مع مصادرها، لتناقشيها مع طبيبك. لا يغيّر الذكاء الاصطناعي سجلك إلا إذا أكدتِ ذلك.';
 
   @override
   String get aiWizardConfirmHeading => 'التأكيد';
 
   @override
   String get aiAckWellness =>
-      'أفهم أن الذكاء الاصطناعي في femio يقدّم معلومات عافية من مصادر موثوقة. لا يشخّص ولا يعالج، وسأتحدث مع طبيبتي أو طبيبي بشأن صحتي.';
+      'أفهم أن الذكاء الاصطناعي في femio يقدّم معلومات صحية عامة من مصادر موثوقة وليس نصيحة طبية، وأن عليّ التحدث مع طبيب بشأن صحتي.';
 
   @override
   String get aiAckNotice => 'قرأتُ إشعار الخصوصية الخاص بـ femio.';
@@ -2195,7 +2195,7 @@ class L10nAr extends L10n {
   }
 
   @override
-  String get aiAckShortWellness => 'عافية لا تشخيص';
+  String get aiAckShortWellness => 'معلومات صحية عامة فقط';
 
   @override
   String get aiAckShortNotice => 'قراءة إشعار الخصوصية';
@@ -2386,7 +2386,7 @@ class L10nAr extends L10n {
 
   @override
   String get boostExplicit =>
-      'هذه الحقائق والأسئلة تخص صحتكِ. بوضع علامة في خانة والضغط على «أوافق»، تمنحين موافقتكِ الصريحة على ذلك الاستخدام وحده. ويحتفظ femio على هذا الهاتف بسجل مؤرّخ لاختياركِ، يمكنكِ رؤيته هنا.';
+      'هذه الحقائق والأسئلة تخص صحتكِ. بوضع علامة في خانة والضغط على «تأكيد اختياري»، تمنحين موافقتكِ الصريحة على ذلك الاستخدام وحده. ويحتفظ femio على هذا الهاتف بسجل مؤرّخ ومختوم لاختياركِ، يمكنكِ رؤيته في «اختياراتي للذكاء الاصطناعي».';
 
   @override
   String get boostAgree => 'أوافق';
@@ -4514,4 +4514,60 @@ class L10nAr extends L10n {
 
   @override
   String get saveFailedRetry => 'حاولي مرة أخرى';
+
+  @override
+  String stageNow(String stage) {
+    return 'الآن: $stage';
+  }
+
+  @override
+  String get stageChange => 'تغيير';
+
+  @override
+  String get stageAfterBirth => 'بعد الولادة';
+
+  @override
+  String stageWithBreastfeeding(String stage) {
+    return '$stage · رضاعة طبيعية';
+  }
+
+  @override
+  String get endedAction => 'انتهى حملي';
+
+  @override
+  String get endedTitle => 'متى انتهى حملك؟';
+
+  @override
+  String get endedNote =>
+      'سيوقف femio بطاقات الأسابيع والعدّ التنازلي والتذكيرات. كل ما سجّلتِه يبقى على هاتفك.';
+
+  @override
+  String get endedCardTitle => 'نحن آسفون جدًا';
+
+  @override
+  String get endedCardBody =>
+      'أوقف femio بطاقات الأسابيع والعدّ التنازلي وتذكيرات التسجيل والدورة والمواعيد، واحتفظ بكل ما سجّلتِه. يمكنك إعادة تشغيل التذكيرات من الإعدادات. عندما تعود دورتك، سجّلي أول يوم فيها وستبدأ توقعاتك من جديد منه. قد يستغرق انتظام الدورة بضعة أشهر.';
+
+  @override
+  String get endedUrgentTitle => 'اطلبي المساعدة فورًا إذا';
+
+  @override
+  String get endedUrgentBody =>
+      'كان النزيف غزيرًا (تتشبّع الفوطة بعد وضعها بوقت قصير)، أو شعرتِ بألم شديد في البطن أو الكتف، أو شعرتِ بالإغماء أو الدوار.';
+
+  @override
+  String get endedSource => 'المصدر: NHS، الإجهاض (2026).';
+
+  @override
+  String get feedingTitle => 'أُرضع رضاعة طبيعية';
+
+  @override
+  String get feedingSub =>
+      'يعرض femio هنا أدلة الرضاعة الطبيعية. يمكنك إيقافه في أي وقت دون حذف أي شيء.';
+
+  @override
+  String get feedingGuideFirst => 'الرضاعة الطبيعية: الأسبوعان الأولان';
+
+  @override
+  String get feedingGuideHelp => 'عندما لا تنجح الرضاعة الطبيعية';
 }

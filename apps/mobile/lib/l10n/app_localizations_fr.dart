@@ -2082,14 +2082,14 @@ class L10nFr extends L10n {
 
   @override
   String get aiWizardPhoneBody =>
-      'Vos mots et vos données sont lus uniquement sur ce téléphone, par Gemini Nano si votre téléphone l\'a. Les règles de sécurité de femio passent toujours en premier : les signes d\'alerte et les numéros d\'aide n\'attendent jamais l\'IA. Les réponses sont des informations de bien-être avec leurs sources, pas un diagnostic ni un traitement. L\'IA ne modifie jamais vos données sans votre confirmation.';
+      'Vos mots et vos données sont lus uniquement sur ce téléphone, par Gemini Nano si votre téléphone l\'a. Les règles de sécurité de femio passent toujours en premier : les signes d\'alerte et les numéros d\'aide n\'attendent jamais l\'IA. Les réponses sont des informations de bien-être avec leurs sources, à discuter avec votre professionnel de santé. L\'IA ne modifie jamais vos données sans votre confirmation.';
 
   @override
   String get aiWizardConfirmHeading => 'Confirmer';
 
   @override
   String get aiAckWellness =>
-      'Je comprends que l\'IA de femio donne des informations de bien-être issues de sources fiables. Elle ne pose pas de diagnostic et ne traite pas ; je parlerai de ma santé à un professionnel de santé.';
+      'Je comprends que l\'IA de femio donne des informations de bien-être issues de sources fiables, pas un avis médical, et que je dois parler de ma santé à un professionnel de santé.';
 
   @override
   String get aiAckNotice => 'J\'ai lu l\'avis de confidentialité de femio.';
@@ -2180,7 +2180,7 @@ class L10nFr extends L10n {
   }
 
   @override
-  String get aiAckShortWellness => 'bien-être, pas diagnostic';
+  String get aiAckShortWellness => 'informations de bien-être uniquement';
 
   @override
   String get aiAckShortNotice => 'avis de confidentialité lu';
@@ -2373,7 +2373,7 @@ class L10nFr extends L10n {
 
   @override
   String get boostExplicit =>
-      'Ces informations et questions concernent votre santé. En cochant une case et en appuyant sur J’accepte, vous donnez votre consentement explicite à cet usage seulement. femio garde sur ce téléphone une trace datée de votre choix, que vous pouvez voir ici.';
+      'Ces informations et questions concernent votre santé. En cochant une case et en appuyant sur Confirmer mon choix, vous donnez votre consentement explicite à cet usage seulement. femio garde sur ce téléphone une trace datée et scellée de votre choix, que vous pouvez voir dans Mes choix d\'IA.';
 
   @override
   String get boostAgree => 'J’accepte';
@@ -4503,4 +4503,60 @@ class L10nFr extends L10n {
 
   @override
   String get saveFailedRetry => 'Réessayer';
+
+  @override
+  String stageNow(String stage) {
+    return 'En ce moment : $stage';
+  }
+
+  @override
+  String get stageChange => 'Changer';
+
+  @override
+  String get stageAfterBirth => 'Après la naissance';
+
+  @override
+  String stageWithBreastfeeding(String stage) {
+    return '$stage · allaitement';
+  }
+
+  @override
+  String get endedAction => 'Ma grossesse s\'est arrêtée';
+
+  @override
+  String get endedTitle => 'Quand votre grossesse s\'est-elle arrêtée ?';
+
+  @override
+  String get endedNote =>
+      'femio arrêtera les fiches de la semaine, le compte à rebours et vos rappels. Tout ce que vous avez noté reste sur votre téléphone.';
+
+  @override
+  String get endedCardTitle => 'Nous sommes vraiment désolés';
+
+  @override
+  String get endedCardBody =>
+      'femio a arrêté les fiches de la semaine, le compte à rebours et vos rappels de saisie, de règles et de rendez-vous, et a gardé tout ce que vous avez noté. Vous pouvez réactiver les rappels dans les Réglages. Quand vos règles reviennent, notez le premier jour : vos fourchettes repartiront de là. Il peut falloir quelques mois pour que les règles se régularisent.';
+
+  @override
+  String get endedUrgentTitle => 'Demandez de l\'aide maintenant si';
+
+  @override
+  String get endedUrgentBody =>
+      'les saignements sont abondants (une serviette trempée peu après l\'avoir mise), vous avez une douleur intense au ventre ou à l\'épaule, ou vous vous sentez faible ou prise de vertiges.';
+
+  @override
+  String get endedSource => 'Source : NHS, Miscarriage (2026).';
+
+  @override
+  String get feedingTitle => 'J\'allaite';
+
+  @override
+  String get feedingSub =>
+      'femio affiche ici les guides sur l\'allaitement. Désactivez-le quand vous voulez ; rien n\'est supprimé.';
+
+  @override
+  String get feedingGuideFirst => 'Allaitement : les deux premières semaines';
+
+  @override
+  String get feedingGuideHelp => 'Quand l\'allaitement ne fonctionne pas';
 }

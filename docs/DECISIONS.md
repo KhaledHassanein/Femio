@@ -1250,3 +1250,60 @@ before the deadline risks losing her record.
 **Why not now.** It changes when and how her record can be read, which is the one thing that must
 never lose data. It needs device testing on several Android versions, which this change could not
 do.
+
+## ADR-085
+**Date:** 2026-11-27 · **Status:** accepted 2026-11-27 (owner, in chat: "both the cloud boost and AI
+to be on and off with 1 wizard ... log the acceptance of the user ... in a mean that can be proven";
+a delete confirmation with an acknowledgement; stage moves without delete or reset)
+
+**Context.** The AI had two switches (her master switch and Cloud boost) and only Cloud boost had a
+consent screen. The owner wants one place, with the statements a data-protection law expects her
+to see, a confirmation before anything changes, and a record that can show later what she chose.
+femio has no server (ADR-070, ADR-080), so femio itself can hold no copy of that record. On the
+owner's real phone Cloud boost "did nothing" and nothing said why: the native call swallowed its
+error. A pregnancy that ended had no path except "I had my baby" or deleting everything (CLIN-1,
+MR-35).
+
+**Decision.**
+1. **One wizard for the AI and Cloud boost** (`features/assistant/ai_choices_wizard.dart`): choose
+   (No AI · AI on this phone · AI on this phone plus Cloud boost), read what it means (for Cloud
+   boost: what may be sent, her own four bands, who receives it, the privacy notice link), then
+   tick the statements (wellness not diagnosis; privacy notice read; for Cloud boost, each purpose
+   and "I understand what Cloud boost may send"). Nothing is pre-ticked. A dialog asks "Confirm this
+   change?" before anything is saved. Turning things off needs no boxes, only the confirmation, so
+   withdrawing is as easy as agreeing (GDPR Art. 7(3)). On-device AI stays on by default because
+   nothing leaves the phone; Cloud boost stays off by default.
+2. **Sealed receipts** (`domain/assistant/cloud_consent.dart`, consent version 3): every choice
+   is a receipt with the time (UTC), the AI switch, the purposes, the ticked statements, the text
+   version and the screen language. Each receipt carries a SHA-256 seal of its own content and the
+   seal of the one before it, so an edited, removed or re-ordered receipt no longer checks out
+   (`CloudConsent.sealIntact`). The last 50 are kept, inside her encrypted record and backup.
+   Settings → Assistant → "My AI choices" shows them and shares a full copy (seals included) with
+   anyone she chooses, for example femio's support in a complaint. Receipts written before seals
+   still read; the chain starts after them.
+3. **Check Cloud boost** (Android only): one fixed sentence ("Reply with the single word OK.") goes
+   to the cloud model and the result names the reason when it fails (`not_configured`, `app_check`,
+   `service_disabled`, `api_key`, `quota`, `location`, `permission`, `timeout`, `network`, `other`).
+   The check is logged in her AI ledger with what was sent, and the native side writes the reason
+   to logcat under `femio-ai` (no prompt text, no record).
+4. **Delete needs an acknowledgement**: the Delete button stays disabled until she ticks "I
+   understand that this erases my records from this phone for good. femio keeps no copy anywhere".
+5. **Stage moves without reset**: "I'm pregnant" from the trying Today (straight to the due-date
+   question); "My pregnancy has ended" from the pregnancy Today (the day, then period or trying;
+   week cards and the countdown stop because the goal changes; log, period and appointment
+   reminders are switched off at once, medicine reminders stay; `Profile.pregnancyEnded` keeps
+   bleeding up to that day out of her cycles); "I'm breastfeeding" after birth (a layer that only
+   offers the reviewed guides); and "Now: {stage} · Change" under the Today title.
+
+**What this proves, and what it does not.** The seals prove the receipts on her phone, or a copy
+she shares, have not been changed since they were written. They cannot prove the phone's clock was
+right, and they are not a signature by femio: anyone with the code could compute a seal. A
+server-held, signed receipt would prove more but would mean a femio server receiving an event each
+time she changes a choice, which ADR-080 rules out; it needs its own ADR and a lawyer's view
+(owner row 29). Cloud boost requests themselves are logged by Google under Firebase AI Logic, not by
+femio.
+
+**Why not a server log.** It would be the first femio server touching her choices, it would need
+an identifier to link receipts to her (the thing ADR-080 removed), and Saudi PDPL and Egypt Law
+151/2020 would then apply to femio as a controller of that log. The on-phone sealed record keeps
+the promise "nothing leaves the phone without your yes".

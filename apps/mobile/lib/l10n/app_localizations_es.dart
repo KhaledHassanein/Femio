@@ -2071,14 +2071,14 @@ class L10nEs extends L10n {
 
   @override
   String get aiWizardPhoneBody =>
-      'Tus palabras y tus registros se leen solo en este teléfono, con Gemini Nano si tu teléfono lo tiene. Las reglas de seguridad de femio van siempre primero: las señales de alarma y los números de ayuda nunca esperan a la IA. Las respuestas son información de bienestar con sus fuentes, no un diagnóstico ni un tratamiento. La IA nunca cambia tus registros sin tu confirmación.';
+      'Tus palabras y tus datos se leen solo en este teléfono, con Gemini Nano si tu teléfono lo tiene. Las reglas de seguridad de femio siempre van primero: las señales de alarma y los números de ayuda nunca esperan a la IA. Las respuestas son información de bienestar con sus fuentes, para comentar con tu profesional de salud. La IA nunca cambia tus datos sin tu confirmación.';
 
   @override
   String get aiWizardConfirmHeading => 'Confirmar';
 
   @override
   String get aiAckWellness =>
-      'Entiendo que la IA de femio da información de bienestar de fuentes fiables. No diagnostica ni trata, y hablaré de mi salud con un profesional sanitario.';
+      'Entiendo que la IA de femio da información de bienestar de fuentes fiables, no consejo médico, y que debo hablar de mi salud con un profesional sanitario.';
 
   @override
   String get aiAckNotice => 'He leído el aviso de privacidad de femio.';
@@ -2169,7 +2169,7 @@ class L10nEs extends L10n {
   }
 
   @override
-  String get aiAckShortWellness => 'bienestar, no diagnóstico';
+  String get aiAckShortWellness => 'solo información de bienestar';
 
   @override
   String get aiAckShortNotice => 'aviso de privacidad leído';
@@ -2362,7 +2362,7 @@ class L10nEs extends L10n {
 
   @override
   String get boostExplicit =>
-      'Estos datos y preguntas tratan sobre tu salud. Al marcar una casilla y pulsar Acepto, das tu consentimiento explícito solo para ese uso. femio guarda en este teléfono un registro fechado de tu elección, que puedes ver aquí.';
+      'Estos datos y preguntas tratan sobre tu salud. Al marcar una casilla y pulsar Confirmar mi elección, das tu consentimiento explícito solo para ese uso. femio guarda en este teléfono un registro fechado y sellado de tu elección, que puedes ver en Mis elecciones de IA.';
 
   @override
   String get boostAgree => 'Acepto';
@@ -4481,4 +4481,60 @@ class L10nEs extends L10n {
 
   @override
   String get saveFailedRetry => 'Reintentar';
+
+  @override
+  String stageNow(String stage) {
+    return 'Ahora: $stage';
+  }
+
+  @override
+  String get stageChange => 'Cambiar';
+
+  @override
+  String get stageAfterBirth => 'Después del parto';
+
+  @override
+  String stageWithBreastfeeding(String stage) {
+    return '$stage · lactancia';
+  }
+
+  @override
+  String get endedAction => 'Mi embarazo terminó';
+
+  @override
+  String get endedTitle => '¿Cuándo terminó tu embarazo?';
+
+  @override
+  String get endedNote =>
+      'femio detendrá las tarjetas de la semana, la cuenta atrás y tus recordatorios. Todo lo que registraste se queda en tu teléfono.';
+
+  @override
+  String get endedCardTitle => 'Lo sentimos mucho';
+
+  @override
+  String get endedCardBody =>
+      'femio ha detenido las tarjetas de la semana, la cuenta atrás y tus recordatorios de registro, periodo y citas, y ha guardado todo lo que registraste. Puedes volver a activar los recordatorios en Ajustes. Cuando vuelva tu periodo, registra el primer día y tus rangos empezarán de nuevo desde ahí. Puede que tus periodos tarden unos meses en regularizarse.';
+
+  @override
+  String get endedUrgentTitle => 'Busca ayuda ahora si';
+
+  @override
+  String get endedUrgentBody =>
+      'el sangrado es abundante (empapas una compresa poco después de ponértela), tienes un dolor intenso en el vientre o en el hombro, o te sientes débil o mareada.';
+
+  @override
+  String get endedSource => 'Fuente: NHS, Miscarriage (2026).';
+
+  @override
+  String get feedingTitle => 'Estoy dando el pecho';
+
+  @override
+  String get feedingSub =>
+      'femio muestra aquí las guías de lactancia. Desactívalo cuando quieras; no se borra nada.';
+
+  @override
+  String get feedingGuideFirst => 'Lactancia materna: las primeras dos semanas';
+
+  @override
+  String get feedingGuideHelp => 'Cuando la lactancia materna no funciona';
 }

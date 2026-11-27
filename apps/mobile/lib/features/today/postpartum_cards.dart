@@ -24,6 +24,7 @@ import '../../widgets/notice_card.dart';
 import '../learn/article_screen.dart';
 import '../log/widgets/log_chip.dart';
 import '../onboarding/widgets.dart' show DateCard;
+import 'stage_cards.dart' show BreastfeedingCard;
 
 /// Opens the guide [slug] from [library] in her language, if it is there.
 Future<void> openGuide(BuildContext context, Library library, String slug) async {
@@ -53,6 +54,8 @@ class PostpartumToday extends StatelessWidget {
       ],
       const SizedBox(height: space4),
       _MoodCard(controller: controller, library: library, today: today),
+      const SizedBox(height: space4),
+      BreastfeedingCard(controller: controller, library: library),
       const SizedBox(height: space4),
       _PeriodBackCard(controller: controller, today: today),
     ]);
@@ -234,7 +237,7 @@ Future<void> showPeriodBackSheet(BuildContext context, FemioController controlle
     context: context,
     isScrollControlled: true,
     showDragHandle: true,
-    builder: (context) => _PickDaySheet(
+    builder: (context) => PickDaySheet(
       title: L10n.of(context).ppPeriodBackPick,
       first: birth,
       today: today,
@@ -275,7 +278,7 @@ class HadBabyButton extends StatelessWidget {
           context: context,
           isScrollControlled: true,
           showDragHandle: true,
-          builder: (context) => _PickDaySheet(
+          builder: (context) => PickDaySheet(
             title: l.birthDateTitle,
             note: l.ppHadBabyNote,
             first: addDays(today, -recordBirthMaxDaysAgo),
@@ -300,9 +303,10 @@ class HadBabyButton extends StatelessWidget {
   }
 }
 
-/// A sheet with a tap-a-day calendar from [first] to [today] and [actions] for the day picked.
-class _PickDaySheet extends StatefulWidget {
-  const _PickDaySheet({required this.title, required this.first, required this.today, required this.actions, this.note});
+/// A sheet with a tap-a-day calendar from [first] to [today] and [actions] for the day picked
+/// (also used by the stage cards: "My pregnancy has ended").
+class PickDaySheet extends StatefulWidget {
+  const PickDaySheet({super.key, required this.title, required this.first, required this.today, required this.actions, this.note});
   final String title;
   final String? note;
   final String first;
@@ -310,10 +314,10 @@ class _PickDaySheet extends StatefulWidget {
   final List<Widget> Function(String? day) actions;
 
   @override
-  State<_PickDaySheet> createState() => _PickDaySheetState();
+  State<PickDaySheet> createState() => PickDaySheetState();
 }
 
-class _PickDaySheetState extends State<_PickDaySheet> {
+class PickDaySheetState extends State<PickDaySheet> {
   String? _day;
 
   @override

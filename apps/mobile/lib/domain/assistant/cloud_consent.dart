@@ -43,7 +43,7 @@ const cloudConsentLogLimit = 50;
 /// words are in the app's string catalogue under the same version).
 abstract final class AiAck {
   /// femio's AI gives wellness information from trusted sources, not a diagnosis.
-  static const wellness = 'wellness-not-diagnosis';
+  static const wellness = 'wellness-information';
 
   /// She has read the privacy notice.
   static const notice = 'privacy-notice-read';

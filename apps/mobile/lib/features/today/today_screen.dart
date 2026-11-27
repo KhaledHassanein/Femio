@@ -14,6 +14,7 @@ import '../../domain/dates.dart';
 import '../../domain/pregnancy.dart';
 import '../../domain/pregnancy_calendar.dart' show firstGuideWeek, lastGuideWeek;
 import '../../domain/absent_period.dart';
+import '../../domain/pregnancy_end.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/spacing.dart';
@@ -25,6 +26,7 @@ import '../assistant/assistant_pill.dart' show AssistantDoor, openAssistantDoor;
 import '../help/help_now_screen.dart';
 import '../help/red_flags_screen.dart';
 import '../pregnancy/this_week_card.dart';
+import 'stage_cards.dart';
 import '../settings/settings_screen.dart';
 import '../../widgets/tab_header.dart';
 import '../record/medicines_screen.dart';
@@ -110,6 +112,8 @@ class TodayScreen extends StatelessWidget {
               header: true,
               child: Text(l.todayTitle, style: t.headlineMedium),
             ),
+            // Owner 2026-11-27: the stage femio follows is always visible, and one tap changes it.
+            StageRow(controller: controller),
             // R14.6: where the AI runs, and the one-sentence log, in the first screen.
             const SizedBox(height: space2),
             AiStatusChip(controller: controller),
@@ -147,6 +151,12 @@ class TodayScreen extends StatelessWidget {
               date: date,
               onAddLength: () => showCycleLengthSheet(context, controller),
             ),
+            if (profile.goal == Goal.ttc) PregnantNowButton(controller: controller),
+            // MR-35: after a pregnancy ended, what femio changed and when to get help.
+            if (showAfterLoss(profile, now)) ...[
+              const SizedBox(height: space3),
+              const AfterLossCard(),
+            ],
             // MR-10 (CLIN-9): a long gap gets a calm next step, never a count.
             if (periodAbsentFor(profile, now)) ...[
               const SizedBox(height: space3),
@@ -178,6 +188,7 @@ class TodayScreen extends StatelessWidget {
               // R8.19: the way into the after-birth stage.
               const SizedBox(height: space2),
               HadBabyButton(controller: controller, today: now),
+              PregnancyEndedButton(controller: controller, today: now),
             ],
             // R8.20, MR-61: bleeding after a year without periods always needs a doctor.
             if (bleedAfterYear(profile, now) != null) ...[

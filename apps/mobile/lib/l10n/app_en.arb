@@ -908,9 +908,9 @@
   "aiModeCloudSub": "If your phone has no Gemini Nano, what you choose and approve can be answered by Google's cloud AI.",
   "aiWizardReadHeading": "What this means",
   "aiWizardOffBody": "femio stops using AI. Your records, predictions, reminders and guides stay as they are. Nothing is sent anywhere.",
-  "aiWizardPhoneBody": "Your words and your record are read only on this phone, by Gemini Nano where your phone has it. femio's safety rules always run first: warning signs and help-now numbers never wait for the AI. Answers are wellness information with their sources, not a diagnosis or treatment. The AI never changes your record unless you confirm.",
+  "aiWizardPhoneBody": "Your words and your record are read only on this phone, by Gemini Nano where your phone has it. femio's safety rules always run first: warning signs and help-now numbers never wait for the AI. Answers are wellness information with their sources, to talk over with your clinician. The AI never changes your record unless you confirm.",
   "aiWizardConfirmHeading": "Confirm",
-  "aiAckWellness": "I understand that femio's AI gives wellness information from trusted sources. It does not diagnose or treat, and I will talk to a clinician about my health.",
+  "aiAckWellness": "I understand that femio's AI gives wellness information from trusted sources, not medical advice, and that I should talk to a clinician about my health.",
   "aiAckNotice": "I have read femio's privacy notice.",
   "aiAckCloud": "I understand what Cloud boost may send, who receives it, and that I can turn it off at any time.",
   "aiWizardOffConfirm": "Nothing to tick: turning AI off is always one step. Your choice is recorded with the date.",
@@ -963,7 +963,7 @@
       }
     }
   },
-  "aiAckShortWellness": "wellness, not diagnosis",
+  "aiAckShortWellness": "wellness information only",
   "aiAckShortNotice": "privacy notice read",
   "aiAckShortCloud": "Cloud boost understood",
   "aiRecordMeta": "Text version {version} · shown in {lang} · seal {seal}",
@@ -1065,7 +1065,7 @@
   "boostChoiceHeading": "Your choice",
   "boostChoice": "Agreeing is optional, and you can agree to one use and not the other. You can turn Cloud boost off at any time, here or in Settings › Assistant, as easily as you turned it on. Each phone asks again: a restored backup does not carry your agreement.",
   "boostReadNotice": "Read the privacy notice",
-  "boostExplicit": "These facts and questions are about your health. By ticking a box and pressing I agree, you give your explicit consent to that use only. femio keeps a dated record of your choice on this phone, which you can see here.",
+  "boostExplicit": "These facts and questions are about your health. By ticking a box and pressing Confirm my choice, you give your explicit consent to that use only. femio keeps a dated, sealed record of your choice on this phone, which you can see in My AI choices.",
   "boostAgree": "I agree",
   "boostReceiptHeading": "Your agreement",
   "boostReceipt": "You agreed on {date} to: {purposes}.",
@@ -2907,5 +2907,79 @@
   "settingsStageSub": "Change your stage, your due date or your cycle answers. Everything you logged stays.",
   "saveFailedTitle": "Not saved on this phone",
   "saveFailedBody": "Your last change could not be saved. Your earlier records are safe. Free some space on the phone, then try again.",
-  "saveFailedRetry": "Try again"
+  "saveFailedRetry": "Try again",
+  "stageNow": "Now: {stage}",
+  "@stageNow": {
+    "description": "Today, under the title: the life stage femio follows now.",
+    "placeholders": {
+      "stage": {
+        "type": "String"
+      }
+    }
+  },
+  "stageChange": "Change",
+  "@stageChange": {
+    "description": "Today: opens the stage questions with her answers filled in."
+  },
+  "stageAfterBirth": "After birth",
+  "@stageAfterBirth": {
+    "description": "Stage name after a recorded birth."
+  },
+  "stageWithBreastfeeding": "{stage} · breastfeeding",
+  "@stageWithBreastfeeding": {
+    "description": "Stage name with the breastfeeding layer.",
+    "placeholders": {
+      "stage": {
+        "type": "String"
+      }
+    }
+  },
+  "endedAction": "My pregnancy has ended",
+  "@endedAction": {
+    "description": "Pregnancy Today: the way out of pregnancy without a birth (MR-35)."
+  },
+  "endedTitle": "When did your pregnancy end?",
+  "@endedTitle": {
+    "description": "Sheet title above the calendar."
+  },
+  "endedNote": "femio will stop the week cards, the countdown and your reminders. Everything you logged stays on your phone.",
+  "@endedNote": {
+    "description": "Sheet note: what femio changes and keeps (MR-35)."
+  },
+  "endedCardTitle": "We're so sorry",
+  "@endedCardTitle": {
+    "description": "After-loss card heading."
+  },
+  "endedCardBody": "femio has stopped the week cards, the countdown and your log, period and appointment reminders, and kept everything you logged. You can turn reminders back on in Settings. When your period comes back, log its first day and your ranges start again from it. It may take a few months for periods to settle.",
+  "@endedCardBody": {
+    "description": "After-loss card body: what femio changed; the last sentence follows NHS Miscarriage (2026)."
+  },
+  "endedUrgentTitle": "Get help now if",
+  "@endedUrgentTitle": {
+    "description": "After-loss urgent card heading."
+  },
+  "endedUrgentBody": "the bleeding is heavy (soaking a pad soon after putting it on), you have severe pain in your tummy or shoulder, or you feel faint or dizzy.",
+  "@endedUrgentBody": {
+    "description": "After-loss urgent signs, from NHS Miscarriage (call 999 list)."
+  },
+  "endedSource": "Source: NHS, Miscarriage (2026).",
+  "@endedSource": {
+    "description": "Source line under the after-loss urgent signs."
+  },
+  "feedingTitle": "I'm breastfeeding",
+  "@feedingTitle": {
+    "description": "After-birth Today: the breastfeeding layer switch."
+  },
+  "feedingSub": "femio shows the breastfeeding guides here. Turn it off any time; nothing is deleted.",
+  "@feedingSub": {
+    "description": "Breastfeeding switch subtitle."
+  },
+  "feedingGuideFirst": "Breastfeeding: the first two weeks",
+  "@feedingGuideFirst": {
+    "description": "Link to the reviewed guide breastfeeding-first-two-weeks."
+  },
+  "feedingGuideHelp": "When breastfeeding is not working",
+  "@feedingGuideHelp": {
+    "description": "Link to the reviewed guide when-breastfeeding-is-not-working."
+  }
 }

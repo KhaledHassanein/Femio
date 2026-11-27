@@ -284,6 +284,8 @@ class Profile {
     this.tryingFor,
     this.edd,
     this.birthDate,
+    this.pregnancyEnded,
+    this.breastfeeding = false,
     this.lastPeriodOverYear = false,
     this.logs = const {},
     this.contractions = const [],
@@ -350,6 +352,15 @@ class Profile {
   /// Set when she has had her baby; the app is then in its after-birth stage.
   final String? birthDate;
 
+  /// The day a pregnancy ended without a birth (MR-35, owner 2026-11-27). Set by "My
+  /// pregnancy has ended"; the goal moves to period or trying, the pregnancy record stays,
+  /// and bleeding up to this day never counts toward her cycles. A new pregnancy clears it.
+  final String? pregnancyEnded;
+
+  /// She said she is breastfeeding (owner 2026-11-27): Today offers the breastfeeding guides.
+  /// A layer over any stage; it changes no prediction.
+  final bool breastfeeding;
+
   /// The after-birth stage (R8.19): pregnant goal with a recorded birth. Bleeding logged now
   /// is the healing bleed after birth, not a period, so it stays out of [periodStarts].
   bool get isPostpartum => goal == Goal.pregnant && birthDate != null;
@@ -357,9 +368,14 @@ class Profile {
   /// The bleeding days the cycle tools read: after a recorded birth, only the days from the
   /// birth on, so the first period after birth starts her ranges again (MR-60). The full
   /// [periodStarts] stays untouched (rule 5).
+  /// After a pregnancy ended without a birth, only the starts after that day count.
   List<String> get cycleStarts {
     final b = birthDate;
-    return b == null ? periodStarts : [for (final d in periodStarts) if (d.compareTo(b) >= 0) d];
+    final e = pregnancyEnded;
+    return [
+      for (final d in periodStarts)
+        if ((b == null || d.compareTo(b) >= 0) && (e == null || d.compareTo(e) > 0)) d,
+    ];
   }
 
   /// Menopause only: her last period was over a year ago and she does not know when.
@@ -381,6 +397,7 @@ class Profile {
     List<DoseMark>? doses,
     AppSettings? settings,
     int? cycleLength,
+    bool? breastfeeding,
   }) =>
       Profile(
         goal: goal ?? this.goal,
@@ -393,6 +410,8 @@ class Profile {
         tryingFor: tryingFor,
         edd: edd,
         birthDate: birthDate ?? this.birthDate,
+        pregnancyEnded: pregnancyEnded,
+        breastfeeding: breastfeeding ?? this.breastfeeding,
         lastPeriodOverYear: lastPeriodOverYear,
         logs: logs ?? this.logs,
         contractions: contractions ?? this.contractions,
@@ -410,6 +429,8 @@ class Profile {
   /// answer such as her cycle length or a due date after a scan). Only the answers change;
   /// every log, record entry, document, medicine and setting is kept (product rule 5).
   /// [addStarts] are period starts she gave while answering, merged with the ones she has.
+  /// A pregnant [goal] is a new pregnancy, so an earlier [pregnancyEnded] is cleared; [ended]
+  /// records the day a pregnancy ended ([endPregnancy]).
   Profile withAnswers({
     required Goal goal,
     required int? periodLength,
@@ -420,6 +441,7 @@ class Profile {
     required String? birthDate,
     required bool lastPeriodOverYear,
     List<String> addStarts = const [],
+    String? ended,
   }) =>
       Profile(
         goal: goal,
@@ -432,6 +454,8 @@ class Profile {
         tryingFor: tryingFor,
         edd: edd,
         birthDate: birthDate,
+        pregnancyEnded: ended ?? (goal == Goal.pregnant ? null : pregnancyEnded),
+        breastfeeding: breastfeeding,
         lastPeriodOverYear: lastPeriodOverYear,
         logs: logs,
         contractions: contractions,
@@ -443,6 +467,25 @@ class Profile {
         medicinePlans: medicinePlans,
         doses: doses,
         settings: settings,
+      );
+
+  /// The pregnancy ended on [day] (MR-35): femio now helps with [next] (period or trying),
+  /// the week cards and countdown stop because the goal is no longer pregnant, and the log,
+  /// period and appointment reminders are switched off at once (she can turn them on again
+  /// in Settings; her medicine reminders stay, they may be for her own care). Nothing she
+  /// logged is removed (rule 5).
+  Profile endPregnancy(String day, Goal next) => withAnswers(
+        goal: next,
+        periodLength: periodLength,
+        cycleLength: cycleLength,
+        irregular: irregular,
+        tryingFor: tryingFor,
+        edd: edd,
+        birthDate: birthDate,
+        lastPeriodOverYear: lastPeriodOverYear,
+        ended: day,
+      ).copyWith(
+        settings: settings.copyWith(logReminder: false, periodReminder: false, appointmentReminder: false),
       );
 
   /// Set or clear one day's log, keeping [periodStarts] in step with its flow.
@@ -474,6 +517,8 @@ class Profile {
         'tryingFor': tryingFor?.name,
         'edd': edd,
         'birthDate': birthDate,
+        if (pregnancyEnded != null) 'pregnancyEnded': pregnancyEnded,
+        if (breastfeeding) 'breastfeeding': true,
         'lastPeriodOverYear': lastPeriodOverYear,
         'logs': {for (final e in logs.entries) e.key: e.value.toJson()},
         'contractions': [for (final c in contractions) c.toJson()],
@@ -507,6 +552,8 @@ class Profile {
         tryingFor: j['tryingFor'] == null ? null : TryingFor.values.byName(j['tryingFor'] as String),
         edd: j['edd'] as String?,
         birthDate: j['birthDate'] as String?,
+        pregnancyEnded: j['pregnancyEnded'] as String?,
+        breastfeeding: j['breastfeeding'] as bool? ?? false,
         lastPeriodOverYear: j['lastPeriodOverYear'] as bool? ?? false,
         logs: {
           for (final e in ((j['logs'] as Map?) ?? const {}).entries)

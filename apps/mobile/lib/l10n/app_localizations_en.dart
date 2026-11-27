@@ -2053,14 +2053,14 @@ class L10nEn extends L10n {
 
   @override
   String get aiWizardPhoneBody =>
-      'Your words and your record are read only on this phone, by Gemini Nano where your phone has it. femio\'s safety rules always run first: warning signs and help-now numbers never wait for the AI. Answers are wellness information with their sources, not a diagnosis or treatment. The AI never changes your record unless you confirm.';
+      'Your words and your record are read only on this phone, by Gemini Nano where your phone has it. femio\'s safety rules always run first: warning signs and help-now numbers never wait for the AI. Answers are wellness information with their sources, to talk over with your clinician. The AI never changes your record unless you confirm.';
 
   @override
   String get aiWizardConfirmHeading => 'Confirm';
 
   @override
   String get aiAckWellness =>
-      'I understand that femio\'s AI gives wellness information from trusted sources. It does not diagnose or treat, and I will talk to a clinician about my health.';
+      'I understand that femio\'s AI gives wellness information from trusted sources, not medical advice, and that I should talk to a clinician about my health.';
 
   @override
   String get aiAckNotice => 'I have read femio\'s privacy notice.';
@@ -2149,7 +2149,7 @@ class L10nEn extends L10n {
   }
 
   @override
-  String get aiAckShortWellness => 'wellness, not diagnosis';
+  String get aiAckShortWellness => 'wellness information only';
 
   @override
   String get aiAckShortNotice => 'privacy notice read';
@@ -2341,7 +2341,7 @@ class L10nEn extends L10n {
 
   @override
   String get boostExplicit =>
-      'These facts and questions are about your health. By ticking a box and pressing I agree, you give your explicit consent to that use only. femio keeps a dated record of your choice on this phone, which you can see here.';
+      'These facts and questions are about your health. By ticking a box and pressing Confirm my choice, you give your explicit consent to that use only. femio keeps a dated, sealed record of your choice on this phone, which you can see in My AI choices.';
 
   @override
   String get boostAgree => 'I agree';
@@ -4448,4 +4448,60 @@ class L10nEn extends L10n {
 
   @override
   String get saveFailedRetry => 'Try again';
+
+  @override
+  String stageNow(String stage) {
+    return 'Now: $stage';
+  }
+
+  @override
+  String get stageChange => 'Change';
+
+  @override
+  String get stageAfterBirth => 'After birth';
+
+  @override
+  String stageWithBreastfeeding(String stage) {
+    return '$stage · breastfeeding';
+  }
+
+  @override
+  String get endedAction => 'My pregnancy has ended';
+
+  @override
+  String get endedTitle => 'When did your pregnancy end?';
+
+  @override
+  String get endedNote =>
+      'femio will stop the week cards, the countdown and your reminders. Everything you logged stays on your phone.';
+
+  @override
+  String get endedCardTitle => 'We\'re so sorry';
+
+  @override
+  String get endedCardBody =>
+      'femio has stopped the week cards, the countdown and your log, period and appointment reminders, and kept everything you logged. You can turn reminders back on in Settings. When your period comes back, log its first day and your ranges start again from it. It may take a few months for periods to settle.';
+
+  @override
+  String get endedUrgentTitle => 'Get help now if';
+
+  @override
+  String get endedUrgentBody =>
+      'the bleeding is heavy (soaking a pad soon after putting it on), you have severe pain in your tummy or shoulder, or you feel faint or dizzy.';
+
+  @override
+  String get endedSource => 'Source: NHS, Miscarriage (2026).';
+
+  @override
+  String get feedingTitle => 'I\'m breastfeeding';
+
+  @override
+  String get feedingSub =>
+      'femio shows the breastfeeding guides here. Turn it off any time; nothing is deleted.';
+
+  @override
+  String get feedingGuideFirst => 'Breastfeeding: the first two weeks';
+
+  @override
+  String get feedingGuideHelp => 'When breastfeeding is not working';
 }

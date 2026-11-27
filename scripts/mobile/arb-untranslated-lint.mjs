@@ -26,7 +26,7 @@ const ALLOWED = {
     "listSeparator", // a comma and a space; Arabic has its own
     "sayItChipWithSection", // two placeholders and a colon
     // "Cloud boost" is a feature name kept in Latin script, like Gemini Nano (ADR-079).
-    "askBoostHeading", "assistantCloudTitle", "boostTitle",
+    "askBoostHeading", "assistantCloudTitle", "boostTitle", "aiRecordCloud",
     "leavePlayHeading", // "Google Play" is a store name, the same in every language
   ],
   ar: [],

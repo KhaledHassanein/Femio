@@ -230,6 +230,12 @@ class FemioController extends ChangeNotifier {
     await save(p.withDayLog(day, (p.logs[day] ?? const DayLog()).copyWith(flow: 'medium')));
   }
 
+  /// Her pregnancy ended on [day] without a birth (MR-35): see [Profile.endPregnancy].
+  Future<void> endPregnancy(String day, Goal next) => save(profile!.endPregnancy(day, next));
+
+  /// She is, or is no longer, breastfeeding: a layer over her stage, nothing is removed.
+  Future<void> setBreastfeeding(bool on) => save(profile!.copyWith(breastfeeding: on));
+
   /// Counts today as a day of use (R12.2); saves only when the day is new.
   Future<void> _countUsageDay() async {
     final p = profile;

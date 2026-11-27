@@ -4,6 +4,7 @@
 import 'package:femio/data/assistant_channel.dart';
 import 'package:femio/data/assistant_gateway.dart';
 import 'package:femio/data/profile.dart';
+import 'package:femio/domain/assistant/ai_ledger.dart';
 import 'package:femio/domain/assistant/cloud_consent.dart';
 import 'package:femio/domain/assistant/cloud_prompt.dart';
 import 'package:femio/domain/assistant/private_prompt.dart';
@@ -43,6 +44,21 @@ class _Bridge implements AssistantBridge {
   // Model download and source links are not part of the boundary under test.
   @override
   dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
+}
+
+/// A bridge that can also run the native Cloud boost check; [result] null makes it throw.
+class _Checker extends _Bridge implements CloudChecker {
+  _Checker(this.result) : super(nano: false);
+  final CloudCheck? result;
+  int calls = 0;
+
+  @override
+  Future<CloudCheck> checkCloud() async {
+    calls += 1;
+    final r = result;
+    if (r == null) throw StateError('bridge failed');
+    return r;
+  }
 }
 
 final _bands = pseudonymise(const Profile(goal: Goal.ttc, locale: 'en'), '2026-11-24');
@@ -156,6 +172,40 @@ void main() {
     expect(b.hybrid, isEmpty);
     on = true;
     expect((await g.orderTips(_bands, _ids, 2, _tipsConsent)).ranOn, RanOn.cloud);
+  });
+
+  group('Check Cloud boost (owner 2026-11-27)', () {
+    final questions = const CloudConsent().grant({CloudPurpose.questions}, '2026-11-24T10:00:00Z');
+
+    test('a bridge that cannot check gives no answer, so the button stays hidden', () async {
+      expect(await AssistantGateway(_Bridge()).checkCloud(questions), isNull);
+    });
+
+    test('the check runs only with questions consent and her AI on, and is kept in her ledger', () async {
+      var on = true;
+      final b = _Checker(const CloudCheck(ok: false, reason: 'app_check'));
+      final ledger = <LedgerEntry>[];
+      final g = AssistantGateway(b, enabled: () => on, record: (e) async => ledger.add(e));
+      expect(await g.checkCloud(const CloudConsent()), isNull);
+      expect(await g.checkCloud(_tipsConsent), isNull, reason: 'tips consent does not cover a question');
+      on = false;
+      expect(await g.checkCloud(questions), isNull);
+      expect(b.calls, 0);
+      on = true;
+      final r = await g.checkCloud(questions);
+      expect(r!.ok, isFalse);
+      expect(r.reason, 'app_check');
+      expect(b.calls, 1);
+      await Future<void>.delayed(Duration.zero);
+      expect(ledger.single.cloud, isTrue);
+      expect(ledger.single.sent, cloudCheckPrompt, reason: 'she can see exactly what the check sent');
+    });
+
+    test('a bridge that throws reads as a timeout, never a crash', () async {
+      final r = await AssistantGateway(_Checker(null)).checkCloud(questions);
+      expect(r!.ok, isFalse);
+      expect(r.reason, 'timeout');
+    });
   });
 
   test('the master switch is saved with her settings and defaults to on', () {

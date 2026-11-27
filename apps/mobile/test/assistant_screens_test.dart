@@ -19,6 +19,7 @@ import 'package:femio/domain/assistant/cloud_prompt.dart';
 import 'package:femio/domain/assistant/private_prompt.dart';
 import 'package:femio/domain/assistant/source_registry.dart';
 import 'package:femio/domain/assistant/uses.dart';
+import 'package:femio/features/assistant/ai_choices_record_screen.dart';
 import 'package:femio/features/assistant/ai_sees_screen.dart';
 import 'package:femio/features/assistant/ask_screen.dart';
 import 'package:femio/features/assistant/assistant_scope.dart';
@@ -608,8 +609,16 @@ void main() {
     }
   });
 
+  /// Taps a widget found by [f] after scrolling it into view.
+  Future<void> tapVisible(WidgetTester tester, Finder f) async {
+    await tester.ensureVisible(f);
+    await tester.pumpAndSettle();
+    await tester.tap(f);
+    await tester.pumpAndSettle();
+  }
+
   testWidgets(
-    'settings shows what runs where, and Cloud boost needs the consent screen',
+    'one wizard turns AI and Cloud boost on and off, each with a confirmation and a sealed receipt',
     (tester) async {
       await _size(tester);
       final c = await _controller(_ttc('en'));
@@ -622,61 +631,83 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      expect(
-        find.textContaining('Not available on this phone'),
-        findsOneWidget,
-      );
-      expect(
-        find.textContaining('Off. Everything is done on this phone'),
-        findsOneWidget,
-      );
+      expect(find.textContaining('Not available on this phone'), findsOneWidget);
+      expect(find.text('On, on this phone only. Nothing is sent.'), findsOneWidget);
+      expect(find.byType(Switch), findsNothing, reason: 'no switch changes the AI without the wizard');
       await _shoot('en_light_assistant_settings');
-      await tester.tap(find.byType(Switch).last); // the first is her master switch
+
+      // Turn on Cloud boost for questions.
+      await tester.tap(find.text('AI and Cloud boost'));
       await tester.pumpAndSettle();
-      expect(
-        c.profile!.settings.cloudBoost,
-        isFalse,
-        reason: 'the switch opens the consent screen, it does not agree',
-      );
+      expect(find.text('Step 1 of 3'), findsOneWidget);
+      await _shoot('en_light_ai_wizard_1');
+      await tapVisible(tester, find.text('AI on this phone, plus Cloud boost'));
+      await tapVisible(tester, find.widgetWithText(FilledButton, 'Next'));
       expect(find.text('What may be sent'), findsOneWidget);
-      expect(find.text('Trying to conceive'), findsOneWidget);
-      await _shoot('en_light_cloud_boost_consent');
-      final agree = find.widgetWithText(FilledButton, 'I agree');
-      await tester.scrollUntilVisible(agree, 200);
-      expect(
-        tester.widget<FilledButton>(agree).onPressed,
-        isNull,
-        reason: 'nothing is pre-ticked, so there is nothing to agree to yet',
-      );
-      await tester.scrollUntilVisible(find.textContaining('may send a general question'), -200);
-      await tester.ensureVisible(find.textContaining('may send a general question'));
+      expect(find.text('Trying to conceive'), findsOneWidget, reason: 'her own bands are shown');
+      await _shoot('en_light_ai_wizard_2_cloud');
+      await tapVisible(tester, find.widgetWithText(FilledButton, 'Next'));
+      final confirm = find.widgetWithText(FilledButton, 'Confirm my choice');
+      expect(tester.widget<FilledButton>(confirm).onPressed, isNull, reason: 'nothing is pre-ticked');
+      await tapVisible(tester, find.textContaining('wellness information from trusted sources'));
+      await tapVisible(tester, find.text("I have read femio's privacy notice."));
+      await tapVisible(tester, find.textContaining('may send a general question'));
+      expect(tester.widget<FilledButton>(confirm).onPressed, isNull, reason: 'the Cloud boost statement is still unticked');
+      await tapVisible(tester, find.textContaining('I understand what Cloud boost may send'));
+      await _shoot('en_light_ai_wizard_3_cloud');
+      await tapVisible(tester, confirm);
+      expect(find.text('Confirm this change?'), findsOneWidget);
+      expect(c.profile!.settings.cloudBoost, isFalse, reason: 'nothing changes before the dialog is confirmed');
+      await tester.tap(find.widgetWithText(FilledButton, 'Confirm'));
       await tester.pumpAndSettle();
-      await tester.tap(find.textContaining('may send a general question'));
-      await tester.pumpAndSettle();
-      await tester.scrollUntilVisible(agree, 200);
-      await tester.ensureVisible(agree);
-      await tester.pumpAndSettle();
-      await tester.tap(agree);
-      await tester.pumpAndSettle();
-      final consent = c.profile!.settings.cloud;
+      var consent = c.profile!.settings.cloud;
       expect(consent.allows(CloudPurpose.questions), isTrue);
       expect(consent.allows(CloudPurpose.tips), isFalse, reason: 'each purpose is its own choice');
+      expect(consent.current!.ai, isTrue);
+      expect(consent.current!.acks, [AiAck.wellness, AiAck.notice, AiAck.cloud]);
       expect(consent.current!.version, cloudConsentVersion);
       expect(DateTime.tryParse(consent.grantedAt!), isNotNull, reason: 'the receipt is dated');
-      await tester.tap(find.byType(Switch).last);
+      expect(consent.sealIntact, isTrue);
+      expect(find.textContaining('On, with Cloud boost for: General questions'), findsOneWidget);
+      expect(find.text('Check Cloud boost'), findsNothing, reason: 'the fake bridge cannot run the check');
+
+      // Turn the AI off: no boxes, one confirmation.
+      await tester.tap(find.text('AI and Cloud boost'));
       await tester.pumpAndSettle();
-      expect(
-        c.profile!.settings.cloudBoost,
-        isFalse,
-        reason: 'turning it off is one tap',
-      );
-      expect(
-        c.profile!.settings.cloud.current!.isWithdrawal,
-        isTrue,
-        reason: 'the withdrawal is recorded too',
-      );
+      await tapVisible(tester, find.text('No AI'));
+      await tapVisible(tester, find.widgetWithText(FilledButton, 'Next'));
+      await tapVisible(tester, find.widgetWithText(FilledButton, 'Next'));
+      expect(find.byType(CheckboxListTile), findsNothing, reason: 'withdrawing is as easy as agreeing');
+      await tapVisible(tester, find.widgetWithText(FilledButton, 'Confirm my choice'));
+      await tester.tap(find.widgetWithText(FilledButton, 'Confirm'));
+      await tester.pumpAndSettle();
+      consent = c.profile!.settings.cloud;
+      expect(c.profile!.settings.assistantOn, isFalse);
+      expect(c.profile!.settings.cloudBoost, isFalse);
+      expect(consent.current!.isWithdrawal, isTrue);
+      expect(consent.current!.ai, isFalse);
+      expect(consent.log, hasLength(2));
+      expect(consent.log.last.prev, consent.log.first.seal);
+
+      // The record shows both receipts, sealed.
+      await tapVisible(tester, find.text('My AI choices'));
+      expect(find.text('Record intact: every receipt matches its seal.'), findsOneWidget);
+      expect(find.text('AI on this phone: Off'), findsOneWidget);
+      expect(find.text('AI on this phone: On'), findsOneWidget);
+      expect(find.text('Cloud boost: General questions'), findsOneWidget);
+      await _shoot('en_light_ai_choices_record');
     },
   );
+
+  test('the shared copy carries every receipt with its full seal', () {
+    final l = lookupL10n(const Locale('en'));
+    final consent = const CloudConsent()
+        .choose(ai: true, purposes: const {CloudPurpose.tips}, at: '2026-11-27T09:00:00Z', lang: 'en', acks: const [AiAck.cloud]);
+    final text = receiptsAsText(l, consent, 'en');
+    expect(text, contains(consent.current!.seal!));
+    expect(text, contains('2026-11-27T09:00:00Z'));
+    expect(text, contains('Cloud boost: Tips from four broad facts'));
+  });
 
   for (final (lang, b) in [('ar', Brightness.dark), ('ar', Brightness.light)]) {
     testWidgets('screenshot: Cloud boost consent ($lang, ${b.name})', (

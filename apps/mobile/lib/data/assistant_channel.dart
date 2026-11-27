@@ -43,6 +43,27 @@ class HybridReply {
   final bool onDevice;
 }
 
+/// What the Cloud boost check found: [ok] when Google's cloud model answered, else a
+/// [reason] code (`app_check`, `service_disabled`, `quota`, `network`, `timeout`, ...);
+/// [ms] is how long it took.
+class CloudCheck {
+  const CloudCheck({required this.ok, this.reason, this.ms});
+  final bool ok;
+  final String? reason;
+  final int? ms;
+}
+
+/// The fixed, public sentence the check sends: nothing about her. Same text as
+/// `CLOUD_CHECK_PROMPT` in FemioAssistant.kt; the AI ledger shows it as sent.
+const cloudCheckPrompt = 'Reply with the single word OK.';
+
+/// A bridge that can test Cloud boost end to end. Only the real Android bridge does; fakes
+/// and the offline bridge need not, and screens hide the check when it is missing.
+abstract interface class CloudChecker {
+  /// Sends [cloudCheckPrompt] to the cloud model only and reports what happened.
+  Future<CloudCheck> checkCloud();
+}
+
 /// The channel, behind an interface so tests and screenshots can use a fake.
 abstract class AssistantBridge {
   Future<AssistantStatus> status();
@@ -62,7 +83,7 @@ abstract class AssistantBridge {
 }
 
 /// The real bridge to `FemioAssistant.kt`.
-class MethodChannelAssistant implements AssistantBridge {
+class MethodChannelAssistant implements AssistantBridge, CloudChecker {
   const MethodChannelAssistant();
 
   static const _channel = MethodChannel('com.femioapp.femio/assistant');
@@ -123,6 +144,20 @@ class MethodChannelAssistant implements AssistantBridge {
       return await _channel.invokeMethod<bool>('open', {'url': url}) ?? false;
     } on Object {
       return false;
+    }
+  }
+
+  @override
+  Future<CloudCheck> checkCloud() async {
+    try {
+      final m = await _channel.invokeMapMethod<String, Object?>('check');
+      if (m == null) return const CloudCheck(ok: false, reason: 'other');
+      return CloudCheck(ok: m['ok'] == true, reason: m['reason'] as String?, ms: (m['ms'] as num?)?.toInt());
+    } on PlatformException catch (e) {
+      final details = e.details;
+      return CloudCheck(ok: false, reason: details is String ? details : 'other');
+    } on Object {
+      return const CloudCheck(ok: false, reason: 'other');
     }
   }
 }
