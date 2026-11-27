@@ -997,6 +997,36 @@
   "addMoreToLog": "Síntomas, flujo, pruebas y más",
   "addAsk": "Pregunta a femio",
   "addVisit": "Para mi consulta",
+  "addLogWithFemio": "Registra con femio",
+  "addAskSub": "Haz una pregunta; la respuesta viene de fuentes fiables",
+  "addLogSub": "Cuenta cómo te sientes, con tus palabras",
+  "askSaveTitle": "¿Guardar esto en tu historial?",
+  "askSaveIntro": "No se guarda nada si no lo marcas y tocas Guardar.",
+  "askSaveTerms": "Añadir lo que mencionaste al registro de hoy",
+  "askSaveNote": "Guardar esta pregunta y su respuesta para mi próxima consulta",
+  "askSaveNoteSub": "Pasa a tus preguntas de consulta, así que sale en tu hoja de consulta.",
+  "askSaveAction": "Guardar",
+  "askSaveNotNow": "Ahora no",
+  "askSaveDone": "Guardado en tu historial.",
+  "askSaveNoteLine": "Pregunté a femio: «{question}» Respuesta: {answer}",
+  "@askSaveNoteLine": {
+    "placeholders": {
+      "question": {
+        "type": "String"
+      },
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "askSaveNoteLineNoAnswer": "Pregunté a femio: «{question}» (aún sin respuesta con fuentes)",
+  "@askSaveNoteLineNoAnswer": {
+    "placeholders": {
+      "question": {
+        "type": "String"
+      }
+    }
+  },
   "recTitle": "Mi historial de salud",
   "recIntro": "Tu propio historial de salud, guardado en este teléfono. Cada entrada muestra el día en que ocurrió y el día en que la añadiste, tal como la escribiste.",
   "recAll": "Todo",

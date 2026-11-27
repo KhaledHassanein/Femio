@@ -35,6 +35,7 @@ import '../learn/article_screen.dart';
 import 'answer_card.dart';
 import 'assistant_scope.dart';
 import 'safety_notice.dart';
+import 'save_to_record_card.dart';
 import 'stage_hints.dart';
 import 'visit_summary_screen.dart';
 
@@ -71,6 +72,10 @@ class _AskScreenState extends State<AskScreen> {
   /// comes before the passages (R7.14). The search still runs.
   bool _diagnosis = false;
   String? _note;
+
+  /// The question as she asked it, and a counter that gives each answer a fresh save prompt.
+  String _asked = '';
+  int _round = 0;
   RegistryAnswer? _found;
   CitedAnswer? _summary;
   AnswerOrigin _origin = AnswerOrigin.verbatim;
@@ -95,6 +100,8 @@ class _AskScreenState extends State<AskScreen> {
     final lang = Localizations.localeOf(context).languageCode;
     final profile = _profile;
     setState(() {
+      _asked = q;
+      _round++;
       _signal = profile == null ? safetySignal(q, pregnant: false) : safetySignalFor(q, profile, _today());
       _diagnosis = asksForDiagnosis(q);
       _found = null;
@@ -304,6 +311,17 @@ class _AskScreenState extends State<AskScreen> {
             if (_stage == _Stage.answered && found != null && !found.notCovered)
               AnswerCard(answer: found, summary: _summary, origin: _origin),
             if (_stage == _Stage.answered && found != null && found.links.isNotEmpty) LinksBlock(links: found.links),
+            // Offered once the answer is shown; nothing is written until she ticks and taps Save.
+            if (_stage == _Stage.answered && found != null && _signal == SafetySignal.none)
+              SaveToRecordCard(
+                key: ValueKey('save-$_round'),
+                controller: widget.controller,
+                question: _asked,
+                answerText: found.notCovered
+                    ? null
+                    : (_summary?.text ?? (found.passages.isEmpty ? null : found.passages.first.text)),
+                today: _today(),
+              ),
             if (_guides.isNotEmpty && done) ...[
               const SizedBox(height: space5),
               Semantics(header: true, child: Text(l.askRelatedGuides, style: t.titleMedium)),

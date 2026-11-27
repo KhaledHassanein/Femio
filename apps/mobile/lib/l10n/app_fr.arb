@@ -997,6 +997,36 @@
   "addMoreToLog": "Symptômes, pertes, tests et plus",
   "addAsk": "Demander à femio",
   "addVisit": "Pour ma consultation",
+  "addLogWithFemio": "Noter avec femio",
+  "addAskSub": "Posez une question, la réponse vient de sources fiables",
+  "addLogSub": "Dites comment vous vous sentez, avec vos mots",
+  "askSaveTitle": "Enregistrer ceci dans votre dossier ?",
+  "askSaveIntro": "Rien n’est enregistré tant que vous ne cochez pas et n’appuyez pas sur Enregistrer.",
+  "askSaveTerms": "Ajouter ce que vous avez mentionné au journal d’aujourd’hui",
+  "askSaveNote": "Garder cette question et sa réponse pour ma prochaine consultation",
+  "askSaveNoteSub": "Elle rejoint vos questions de consultation, donc votre fiche de consultation.",
+  "askSaveAction": "Enregistrer",
+  "askSaveNotNow": "Pas maintenant",
+  "askSaveDone": "Enregistré dans votre dossier.",
+  "askSaveNoteLine": "Demandé à femio : « {question} » Réponse : {answer}",
+  "@askSaveNoteLine": {
+    "placeholders": {
+      "question": {
+        "type": "String"
+      },
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "askSaveNoteLineNoAnswer": "Demandé à femio : « {question} » (pas encore de réponse sourcée)",
+  "@askSaveNoteLineNoAnswer": {
+    "placeholders": {
+      "question": {
+        "type": "String"
+      }
+    }
+  },
   "recTitle": "Mon dossier santé",
   "recIntro": "Votre propre dossier santé, gardé sur ce téléphone. Chaque entrée indique le jour où c'est arrivé et le jour où vous l'avez ajoutée, telle que vous l'avez écrite.",
   "recAll": "Tout",

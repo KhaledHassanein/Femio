@@ -2,8 +2,9 @@
 //
 // Why it exists: the owner found logging and the assistant hard to reach (26 Nov 2026).
 // The best trackers put one add button in the middle of the bar; this sheet is ours. The
-// common things (flow, mood) save with one tap, right here; Say it and Ask femio sit on
-// top; everything else is one more tap into the full Log. Every tap saves at once, as on
+// common things (flow, mood) save with one tap, right here; the AI is two equal choices on
+// top, "Ask femio" (a question) and "Log with femio" (say it in her words), with the visit
+// summary as a small link; everything else is one more tap into the full Log. Every tap saves at once, as on
 // the Log screen, and the assistant doors follow her master switch (product rule 7).
 
 import 'package:flutter/material.dart';
@@ -17,9 +18,9 @@ import '../../domain/log_vocabulary.g.dart';
 import '../../l10n/app_localizations.dart';
 import '../../l10n/log_labels.g.dart';
 import '../../theme/femio_theme.dart';
+import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
-import '../assistant/ai_status_chip.dart' show SayItBar;
 import '../assistant/assistant_pill.dart';
 import '../log/widgets/log_chip.dart';
 import '../record/record_screen.dart';
@@ -102,26 +103,37 @@ class AddSheet extends StatelessWidget {
                   style: t.bodySmall?.copyWith(color: p.textMuted)),
               if (assistantOn) ...[
                 const SizedBox(height: space4),
-                // Say it first: one sentence instead of many taps (ADR-078).
-                SayItBar(onTap: () => pop(AssistantDoor.sayIt)),
-                const SizedBox(height: space2),
-                Row(children: [
-                  Expanded(
-                    child: FilledButton.tonalIcon(
-                      onPressed: () => pop(AssistantDoor.ask),
-                      icon: const Icon(Icons.auto_stories_rounded),
-                      label: Text(l.addAsk, maxLines: 1, overflow: TextOverflow.ellipsis),
+                // Two equal choices: ask a question, or say her day in her own words (ADR-078).
+                // Ask offers to save to her record afterwards.
+                IntrinsicHeight(
+                  child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+                    Expanded(
+                      child: _AiChoice(
+                        icon: Icons.auto_stories_rounded,
+                        title: l.addAsk,
+                        hint: l.addAskSub,
+                        onTap: () => pop(AssistantDoor.ask),
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: space2),
-                  Expanded(
-                    child: OutlinedButton.icon(
-                      onPressed: () => pop(AssistantDoor.visit),
-                      icon: const Icon(Icons.event_note_outlined),
-                      label: Text(l.addVisit, maxLines: 1, overflow: TextOverflow.ellipsis),
+                    const SizedBox(width: space2),
+                    Expanded(
+                      child: _AiChoice(
+                        icon: Icons.auto_awesome_rounded,
+                        title: l.addLogWithFemio,
+                        hint: l.addLogSub,
+                        onTap: () => pop(AssistantDoor.sayIt),
+                      ),
                     ),
+                  ]),
+                ),
+                Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: TextButton.icon(
+                    onPressed: () => pop(AssistantDoor.visit),
+                    icon: const Icon(Icons.event_note_outlined),
+                    label: Text(l.addVisit),
                   ),
-                ]),
+                ),
               ],
               // In pregnancy bleeding is a warning sign with its own note on the Log screen
               // (R8.7), so it is logged there, not as a one-tap chip.
@@ -184,6 +196,39 @@ class AddSheet extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+/// One of the two equal AI choices in the sheet: an icon, a title and a one-line hint.
+class _AiChoice extends StatelessWidget {
+  const _AiChoice({required this.icon, required this.title, required this.hint, required this.onTap});
+  final IconData icon;
+  final String title;
+  final String hint;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = context.palette;
+    final t = Theme.of(context).textTheme;
+    return Material(
+      color: p.surfaceSunken,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(radiusMd), side: BorderSide(color: p.border)),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(radiusMd),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.all(space3),
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Icon(icon, color: p.primary),
+            const SizedBox(height: space2),
+            Text(title, style: t.titleSmall),
+            const SizedBox(height: space1),
+            Text(hint, style: t.bodySmall?.copyWith(color: p.textMuted)),
+          ]),
+        ),
+      ),
     );
   }
 }

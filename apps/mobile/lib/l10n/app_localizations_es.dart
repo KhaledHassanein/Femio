@@ -3619,6 +3619,53 @@ class L10nEs extends L10n {
   String get addVisit => 'Para mi consulta';
 
   @override
+  String get addLogWithFemio => 'Registra con femio';
+
+  @override
+  String get addAskSub =>
+      'Haz una pregunta; la respuesta viene de fuentes fiables';
+
+  @override
+  String get addLogSub => 'Cuenta cómo te sientes, con tus palabras';
+
+  @override
+  String get askSaveTitle => '¿Guardar esto en tu historial?';
+
+  @override
+  String get askSaveIntro =>
+      'No se guarda nada si no lo marcas y tocas Guardar.';
+
+  @override
+  String get askSaveTerms => 'Añadir lo que mencionaste al registro de hoy';
+
+  @override
+  String get askSaveNote =>
+      'Guardar esta pregunta y su respuesta para mi próxima consulta';
+
+  @override
+  String get askSaveNoteSub =>
+      'Pasa a tus preguntas de consulta, así que sale en tu hoja de consulta.';
+
+  @override
+  String get askSaveAction => 'Guardar';
+
+  @override
+  String get askSaveNotNow => 'Ahora no';
+
+  @override
+  String get askSaveDone => 'Guardado en tu historial.';
+
+  @override
+  String askSaveNoteLine(String question, String answer) {
+    return 'Pregunté a femio: «$question» Respuesta: $answer';
+  }
+
+  @override
+  String askSaveNoteLineNoAnswer(String question) {
+    return 'Pregunté a femio: «$question» (aún sin respuesta con fuentes)';
+  }
+
+  @override
   String get recTitle => 'Mi historial de salud';
 
   @override

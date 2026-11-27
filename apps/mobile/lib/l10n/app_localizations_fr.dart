@@ -3636,6 +3636,54 @@ class L10nFr extends L10n {
   String get addVisit => 'Pour ma consultation';
 
   @override
+  String get addLogWithFemio => 'Noter avec femio';
+
+  @override
+  String get addAskSub =>
+      'Posez une question, la réponse vient de sources fiables';
+
+  @override
+  String get addLogSub => 'Dites comment vous vous sentez, avec vos mots';
+
+  @override
+  String get askSaveTitle => 'Enregistrer ceci dans votre dossier ?';
+
+  @override
+  String get askSaveIntro =>
+      'Rien n’est enregistré tant que vous ne cochez pas et n’appuyez pas sur Enregistrer.';
+
+  @override
+  String get askSaveTerms =>
+      'Ajouter ce que vous avez mentionné au journal d’aujourd’hui';
+
+  @override
+  String get askSaveNote =>
+      'Garder cette question et sa réponse pour ma prochaine consultation';
+
+  @override
+  String get askSaveNoteSub =>
+      'Elle rejoint vos questions de consultation, donc votre fiche de consultation.';
+
+  @override
+  String get askSaveAction => 'Enregistrer';
+
+  @override
+  String get askSaveNotNow => 'Pas maintenant';
+
+  @override
+  String get askSaveDone => 'Enregistré dans votre dossier.';
+
+  @override
+  String askSaveNoteLine(String question, String answer) {
+    return 'Demandé à femio : « $question » Réponse : $answer';
+  }
+
+  @override
+  String askSaveNoteLineNoAnswer(String question) {
+    return 'Demandé à femio : « $question » (pas encore de réponse sourcée)';
+  }
+
+  @override
   String get recTitle => 'Mon dossier santé';
 
   @override
