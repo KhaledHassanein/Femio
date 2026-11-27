@@ -11,7 +11,7 @@
  *   apps/web/public/icons/icon-{16,32,180,192,512}.png
  *   apps/web/public/icons/maskable-{192,512}.png
  *   apps/web/src/app/icon.svg and public/icons/app-icon.svg (copies of the source)
- *   apps/mobile/android/app/src/main/res/mipmap-{density}/ic_launcher.png (legacy launcher)
+ *   apps/mobile/android/app/src/main/res/mipmap-{density}/ic_launcher.png (legacy launcher)  [now written by generate-launcher-icon.mjs, not here]
  *   apps/mobile/android/app/src/main/res/mipmap-{density}/ic_launcher_foreground.png (adaptive)
  *   apps/mobile/android/app/src/main/res/drawable/splash_mark.png (+ xxhdpi)
  *
@@ -80,13 +80,11 @@ writeFileSync(join(WEB_PUBLIC, "favicon.ico"), ico(await Promise.all([16, 32, 48
 copyFileSync(SOURCE, join(WEB_ICONS, "app-icon.svg"));
 copyFileSync(SOURCE, join(ROOT, "apps/web/src/app/icon.svg"));
 
-// Android: legacy launcher at each density, adaptive foreground, splash mark.
+// Android: splash mark only (the launcher icon comes from generate-launcher-icon.mjs).
 const DENSITIES = { mdpi: 1, hdpi: 1.5, xhdpi: 2, xxhdpi: 3, xxxhdpi: 4 };
 for (const [name, scale] of Object.entries(DENSITIES)) {
   const dir = join(ANDROID_RES, `mipmap-${name}`);
   mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, "ic_launcher.png"), await png(Math.round(48 * scale)));
-  writeFileSync(join(dir, "ic_launcher_foreground.png"), await png(Math.round(108 * scale), { foregroundOnly: true }));
 }
 for (const [name, scale] of Object.entries({ "": 1, "-xxhdpi": 3 })) {
   const dir = join(ANDROID_RES, `drawable${name}`);

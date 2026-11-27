@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Adaptive launcher icon (Android 8+): the Bloom foreground over a plum-900
-     background. Both layers come from scripts/brand/generate-icons.mjs; the
-     legacy ic_launcher.png in each mipmap folder serves older devices. -->
+<!-- Adaptive launcher icon (Android 8+): the Bloom foreground over a Dusk
+     gradient ground. Both layers come from scripts/brand/generate-launcher-icon.mjs
+     (source: assets/brand/logo/femio-launcher-icon.svg); the legacy
+     ic_launcher.png in each mipmap folder serves older devices. -->
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
-    <background android:drawable="@color/ic_launcher_background"/>
+    <background android:drawable="@mipmap/ic_launcher_background"/>
     <foreground android:drawable="@mipmap/ic_launcher_foreground"/>
 </adaptive-icon>

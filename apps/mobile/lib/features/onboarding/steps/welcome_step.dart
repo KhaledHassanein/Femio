@@ -3,7 +3,7 @@
 //
 // Why it exists: the language is picked before anything is read, so a woman whose phone
 // is set to English can still begin in Arabic. It is its own file because it is the one
-// step with a different look (the aurora), not a question on the shared step scaffold.
+// step with a different look (the dark Dusk gradient), not a question on the shared step scaffold.
 
 import 'package:flutter/material.dart';
 
@@ -15,7 +15,7 @@ import '../../../theme/type_sizes.dart';
 import '../../../widgets/bloom.dart';
 import '../../../l10n/language_names.dart';
 
-/// Welcome screen on the aurora background.
+/// Welcome screen on the dark Dusk gradient.
 ///
 /// [controller] receives the language she picks. [onStart] runs when she taps the start
 /// button. It has no failure cases: language changes go straight to the controller.
@@ -38,8 +38,10 @@ class WelcomeStep extends StatelessWidget {
           gradient: RadialGradient(
             center: const AlignmentDirectional(0.6, -0.7).resolve(Directionality.of(context)),
             radius: 1.3,
-            colors: [p.aurora1, p.aurora4, p.auroraGround],
-            stops: const [0, 0.45, 1],
+            // Dusk, darkened (owner 2026-11-27: the aurora ground read too light). The lightest
+            // point is plum-700, so white text stays far above AA; the edges fall to plum-950.
+            colors: [p.plum700, p.plum900, p.plum950],
+            stops: const [0, 0.5, 1],
           ),
         ),
         child: SafeArea(
@@ -105,7 +107,7 @@ class WelcomeStep extends StatelessWidget {
   }
 }
 
-/// A language choice on the aurora. Drawn here rather than with `ChoiceChip`, whose
+/// A language choice on the dark gradient. Drawn here rather than with `ChoiceChip`, whose
 /// Material 3 colours ignored the unselected background and rendered white on white.
 class _LanguagePill extends StatelessWidget {
   const _LanguagePill({
