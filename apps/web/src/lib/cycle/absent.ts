@@ -17,21 +17,25 @@ export type AbsentGoal = "period" | "ttc" | "pregnant" | "menopause";
 
 /**
  * Whether the MR-10 prompt shows for `goal` with these bleed days (any order), an optional
- * birth date, on `today`. Only in the cycle goals, only with a bleed on record, never in the
- * year after a birth.
+ * birth date and pregnancy-end date, on `today`. Only in the cycle goals, only with a bleed or
+ * an ended pregnancy on record, never in the year after a birth. After a pregnancy ended
+ * (MR-35) the days count from that end, not from the bleed before it (CLIN-N3-1).
  */
 export function periodAbsent(input: {
   goal: AbsentGoal;
   starts: readonly string[];
   birthDate: string | null;
   today: string;
+  pregnancyEnded?: string | null;
 }): boolean {
-  const { goal, starts, birthDate, today } = input;
+  const { goal, starts, birthDate, today, pregnancyEnded = null } = input;
   if (goal !== "period" && goal !== "ttc") return false;
-  if (starts.length === 0) return false;
   if (birthDate !== null && isValidISODate(birthDate) && diffDays(birthDate, today) < ABSENT_AFTER_BIRTH_DAYS) {
     return false;
   }
-  const last = [...starts].sort().at(-1) as string;
+  const anchors = [...starts];
+  if (pregnancyEnded !== null && isValidISODate(pregnancyEnded)) anchors.push(pregnancyEnded);
+  if (anchors.length === 0) return false;
+  const last = anchors.sort().at(-1) as string;
   return diffDays(last, today) >= ABSENT_PERIOD_DAYS;
 }

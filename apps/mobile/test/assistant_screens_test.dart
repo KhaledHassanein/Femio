@@ -112,6 +112,8 @@ Future<void> _loadFonts() async {
 
 Widget _app(String locale, Brightness b, AssistantBridge bridge, Widget home) =>
     MaterialApp(
+      // The shots feed the website tour: no debug ribbon.
+      debugShowCheckedModeBanner: false,
       theme: b == Brightness.dark ? FemioTheme.dark() : FemioTheme.light(),
       locale: Locale(locale),
       supportedLocales: const [
@@ -632,7 +634,7 @@ void main() {
       );
       await tester.pumpAndSettle();
       expect(find.textContaining('Not available on this phone'), findsOneWidget);
-      expect(find.text('On, on this phone only. Nothing is sent.'), findsOneWidget);
+      expect(find.text('On, on this phone only. Your words and records are not sent.'), findsOneWidget);
       expect(find.byType(Switch), findsNothing, reason: 'no switch changes the AI without the wizard');
       await _shoot('en_light_assistant_settings');
 
@@ -671,6 +673,21 @@ void main() {
       expect(find.textContaining('On, with Cloud boost for: General questions'), findsOneWidget);
       expect(find.text('Check Cloud boost'), findsNothing, reason: 'the fake bridge cannot run the check');
 
+      // Step down to on-phone AI: a withdrawal, so no boxes, one confirmation (PRIV-N3-1).
+      await tester.tap(find.text('AI and Cloud boost'));
+      await tester.pumpAndSettle();
+      await tapVisible(tester, find.text('AI on this phone only'));
+      await tapVisible(tester, find.widgetWithText(FilledButton, 'Next'));
+      await tapVisible(tester, find.widgetWithText(FilledButton, 'Next'));
+      expect(find.byType(CheckboxListTile), findsNothing, reason: 'stepping down asks for no ticks');
+      expect(find.textContaining('using less of the AI is always one step'), findsOneWidget);
+      await tapVisible(tester, find.widgetWithText(FilledButton, 'Confirm my choice'));
+      await tester.tap(find.widgetWithText(FilledButton, 'Confirm'));
+      await tester.pumpAndSettle();
+      expect(c.profile!.settings.assistantOn, isTrue);
+      expect(c.profile!.settings.cloudBoost, isFalse);
+      expect(c.profile!.settings.cloud.current!.acks, isEmpty);
+
       // Turn the AI off: no boxes, one confirmation.
       await tester.tap(find.text('AI and Cloud boost'));
       await tester.pumpAndSettle();
@@ -686,14 +703,14 @@ void main() {
       expect(c.profile!.settings.cloudBoost, isFalse);
       expect(consent.current!.isWithdrawal, isTrue);
       expect(consent.current!.ai, isFalse);
-      expect(consent.log, hasLength(2));
-      expect(consent.log.last.prev, consent.log.first.seal);
+      expect(consent.log, hasLength(3));
+      expect(consent.log.last.prev, consent.log[1].seal);
 
       // The record shows both receipts, sealed.
       await tapVisible(tester, find.text('My AI choices'));
-      expect(find.text('Record intact: every receipt matches its seal.'), findsOneWidget);
+      expect(find.text('Seals check out: every receipt matches the seal written with it.'), findsOneWidget);
       expect(find.text('AI on this phone: Off'), findsOneWidget);
-      expect(find.text('AI on this phone: On'), findsOneWidget);
+      expect(find.text('AI on this phone: On'), findsNWidgets(2));
       expect(find.text('Cloud boost: General questions'), findsOneWidget);
       await _shoot('en_light_ai_choices_record');
     },
@@ -709,22 +726,38 @@ void main() {
     expect(text, contains('Cloud boost: Tips from four broad facts'));
   });
 
-  for (final (lang, b) in [('ar', Brightness.dark), ('ar', Brightness.light)]) {
+  for (final (lang, b) in [('ar', Brightness.dark), ('ar', Brightness.light), ('en', Brightness.light)]) {
     testWidgets('screenshot: Cloud boost consent ($lang, ${b.name})', (
       tester,
     ) async {
       await _size(tester);
+      final l = lookupL10n(Locale(lang));
       final c = await _controller(_ttc(lang));
       await tester.pumpWidget(
         _app(
           lang,
           b,
-          FakeAssistant(nano: false),
+          FakeAssistant(nano: false, cloud: true),
           CloudBoostScreen(controller: c, today: _today),
         ),
       );
       await tester.pumpAndSettle();
       await _shoot('${lang}_${b.name}_cloud_boost_consent');
+      // Step 2: her own four values and what may be sent; step 3: the boxes, ticked by her.
+      await tester.tap(find.widgetWithText(FilledButton, l.aiWizardNext));
+      await tester.pumpAndSettle();
+      await _shoot('${lang}_${b.name}_cloud_boost_sends');
+      await tester.tap(find.widgetWithText(FilledButton, l.aiWizardNext));
+      await tester.pumpAndSettle();
+      for (final text in [l.aiAckWellness, l.aiAckNotice, l.boostAgreeQuestions]) {
+        await tester.ensureVisible(find.text(text));
+        await tester.pumpAndSettle();
+        await tester.tap(find.text(text));
+        await tester.pumpAndSettle();
+      }
+      await tester.drag(find.byType(Scrollable).first, const Offset(0, 2000));
+      await tester.pumpAndSettle();
+      await _shoot('${lang}_${b.name}_cloud_boost_ticks');
     });
   }
 }

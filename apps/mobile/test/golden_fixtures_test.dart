@@ -175,6 +175,7 @@ final runners = <String, Object? Function(Map<String, dynamic>)>{
     starts: List<String>.from(i['starts'] as List),
     birthDate: i['birthDate'] as String?,
     today: i['today'] as String,
+    pregnancyEnded: i['pregnancyEnded'] as String?,
   ),
   'test-timing': (i) => pregnancyTestDay(
     windowEnd: i['windowEnd'] as String,

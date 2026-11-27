@@ -3416,7 +3416,7 @@ abstract class L10n {
   /// No description provided for @aiChoicesSubPhone.
   ///
   /// In en, this message translates to:
-  /// **'On, on this phone only. Nothing is sent.'**
+  /// **'On, on this phone only. Your words and records are not sent.'**
   String get aiChoicesSubPhone;
 
   /// No description provided for @aiChoicesSubCloud.
@@ -3521,6 +3521,12 @@ abstract class L10n {
   /// **'Nothing to tick: turning AI off is always one step. Your choice is recorded with the date.'**
   String get aiWizardOffConfirm;
 
+  /// Confirm step when she steps down from Cloud boost to on-phone AI: no statements to tick (withdrawal as easy as agreeing).
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing to tick: using less of the AI is always one step. Your choice is recorded with the date.'**
+  String get aiWizardLessConfirm;
+
   /// No description provided for @aiWizardNext.
   ///
   /// In en, this message translates to:
@@ -3590,13 +3596,13 @@ abstract class L10n {
   /// No description provided for @aiRecordIntact.
   ///
   /// In en, this message translates to:
-  /// **'Record intact: every receipt matches its seal.'**
+  /// **'Seals check out: every receipt matches the seal written with it.'**
   String get aiRecordIntact;
 
   /// No description provided for @aiRecordBroken.
   ///
   /// In en, this message translates to:
-  /// **'This record was changed outside femio: a receipt does not match its seal.'**
+  /// **'A receipt does not match its seal: this copy was damaged or edited after it was saved.'**
   String get aiRecordBroken;
 
   /// No description provided for @aiRecordEmpty.
@@ -3692,7 +3698,7 @@ abstract class L10n {
   /// No description provided for @cloudCheckFailed.
   ///
   /// In en, this message translates to:
-  /// **'{reason, select, app_check{Google did not accept this copy of femio (App Check). Install femio from Google Play, or try again later.} service_disabled{The cloud AI service is switched off for femio. Try again later.} quota{Cloud boost has reached its limit for now. Try again later.} location{Google\'s cloud AI is not offered in your country.} network{No internet connection.} timeout{Google\'s cloud AI did not answer within 20 seconds.} not_configured{This copy of femio is not set up for Cloud boost.} api_key{This copy of femio is not set up for Cloud boost.} permission{This copy of femio is not set up for Cloud boost.} other{Cloud boost did not answer.}}'**
+  /// **'{reason, select, app_check{Google did not accept this copy of femio (App Check), so Cloud boost cannot run on it yet. Try again later.} service_disabled{The cloud AI service is switched off for femio. Try again later.} quota{Cloud boost has reached its limit for now. Try again later.} location{Google\'s cloud AI is not offered in your country.} network{No internet connection.} timeout{Google\'s cloud AI did not answer within 20 seconds.} not_configured{This copy of femio is not set up for Cloud boost.} api_key{This copy of femio is not set up for Cloud boost.} permission{This copy of femio is not set up for Cloud boost.} other{Cloud boost did not answer.}}'**
   String cloudCheckFailed(String reason);
 
   /// No description provided for @cloudCheckCode.
@@ -7180,6 +7186,12 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Change'**
   String get stageChange;
+
+  /// Option in the pregnancy stage chooser that reopens the onboarding questions.
+  ///
+  /// In en, this message translates to:
+  /// **'Change my answers'**
+  String get stageEditAnswers;
 
   /// Stage name after a recorded birth.
   ///

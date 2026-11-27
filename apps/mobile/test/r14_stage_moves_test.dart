@@ -7,6 +7,7 @@ import 'package:femio/app.dart';
 import 'package:femio/data/library.dart';
 import 'package:femio/data/profile.dart';
 import 'package:femio/data/store.dart';
+import 'package:femio/domain/absent_period.dart';
 import 'package:femio/domain/pregnancy_end.dart';
 import 'package:femio/features/today/today_screen.dart';
 import 'package:femio/l10n/app_localizations.dart';
@@ -152,6 +153,13 @@ void main() {
       expect(showAfterLoss(again, _today), isFalse);
     });
 
+    test('after a loss, no pregnancy-test prompt until 90 days after the end (CLIN-N3-1)', () {
+      final p = _pregnant('en').endPregnancy('2026-11-20', Goal.ttc);
+      expect(periodAbsentFor(p, '2026-11-21'), isFalse, reason: 'the last bleed before the pregnancy does not count');
+      expect(periodAbsentFor(p, '2027-02-17'), isFalse);
+      expect(periodAbsentFor(p, '2027-02-18'), isTrue, reason: '90 days after the end with no bleed');
+    });
+
     test('an old record without the new fields reads as before', () {
       final json = _ttc('en').toJson();
       expect(json.containsKey('pregnancyEnded'), isFalse);
@@ -166,6 +174,16 @@ void main() {
     await tester.tap(find.text(l.stageChange));
     await tester.pumpAndSettle();
     expect(find.text(l.goalTitle), findsOneWidget);
+  });
+
+  testWidgets('in pregnancy, Change offers "My pregnancy has ended" before the questions', (tester) async {
+    await _pump(tester, _pregnant('en'));
+    await tester.tap(find.text(l.stageChange));
+    await tester.pumpAndSettle();
+    expect(find.text(l.stageEditAnswers), findsOneWidget);
+    await tester.tap(find.widgetWithText(ListTile, l.endedAction));
+    await tester.pumpAndSettle();
+    expect(find.text(l.endedTitle), findsOneWidget, reason: 'the loss path, not the bare questions');
   });
 
   testWidgets("trying: one tap on I'm pregnant opens the due-date question", (tester) async {

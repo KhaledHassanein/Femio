@@ -76,6 +76,9 @@ class AiChoicesWizard extends StatefulWidget {
 class _AiChoicesWizardState extends State<AiChoicesWizard> {
   int _step = 0;
   late AiMode _mode;
+
+  /// The mode she has now: stepping down from it is a withdrawal and asks for no ticks.
+  late final AiMode _from;
   AssistantStatus? _status;
 
   // Nothing is pre-ticked: every statement and purpose is her act, not a default.
@@ -86,7 +89,8 @@ class _AiChoicesWizardState extends State<AiChoicesWizard> {
   void initState() {
     super.initState();
     final s = widget.controller.profile?.settings;
-    _mode = widget.start ?? currentAiMode(assistantOn: s?.assistantOn ?? true, cloud: s?.cloud ?? const CloudConsent());
+    _from = currentAiMode(assistantOn: s?.assistantOn ?? true, cloud: s?.cloud ?? const CloudConsent());
+    _mode = widget.start ?? _from;
   }
 
   @override
@@ -101,10 +105,12 @@ class _AiChoicesWizardState extends State<AiChoicesWizard> {
 
   bool get _cloudBuilt => _status?.canRunHybrid ?? false;
 
-  /// The statements this mode needs ticked before she can confirm.
+  /// The statements this mode needs ticked before she can confirm. Using less of the AI
+  /// (off, or on-phone after Cloud boost) needs none: withdrawing is as easy as agreeing
+  /// (GDPR Art. 7(3), ADR-085). Cloud boost always asks, since its purposes may change.
   List<String> get _requiredAcks => switch (_mode) {
         AiMode.off => const [],
-        AiMode.phone => const [AiAck.wellness, AiAck.notice],
+        AiMode.phone => _from == AiMode.off ? const [AiAck.wellness, AiAck.notice] : const [],
         AiMode.cloud => const [AiAck.wellness, AiAck.notice, AiAck.cloud],
       };
 
@@ -294,7 +300,8 @@ class _AiChoicesWizardState extends State<AiChoicesWizard> {
       Text(l.aiWizardConfirmHeading, style: t.titleLarge),
       const SizedBox(height: space3),
       if (_mode == AiMode.off) Text(l.aiWizardOffConfirm, style: t.bodyMedium),
-      if (_mode != AiMode.off) ...[
+      if (_mode == AiMode.phone && _requiredAcks.isEmpty) Text(l.aiWizardLessConfirm, style: t.bodyMedium),
+      if (_requiredAcks.isNotEmpty) ...[
         box(_acks.contains(AiAck.wellness), l.aiAckWellness, (v) => ack(AiAck.wellness, v)),
         box(_acks.contains(AiAck.notice), l.aiAckNotice, (v) => ack(AiAck.notice, v)),
         Align(

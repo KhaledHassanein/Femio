@@ -238,6 +238,21 @@ try {
     if (/googleSearch|GoogleSearch/.test(kt)) {
       fail(rel, "wires Google Search grounding; answers come only from the bundled registry (ADR-079)");
     }
+    // Every model call sends either the prompt Dart passed (a PrivatePrompt or a CloudPrompt) or
+    // the fixed "Check Cloud boost" sentence, and only that check may run ONLY_IN_CLOUD (ADR-085).
+    for (const m of kt.matchAll(/generateContent\(([^)]*)\)/g)) {
+      if (!["prompt", "CLOUD_CHECK_PROMPT"].includes(m[1].trim())) {
+        fail(rel, `a model call sends "${m[1].trim()}"; only the prompt from Dart or CLOUD_CHECK_PROMPT may be sent (ADR-079, ADR-085)`);
+      }
+    }
+    const cloudOnly = (kt.match(/InferenceMode\.ONLY_IN_CLOUD/g) ?? []).length;
+    const checks = (kt.match(/generateContent\(CLOUD_CHECK_PROMPT\)/g) ?? []).length;
+    if (cloudOnly > checks) {
+      fail(rel, "runs ONLY_IN_CLOUD for something other than the fixed Cloud boost check (ADR-085)");
+    }
+    if (/CLOUD_CHECK_PROMPT\s*=/.test(kt) && !/const val CLOUD_CHECK_PROMPT = "Reply with the single word OK\."/.test(kt)) {
+      fail(rel, "the Cloud boost check sentence changed; it must stay the fixed sentence with nothing about her (ADR-085)");
+    }
   }
 } catch (error) {
   fail(KOTLIN_SRC, `cannot scan: ${error.message}`);
@@ -346,4 +361,4 @@ if (findings.length > 0) {
   console.error(`\n${findings.length} finding(s). See docs/33_REBUILD_V3/03_LEGAL_PACK.md.`);
   process.exit(1);
 }
-console.log(`✓ privacy tripwire: no analytics, error-reporting or database client in either product; website: no Tag Manager, GA4 or Meta pixel, Vercel Web Analytics (cookieless, path only) the only measurement, AdSense host inside lib/ads only, ad units only in the article and hub; app: no ads, analytics or attribution package and no ad-ID permission (source and merged manifest), no network code of its own, Firebase AI Logic only inside the Kotlin assistant behind CloudPrompt (CloudSafeText or PseudonymisedProfile only), no search grounding, no personal permission; native: no network code outside the assistant package, only reviewed Gradle dependencies and plugins, merged manifest ${mergedChecked > 0 ? `checked (${mergedChecked} file(s): permissions, ad/analytics metadata, reviewed components)` : "not checked (no current build)"}.`);
+console.log(`✓ privacy tripwire: no analytics, error-reporting or database client in either product; website: no Tag Manager, GA4 or Meta pixel, Vercel Web Analytics (cookieless, path only) the only measurement, AdSense host inside lib/ads only, ad units only in the article and hub; app: no ads, analytics or attribution package and no ad-ID permission (source and merged manifest), no network code of its own, Firebase AI Logic only inside the Kotlin assistant behind CloudPrompt (CloudSafeText or PseudonymisedProfile only) plus one fixed check sentence, no search grounding, no personal permission; native: no network code outside the assistant package, only reviewed Gradle dependencies and plugins, merged manifest ${mergedChecked > 0 ? `checked (${mergedChecked} file(s): permissions, ad/analytics metadata, reviewed components)` : "not checked (no current build)"}.`);

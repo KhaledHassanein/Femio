@@ -288,7 +288,7 @@ void main() {
     });
 
     testWidgets(
-      'terms are preselected; deselect one; Save writes only the rest, keeping what was logged',
+      'nothing is ticked at first; tick the terms, deselect one; Save writes only the rest',
       (tester) async {
         final terms = termsFromQuestion(_questionEn);
         final c = await _askScreen(
@@ -300,9 +300,17 @@ void main() {
           },
         );
         await _toBottom(tester);
-        // Nothing is written by showing the prompt.
+        // Nothing is written by showing the prompt, and nothing starts ticked.
         expect(c.profile!.logs[_today]!.terms, ['tired']);
         expect(c.profile!.appointments, isEmpty);
+        expect(find.byType(FilterChip), findsNothing);
+        expect(
+          tester.widget<FilledButton>(find.widgetWithText(FilledButton, en.askSaveAction)).onPressed,
+          isNull,
+          reason: 'Save waits for her tick',
+        );
+        await tester.tap(find.text(en.askSaveTerms));
+        await tester.pumpAndSettle();
         for (final t in terms) {
           final chip = tester.widget<FilterChip>(
             find.widgetWithText(FilterChip, logLabel(en, t)),
@@ -362,8 +370,8 @@ void main() {
         );
         expect(
           c.profile!.logs[_today]?.terms ?? const [],
-          isNotEmpty,
-          reason: 'terms were still ticked',
+          isEmpty,
+          reason: 'the terms were not ticked, so none were logged',
         );
       },
     );

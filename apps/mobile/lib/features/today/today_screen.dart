@@ -113,7 +113,7 @@ class TodayScreen extends StatelessWidget {
               child: Text(l.todayTitle, style: t.headlineMedium),
             ),
             // Owner 2026-11-27: the stage femio follows is always visible, and one tap changes it.
-            StageRow(controller: controller),
+            StageRow(controller: controller, today: now),
             // R14.6: where the AI runs, and the one-sentence log, in the first screen.
             const SizedBox(height: space2),
             AiStatusChip(controller: controller),

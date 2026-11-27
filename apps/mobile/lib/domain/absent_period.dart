@@ -16,20 +16,27 @@ const absentPeriodDays = 90;
 const absentAfterBirthDays = 365;
 
 /// Whether the MR-10 prompt shows for [goal] with these bleed days ([starts], any order),
-/// an optional [birthDate], on [today]. Only in the cycle goals, only with a bleed on
-/// record, never in the year after a birth.
+/// an optional [birthDate] and [pregnancyEnded], on [today]. Only in the cycle goals, only
+/// with a bleed or an ended pregnancy on record, never in the year after a birth. After a
+/// pregnancy ended (MR-35) the days count from that end, not from the bleed before it, so a
+/// pregnancy-test prompt never greets her the day after a loss (CLIN-N3-1).
 bool periodAbsent({
   required Goal goal,
   required List<String> starts,
   required String? birthDate,
   required String today,
+  String? pregnancyEnded,
 }) {
   if (goal != Goal.period && goal != Goal.ttc) return false;
-  if (starts.isEmpty) return false;
   if (birthDate != null && isValidISODate(birthDate) && diffDays(birthDate, today) < absentAfterBirthDays) {
     return false;
   }
-  final last = starts.reduce((a, b) => a.compareTo(b) >= 0 ? a : b);
+  final anchors = [
+    ...starts,
+    if (pregnancyEnded != null && isValidISODate(pregnancyEnded)) pregnancyEnded,
+  ];
+  if (anchors.isEmpty) return false;
+  final last = anchors.reduce((a, b) => a.compareTo(b) >= 0 ? a : b);
   return diffDays(last, today) >= absentPeriodDays;
 }
 
@@ -39,4 +46,5 @@ bool periodAbsentFor(Profile profile, String today) => periodAbsent(
       starts: profile.periodStarts,
       birthDate: profile.birthDate,
       today: today,
+      pregnancyEnded: profile.pregnancyEnded,
     );

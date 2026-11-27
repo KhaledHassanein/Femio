@@ -882,7 +882,7 @@
   "assistantCloudNotBuilt": "Not available in this version of the app.",
   "aiChoicesTitle": "AI and Cloud boost",
   "aiChoicesSubOff": "Off. femio works with its own rules only.",
-  "aiChoicesSubPhone": "On, on this phone only. Nothing is sent.",
+  "aiChoicesSubPhone": "On, on this phone only. Your words and records are not sent.",
   "aiChoicesSubCloud": "On, with Cloud boost for: {purposes}.",
   "@aiChoicesSubCloud": {
     "placeholders": {
@@ -914,6 +914,10 @@
   "aiAckNotice": "I have read femio's privacy notice.",
   "aiAckCloud": "I understand what Cloud boost may send, who receives it, and that I can turn it off at any time.",
   "aiWizardOffConfirm": "Nothing to tick: turning AI off is always one step. Your choice is recorded with the date.",
+  "aiWizardLessConfirm": "Nothing to tick: using less of the AI is always one step. Your choice is recorded with the date.",
+  "@aiWizardLessConfirm": {
+    "description": "Confirm step when she steps down from Cloud boost to on-phone AI: no statements to tick (withdrawal as easy as agreeing)."
+  },
   "aiWizardNext": "Next",
   "aiWizardBack": "Back",
   "aiWizardSave": "Confirm my choice",
@@ -935,8 +939,8 @@
   "aiRecordTitle": "My AI choices",
   "aiRecordSub": "Every choice you made, with its date",
   "aiRecordIntro": "Each time you change femio's AI or Cloud boost, femio keeps a receipt here: what you chose, the statements you ticked, when, and the version and language of the text you read. Receipts stay on this phone and travel inside your encrypted backup. Each one is sealed with a code that changes if the receipt is edited.",
-  "aiRecordIntact": "Record intact: every receipt matches its seal.",
-  "aiRecordBroken": "This record was changed outside femio: a receipt does not match its seal.",
+  "aiRecordIntact": "Seals check out: every receipt matches the seal written with it.",
+  "aiRecordBroken": "A receipt does not match its seal: this copy was damaged or edited after it was saved.",
   "aiRecordEmpty": "No choices recorded yet.",
   "aiRecordAi": "AI on this phone: {state, select, on{On} off{Off} other{Not recorded}}",
   "@aiRecordAi": {
@@ -993,7 +997,7 @@
       }
     }
   },
-  "cloudCheckFailed": "{reason, select, app_check{Google did not accept this copy of femio (App Check). Install femio from Google Play, or try again later.} service_disabled{The cloud AI service is switched off for femio. Try again later.} quota{Cloud boost has reached its limit for now. Try again later.} location{Google's cloud AI is not offered in your country.} network{No internet connection.} timeout{Google's cloud AI did not answer within 20 seconds.} not_configured{This copy of femio is not set up for Cloud boost.} api_key{This copy of femio is not set up for Cloud boost.} permission{This copy of femio is not set up for Cloud boost.} other{Cloud boost did not answer.}}",
+  "cloudCheckFailed": "{reason, select, app_check{Google did not accept this copy of femio (App Check), so Cloud boost cannot run on it yet. Try again later.} service_disabled{The cloud AI service is switched off for femio. Try again later.} quota{Cloud boost has reached its limit for now. Try again later.} location{Google's cloud AI is not offered in your country.} network{No internet connection.} timeout{Google's cloud AI did not answer within 20 seconds.} not_configured{This copy of femio is not set up for Cloud boost.} api_key{This copy of femio is not set up for Cloud boost.} permission{This copy of femio is not set up for Cloud boost.} other{Cloud boost did not answer.}}",
   "@cloudCheckFailed": {
     "placeholders": {
       "reason": {
@@ -2918,6 +2922,10 @@
     }
   },
   "stageChange": "Change",
+  "stageEditAnswers": "Change my answers",
+  "@stageEditAnswers": {
+    "description": "Option in the pregnancy stage chooser that reopens the onboarding questions."
+  },
   "@stageChange": {
     "description": "Today: opens the stage questions with her answers filled in."
   },

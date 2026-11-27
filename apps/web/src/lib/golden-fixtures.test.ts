@@ -106,7 +106,8 @@ const RUNNERS: Record<string, (input: never) => unknown> = {
   "ttc-guidance": (i: { tryingFor: TryingFor | null; age: number | null; irregular: boolean }) => ttcGuidance(i),
   "pregnancy-tools": (i: { weeks: number | null }) => pregnancyToolOrder(i.weeks),
   "age-gate": (i: { birthYear: number; todayYear: number }) => ageGate(i.birthYear, i.todayYear),
-  "absent-period": (i: { goal: AbsentGoal; starts: string[]; birthDate: string | null; today: string }) => periodAbsent(i),
+  "absent-period": (i: { goal: AbsentGoal; starts: string[]; birthDate: string | null; today: string; pregnancyEnded?: string | null }) =>
+    periodAbsent(i),
   "test-timing": (i: { windowEnd: string; irregular: boolean }) => pregnancyTestDay(i.windowEnd, i.irregular),
   "edd-from": (i: { method: "lmp" | "conception" | "transfer3" | "transfer5" | "scan"; date: string; gaWeeks?: number; gaDays?: number }) =>
     i.method === "lmp"

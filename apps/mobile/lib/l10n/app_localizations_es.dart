@@ -2026,7 +2026,7 @@ class L10nEs extends L10n {
 
   @override
   String get aiChoicesSubPhone =>
-      'Activada, solo en este teléfono. No se envía nada.';
+      'Activada, solo en este teléfono. Tus palabras y tus registros no se envían.';
 
   @override
   String aiChoicesSubCloud(String purposes) {
@@ -2092,6 +2092,10 @@ class L10nEs extends L10n {
       'No hay nada que marcar: desactivar la IA es siempre un solo paso. Tu elección se registra con la fecha.';
 
   @override
+  String get aiWizardLessConfirm =>
+      'No hay nada que marcar: usar menos la IA es siempre un solo paso. Tu elección se registra con la fecha.';
+
+  @override
   String get aiWizardNext => 'Siguiente';
 
   @override
@@ -2136,11 +2140,11 @@ class L10nEs extends L10n {
 
   @override
   String get aiRecordIntact =>
-      'Registro intacto: cada recibo coincide con su sello.';
+      'Sellos verificados: cada recibo coincide con el sello escrito con él.';
 
   @override
   String get aiRecordBroken =>
-      'Este registro se cambió fuera de femio: un recibo no coincide con su sello.';
+      'Un recibo no coincide con su sello: esta copia se dañó o se editó después de guardarse.';
 
   @override
   String get aiRecordEmpty => 'Aún no hay elecciones registradas.';
@@ -2206,7 +2210,7 @@ class L10nEs extends L10n {
   @override
   String cloudCheckFailed(String reason) {
     String _temp0 = intl.Intl.selectLogic(reason, {
-      'app_check': 'Google no aceptó esta copia de femio (App Check). Instala femio desde Google Play o inténtalo más tarde.',
+      'app_check': 'Google no aceptó esta copia de femio (App Check), así que Cloud boost aún no puede funcionar en ella. Inténtalo más tarde.',
       'service_disabled': 'El servicio de IA en la nube está desactivado para femio. Inténtalo más tarde.',
       'quota':
           'Cloud boost ha llegado a su límite por ahora. Inténtalo más tarde.',
@@ -4489,6 +4493,9 @@ class L10nEs extends L10n {
 
   @override
   String get stageChange => 'Cambiar';
+
+  @override
+  String get stageEditAnswers => 'Cambiar mis respuestas';
 
   @override
   String get stageAfterBirth => 'Después del parto';

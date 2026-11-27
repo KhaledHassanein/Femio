@@ -2008,7 +2008,8 @@ class L10nEn extends L10n {
   String get aiChoicesSubOff => 'Off. femio works with its own rules only.';
 
   @override
-  String get aiChoicesSubPhone => 'On, on this phone only. Nothing is sent.';
+  String get aiChoicesSubPhone =>
+      'On, on this phone only. Your words and records are not sent.';
 
   @override
   String aiChoicesSubCloud(String purposes) {
@@ -2074,6 +2075,10 @@ class L10nEn extends L10n {
       'Nothing to tick: turning AI off is always one step. Your choice is recorded with the date.';
 
   @override
+  String get aiWizardLessConfirm =>
+      'Nothing to tick: using less of the AI is always one step. Your choice is recorded with the date.';
+
+  @override
   String get aiWizardNext => 'Next';
 
   @override
@@ -2116,11 +2121,12 @@ class L10nEn extends L10n {
       'Each time you change femio\'s AI or Cloud boost, femio keeps a receipt here: what you chose, the statements you ticked, when, and the version and language of the text you read. Receipts stay on this phone and travel inside your encrypted backup. Each one is sealed with a code that changes if the receipt is edited.';
 
   @override
-  String get aiRecordIntact => 'Record intact: every receipt matches its seal.';
+  String get aiRecordIntact =>
+      'Seals check out: every receipt matches the seal written with it.';
 
   @override
   String get aiRecordBroken =>
-      'This record was changed outside femio: a receipt does not match its seal.';
+      'A receipt does not match its seal: this copy was damaged or edited after it was saved.';
 
   @override
   String get aiRecordEmpty => 'No choices recorded yet.';
@@ -2186,7 +2192,7 @@ class L10nEn extends L10n {
   @override
   String cloudCheckFailed(String reason) {
     String _temp0 = intl.Intl.selectLogic(reason, {
-      'app_check': 'Google did not accept this copy of femio (App Check). Install femio from Google Play, or try again later.',
+      'app_check': 'Google did not accept this copy of femio (App Check), so Cloud boost cannot run on it yet. Try again later.',
       'service_disabled':
           'The cloud AI service is switched off for femio. Try again later.',
       'quota': 'Cloud boost has reached its limit for now. Try again later.',
@@ -4456,6 +4462,9 @@ class L10nEn extends L10n {
 
   @override
   String get stageChange => 'Change';
+
+  @override
+  String get stageEditAnswers => 'Change my answers';
 
   @override
   String get stageAfterBirth => 'After birth';

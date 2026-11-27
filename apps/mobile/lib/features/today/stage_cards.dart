@@ -39,10 +39,47 @@ Future<void> openStageChange(BuildContext context, FemioController controller, {
       builder: (_) => OnboardingFlow(controller: controller, editing: true, startGoal: start),
     ));
 
-/// "Now: Get pregnant · Change" under the Today title.
+/// "Now: Get pregnant · Change" under the Today title. In a pregnancy (before a birth),
+/// Change first offers "My pregnancy has ended", so moving out of pregnancy never skips the
+/// loss path of MR-35 (reminders off, earlier bleeding kept out of her cycles; CLIN-N3-1).
 class StageRow extends StatelessWidget {
-  const StageRow({super.key, required this.controller});
+  const StageRow({super.key, required this.controller, required this.today});
   final FemioController controller;
+  final String today;
+
+  void _change(BuildContext context) {
+    final profile = controller.profile!;
+    if (profile.goal != Goal.pregnant || profile.isPostpartum) {
+      openStageChange(context, controller);
+      return;
+    }
+    final l = L10n.of(context);
+    showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      builder: (sheet) => SafeArea(
+        child: Column(mainAxisSize: MainAxisSize.min, children: [
+          ListTile(
+            leading: const Icon(Icons.favorite_border_rounded),
+            title: Text(l.endedAction),
+            onTap: () {
+              Navigator.of(sheet).pop();
+              openPregnancyEnded(context, controller, today);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.edit_outlined),
+            title: Text(l.stageEditAnswers),
+            onTap: () {
+              Navigator.of(sheet).pop();
+              openStageChange(context, controller);
+            },
+          ),
+          const SizedBox(height: space2),
+        ]),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +93,7 @@ class StageRow extends StatelessWidget {
         child: Text(l.stageNow(stageName(l, controller.profile!)),
             style: t.bodyMedium?.copyWith(color: p.textMuted), overflow: TextOverflow.ellipsis),
       ),
-      TextButton(onPressed: () => openStageChange(context, controller), child: Text(l.stageChange)),
+      TextButton(onPressed: () => _change(context), child: Text(l.stageChange)),
     ]);
   }
 }
@@ -77,51 +114,54 @@ class PregnantNowButton extends StatelessWidget {
       );
 }
 
-/// "My pregnancy has ended" on the pregnancy Today: the day, then what femio helps with now.
+/// The "My pregnancy has ended" sheet: the day, then what femio helps with now (MR-35).
+Future<void> openPregnancyEnded(BuildContext context, FemioController controller, String today) {
+  final l = L10n.of(context);
+  return showModalBottomSheet<void>(
+    context: context,
+    isScrollControlled: true,
+    showDragHandle: true,
+    builder: (context) => PickDaySheet(
+      title: l.endedTitle,
+      note: l.endedNote,
+      first: addDays(today, -pregnancyEndedMaxDaysAgo),
+      today: today,
+      actions: (day) => [
+        Text(l.ppNextGoal, style: Theme.of(context).textTheme.titleSmall),
+        const SizedBox(height: space2),
+        for (final goal in const [Goal.period, Goal.ttc])
+          Padding(
+            padding: const EdgeInsets.only(bottom: space2),
+            child: FilledButton(
+              onPressed: day == null
+                  ? null
+                  : () async {
+                      await controller.endPregnancy(day, goal);
+                      if (context.mounted) Navigator.of(context).pop();
+                    },
+              child: Text(goal == Goal.period ? l.goalPeriod : l.goalTtc),
+            ),
+          ),
+      ],
+    ),
+  );
+}
+
+/// "My pregnancy has ended" on the pregnancy Today.
 class PregnancyEndedButton extends StatelessWidget {
   const PregnancyEndedButton({super.key, required this.controller, required this.today});
   final FemioController controller;
   final String today;
 
   @override
-  Widget build(BuildContext context) {
-    final l = L10n.of(context);
-    return Align(
-      alignment: AlignmentDirectional.centerStart,
-      child: TextButton.icon(
-        onPressed: () => showModalBottomSheet<void>(
-          context: context,
-          isScrollControlled: true,
-          showDragHandle: true,
-          builder: (context) => PickDaySheet(
-            title: l.endedTitle,
-            note: l.endedNote,
-            first: addDays(today, -pregnancyEndedMaxDaysAgo),
-            today: today,
-            actions: (day) => [
-              Text(l.ppNextGoal, style: Theme.of(context).textTheme.titleSmall),
-              const SizedBox(height: space2),
-              for (final goal in const [Goal.period, Goal.ttc])
-                Padding(
-                  padding: const EdgeInsets.only(bottom: space2),
-                  child: FilledButton(
-                    onPressed: day == null
-                        ? null
-                        : () async {
-                            await controller.endPregnancy(day, goal);
-                            if (context.mounted) Navigator.of(context).pop();
-                          },
-                    child: Text(goal == Goal.period ? l.goalPeriod : l.goalTtc),
-                  ),
-                ),
-            ],
-          ),
+  Widget build(BuildContext context) => Align(
+        alignment: AlignmentDirectional.centerStart,
+        child: TextButton.icon(
+          onPressed: () => openPregnancyEnded(context, controller, today),
+          icon: const Icon(Icons.favorite_border_rounded, size: 18),
+          label: Text(L10n.of(context).endedAction),
         ),
-        icon: const Icon(Icons.favorite_border_rounded, size: 18),
-        label: Text(l.endedAction),
-      ),
-    );
-  }
+      );
 }
 
 /// The gentle card after a pregnancy ended (MR-35): what femio changed, and when to get help.

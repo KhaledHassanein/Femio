@@ -1307,3 +1307,13 @@ femio.
 an identifier to link receipts to her (the thing ADR-080 removed), and Saudi PDPL and Egypt Law
 151/2020 would then apply to femio as a controller of that log. The on-phone sealed record keeps
 the promise "nothing leaves the phone without your yes".
+
+**Amendment 2026-11-27 (re-score of eca4eaa, PRIV-N3-1/2/3, JUDGE-N3-2).** (a) Stepping down
+from Cloud boost to on-phone AI is a withdrawal and asks for no ticks, like turning the AI off;
+only moving up (off to on-phone, or to Cloud boost) asks for the statements. (b) The seal is an
+unkeyed SHA-256: it shows that a receipt was damaged or edited after it was saved, not who did it,
+so the screen says "Seals check out" and "this copy was damaged or edited after it was saved",
+never "changed outside femio". (c) "Check Cloud boost" is the one cloud call outside
+`CloudPrompt`: it sends only `CLOUD_CHECK_PROMPT` ("Reply with the single word OK."). The privacy
+tripwire now fails if any model call sends anything but the prompt from Dart or that constant, if
+`ONLY_IN_CLOUD` is used for anything else, or if the sentence changes.

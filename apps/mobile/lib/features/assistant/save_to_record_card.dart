@@ -39,7 +39,8 @@ class SaveToRecordCard extends StatefulWidget {
 class _SaveToRecordCardState extends State<SaveToRecordCard> {
   late final List<String> _terms = termsFromQuestion(widget.question);
   final Set<String> _unticked = {};
-  late bool _addTerms = _terms.isNotEmpty;
+  // Unticked at first: nothing joins her record until she ticks it (PRIV-N3, rule 7).
+  bool _addTerms = false;
   bool _keepNote = false;
   bool _saving = false;
   bool _closed = false;

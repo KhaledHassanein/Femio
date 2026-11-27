@@ -2037,7 +2037,7 @@ class L10nFr extends L10n {
 
   @override
   String get aiChoicesSubPhone =>
-      'Activée, sur ce téléphone uniquement. Rien n\'est envoyé.';
+      'Activée, sur ce téléphone uniquement. Vos mots et vos données ne sont pas envoyés.';
 
   @override
   String aiChoicesSubCloud(String purposes) {
@@ -2103,6 +2103,10 @@ class L10nFr extends L10n {
       'Rien à cocher : désactiver l\'IA se fait toujours en une étape. Votre choix est enregistré avec la date.';
 
   @override
+  String get aiWizardLessConfirm =>
+      'Rien à cocher : réduire l\'usage de l\'IA se fait toujours en une étape. Votre choix est enregistré avec la date.';
+
+  @override
   String get aiWizardNext => 'Suivant';
 
   @override
@@ -2147,11 +2151,11 @@ class L10nFr extends L10n {
 
   @override
   String get aiRecordIntact =>
-      'Registre intact : chaque reçu correspond à son sceau.';
+      'Sceaux vérifiés : chaque reçu correspond au sceau écrit avec lui.';
 
   @override
   String get aiRecordBroken =>
-      'Ce registre a été modifié en dehors de femio : un reçu ne correspond pas à son sceau.';
+      'Un reçu ne correspond pas à son sceau : cette copie a été abîmée ou modifiée après son enregistrement.';
 
   @override
   String get aiRecordEmpty => 'Aucun choix enregistré pour l\'instant.';
@@ -2217,7 +2221,7 @@ class L10nFr extends L10n {
   @override
   String cloudCheckFailed(String reason) {
     String _temp0 = intl.Intl.selectLogic(reason, {
-      'app_check': 'Google n\'a pas accepté cette copie de femio (App Check). Installez femio depuis Google Play ou réessayez plus tard.',
+      'app_check': 'Google n\'a pas accepté cette copie de femio (App Check) ; Cloud boost ne peut donc pas encore y fonctionner. Réessayez plus tard.',
       'service_disabled': 'Le service d\'IA cloud est désactivé pour femio. Réessayez plus tard.',
       'quota': 'Cloud boost a atteint sa limite pour le moment. Réessayez plus tard.',
       'location': 'L\'IA cloud de Google n\'est pas proposée dans votre pays.',
@@ -4511,6 +4515,9 @@ class L10nFr extends L10n {
 
   @override
   String get stageChange => 'Changer';
+
+  @override
+  String get stageEditAnswers => 'Modifier mes réponses';
 
   @override
   String get stageAfterBirth => 'Après la naissance';

@@ -35,10 +35,11 @@ The model calls live in one Kotlin file,
 
 ## The privacy boundary, in code
 
-- **One typed door to the cloud.** The cloud-capable call accepts only a `CloudPrompt`
+- **One typed door to the cloud.** The cloud-capable call that carries anything of hers accepts only a `CloudPrompt`
   ([`cloud_prompt.dart`](apps/mobile/lib/domain/assistant/cloud_prompt.dart)). Its constructor is
   private and it has two factories: `CloudPrompt.answer(CloudSafeText, …)` and
-  `CloudPrompt.tips(PseudonymisedProfile, …)`.
+  `CloudPrompt.tips(PseudonymisedProfile, …)`. The one other cloud call, "Check Cloud boost", sends
+  the fixed sentence `CLOUD_CHECK_PROMPT` ("Reply with the single word OK.") and nothing about her.
 - **`CloudSafeText`** ([`redaction.dart`](apps/mobile/lib/domain/assistant/redaction.dart)) refuses
   a question written about herself (first-person words in four languages, such as "I", "my",
   "we", "عندي") and removes numbers, e-mail addresses and links. It does not detect names, so she
@@ -46,9 +47,11 @@ The model calls live in one Kotlin file,
 - **`PseudonymisedProfile`** ([`pseudonymised_profile.dart`](apps/mobile/lib/domain/assistant/pseudonymised_profile.dart))
   is four coarse bands: life stage, cycle regularity, kinds of symptom logged on two or more days
   in 30, logging streak. No dates, no free text, intimate terms excluded.
-- **Recorded consent.** Cloud boost is off by default. The consent screen shows her own four bands,
-  names Google as processor, and has one unticked box per purpose and an "I agree" button. Her
-  choice is kept on the phone as a dated, versioned receipt, withdrawals included
+- **Recorded consent.** Cloud boost is off by default. One wizard (Settings → Assistant → "AI and
+  Cloud boost") shows her own four bands, names Google as processor, has one unticked box per
+  purpose and the statements to tick, then asks her to confirm; stepping down or turning the AI off
+  needs no ticks. Each choice is kept on the phone as a dated, versioned receipt with a SHA-256
+  seal chained to the one before ("My AI choices"), withdrawals included
   ([`cloud_consent.dart`](apps/mobile/lib/domain/assistant/cloud_consent.dart)); a new consent
   text version asks again.
 - **Answers only from the bundled registry.** Ask femio searches
@@ -66,7 +69,7 @@ The model calls live in one Kotlin file,
 - **She can check it.** Settings → Assistant → "What the AI can see" lists, for each AI feature,
   where it runs and exactly what it receives. "What the AI did" is a ledger, kept only on the
   phone, of every model call; for a Cloud boost call it keeps the exact text that was sent.
-- **Every feature works with AI off.** Settings → Assistant → "Use the assistant" off: no model
+- **Every feature works with AI off.** Settings → Assistant → "AI and Cloud boost" → "No AI": no model
   runs, on the phone or in the cloud, and every feature answers from femio's rules.
   `test/assistant_boundary_test.dart` runs every AI use against a failing bridge and with the AI
   off, fuzzes the reply parsers, and fails if the AI code imports her record store.
@@ -81,7 +84,8 @@ monorepo. In this repository it runs through [`scripts/privacy-tripwire.mjs`](sc
 which skips its website checks (the website is not published here) and fails on any app finding:
 an analytics, ads or attribution package; network code (HTTP client, socket) in the Dart code;
 Firebase outside the Kotlin assistant package or any Firebase library besides AI Logic and App
-Check; the cloud call no longer requiring a `CloudPrompt`; a `CloudPrompt` built from anything but
+Check; the cloud call no longer requiring a `CloudPrompt`; any other model call than that one and
+the fixed check sentence; a `CloudPrompt` built from anything but
 `CloudSafeText` or `PseudonymisedProfile`; Google Search grounding; a model call outside the
 gateway; an ad-ID or personal permission in the manifest. It is a CI check, not part of the
 Android build. [`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs it, a secret scan

@@ -3,6 +3,10 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Changed
+- **Using less of the AI is always one step.** Going from Cloud boost back to AI on this phone, like turning the AI off, asks you to confirm but not to tick anything.
+- **Nothing is ticked for you in "Save this to your record?".** You tick what to keep.
+- **No pregnancy-test reminder right after a pregnancy ends.** The "your period has not come for a while" prompt now counts from the day the pregnancy ended, and "Change" in a pregnancy offers "My pregnancy has ended" first.
+- **Clearer wording** for the AI receipts' seals and for a copy of femio that Google's App Check does not accept.
 - **One place to turn the AI and Cloud boost on or off.** Settings → Assistant → "AI and Cloud boost" opens three short steps: choose No AI, AI on this phone, or AI on this phone plus Cloud boost; read what it means; tick the statements. femio asks you to confirm before anything changes, and keeps a dated, sealed receipt of every choice on your phone. "My AI choices" lists them and lets you share a copy. While Cloud boost is on, "Check Cloud boost" tells you whether it reaches Google and, if not, why.
 - **Deleting your records asks you to tick that it cannot be undone.** femio keeps no copy anywhere, so the Delete button stays off until you confirm you understand.
 - **Move between stages without starting over.** Today now shows the stage femio follows, with Change beside it. When trying to conceive, "I'm pregnant" goes straight to your due date. In pregnancy, "My pregnancy has ended" stops the week cards, the countdown and your reminders, keeps everything you logged, and shows when to get help. After birth, "I'm breastfeeding" adds the breastfeeding guides.

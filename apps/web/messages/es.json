@@ -1798,7 +1798,7 @@
           "label": "Cloud boost",
           "title": "Cloud boost sigue apagado salvo que aceptes",
           "body": "Para teléfonos sin IA integrada. Aceptas cada uso por separado y ves exactamente qué se enviaría antes de que se envíe nada.",
-          "alt": "La pantalla Cloud boost con dos casillas de consentimiento separadas y los cuatro datos generales que pueden enviarse."
+          "alt": "La pantalla IA y Cloud boost: las declaraciones que marca y una casilla de consentimiento separada para cada uso, antes de confirmar."
         },
         "visit": {
           "label": "Resumen para la consulta",

@@ -2052,7 +2052,7 @@ class L10nAr extends L10n {
 
   @override
   String get aiChoicesSubPhone =>
-      'مفعّل، على هذا الهاتف فقط. لا يُرسَل أي شيء.';
+      'مفعّل، على هذا الهاتف فقط. لا تُرسَل كلماتكِ ولا سجلاتكِ.';
 
   @override
   String aiChoicesSubCloud(String purposes) {
@@ -2119,6 +2119,10 @@ class L10nAr extends L10n {
       'لا حاجة لأي علامة: إيقاف الذكاء الاصطناعي خطوة واحدة دائمًا. يُسجَّل اختياركِ مع التاريخ.';
 
   @override
+  String get aiWizardLessConfirm =>
+      'لا حاجة لأي علامة: تقليل استخدام الذكاء الاصطناعي خطوة واحدة دائمًا. يُسجَّل اختياركِ مع التاريخ.';
+
+  @override
   String get aiWizardNext => 'التالي';
 
   @override
@@ -2162,11 +2166,12 @@ class L10nAr extends L10n {
       'في كل مرة تغيّرين فيها الذكاء الاصطناعي أو Cloud boost في femio، يحتفظ femio هنا بإيصال: ما اخترتِه، والعبارات التي أشّرتِ عليها، ومتى، وإصدار النص الذي قرأتِه ولغته. تبقى الإيصالات على هذا الهاتف وتنتقل داخل نسختكِ الاحتياطية المشفّرة. كل إيصال مختوم برمز يتغيّر إذا عُدِّل الإيصال.';
 
   @override
-  String get aiRecordIntact => 'السجل سليم: كل إيصال يطابق ختمه.';
+  String get aiRecordIntact =>
+      'الأختام سليمة: كل إيصال يطابق الختم الذي كُتب معه.';
 
   @override
   String get aiRecordBroken =>
-      'تم تغيير هذا السجل خارج femio: إيصال لا يطابق ختمه.';
+      'إيصال لا يطابق ختمه: هذه النسخة تلفت أو عُدّلت بعد حفظها.';
 
   @override
   String get aiRecordEmpty => 'لم يُسجَّل أي اختيار بعد.';
@@ -2232,7 +2237,7 @@ class L10nAr extends L10n {
   @override
   String cloudCheckFailed(String reason) {
     String _temp0 = intl.Intl.selectLogic(reason, {
-      'app_check': 'لم تقبل Google هذه النسخة من femio (App Check). ثبّتي femio من Google Play أو حاولي لاحقًا.',
+      'app_check': 'لم تقبل Google هذه النسخة من femio (App Check)، لذا لا يمكن تشغيل Cloud boost عليها بعد. حاولي لاحقًا.',
       'service_disabled':
           'خدمة الذكاء الاصطناعي السحابية متوقفة لـ femio. حاولي لاحقًا.',
       'quota': 'بلغ Cloud boost حدّه الآن. حاولي لاحقًا.',
@@ -4522,6 +4527,9 @@ class L10nAr extends L10n {
 
   @override
   String get stageChange => 'تغيير';
+
+  @override
+  String get stageEditAnswers => 'تغيير إجاباتي';
 
   @override
   String get stageAfterBirth => 'بعد الولادة';

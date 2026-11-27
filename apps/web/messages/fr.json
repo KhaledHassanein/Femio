@@ -1798,7 +1798,7 @@
           "label": "Cloud boost",
           "title": "Cloud boost reste désactivé sans votre accord",
           "body": "Pour les téléphones sans IA intégrée. Vous acceptez chaque usage séparément, et vous voyez exactement ce qui serait envoyé avant tout envoi.",
-          "alt": "L'écran Cloud boost avec deux cases de consentement séparées et les quatre informations générales qui peuvent être envoyées."
+          "alt": "L'écran IA et Cloud boost : les déclarations qu'elle coche et une case de consentement distincte pour chaque usage, avant de confirmer."
         },
         "visit": {
           "label": "Résumé de consultation",

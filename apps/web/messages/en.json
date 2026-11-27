@@ -1798,7 +1798,7 @@
           "label": "Cloud boost",
           "title": "Cloud boost stays off unless you agree",
           "body": "For phones without on-phone AI. You agree to each use separately, and you see exactly what would be sent before anything is.",
-          "alt": "The Cloud boost screen with two separate consent boxes and the four broad facts that may be sent."
+          "alt": "The AI and Cloud boost screen: the statements she ticks and a separate consent box for each use, before she confirms."
         },
         "visit": {
           "label": "Visit summary",
