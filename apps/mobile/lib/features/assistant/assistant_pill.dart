@@ -100,7 +100,6 @@ class AssistantIntroSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l = L10n.of(context);
-    final p = context.palette;
     final t = Theme.of(context).textTheme;
     return SafeArea(
       child: SingleChildScrollView(
@@ -108,11 +107,7 @@ class AssistantIntroSheet extends StatelessWidget {
         child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
           Text(l.assistIntroTitle, style: t.titleLarge),
           const SizedBox(height: space3),
-          _Point(icon: Icons.phone_android_rounded, text: l.assistIntroPhone),
-          _Point(icon: Icons.health_and_safety_outlined, text: l.assistIntroRules),
-          _Point(icon: Icons.cloud_outlined, title: l.assistIntroCloudTitle, text: l.assistIntroCloudBody),
-          const SizedBox(height: space2),
-          Text(l.assistIntroSettings, style: t.bodySmall?.copyWith(color: p.textMuted)),
+          const AssistantIntroPoints(),
           const SizedBox(height: space4),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
@@ -130,6 +125,26 @@ class AssistantIntroSheet extends StatelessWidget {
         ]),
       ),
     );
+  }
+}
+
+/// What the assistant does, its rules, Cloud boost and where to change it. Shared by the
+/// first-use sheet and onboarding's last step (R14.6a), so both say exactly the same.
+class AssistantIntroPoints extends StatelessWidget {
+  const AssistantIntroPoints({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final l = L10n.of(context);
+    final p = context.palette;
+    final t = Theme.of(context).textTheme;
+    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+      _Point(icon: Icons.phone_android_rounded, text: l.assistIntroPhone),
+      _Point(icon: Icons.health_and_safety_outlined, text: l.assistIntroRules),
+      _Point(icon: Icons.cloud_outlined, title: l.assistIntroCloudTitle, text: l.assistIntroCloudBody),
+      const SizedBox(height: space2),
+      Text(l.assistIntroSettings, style: t.bodySmall?.copyWith(color: p.textMuted)),
+    ]);
   }
 }
 

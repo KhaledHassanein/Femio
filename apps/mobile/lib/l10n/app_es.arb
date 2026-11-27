@@ -1149,5 +1149,8 @@
   "sayItCheckedNano": "Gemini Nano, en este teléfono, también leyó tus palabras y no encontró nada más que añadir.",
   "visitOrderedNano": "Ordenadas por Gemini Nano en este teléfono.",
   "settingsStageTitle": "En qué te ayuda femio",
-  "settingsStageSub": "Cambia tu etapa, tu fecha probable de parto o tus respuestas sobre el ciclo. Todo lo que registraste se conserva."
+  "settingsStageSub": "Cambia tu etapa, tu fecha probable de parto o tus respuestas sobre el ciclo. Todo lo que registraste se conserva.",
+  "saveFailedTitle": "No se guardó en este teléfono",
+  "saveFailedBody": "No se pudo guardar tu último cambio. Tus registros anteriores están a salvo. Libera espacio en el teléfono y vuelve a intentarlo.",
+  "saveFailedRetry": "Reintentar"
 }

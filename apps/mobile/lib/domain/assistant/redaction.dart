@@ -8,12 +8,13 @@
 // Two rules, both on the phone:
 // 1. A question in the first person about her body or her plans ("my period is late",
 //    "عندي مغص", "je suis enceinte") stays on the device. Better a guide link than a leak.
-// 2. Anything left is stripped of numbers, dates, contacts and links before it may leave.
+// 2. Anything left is stripped of numbers (so written dates and phone numbers too), e-mail addresses and links
+//    before it may leave.
 
 import 'text_normal.dart';
 
 /// Text that has passed [toCloudSafe]: no first-person health statement, no digits, no
-/// contacts or links, at most [maxCloudQuestionChars] characters.
+/// e-mail addresses or links, at most [maxCloudQuestionChars] characters.
 class CloudSafeText {
   const CloudSafeText._(this.value);
 

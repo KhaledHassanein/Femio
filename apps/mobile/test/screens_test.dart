@@ -105,7 +105,12 @@ void main() {
         await tester.tap(find.byType(FilledButton));
         await _shoot(tester, '${lang}_${mode}_07_trying');
         await tester.tap(find.byType(OptionTile).at(2)); // 6 to 12 months
+        // R14.6a: the assistant introduction closes onboarding; nothing is saved before it.
+        await _shoot(tester, '${lang}_${mode}_07b_assistant_intro');
+        expect(c.profile, isNull);
+        await tester.tap(find.byType(FilledButton));
         await _shoot(tester, '${lang}_${mode}_08_today_ttc');
+        expect(c.profile?.settings.assistantIntroSeen, isTrue);
         expect(c.profile?.goal, Goal.ttc);
         expect(c.profile?.periodStarts, ['2026-10-01']);
       });

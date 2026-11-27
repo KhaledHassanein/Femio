@@ -12,6 +12,7 @@ import '../../data/profile.dart';
 import '../../domain/age_gate.dart';
 import '../../domain/dates.dart';
 import '../../domain/pregnancy.dart';
+import 'steps/assistant_intro_step.dart';
 import 'steps/birth_year_step.dart';
 import 'steps/cycle_length_step.dart';
 import 'steps/due_date_step.dart';
@@ -40,6 +41,7 @@ enum _Step {
   dueMethod,
   dueDate,
   menoLast,
+  assistantIntro,
 }
 
 /// Onboarding, rebuilt to the competitor standard (04_ANDROID_APP_SPEC §3, owner
@@ -127,6 +129,8 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
 
   double get _progress {
     // The 18th-birthday question is part of the birth-year answer, not a step of its own.
+    // The assistant introduction closes every path (R14.6a): a full bar.
+    if (_step == _Step.assistantIntro) return 1;
     final i = _path.indexOf(_step == _Step.eighteenCheck ? _Step.birthYear : _step);
     return i < 0 ? 0.1 : (i + 1) / (_path.length + 1);
   }
@@ -169,7 +173,6 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
 
   Future<void> _finish() async {
     final goal = _goal!;
-    final locale = Localizations.localeOf(context).languageCode;
     final born = _dueMethod == DueMethod.born && _dueInput != null;
     final old = widget.controller.profile;
     if (widget.editing && old != null) {
@@ -191,6 +194,16 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
       if (mounted) Navigator.of(context).pop();
       return;
     }
+    // First onboarding: meet the assistant, then save (R14.6a).
+    _go(_Step.assistantIntro);
+  }
+
+  /// Saves her first record. The assistant introduction was just shown, so the first-use
+  /// sheet does not appear again.
+  Future<void> _saveNew() async {
+    final goal = _goal!;
+    final locale = Localizations.localeOf(context).languageCode;
+    final born = _dueMethod == DueMethod.born && _dueInput != null;
     await widget.controller.save(Profile(
       goal: goal,
       locale: locale,
@@ -207,7 +220,7 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
       edd: goal == Goal.pregnant && !born ? _computedEdd : null,
       birthDate: born ? toISO(_dueInput!) : null,
       lastPeriodOverYear: goal == Goal.menopause && _menoOverYear,
-      settings: AppSettings.defaultsFor(locale),
+      settings: AppSettings.defaultsFor(locale).copyWith(assistantIntroSeen: true),
     ));
   }
 
@@ -382,6 +395,9 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
             _finish();
           },
         );
+
+      case _Step.assistantIntro:
+        return AssistantIntroStep(progress: _progress, onBack: _back, onContinue: _saveNew);
     }
   }
 }

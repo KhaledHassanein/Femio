@@ -4152,4 +4152,14 @@ class L10nEs extends L10n {
   @override
   String get settingsStageSub =>
       'Cambia tu etapa, tu fecha probable de parto o tus respuestas sobre el ciclo. Todo lo que registraste se conserva.';
+
+  @override
+  String get saveFailedTitle => 'No se guardó en este teléfono';
+
+  @override
+  String get saveFailedBody =>
+      'No se pudo guardar tu último cambio. Tus registros anteriores están a salvo. Libera espacio en el teléfono y vuelve a intentarlo.';
+
+  @override
+  String get saveFailedRetry => 'Reintentar';
 }

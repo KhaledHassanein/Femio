@@ -4128,4 +4128,14 @@ class L10nEn extends L10n {
   @override
   String get settingsStageSub =>
       'Change your stage, your due date or your cycle answers. Everything you logged stays.';
+
+  @override
+  String get saveFailedTitle => 'Not saved on this phone';
+
+  @override
+  String get saveFailedBody =>
+      'Your last change could not be saved. Your earlier records are safe. Free some space on the phone, then try again.';
+
+  @override
+  String get saveFailedRetry => 'Try again';
 }

@@ -4173,4 +4173,14 @@ class L10nFr extends L10n {
   @override
   String get settingsStageSub =>
       'Changez d’étape, de date prévue d’accouchement ou vos réponses sur le cycle. Tout ce que vous avez noté est conservé.';
+
+  @override
+  String get saveFailedTitle => 'Non enregistré sur ce téléphone';
+
+  @override
+  String get saveFailedBody =>
+      'Votre dernière modification n\'a pas pu être enregistrée. Vos données précédentes sont intactes. Libérez de l\'espace sur le téléphone, puis réessayez.';
+
+  @override
+  String get saveFailedRetry => 'Réessayer';
 }

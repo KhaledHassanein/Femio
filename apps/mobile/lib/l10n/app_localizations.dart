@@ -6670,6 +6670,24 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Change your stage, your due date or your cycle answers. Everything you logged stays.'**
   String get settingsStageSub;
+
+  /// No description provided for @saveFailedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Not saved on this phone'**
+  String get saveFailedTitle;
+
+  /// No description provided for @saveFailedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Your last change could not be saved. Your earlier records are safe. Free some space on the phone, then try again.'**
+  String get saveFailedBody;
+
+  /// No description provided for @saveFailedRetry.
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get saveFailedRetry;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

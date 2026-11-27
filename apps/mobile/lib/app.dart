@@ -6,9 +6,9 @@
 // languages and localisation delegates.
 
 import 'dart:async';
-import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'data/ai_ledger_store.dart';
@@ -122,6 +122,11 @@ class FemioController extends ChangeNotifier {
   /// True when a PIN is set.
   bool lockEnabled = false;
 
+  /// True when the last save could not be written to the phone. The record in memory is
+  /// kept and the screen says so; the file on the phone still holds the last good save,
+  /// because each write goes to a temporary file first.
+  bool saveFailed = false;
+
   /// Convenience for the old call sites: true once [load] has finished.
   bool get loaded => state != RecordState.loading;
 
@@ -181,13 +186,25 @@ class FemioController extends ChangeNotifier {
   }
 
   /// Replaces her record with [p], saves it to the [store] and tells listeners.
+  /// A write that fails (a full phone, a storage error) sets [saveFailed] instead of
+  /// throwing, so no screen loses what she typed; [retrySave] tries again.
   Future<void> save(Profile p) async {
     profile = p;
     state = RecordState.ready;
-    await store.save(p);
+    try {
+      await store.save(p);
+      saveFailed = false;
+    } catch (_) {
+      saveFailed = true;
+    }
     await _syncReminders();
     await _syncHomeWidget();
     notifyListeners();
+  }
+
+  /// Saves the record in memory again after a failed write.
+  Future<void> retrySave() async {
+    if (profile case final p?) await save(p);
   }
 
   /// Writes one day's log (flow and terms) and saves. [date] is an ISO day. Requires
@@ -506,6 +523,9 @@ class FemioApp extends StatefulWidget {
 }
 
 class _FemioAppState extends State<FemioApp> with WidgetsBindingObserver {
+  /// The lock's own navigator, so Help now opens above the lock without unlocking.
+  final _lockNavigator = GlobalKey<NavigatorState>();
+
   @override
   void initState() {
     super.initState();
@@ -520,6 +540,21 @@ class _FemioAppState extends State<FemioApp> with WidgetsBindingObserver {
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) => widget.controller.onLifecycle(state);
+
+  /// While locked, the system back belongs to the lock: it closes Help now if open, else
+  /// sends the app to the background. It never pops the routes hidden under the lock.
+  /// (This observer is registered before MaterialApp's, so it is asked first.)
+  @override
+  Future<bool> didPopRoute() async {
+    if (!widget.controller.locked) return false;
+    final lock = _lockNavigator.currentState;
+    if (lock != null && lock.canPop()) {
+      lock.pop();
+    } else {
+      await SystemNavigator.pop();
+    }
+    return true;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -553,8 +588,16 @@ class _FemioAppState extends State<FemioApp> with WidgetsBindingObserver {
                 // excluded from focus and the accessibility tree while locked.
                 ExcludeFocus(excluding: controller.locked, child: ExcludeSemantics(excluding: controller.locked, child: child!)),
                 if (controller.locked)
-                  // Its own Overlay: the text field needs one and the Navigator's is beneath us.
-                  Overlay(initialEntries: [OverlayEntry(builder: (_) => LockScreen(controller: controller))]),
+                  // Its own Navigator (and so its own Overlay, which the PIN field needs): the app's
+                  // Navigator is beneath us. Help now opens on it, above the lock, without the PIN.
+                  // The system back is handled in [didPopRoute]. The app's Navigator owns
+                  // MaterialApp's hero controller; a second one may not share it.
+                  HeroControllerScope.none(
+                    child: Navigator(
+                      key: _lockNavigator,
+                      onGenerateRoute: (_) => MaterialPageRoute<void>(builder: (_) => LockScreen(controller: controller)),
+                    ),
+                  ),
               ],
             ),
           ),

@@ -17,6 +17,7 @@ import '../learn/learn_screen.dart';
 import '../log/log_screen.dart';
 import '../today/today_screen.dart';
 import 'add_sheet.dart';
+import 'save_failed_card.dart';
 import 'update_card.dart';
 
 /// The app once she is set up: Today, Calendar, Log and Learn (spec §4), with the "+"
@@ -74,18 +75,24 @@ class _HomeShellState extends State<HomeShell> {
   Widget build(BuildContext context) {
     final l = L10n.of(context);
     final today = widget.today ?? todayISO();
+    final saveFailed = widget.controller.saveFailed;
+    final topCard = _update == UpdatePrompt.banner || saveFailed;
     return Scaffold(
       body: Column(children: [
-        if (_update == UpdatePrompt.banner)
+        if (topCard)
           SafeArea(
             bottom: false,
-            child: UpdateCard(onUpdate: _startUpdate, onDismiss: () => setState(() => _update = UpdatePrompt.none)),
+            child: Column(children: [
+              if (saveFailed) SaveFailedCard(onRetry: widget.controller.retrySave),
+              if (_update == UpdatePrompt.banner)
+                UpdateCard(onUpdate: _startUpdate, onDismiss: () => setState(() => _update = UpdatePrompt.none)),
+            ]),
           ),
         // The card already sits below the status bar, so the tabs must not pad for it again.
         Expanded(
           child: MediaQuery.removePadding(
             context: context,
-            removeTop: _update == UpdatePrompt.banner,
+            removeTop: topCard,
             child: _tabs(today),
           ),
         ),
@@ -150,11 +157,21 @@ class _AddButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = context.palette;
-    return Container(
-      width: addButtonSize,
-      height: addButtonSize,
-      decoration: BoxDecoration(color: p.primarySolid, shape: BoxShape.circle),
-      child: Icon(Icons.add_rounded, color: p.onPrimarySolid),
+    // UX-20: the bar lays out an icon-sized slot, so the circle overflows it instead of
+    // growing it; the "Add" label then sits on the same line as the other labels.
+    final slot = IconTheme.of(context).size ?? 24;
+    return SizedBox.square(
+      dimension: slot,
+      child: OverflowBox(
+        maxWidth: addButtonSize,
+        maxHeight: addButtonSize,
+        child: Container(
+          width: addButtonSize,
+          height: addButtonSize,
+          decoration: BoxDecoration(color: p.primarySolid, shape: BoxShape.circle),
+          child: Icon(Icons.add_rounded, color: p.onPrimarySolid),
+        ),
+      ),
     );
   }
 }

@@ -4191,4 +4191,14 @@ class L10nAr extends L10n {
   @override
   String get settingsStageSub =>
       'غيّري مرحلتكِ أو موعد الولادة أو إجاباتكِ عن الدورة. يبقى كل ما سجّلتِه.';
+
+  @override
+  String get saveFailedTitle => 'لم يُحفظ على هذا الهاتف';
+
+  @override
+  String get saveFailedBody =>
+      'تعذّر حفظ آخر تغيير. سجلاتكِ السابقة آمنة. وفّري بعض المساحة على الهاتف، ثم حاولي مرة أخرى.';
+
+  @override
+  String get saveFailedRetry => 'حاولي مرة أخرى';
 }

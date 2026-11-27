@@ -2668,5 +2668,8 @@
   "sayItCheckedNano": "Gemini Nano on this phone read your words too and found nothing more to add.",
   "visitOrderedNano": "Put in order by Gemini Nano on this phone.",
   "settingsStageTitle": "What femio helps with",
-  "settingsStageSub": "Change your stage, your due date or your cycle answers. Everything you logged stays."
+  "settingsStageSub": "Change your stage, your due date or your cycle answers. Everything you logged stays.",
+  "saveFailedTitle": "Not saved on this phone",
+  "saveFailedBody": "Your last change could not be saved. Your earlier records are safe. Free some space on the phone, then try again.",
+  "saveFailedRetry": "Try again"
 }
