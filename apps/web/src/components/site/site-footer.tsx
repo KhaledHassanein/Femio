@@ -52,7 +52,7 @@ export async function SiteFooter({ locale }: { locale: string }) {
   );
 
   return (
-    <footer className="mt-auto bg-[var(--aurora-ground)] text-white">
+    <footer className="print:hidden mt-auto bg-[var(--aurora-ground)] text-white">
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-10 px-6 pb-10 pt-12">
         <div className="flex flex-col gap-2">
           {/* The wordmark is always English "femio" (product rule 6). */}

@@ -31,7 +31,7 @@ export async function SiteHeader({ locale }: { locale: string }) {
   const crisis = getCrisisContent(locale);
 
   return (
-    <header className="sticky top-0 z-sticky border-b border-border/70 bg-bg/85 backdrop-blur-md supports-[backdrop-filter]:bg-bg/70">
+    <header className="print:hidden sticky top-0 z-sticky border-b border-border/70 bg-bg/85 backdrop-blur-md supports-[backdrop-filter]:bg-bg/70">
       <div className="mx-auto flex w-full max-w-5xl items-center gap-1 px-4 pt-3 sm:gap-2 sm:px-6">
         <Link
           href="/"

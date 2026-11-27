@@ -3,6 +3,7 @@ import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/lib/seo/config";
 import { listContent, listPeople, translatedSlugs, LIST_FIELDS } from "@/lib/cms/client";
 import { isUnpublishedSection } from "@/lib/content/unpublished-sections";
+import { PCOS_CHECKLIST_PATH } from "@/lib/checklists/pcos";
 
 // Static routes + published CMS content (P1.11.1). Deliberate exclusions:
 //  - /help-now (crisis-safety routing) is `noindex` and must never surface in search;
@@ -18,6 +19,7 @@ const STATIC_PATHS = [
   "",
   "/learn",
   "/conditions",
+  PCOS_CHECKLIST_PATH,
   "/faq",
   "/glossary",
   "/about",
