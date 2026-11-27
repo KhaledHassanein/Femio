@@ -1738,7 +1738,7 @@ class L10nEs extends L10n {
 
   @override
   String reportBody(String email) {
-    return 'Cuéntale a femio qué estaba mal. El informe contiene solo esta respuesta y dónde se generó, nunca tu pregunta ni tus registros. El menú para compartir de tu teléfono lo envía a $email.';
+    return 'Dile a femio qué estaba mal. El informe contiene esta respuesta y dónde se generó. femio no añade nada más, ni tu pregunta ni tus registros, aunque la respuesta puede repetir palabras que usaste. El menú para compartir del teléfono lo envía a $email.';
   }
 
   @override
@@ -3695,7 +3695,7 @@ class L10nEs extends L10n {
 
   @override
   String get leaveShareBody =>
-      'Cuando compartes un documento o tus notas de la consulta, solo van a la aplicación que eliges en el menú para compartir. Si copias tus notas de la consulta, las guarda el portapapeles del teléfono. Una hoja de cálculo (CSV) que exportas va donde elijas guardarla, que puede ser una nube, y no está cifrada.';
+      'Cuando compartes un documento o tus notas de la consulta, solo van a la aplicación que eliges en el menú para compartir. Si copias tus notas de la consulta, las guarda el portapapeles del teléfono. Una hoja de cálculo (CSV) que exportas va donde elijas guardarla, que puede ser una nube, y no está cifrada. Un informe sobre una respuesta de la IA contiene esa respuesta y va a la aplicación que eliges.';
 
   @override
   String recDocSizeKb(String size) {

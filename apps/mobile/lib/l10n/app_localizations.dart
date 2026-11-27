@@ -2966,7 +2966,7 @@ abstract class L10n {
   /// No description provided for @reportBody.
   ///
   /// In en, this message translates to:
-  /// **'Tell femio what was wrong. The report holds only this answer and where it was made, never your question or your records. Your phone\'s share sheet sends it to {email}.'**
+  /// **'Tell femio what was wrong. The report holds this answer and where it was made. femio adds nothing else, not your question or your records, though the answer may repeat words you used. Your phone\'s share sheet sends it to {email}.'**
   String reportBody(String email);
 
   /// No description provided for @reportWrong.
@@ -5960,7 +5960,7 @@ abstract class L10n {
   /// What can leave this phone: sharing a document or the visit pack.
   ///
   /// In en, this message translates to:
-  /// **'When you share a document or your visit notes, they go only to the app you pick in the share sheet. If you copy your visit notes, your phone\'s clipboard holds them. A spreadsheet (CSV) you export goes where you choose to save it, which can be a cloud drive, and it is not encrypted.'**
+  /// **'When you share a document or your visit notes, they go only to the app you pick in the share sheet. If you copy your visit notes, your phone\'s clipboard holds them. A spreadsheet (CSV) you export goes where you choose to save it, which can be a cloud drive, and it is not encrypted. A report about an AI answer holds that answer and goes to the app you pick.'**
   String get leaveShareBody;
 
   /// A small document's size; {size} is a whole number of kilobytes.

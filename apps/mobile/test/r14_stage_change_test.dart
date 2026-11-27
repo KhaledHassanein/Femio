@@ -171,6 +171,53 @@ void main() {
     expect(p.logs['2026-11-21']?.note, 'kept');
   });
 
+  testWidgets('a second pregnancy after a recorded birth is a pregnancy, not after-birth (CLIN-N2-1)', (tester) async {
+    // Her baby was born in March, her period came back, and she is trying again.
+    final before = _profile('en').withAnswers(
+      goal: Goal.ttc,
+      periodLength: 5,
+      cycleLength: 28,
+      irregular: false,
+      tryingFor: TryingFor.under6,
+      edd: '2026-03-10',
+      birthDate: '2026-03-01',
+      lastPeriodOverYear: false,
+    );
+    final c = await _pump(tester, before);
+    await _openEditor(tester, l);
+    await _tapText(tester, l.goalPregnant);
+    await _tapText(tester, l.dueMethodLmp);
+    await _tapText(tester, '1'); // 1 November 2026
+    await _tapText(tester, l.continueLabel);
+    final p = c.profile!;
+    expect(p.goal, Goal.pregnant);
+    expect(p.birthDate, isNull, reason: 'the old birth would show the after-birth view');
+    expect(p.isPostpartum, isFalse);
+    expect(fromISO(p.edd!).isAfter(fromISO(_today)), isTrue);
+    expect(p.periodStarts, ['2026-10-23', '2026-11-20']);
+  });
+
+  testWidgets('trying again after a birth keeps the birth, so old bleeding stays out (MR-60)', (tester) async {
+    final before = _profile('en').withAnswers(
+      goal: Goal.period,
+      periodLength: 5,
+      cycleLength: 28,
+      irregular: false,
+      tryingFor: null,
+      edd: '2026-03-10',
+      birthDate: '2026-03-01',
+      lastPeriodOverYear: false,
+    );
+    final c = await _pump(tester, before);
+    await _openEditor(tester, l);
+    await _tapText(tester, l.goalTtc);
+    await _tapText(tester, l.continueLabel);
+    await _tapText(tester, l.continueLabel);
+    await _tapText(tester, l.continueLabel);
+    await _tapText(tester, l.tryingUnder6);
+    expect(c.profile!.birthDate, '2026-03-01');
+  });
+
   for (final lang in ['en', 'ar']) {
     for (final b in Brightness.values) {
       testWidgets('proof shots ($lang ${b.name})', (tester) async {

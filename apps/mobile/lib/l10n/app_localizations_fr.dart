@@ -1748,7 +1748,7 @@ class L10nFr extends L10n {
 
   @override
   String reportBody(String email) {
-    return 'Dites à femio ce qui n\'allait pas. Le signalement contient uniquement cette réponse et son origine, jamais votre question ni vos données. Le menu de partage de votre téléphone l\'envoie à $email.';
+    return 'Dites à femio ce qui n\'allait pas. Le signalement contient cette réponse et l\'endroit où elle a été produite. femio n\'ajoute rien d\'autre, ni votre question ni vos données, mais la réponse peut reprendre des mots que vous avez utilisés. Le menu de partage du téléphone l\'envoie à $email.';
   }
 
   @override
@@ -3714,7 +3714,7 @@ class L10nFr extends L10n {
 
   @override
   String get leaveShareBody =>
-      'Quand vous partagez un document ou vos notes de rendez-vous, ils vont uniquement à l\'application que vous choisissez dans le menu de partage. Si vous copiez vos notes de rendez-vous, le presse-papiers du téléphone les garde. Un tableur (CSV) que vous exportez va là où vous choisissez de l\'enregistrer, ce qui peut être un stockage en ligne, et il n\'est pas chiffré.';
+      'Quand vous partagez un document ou vos notes de rendez-vous, ils vont uniquement à l\'application que vous choisissez dans le menu de partage. Si vous copiez vos notes de rendez-vous, le presse-papiers du téléphone les garde. Un tableur (CSV) que vous exportez va là où vous choisissez de l\'enregistrer, ce qui peut être un stockage en ligne, et il n\'est pas chiffré. Un signalement sur une réponse de l\'IA contient cette réponse et va à l\'application que vous choisissez.';
 
   @override
   String recDocSizeKb(String size) {

@@ -184,7 +184,10 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
         irregular: cycle ? _irregular : old.irregular,
         tryingFor: goal == Goal.ttc ? _trying : old.tryingFor,
         edd: goal == Goal.pregnant && !born ? (_computedEdd ?? old.edd) : old.edd,
-        birthDate: born ? toISO(_dueInput!) : old.birthDate,
+        // A due date (not "born") means a pregnancy now: an earlier birth must not keep her in
+        // the after-birth view, which hides the week guide and pregnancy warning signs
+        // (CLIN-N2-1). The new birth, when recorded, restarts her cycles again (MR-60).
+        birthDate: born ? toISO(_dueInput!) : (goal == Goal.pregnant ? null : old.birthDate),
         lastPeriodOverYear: goal == Goal.menopause ? _menoOverYear : old.lastPeriodOverYear,
         addStarts: [
           if (cycle && _lastPeriod != null) toISO(_lastPeriod!),

@@ -726,7 +726,7 @@
   "askClinicianLine": "This is general information, not advice for you. For your own situation, talk to your clinician.",
   "reportAnswer": "Report this answer",
   "reportTitle": "Report this answer",
-  "reportBody": "Tell femio what was wrong. The report holds only this answer and where it was made, never your question or your records. Your phone's share sheet sends it to {email}.",
+  "reportBody": "Tell femio what was wrong. The report holds this answer and where it was made. femio adds nothing else, not your question or your records, though the answer may repeat words you used. Your phone's share sheet sends it to {email}.",
   "@reportBody": {
     "placeholders": {
       "email": {
@@ -2097,7 +2097,7 @@
   "@leaveShareHeading": {
     "description": "What can leave this phone: heading for things she shares herself."
   },
-  "leaveShareBody": "When you share a document or your visit notes, they go only to the app you pick in the share sheet. If you copy your visit notes, your phone's clipboard holds them. A spreadsheet (CSV) you export goes where you choose to save it, which can be a cloud drive, and it is not encrypted.",
+  "leaveShareBody": "When you share a document or your visit notes, they go only to the app you pick in the share sheet. If you copy your visit notes, your phone's clipboard holds them. A spreadsheet (CSV) you export goes where you choose to save it, which can be a cloud drive, and it is not encrypted. A report about an AI answer holds that answer and goes to the app you pick.",
   "@leaveShareBody": {
     "description": "What can leave this phone: sharing a document or the visit pack."
   },
