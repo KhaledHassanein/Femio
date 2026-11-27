@@ -724,6 +724,45 @@
   "askSearching": "Reading trusted sources…",
   "askSourcesTitle": "Sources",
   "askClinicianLine": "This is general information, not advice for you. For your own situation, talk to your clinician.",
+  "reportAnswer": "Report this answer",
+  "reportTitle": "Report this answer",
+  "reportBody": "Tell femio what was wrong. The report holds only this answer and where it was made, never your question or your records. Your phone's share sheet sends it to {email}.",
+  "@reportBody": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "reportWrong": "Wrong or out of date",
+  "reportUnsafe": "Unsafe or harmful",
+  "reportOffensive": "Offensive",
+  "reportOther": "Something else",
+  "reportSend": "Send report",
+  "reportSubject": "femio answer report",
+  "reportThanks": "Thank you. Your report helps make femio's answers safer.",
+  "reportCopied": "Report copied. Paste it into an e-mail to {email}.",
+  "@reportCopied": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "reportText": "Reason: {reason}\nMade by: {origin}\n\nAnswer:\n{answer}",
+  "@reportText": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      },
+      "origin": {
+        "type": "String"
+      },
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
   "askRelatedGuides": "femio guides on this",
   "askSearchAgain": "Ask another question",
   "askAboutYouStays": "Your question is about you, so it stays on this phone. Here are the sources word for word.",

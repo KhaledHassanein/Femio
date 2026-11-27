@@ -3,6 +3,7 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Changed
+- **Report an AI answer.** Every answer femio's AI writes now has "Report this answer". Pick a reason and your phone's share sheet sends only that answer to femio's support address, never your question or your records.
 - **Help now works on the lock screen.** You can open the crisis numbers without your PIN. If a change cannot be saved (for example, a full phone), femio now tells you, keeps what you typed and lets you try again. The last step of setup introduces femio's assistant.
 - **Fewer false readings.** A long period logged day by day no longer counts as a new cycle on day 11. The fertile window now checks the cycle length you actually have, not the one you first entered. Ovulation shows as "around" a date. The weight-gain tool names your BMI group by its numbers, not with words like "obese".
 - **Safer by default.** A note you type in Log now gets the same safety check as "Tell femio anything". After birth, the mood check-in says to get help now for thoughts of harming yourself or your baby. The pregnancy warning signs now list all of CDC Hear Her's signs. If your period has not come for 90 days, Today suggests a pregnancy test first, then a clinician. The pregnancy-test card gives the 21-day rule when your next period cannot be predicted. Perimenopause no longer says your last period was "less than a month ago" when you answered "Not sure".

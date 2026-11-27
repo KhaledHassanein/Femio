@@ -1758,6 +1758,49 @@ class L10nAr extends L10n {
       'هذه معلومات عامة وليست نصيحة خاصة بكِ. لحالتكِ أنتِ، تحدّثي مع مقدّم الرعاية الصحية لكِ.';
 
   @override
+  String get reportAnswer => 'الإبلاغ عن هذه الإجابة';
+
+  @override
+  String get reportTitle => 'الإبلاغ عن هذه الإجابة';
+
+  @override
+  String reportBody(String email) {
+    return 'أخبري femio بما كان خاطئًا. يحتوي البلاغ على هذه الإجابة ومكان إنشائها فقط، ولا يتضمن سؤالكِ أو سجلاتكِ أبدًا. ترسله قائمة المشاركة في هاتفكِ إلى $email.';
+  }
+
+  @override
+  String get reportWrong => 'خاطئة أو قديمة';
+
+  @override
+  String get reportUnsafe => 'غير آمنة أو مؤذية';
+
+  @override
+  String get reportOffensive => 'مسيئة';
+
+  @override
+  String get reportOther => 'سبب آخر';
+
+  @override
+  String get reportSend => 'إرسال البلاغ';
+
+  @override
+  String get reportSubject => 'بلاغ عن إجابة femio';
+
+  @override
+  String get reportThanks =>
+      'شكرًا لكِ. بلاغكِ يساعد على جعل إجابات femio أكثر أمانًا.';
+
+  @override
+  String reportCopied(String email) {
+    return 'نُسخ البلاغ. الصقيه في رسالة بريد إلكتروني إلى $email.';
+  }
+
+  @override
+  String reportText(String reason, String origin, String answer) {
+    return 'السبب: $reason\nالمصدر: $origin\n\nالإجابة:\n$answer';
+  }
+
+  @override
   String get askRelatedGuides => 'أدلة femio عن هذا';
 
   @override

@@ -17,6 +17,7 @@ import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
 import 'assistant_scope.dart';
+import 'report_answer_sheet.dart';
 
 /// Where the answer's words came from.
 enum AnswerOrigin { onPhone, cloud, verbatim }
@@ -85,6 +86,16 @@ class AnswerCard extends StatelessWidget {
               ],
               const SizedBox(height: space3),
               Text(l.askClinicianLine, style: t.bodySmall),
+              // R14.18 (Play AI-Generated Content policy): every answer the AI wrote can be flagged.
+              if (s != null)
+                Align(
+                  alignment: AlignmentDirectional.centerEnd,
+                  child: TextButton.icon(
+                    onPressed: () => showReportAnswerSheet(context, answer: s.text, origin: label),
+                    icon: const Icon(Icons.outlined_flag_rounded, size: iconSizeInline),
+                    label: Text(l.reportAnswer),
+                  ),
+                ),
             ],
           ),
         ),

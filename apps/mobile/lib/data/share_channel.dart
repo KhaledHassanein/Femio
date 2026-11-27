@@ -11,10 +11,10 @@ const shareChannel = MethodChannel('femio/share');
 
 /// Opens the system share sheet with [text]. Returns false when the sheet could not open
 /// (no Android host, as in tests or on another platform), so the caller can fall back to
-/// copying the text instead.
-Future<bool> shareText(String text, {String? subject}) async {
+/// copying the text instead. [to] pre-fills the recipient where the chosen app is e-mail.
+Future<bool> shareText(String text, {String? subject, String? to}) async {
   try {
-    return await shareChannel.invokeMethod<bool>('text', {'text': text, 'subject': subject}) ?? false;
+    return await shareChannel.invokeMethod<bool>('text', {'text': text, 'subject': subject, 'to': to}) ?? false;
   } on MissingPluginException {
     return false;
   } on PlatformException {

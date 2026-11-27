@@ -1717,6 +1717,49 @@ class L10nEn extends L10n {
       'This is general information, not advice for you. For your own situation, talk to your clinician.';
 
   @override
+  String get reportAnswer => 'Report this answer';
+
+  @override
+  String get reportTitle => 'Report this answer';
+
+  @override
+  String reportBody(String email) {
+    return 'Tell femio what was wrong. The report holds only this answer and where it was made, never your question or your records. Your phone\'s share sheet sends it to $email.';
+  }
+
+  @override
+  String get reportWrong => 'Wrong or out of date';
+
+  @override
+  String get reportUnsafe => 'Unsafe or harmful';
+
+  @override
+  String get reportOffensive => 'Offensive';
+
+  @override
+  String get reportOther => 'Something else';
+
+  @override
+  String get reportSend => 'Send report';
+
+  @override
+  String get reportSubject => 'femio answer report';
+
+  @override
+  String get reportThanks =>
+      'Thank you. Your report helps make femio\'s answers safer.';
+
+  @override
+  String reportCopied(String email) {
+    return 'Report copied. Paste it into an e-mail to $email.';
+  }
+
+  @override
+  String reportText(String reason, String origin, String answer) {
+    return 'Reason: $reason\nMade by: $origin\n\nAnswer:\n$answer';
+  }
+
+  @override
   String get askRelatedGuides => 'femio guides on this';
 
   @override

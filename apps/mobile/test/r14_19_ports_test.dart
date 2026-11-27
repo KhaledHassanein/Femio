@@ -1,7 +1,7 @@
-// R14.18: three ports from the old release branch, rebuilt on v3. Help now opens from the
+// R14.19: three ports from the old release branch, rebuilt on v3. Help now opens from the
 // lock screen without the PIN (MR-38); a save that fails is never silent; onboarding ends
 // by introducing the assistant (R14.6a). With --update-goldens it writes proof shots
-// (390x844 at 2x, EN and AR, light and dark) to testing-results/2026-11-27-r14-18/
+// (390x844 at 2x, EN and AR, light and dark) to testing-results/2026-11-27-r14-19/
 // (synthetic fixture).
 
 import 'package:femio/app.dart';
@@ -17,7 +17,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'support/app_fonts.dart';
 
-const _out = '../../../testing-results/2026-11-27-r14-18';
+const _out = '../../../testing-results/2026-11-27-r14-19';
 const _today = '2026-11-26';
 
 /// A store whose writes fail while [failing] is true, as a full phone would.

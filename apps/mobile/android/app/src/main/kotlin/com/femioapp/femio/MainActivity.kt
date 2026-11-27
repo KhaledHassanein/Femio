@@ -49,6 +49,7 @@ class MainActivity : FlutterActivity() {
                 type = "text/plain"
                 putExtra(Intent.EXTRA_TEXT, text)
                 call.argument<String>("subject")?.let { putExtra(Intent.EXTRA_SUBJECT, it) }
+                call.argument<String>("to")?.let { putExtra(Intent.EXTRA_EMAIL, arrayOf(it)) }
             }
             startActivity(Intent.createChooser(send, null))
             result.success(true)

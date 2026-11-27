@@ -1741,6 +1741,49 @@ class L10nFr extends L10n {
       'Ceci est une information générale, pas un conseil pour vous. Pour votre situation, parlez à votre professionnel de santé.';
 
   @override
+  String get reportAnswer => 'Signaler cette réponse';
+
+  @override
+  String get reportTitle => 'Signaler cette réponse';
+
+  @override
+  String reportBody(String email) {
+    return 'Dites à femio ce qui n\'allait pas. Le signalement contient uniquement cette réponse et son origine, jamais votre question ni vos données. Le menu de partage de votre téléphone l\'envoie à $email.';
+  }
+
+  @override
+  String get reportWrong => 'Fausse ou dépassée';
+
+  @override
+  String get reportUnsafe => 'Dangereuse ou nuisible';
+
+  @override
+  String get reportOffensive => 'Choquante';
+
+  @override
+  String get reportOther => 'Autre chose';
+
+  @override
+  String get reportSend => 'Envoyer le signalement';
+
+  @override
+  String get reportSubject => 'Signalement d\'une réponse femio';
+
+  @override
+  String get reportThanks =>
+      'Merci. Votre signalement aide à rendre les réponses de femio plus sûres.';
+
+  @override
+  String reportCopied(String email) {
+    return 'Signalement copié. Collez-le dans un e-mail à $email.';
+  }
+
+  @override
+  String reportText(String reason, String origin, String answer) {
+    return 'Motif : $reason\nRédigée par : $origin\n\nRéponse :\n$answer';
+  }
+
+  @override
   String get askRelatedGuides => 'Guides femio sur ce sujet';
 
   @override

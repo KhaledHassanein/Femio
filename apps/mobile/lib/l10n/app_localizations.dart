@@ -2951,6 +2951,78 @@ abstract class L10n {
   /// **'This is general information, not advice for you. For your own situation, talk to your clinician.'**
   String get askClinicianLine;
 
+  /// No description provided for @reportAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Report this answer'**
+  String get reportAnswer;
+
+  /// No description provided for @reportTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Report this answer'**
+  String get reportTitle;
+
+  /// No description provided for @reportBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell femio what was wrong. The report holds only this answer and where it was made, never your question or your records. Your phone\'s share sheet sends it to {email}.'**
+  String reportBody(String email);
+
+  /// No description provided for @reportWrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong or out of date'**
+  String get reportWrong;
+
+  /// No description provided for @reportUnsafe.
+  ///
+  /// In en, this message translates to:
+  /// **'Unsafe or harmful'**
+  String get reportUnsafe;
+
+  /// No description provided for @reportOffensive.
+  ///
+  /// In en, this message translates to:
+  /// **'Offensive'**
+  String get reportOffensive;
+
+  /// No description provided for @reportOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Something else'**
+  String get reportOther;
+
+  /// No description provided for @reportSend.
+  ///
+  /// In en, this message translates to:
+  /// **'Send report'**
+  String get reportSend;
+
+  /// No description provided for @reportSubject.
+  ///
+  /// In en, this message translates to:
+  /// **'femio answer report'**
+  String get reportSubject;
+
+  /// No description provided for @reportThanks.
+  ///
+  /// In en, this message translates to:
+  /// **'Thank you. Your report helps make femio\'s answers safer.'**
+  String get reportThanks;
+
+  /// No description provided for @reportCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Report copied. Paste it into an e-mail to {email}.'**
+  String reportCopied(String email);
+
+  /// No description provided for @reportText.
+  ///
+  /// In en, this message translates to:
+  /// **'Reason: {reason}\nMade by: {origin}\n\nAnswer:\n{answer}'**
+  String reportText(String reason, String origin, String answer);
+
   /// No description provided for @askRelatedGuides.
   ///
   /// In en, this message translates to:
