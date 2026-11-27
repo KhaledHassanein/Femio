@@ -23,3 +23,16 @@
 -keepclassmembers class **$$serializer { *; }
 -keepclasseswithmembers class * { kotlinx.serialization.KSerializer serializer(...); }
 -dontwarn com.google.firebase.ai.**
+
+# flutter_local_notifications saves each scheduled reminder as JSON through Gson, labelling
+# style subtypes by class name. R8 renames those classes differently in every build, so after
+# an update the boot receiver could not read reminders saved by the previous build. Keep the
+# model classes (ported 2026-11-27 from the 2 Nov release review, commit 0475223; Gson's own
+# rules cover none of them).
+-keep class com.dexterous.flutterlocalnotifications.models.** { *; }
+
+# No Room or WorkManager rules: the resolved release classpath (2026-11-27,
+# `gradlew :app:dependencies --configuration releaseRuntimeClasspath`) has neither; the
+# WorkDatabase crash of 0.5.0+5 came from the ads SDK, removed on 24 Nov. androidx.startup is
+# present (emoji2, lifecycle initializers), which ship their own rules. Re-check if a
+# dependency is added: the tripwire's reviewed list (scripts/lib/android-tripwire.mjs) forces it.
