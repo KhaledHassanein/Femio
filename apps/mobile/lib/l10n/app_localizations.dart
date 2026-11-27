@@ -5423,6 +5423,84 @@ abstract class L10n {
   /// **'For my visit'**
   String get addVisit;
 
+  /// Button in the + sheet: log your day by saying it in your words (Say it).
+  ///
+  /// In en, this message translates to:
+  /// **'Log with femio'**
+  String get addLogWithFemio;
+
+  /// One-line hint under the Ask femio choice in the + sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask a question, answered from trusted sources'**
+  String get addAskSub;
+
+  /// One-line hint under the Log with femio choice in the + sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Say how you feel, in your own words'**
+  String get addLogSub;
+
+  /// Heading of the prompt under an Ask femio answer offering to save to her record.
+  ///
+  /// In en, this message translates to:
+  /// **'Save this to your record?'**
+  String get askSaveTitle;
+
+  /// Reassurance under the save prompt: nothing is written until she taps Save.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing is saved unless you tick it and tap Save.'**
+  String get askSaveIntro;
+
+  /// Checkbox: add the symptoms she named in her question to today's log.
+  ///
+  /// In en, this message translates to:
+  /// **'Add what you mentioned to today’s log'**
+  String get askSaveTerms;
+
+  /// Checkbox: keep the question and answer as a note for her next visit.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep this question and answer for my next visit'**
+  String get askSaveNote;
+
+  /// Explains where the saved note goes (her visit questions and handout).
+  ///
+  /// In en, this message translates to:
+  /// **'It goes into your visit questions, so it is in your visit handout.'**
+  String get askSaveNoteSub;
+
+  /// Button that saves what she ticked.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get askSaveAction;
+
+  /// Button that dismisses the save prompt without saving.
+  ///
+  /// In en, this message translates to:
+  /// **'Not now'**
+  String get askSaveNotNow;
+
+  /// Snackbar and confirmation after the save.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved to your record.'**
+  String get askSaveDone;
+
+  /// No description provided for @askSaveNoteLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Asked femio: “{question}” Answer: {answer}'**
+  String askSaveNoteLine(String question, String answer);
+
+  /// No description provided for @askSaveNoteLineNoAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Asked femio: “{question}” (no sourced answer yet)'**
+  String askSaveNoteLineNoAnswer(String question);
+
   /// Title of the screen that holds her own health file (visits, results, medicines, documents).
   ///
   /// In en, this message translates to:

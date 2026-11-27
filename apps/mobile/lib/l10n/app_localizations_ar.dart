@@ -3416,6 +3416,50 @@ class L10nAr extends L10n {
   String get addVisit => 'لزيارة الطبيب';
 
   @override
+  String get addLogWithFemio => 'سجّلي مع femio';
+
+  @override
+  String get addAskSub => 'اطرحي سؤالًا والجواب من مصادر موثوقة';
+
+  @override
+  String get addLogSub => 'قولي ما تشعرين به بكلماتكِ';
+
+  @override
+  String get askSaveTitle => 'هل تحفظين هذا في سجلّكِ؟';
+
+  @override
+  String get askSaveIntro => 'لا يُحفظ شيء إلا إذا اخترتِه وضغطتِ على «حفظ».';
+
+  @override
+  String get askSaveTerms => 'إضافة ما ذكرتِه إلى تسجيل اليوم';
+
+  @override
+  String get askSaveNote => 'الاحتفاظ بهذا السؤال والجواب لزيارتي القادمة';
+
+  @override
+  String get askSaveNoteSub =>
+      'يُضاف إلى أسئلة زيارتكِ، فيظهر في ملخّص الزيارة.';
+
+  @override
+  String get askSaveAction => 'حفظ';
+
+  @override
+  String get askSaveNotNow => 'ليس الآن';
+
+  @override
+  String get askSaveDone => 'تم الحفظ في سجلّكِ.';
+
+  @override
+  String askSaveNoteLine(String question, String answer) {
+    return 'سألتُ femio: «$question» الجواب: $answer';
+  }
+
+  @override
+  String askSaveNoteLineNoAnswer(String question) {
+    return 'سألتُ femio: «$question» (لا جواب موثّق حتى الآن)';
+  }
+
+  @override
   String get recTitle => 'سجلّي الصحي';
 
   @override

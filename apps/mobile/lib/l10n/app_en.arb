@@ -1711,6 +1711,69 @@
   "@addVisit": {
     "description": "Short button in the + sheet that opens the questions-for-a-visit summary."
   },
+  "addLogWithFemio": "Log with femio",
+  "@addLogWithFemio": {
+    "description": "Button in the + sheet: log your day by saying it in your words (Say it)."
+  },
+  "addAskSub": "Ask a question, answered from trusted sources",
+  "@addAskSub": {
+    "description": "One-line hint under the Ask femio choice in the + sheet."
+  },
+  "addLogSub": "Say how you feel, in your own words",
+  "@addLogSub": {
+    "description": "One-line hint under the Log with femio choice in the + sheet."
+  },
+  "askSaveTitle": "Save this to your record?",
+  "@askSaveTitle": {
+    "description": "Heading of the prompt under an Ask femio answer offering to save to her record."
+  },
+  "askSaveIntro": "Nothing is saved unless you tick it and tap Save.",
+  "@askSaveIntro": {
+    "description": "Reassurance under the save prompt: nothing is written until she taps Save."
+  },
+  "askSaveTerms": "Add what you mentioned to today’s log",
+  "@askSaveTerms": {
+    "description": "Checkbox: add the symptoms she named in her question to today's log."
+  },
+  "askSaveNote": "Keep this question and answer for my next visit",
+  "@askSaveNote": {
+    "description": "Checkbox: keep the question and answer as a note for her next visit."
+  },
+  "askSaveNoteSub": "It goes into your visit questions, so it is in your visit handout.",
+  "@askSaveNoteSub": {
+    "description": "Explains where the saved note goes (her visit questions and handout)."
+  },
+  "askSaveAction": "Save",
+  "@askSaveAction": {
+    "description": "Button that saves what she ticked."
+  },
+  "askSaveNotNow": "Not now",
+  "@askSaveNotNow": {
+    "description": "Button that dismisses the save prompt without saving."
+  },
+  "askSaveDone": "Saved to your record.",
+  "@askSaveDone": {
+    "description": "Snackbar and confirmation after the save."
+  },
+  "askSaveNoteLine": "Asked femio: “{question}” Answer: {answer}",
+  "@askSaveNoteLine": {
+    "placeholders": {
+      "question": {
+        "type": "String"
+      },
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "askSaveNoteLineNoAnswer": "Asked femio: “{question}” (no sourced answer yet)",
+  "@askSaveNoteLineNoAnswer": {
+    "placeholders": {
+      "question": {
+        "type": "String"
+      }
+    }
+  },
   "recTitle": "My health record",
   "@recTitle": {
     "description": "Title of the screen that holds her own health file (visits, results, medicines, documents)."

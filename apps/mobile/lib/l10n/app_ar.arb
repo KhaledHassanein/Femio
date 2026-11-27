@@ -942,6 +942,36 @@
   "addMoreToLog": "الأعراض والإفرازات والاختبارات والمزيد",
   "addAsk": "اسألي femio",
   "addVisit": "لزيارة الطبيب",
+  "addLogWithFemio": "سجّلي مع femio",
+  "addAskSub": "اطرحي سؤالًا والجواب من مصادر موثوقة",
+  "addLogSub": "قولي ما تشعرين به بكلماتكِ",
+  "askSaveTitle": "هل تحفظين هذا في سجلّكِ؟",
+  "askSaveIntro": "لا يُحفظ شيء إلا إذا اخترتِه وضغطتِ على «حفظ».",
+  "askSaveTerms": "إضافة ما ذكرتِه إلى تسجيل اليوم",
+  "askSaveNote": "الاحتفاظ بهذا السؤال والجواب لزيارتي القادمة",
+  "askSaveNoteSub": "يُضاف إلى أسئلة زيارتكِ، فيظهر في ملخّص الزيارة.",
+  "askSaveAction": "حفظ",
+  "askSaveNotNow": "ليس الآن",
+  "askSaveDone": "تم الحفظ في سجلّكِ.",
+  "askSaveNoteLine": "سألتُ femio: «{question}» الجواب: {answer}",
+  "@askSaveNoteLine": {
+    "placeholders": {
+      "question": {
+        "type": "String"
+      },
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "askSaveNoteLineNoAnswer": "سألتُ femio: «{question}» (لا جواب موثّق حتى الآن)",
+  "@askSaveNoteLineNoAnswer": {
+    "placeholders": {
+      "question": {
+        "type": "String"
+      }
+    }
+  },
   "recTitle": "سجلّي الصحي",
   "recIntro": "ملفكِ الصحي الخاص، محفوظ على هذا الهاتف. يظهر كل إدخال بتاريخ حدوثه وتاريخ إضافتكِ له، كما كتبتِه تمامًا.",
   "recAll": "الكل",

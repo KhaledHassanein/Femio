@@ -3369,6 +3369,51 @@ class L10nEn extends L10n {
   String get addVisit => 'For my visit';
 
   @override
+  String get addLogWithFemio => 'Log with femio';
+
+  @override
+  String get addAskSub => 'Ask a question, answered from trusted sources';
+
+  @override
+  String get addLogSub => 'Say how you feel, in your own words';
+
+  @override
+  String get askSaveTitle => 'Save this to your record?';
+
+  @override
+  String get askSaveIntro =>
+      'Nothing is saved unless you tick it and tap Save.';
+
+  @override
+  String get askSaveTerms => 'Add what you mentioned to today’s log';
+
+  @override
+  String get askSaveNote => 'Keep this question and answer for my next visit';
+
+  @override
+  String get askSaveNoteSub =>
+      'It goes into your visit questions, so it is in your visit handout.';
+
+  @override
+  String get askSaveAction => 'Save';
+
+  @override
+  String get askSaveNotNow => 'Not now';
+
+  @override
+  String get askSaveDone => 'Saved to your record.';
+
+  @override
+  String askSaveNoteLine(String question, String answer) {
+    return 'Asked femio: “$question” Answer: $answer';
+  }
+
+  @override
+  String askSaveNoteLineNoAnswer(String question) {
+    return 'Asked femio: “$question” (no sourced answer yet)';
+  }
+
+  @override
   String get recTitle => 'My health record';
 
   @override
