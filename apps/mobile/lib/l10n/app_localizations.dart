@@ -1781,6 +1781,24 @@ abstract class L10n {
   /// **'Ask for a PIN when femio opens and after a minute away.'**
   String get settingsLockNote;
 
+  /// No description provided for @settingsHideScreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide femio in screenshots and recent apps'**
+  String get settingsHideScreen;
+
+  /// No description provided for @settingsHideScreenNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Blocks screenshots and screen recording of femio and blanks its picture in recent apps. Turn it off to take a screenshot for your clinician.'**
+  String get settingsHideScreenNote;
+
+  /// No description provided for @settingsHideScreenLocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Always on while your PIN is set.'**
+  String get settingsHideScreenLocked;
+
   /// No description provided for @setPin.
   ///
   /// In en, this message translates to:
@@ -2998,6 +3016,12 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Send report'**
   String get reportSend;
+
+  /// No description provided for @reportPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'This is exactly what will be sent:'**
+  String get reportPreview;
 
   /// No description provided for @reportSubject.
   ///

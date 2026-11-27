@@ -110,6 +110,14 @@ class SettingsScreen extends StatelessWidget {
           ),
           if (controller.lockEnabled)
             ListTile(leading: const Icon(Icons.pin_outlined), title: Text(l.changePin), onTap: () => _changePin(context)),
+          // SEC-1: the PIN always protects the screen; without one it is her choice.
+          if (defaultTargetPlatform == TargetPlatform.android)
+            SwitchListTile(
+              value: controller.lockEnabled || controller.screenHidden,
+              title: Text(l.settingsHideScreen),
+              subtitle: Text(controller.lockEnabled ? l.settingsHideScreenLocked : l.settingsHideScreenNote),
+              onChanged: controller.lockEnabled ? null : controller.setScreenHidden,
+            ),
           ListTile(
             leading: const Icon(Icons.wifi_tethering_rounded),
             title: Text(l.leaveTitle),

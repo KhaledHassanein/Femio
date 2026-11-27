@@ -27,7 +27,7 @@ class MainActivity : FlutterActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         // Before the first frame: with a PIN set, not even the launch picture may be captured
         // or kept in recent apps. Dart confirms or corrects the flag once her vault is read.
-        SecureScreenChannel.apply(this, LockState.isOn(this))
+        SecureScreenChannel.apply(this, LockState.isOn(this) || LockState.isScreenHidden(this))
         super.onCreate(savedInstanceState)
     }
 

@@ -67,7 +67,7 @@ femio lo desarrolla KM Digital Labs, fundado por un médico en El Cairo. Pregunt
 | 2 | Calendario con el rango fértil | Tus días fértiles en un rango realista |
 | 3 | «Hoy» en modo irregular | ¿Ciclos irregulares o SOP? Sin contador de retraso |
 | 4 | Tarjeta de semana de embarazo | Tu embarazo, semana a semana |
-| 5 | Calendario con fechas hiyrí activadas | Tu calendario, con la fecha hiyrí junto a cada día |
+| 5 | Hoy, con Gemini Nano listo en el teléfono: la etiqueta «en este teléfono» y la barra para escribir | IA privada que funciona en tu teléfono |
 | 6 | «Aprender»: un artículo con sus fuentes | Guías escritas por un médico, con fuentes |
 | 7 | «Hoy»: la lista de herramientas del embarazo (registro de movimientos, temporizador de contracciones) | Registro de movimientos y temporizador de contracciones, sin veredictos |
 | 8 | Pregunta a femio: una duda sobre la búsqueda de embarazo, con la respuesta de su fuente fiable | Haz una pregunta y recibe una respuesta con su fuente |

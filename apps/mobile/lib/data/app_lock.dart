@@ -8,7 +8,8 @@
 //
 // Two protections ride on the lock (SEC-1, SEC-2, ADR-083):
 // - wrong PINs cost time: after [freePinTries] misses each further miss doubles a wait,
-//   kept in the vault so a restart does not reset it;
+//   kept in the vault so a restart does not reset it, and timed on the phone's boot clock
+//   too, so moving the wall clock forward does not end it (SEC-N2-1);
 // - while a PIN is set, the screen is protected (no recent-apps picture, no capture).
 // The PIN guards the screen, not the encryption: the record key is in the Keystore and
 // does not depend on the PIN (SEC-3; a PIN-wrapped key is proposed in ADR-084).
@@ -26,6 +27,7 @@ const _saltKey = 'lock-salt-v1';
 const _hashKey = 'lock-hash-v1';
 const _failuresKey = 'lock-failures-v1';
 const _waitUntilKey = 'lock-wait-until-v1';
+const _waitBootKey = 'lock-wait-boot-v1';
 
 /// PBKDF2 rounds for the PIN. A PIN is short, so the cost per guess is the only
 /// defence a hash offers. Not stored with the hash, so it cannot change without
@@ -62,14 +64,20 @@ Duration pinWaitAfter(int failures) {
 class AppLock {
   /// [screen] applies screen protection; by default the real channel when [_vault] is the
   /// phone's Keystore vault (only `main.dart` builds one) and nothing for a test vault.
-  /// [clock] reads "now" for the wait (tests move it).
-  AppLock(this._vault, {SecureScreen? screen, DateTime Function()? clock})
+  /// [clock] reads "now" for the wait (tests move it). [bootClock] reads milliseconds since
+  /// the phone started, which the user cannot set; by default the real one with the phone's
+  /// vault and none (null) in tests.
+  AppLock(this._vault, {SecureScreen? screen, DateTime Function()? clock, BootClock? bootClock})
       : _screen = screen ?? (_vault is SecureKeyVault ? const MethodChannelSecureScreen() : const NoSecureScreen()),
-        _clock = clock ?? DateTime.now;
+        _clock = clock ?? DateTime.now,
+        _boot = bootClock ?? (_vault is SecureKeyVault ? MethodChannelSecureScreen.elapsedSinceBoot : _noBootClock);
 
   final KeyVault _vault;
   final SecureScreen _screen;
   final DateTime Function() _clock;
+  final BootClock _boot;
+
+  static Future<int?> _noBootClock() async => null;
 
   /// When the current wait ends, or null when she may try now. Updated by every check and
   /// by [isEnabled]; the lock screen listens so it can say how long to wait. One value for
@@ -84,6 +92,13 @@ class AppLock {
     await retryAfter();
     return on;
   }
+
+  /// True when she chose to protect the screen without a PIN (SEC-1).
+  Future<bool> get screenHidden => _screen.isHidden();
+
+  /// Protects the screen (no screenshots, no recent-apps picture) even without a PIN, or
+  /// stops doing so. With a PIN set the screen stays protected whatever this says.
+  Future<void> hideScreen(bool on) => _screen.hide(on);
 
   /// A valid PIN is 4 to 8 digits.
   static bool isValidPin(String pin) => RegExp('^[0-9]{$minPinLength,$maxPinLength}\$').hasMatch(pin);
@@ -109,17 +124,21 @@ class AppLock {
     final salt = await _vault.read(_saltKey);
     final stored = await _vault.read(_hashKey);
     if (salt == null || stored == null) return false;
+    // The miss is counted before the check, so closing the app during the check cannot
+    // make a guess free (SEC-N2-1); a right PIN clears the count below.
+    final failures = (int.tryParse(await _vault.read(_failuresKey) ?? '') ?? 0) + 1;
+    await _vault.write(_failuresKey, '$failures');
     final hash = await envelope.deriveKey(pin, base64Decode(salt), iterations: pinIterations);
     if (_constantTimeEquals(base64Decode(stored), hash)) {
       await _resetFailures();
       return true;
     }
-    final failures = (int.tryParse(await _vault.read(_failuresKey) ?? '') ?? 0) + 1;
-    await _vault.write(_failuresKey, '$failures');
     final wait = pinWaitAfter(failures);
     if (wait > Duration.zero) {
       final until = _clock().add(wait);
       await _vault.write(_waitUntilKey, '${until.millisecondsSinceEpoch}');
+      final boot = await _boot();
+      if (boot != null) await _vault.write(_waitBootKey, '$boot:${wait.inMilliseconds}');
       waitUntil.value = until;
     }
     return false;
@@ -127,7 +146,9 @@ class AppLock {
 
   /// How long until she may try again; zero when she may try now. A stored end further
   /// away than [maxPinWait] (the phone's clock was set back) is pulled in to [maxPinWait],
-  /// so a clock change can never shut her out for longer.
+  /// so a clock change can never shut her out for longer. The wait is also timed on the
+  /// boot clock, which only runs forward: moving the wall clock forward does not end it
+  /// early (SEC-N2-1). After a reboot the boot clock starts again and the wall clock rules.
   Future<Duration> retryAfter() async {
     final raw = int.tryParse(await _vault.read(_waitUntilKey) ?? '');
     final now = _clock();
@@ -140,6 +161,8 @@ class AppLock {
       until = now.add(maxPinWait);
       await _vault.write(_waitUntilKey, '${until.millisecondsSinceEpoch}');
     }
+    final bootLeft = await _bootLeft();
+    if (bootLeft != null && bootLeft > until.difference(now)) until = now.add(bootLeft);
     final left = until.difference(now);
     if (left <= Duration.zero) {
       waitUntil.value = null;
@@ -158,9 +181,24 @@ class AppLock {
     await _screen.protect(false);
   }
 
+  /// What is left of the wait on the boot clock, or null when it cannot tell (no boot
+  /// clock, no record, or the phone restarted since the wait began).
+  Future<Duration?> _bootLeft() async {
+    final parts = (await _vault.read(_waitBootKey))?.split(':');
+    if (parts == null || parts.length != 2) return null;
+    final start = int.tryParse(parts[0]);
+    final wait = int.tryParse(parts[1]);
+    final now = await _boot();
+    if (start == null || wait == null || now == null || now < start) return null;
+    final capped = min<int>(wait, maxPinWait.inMilliseconds);
+    final left = Duration(milliseconds: start + capped - now);
+    return left > Duration.zero ? left : Duration.zero;
+  }
+
   Future<void> _resetFailures() async {
     await _vault.delete(_failuresKey);
     await _vault.delete(_waitUntilKey);
+    await _vault.delete(_waitBootKey);
     waitUntil.value = null;
   }
 

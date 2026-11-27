@@ -218,6 +218,28 @@ void main() {
     expect(c.profile!.birthDate, '2026-03-01');
   });
 
+  testWidgets('hide the screen without a PIN; with a PIN it is on and locked (SEC-1)', (tester) async {
+    final c = await _pump(tester, _profile('en'));
+    final row = find.widgetWithText(SwitchListTile, l.settingsHideScreen);
+    await tester.scrollUntilVisible(row, 200, scrollable: find.byType(Scrollable).first);
+    expect(tester.widget<SwitchListTile>(row).value, isFalse);
+    expect(find.text(l.settingsHideScreenNote), findsOneWidget);
+    await tester.ensureVisible(row);
+    await tester.pumpAndSettle();
+    await tester.tap(row);
+    await tester.pumpAndSettle();
+    expect(c.screenHidden, isTrue);
+    expect(tester.widget<SwitchListTile>(row).value, isTrue);
+
+    await c.setScreenHidden(false);
+    await tester.runAsync(() => c.setPin('2468')); // PBKDF2 runs outside the fake clock
+    await tester.pumpAndSettle();
+    final locked = tester.widget<SwitchListTile>(row);
+    expect(locked.value, isTrue, reason: 'the PIN always protects the screen');
+    expect(locked.onChanged, isNull);
+    expect(find.text(l.settingsHideScreenLocked), findsOneWidget);
+  });
+
   for (final lang in ['en', 'ar']) {
     for (final b in Brightness.values) {
       testWidgets('proof shots ($lang ${b.name})', (tester) async {

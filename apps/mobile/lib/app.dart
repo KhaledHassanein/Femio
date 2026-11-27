@@ -122,6 +122,9 @@ class FemioController extends ChangeNotifier {
   /// True when a PIN is set.
   bool lockEnabled = false;
 
+  /// Her choice to protect the screen without a PIN (SEC-1); the PIN protects it anyway.
+  bool screenHidden = false;
+
   /// True when the last save could not be written to the phone. The record in memory is
   /// kept and the screen says so; the file on the phone still holds the last good save,
   /// because each write goes to a temporary file first.
@@ -144,6 +147,7 @@ class FemioController extends ChangeNotifier {
   Future<void> load() async {
     lockEnabled = await _lock.isEnabled;
     locked = lockEnabled;
+    screenHidden = await _lock.screenHidden;
     switch (await store.load()) {
       case Loaded(:final profile):
         this.profile = profile;
@@ -437,6 +441,14 @@ class FemioController extends ChangeNotifier {
   Future<void> setPin(String pin) async {
     await _lock.setPin(pin);
     lockEnabled = true;
+    notifyListeners();
+  }
+
+  /// Protects the screen from screenshots and the recent-apps picture without a PIN, or
+  /// stops doing so (SEC-1). A device choice: it is not part of her record or backups.
+  Future<void> setScreenHidden(bool on) async {
+    await _lock.hideScreen(on);
+    screenHidden = on;
     notifyListeners();
   }
 

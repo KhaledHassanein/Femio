@@ -11,6 +11,8 @@ import 'package:flutter/services.dart';
 
 import '../../data/share_channel.dart';
 import '../../l10n/app_localizations.dart';
+import '../../theme/femio_theme.dart';
+import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
 
 /// Where reports go: the support address the website and the store listing publish.
@@ -71,6 +73,8 @@ class _ReportAnswerSheetState extends State<ReportAnswerSheet> {
   Widget build(BuildContext context) {
     final l = L10n.of(context);
     final t = Theme.of(context).textTheme;
+    final p = context.palette;
+    final reason = _reason;
     return SafeArea(
       child: SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(space5, 0, space5, space5),
@@ -87,8 +91,22 @@ class _ReportAnswerSheetState extends State<ReportAnswerSheet> {
                 onSelected: (_) => setState(() => _reason = r),
               ),
           ]),
+          // PRIV-N2-2: she sees every word that will leave before she sends it.
+          if (reason != null) ...[
+            const SizedBox(height: space4),
+            Text(l.reportPreview, style: t.labelLarge),
+            const SizedBox(height: space2),
+            Container(
+              padding: const EdgeInsets.all(space3),
+              decoration: BoxDecoration(color: p.surfaceSunken, borderRadius: BorderRadius.circular(radiusMd)),
+              child: SelectableText(
+                answerReportText(l, reason: reason, origin: widget.origin, answer: widget.answer),
+                style: t.bodySmall,
+              ),
+            ),
+          ],
           const SizedBox(height: space5),
-          FilledButton(onPressed: _reason == null ? null : _send, child: Text(l.reportSend)),
+          FilledButton(onPressed: reason == null ? null : _send, child: Text(l.reportSend)),
         ]),
       ),
     );

@@ -1203,6 +1203,21 @@ backups open. A forgotten PIN is still "delete everything"; a mistyped one now c
 four tries. Release builds from a checkout without the key fail with a message that says why. A
 new native library or component fails the gate until someone states why it is safe.
 
+**Amendment 2026-11-27 (R14.20, re-score findings SEC-N2-1 and the SEC-1 remainder; owner
+delegation).** Two changes to points 1 and 2:
+- **Point 1, "no new setting", is reversed.** Settings → Security now has "Hide femio in screenshots
+  and recent apps" (Android only, off by default). With no PIN she can switch screen protection on
+  herself; with a PIN it shows on and cannot be switched off. Off by default keeps the reasons
+  above: the demo video and a screenshot for her clinician. The choice is one more boolean in the
+  same `femio_lock_state` preferences (`screen_hidden`), outside her record and backups; the
+  window is protected while either the PIN or this choice is on, cold start included.
+- **Point 2: the wait is also timed on the boot clock.** Setting the phone's date forward used to
+  end a wait. Each wait now also stores Android's `SystemClock.elapsedRealtime()` at its start,
+  which the user cannot set; the time left is the larger of the wall-clock and boot-clock answers.
+  After a reboot the boot clock starts again, so the wall clock rules (still capped at 30 minutes).
+  A miss is now counted before the PIN is checked, so closing the app during the check cannot make
+  a guess free; a right PIN clears the count.
+
 ## ADR-084
 **Date:** 2026-11-27 · **Status:** proposed (not built; follow-up after the hackathon) ·
 **Area:** app security, record storage · **Builds on:** ADR-070, ADR-083 · **Finding:** SEC-3

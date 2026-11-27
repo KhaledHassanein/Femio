@@ -64,9 +64,16 @@ Map<String, Object?> _body(Profile p, {Map<String, String>? documents}) => {
 
 class _RecordingScreen implements SecureScreen {
   final calls = <bool>[];
+  bool hidden = false;
 
   @override
   Future<void> protect(bool on) async => calls.add(on);
+
+  @override
+  Future<void> hide(bool on) async => hidden = on;
+
+  @override
+  Future<bool> isHidden() async => hidden;
 }
 
 void main() {
@@ -213,6 +220,41 @@ void main() {
       expect(await lock().retryAfter(), const Duration(seconds: 60));
     });
 
+    test('moving the clock forward does not end a wait; the boot clock still times it (SEC-N2-1)', () async {
+      var boot = 1000000;
+      AppLock bootLock() => AppLock(vault, clock: () => now, bootClock: () async => boot);
+      for (var i = 0; i < 5; i += 1) {
+        await bootLock().verify('0000');
+      }
+      now = now.add(const Duration(days: 2)); // the date is set forward
+      boot += 5000; // five real seconds pass
+      expect(await bootLock().retryAfter(), const Duration(seconds: 25));
+      expect(await bootLock().verify('2468'), isFalse, reason: 'still waiting');
+      boot += 25000;
+      expect(await bootLock().retryAfter(), Duration.zero);
+      expect(await bootLock().verify('2468'), isTrue);
+    });
+
+    test('after the phone restarts the wall clock rules again', () async {
+      var boot = 1000000;
+      AppLock bootLock() => AppLock(vault, clock: () => now, bootClock: () async => boot);
+      for (var i = 0; i < 5; i += 1) {
+        await bootLock().verify('0000');
+      }
+      boot = 2000; // rebooted: the boot clock started again
+      expect(await bootLock().retryAfter(), const Duration(seconds: 30));
+      now = now.add(const Duration(seconds: 30));
+      expect(await bootLock().retryAfter(), Duration.zero);
+    });
+
+    test('a miss is counted before the check, a right PIN clears it', () async {
+      final l = lock();
+      await l.verify('0000');
+      expect(await vault.read('lock-failures-v1'), '1');
+      expect(await l.verify('2468'), isTrue);
+      expect(await vault.read('lock-failures-v1'), isNull);
+    });
+
     test('setting the clock back cannot stretch a wait past the ceiling', () async {
       for (var i = 0; i < 5; i += 1) {
         await lock().verify('0000');
@@ -232,6 +274,15 @@ void main() {
       expect(await AppLock(vault, screen: screen).isEnabled, isTrue);
       await l.clear();
       expect(screen.calls, [false, true, true, false]);
+    });
+
+    test('without a PIN she can still hide the screen, and the choice is read back (SEC-1)', () async {
+      final screen = _RecordingScreen();
+      final l = AppLock(MemoryKeyVault(), screen: screen);
+      expect(await l.screenHidden, isFalse);
+      await l.hideScreen(true);
+      expect(await AppLock(MemoryKeyVault(), screen: screen).screenHidden, isTrue);
+      expect(screen.calls, isEmpty, reason: 'the PIN switch is separate');
     });
 
     test('a test vault never reaches the platform channel', () async {

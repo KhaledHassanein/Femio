@@ -1028,6 +1028,18 @@ class L10nFr extends L10n {
       'Demander un code PIN à l\'ouverture de femio et après une minute d\'absence.';
 
   @override
+  String get settingsHideScreen =>
+      'Masquer femio dans les captures d\'écran et les applis récentes';
+
+  @override
+  String get settingsHideScreenNote =>
+      'Bloque les captures et l\'enregistrement de l\'écran de femio, et masque son aperçu dans les applis récentes. Désactivez-le pour faire une capture pour votre soignant.';
+
+  @override
+  String get settingsHideScreenLocked =>
+      'Toujours activé tant que votre code PIN est défini.';
+
+  @override
   String get setPin => 'Choisissez un code PIN de 4 à 8 chiffres';
 
   @override
@@ -1765,6 +1777,9 @@ class L10nFr extends L10n {
 
   @override
   String get reportSend => 'Envoyer le signalement';
+
+  @override
+  String get reportPreview => 'Voici exactement ce qui sera envoyé :';
 
   @override
   String get reportSubject => 'Signalement d\'une réponse femio';

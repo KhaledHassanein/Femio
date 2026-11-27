@@ -66,7 +66,7 @@ femio est créé par KM Digital Labs, fondé par un médecin au Caire. Questions
 | 2 | Calendrier avec la fenêtre de fertilité | Vos jours fertiles sous forme de fourchette réaliste |
 | 3 | « Aujourd'hui » en mode irrégulier | Cycles irréguliers ou SOPK ? Pas de compteur de retard |
 | 4 | Carte de la semaine de grossesse | Votre grossesse, semaine après semaine |
-| 5 | Calendrier avec le calendrier hégirien activé | Votre calendrier, avec la date hégirienne à côté de chaque jour |
+| 5 | Aujourd'hui, Gemini Nano prêt sur le téléphone : la pastille « sur ce téléphone » et la barre de saisie | Une IA privée qui fonctionne sur votre téléphone |
 | 6 | « Apprendre » : un article avec ses sources | Guides rédigés par un médecin, avec leurs sources |
 | 7 | « Aujourd'hui » : la liste des outils de grossesse (journal des mouvements, minuteur des contractions) | Journal des mouvements et minuteur des contractions, sans jugement |
 | 8 | Demandez à femio : une question sur la conception, avec la réponse de sa source fiable | Posez une question, obtenez une réponse avec sa source |

@@ -1,4 +1,4 @@
-// The Google Play screenshots: eight real app screens per language, each under a
+// The Google Play screenshots: eight real app screens per language (Play's maximum), each under a
 // caption, 1080×1920 PNG. They are the files in docs/store/screenshots/{ar,en}/.
 //
 // Why it exists: store images drift from the app the moment a screen changes. Rendering
@@ -17,9 +17,12 @@ import 'dart:io';
 import 'dart:math' as math;
 
 import 'package:femio/app.dart';
+import 'package:femio/data/assistant_channel.dart';
 import 'package:femio/data/library.dart';
 import 'package:femio/data/profile.dart';
 import 'package:femio/data/store.dart';
+import 'package:femio/domain/assistant/cloud_prompt.dart';
+import 'package:femio/domain/assistant/private_prompt.dart';
 import 'package:femio/domain/assistant/source_registry.dart';
 import 'package:femio/features/assistant/ask_screen.dart';
 import 'package:femio/features/assistant/assistant_scope.dart';
@@ -86,7 +89,8 @@ const _shots = [
   _Shot('02-fertile-range', 'Your fertile days as an honest range', 'أيام خصوبتكِ كنطاق صادق، لا يوم واحد'),
   _Shot('03-irregular', 'Irregular cycles or PCOS? No "late" counter', 'دورة غير منتظمة أو تكيس مبايض؟ بلا عدّاد للتأخير'),
   _Shot('04-pregnancy', 'Your pregnancy, week by week', 'حملكِ أسبوعًا بأسبوع'),
-  _Shot('05-hijri', 'Your calendar, with Hijri dates beside each day', 'تقويمكِ، والتاريخ الهجري بجانب كل يوم'),
+  // UX-9: one shot shows the private AI (it replaced the Hijri calendar; the calendar is 02).
+  _Shot('05-ai', 'Private AI that runs on your phone', 'ذكاء اصطناعي خاص يعمل على هاتفكِ'),
   _Shot('06-learn', 'Physician-written guides, with sources', 'مقالات كتبها طبيب، مع مصادرها'),
   _Shot('07-tools', 'Movement log and contraction timer, no verdicts', 'سجل حركة الجنين ومؤقّت الانقباضات، بلا أحكام'),
   _Shot('08-ask', 'Ask a question, get an answer with its source', 'اسألي، وتأتيكِ الإجابة مع مصدرها'),
@@ -253,17 +257,17 @@ Profile _profile(String lang, int index) {
       );
     case 3: // pregnancy week card
       return Profile(goal: Goal.pregnant, locale: lang, birthYear: 1993, edd: '2027-02-10', settings: _settings(lang, hijri: false));
-    case 4: // Hijri beside Gregorian
-      return Profile(
-        goal: Goal.period,
-        locale: lang,
-        birthYear: 1994,
-        periodStarts: const ['2026-09-17'],
-        cycleLength: 28,
-        settings: _settings(lang, hijri: true),
-      );
     case 6: // 37 weeks: the pregnancy tools
       return Profile(goal: Goal.pregnant, locale: lang, birthYear: 1993, edd: '2026-10-28', settings: _settings(lang, hijri: false));
+    case 4: // the private AI on Today: trying to conceive, assistant on
+      return Profile(
+        goal: Goal.ttc,
+        locale: lang,
+        birthYear: 1993,
+        periodStarts: const ['2026-08-30', '2026-09-27'],
+        cycleLength: 28,
+        settings: _settings(lang, hijri: false),
+      );
     default: // Ask femio: trying to conceive, so the trying-to-conceive passages rank first
       return Profile(
         goal: Goal.ttc,
@@ -324,11 +328,11 @@ Future<void> _shoot(WidgetTester tester, String lang, _Shot shot, int index) asy
   final caption = lang == 'ar' ? shot.ar : shot.en;
   final l = lookupL10n(Locale(lang));
 
-  Future<FemioController> start({bool pin = false}) async {
+  Future<FemioController> start({bool pin = false, AssistantBridge assistant = const OfflineAssistant()}) async {
     final c = FemioController(MemoryStore(_profile(lang, index)), initialLocale: lang);
     await c.load();
     if (pin) await tester.runAsync(() => c.setPin('2468'));
-    await tester.pumpWidget(_frame(lang, caption, FemioApp(controller: c, today: _today),
+    await tester.pumpWidget(_frame(lang, caption, FemioApp(controller: c, today: _today, assistant: assistant),
         phoneHeight: index == 6 ? _shortPhoneHeight : _phoneHeight));
     await tester.pumpAndSettle();
     return c;
@@ -341,7 +345,7 @@ Future<void> _shoot(WidgetTester tester, String lang, _Shot shot, int index) asy
       if (index == 0) expect(find.text(l.firstRunStorageTitle), findsOneWidget);
       if (index == 2) expect(find.text(l.irregularNote), findsOneWidget);
       if (index == 3) expect(find.text(l.trimesterLabel(2).toUpperCase()), findsOneWidget);
-    case 1 || 4: // Calendar
+    case 1: // Calendar
       await start();
       await _openTab(tester, 1);
       expect(find.text(l.calendarTitle), findsWidgets);
@@ -371,6 +375,10 @@ Future<void> _shoot(WidgetTester tester, String lang, _Shot shot, int index) asy
       await _scrollTo(tester, find.text(l.pregnancyToolsTitle), nudge: _toolsNudge);
       expect(find.text(l.movementsHeading), findsOneWidget);
       expect(find.text(l.contractionsHeading), findsOneWidget);
+    case 4: // Private AI: Gemini Nano is ready on this phone, so Today offers say-it-to-log
+      await start(assistant: const _NanoReady());
+      expect(find.text(l.aiChipNano), findsOneWidget);
+      expect(find.text(l.addSayItPrompt), findsOneWidget);
     default: // Ask femio: a real registry answer, word for word, with its source
       final c = FemioController(MemoryStore(_profile(lang, index)), initialLocale: lang);
       await c.load();
@@ -406,6 +414,26 @@ Future<void> _shoot(WidgetTester tester, String lang, _Shot shot, int index) asy
 
   if (!autoUpdateGoldenFiles) return;
   await expectLater(find.byType(MaterialApp).first, matchesGoldenFile('$_out/$lang/${shot.slug}.png'));
+}
+
+/// A phone with Gemini Nano downloaded. Status only: the shot runs no prompt.
+class _NanoReady implements AssistantBridge {
+  const _NanoReady();
+
+  @override
+  Future<AssistantStatus> status() async => const AssistantStatus(configured: true, onDevice: OnDeviceModel.available);
+
+  @override
+  Future<bool> downloadModel() async => true;
+
+  @override
+  Future<String?> runPrivate(PrivatePrompt prompt) async => null;
+
+  @override
+  Future<HybridReply?> runHybrid(CloudPrompt prompt) async => null;
+
+  @override
+  Future<bool> openSource(String url) async => false;
 }
 
 void main() {

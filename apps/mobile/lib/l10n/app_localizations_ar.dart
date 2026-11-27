@@ -1046,6 +1046,17 @@ class L10nAr extends L10n {
       'طلب رمز PIN عند فتح femio وبعد دقيقة من الغياب.';
 
   @override
+  String get settingsHideScreen =>
+      'إخفاء femio من لقطات الشاشة والتطبيقات الأخيرة';
+
+  @override
+  String get settingsHideScreenNote =>
+      'يمنع لقطات الشاشة وتسجيل الشاشة داخل femio ويُخفي صورته في التطبيقات الأخيرة. أوقفيه إذا أردتِ لقطة شاشة لطبيبتكِ أو طبيبكِ.';
+
+  @override
+  String get settingsHideScreenLocked => 'يعمل دائمًا ما دام رمز PIN مفعّلًا.';
+
+  @override
   String get setPin => 'اختاري رمز PIN من 4 إلى 8 أرقام';
 
   @override
@@ -1782,6 +1793,9 @@ class L10nAr extends L10n {
 
   @override
   String get reportSend => 'إرسال البلاغ';
+
+  @override
+  String get reportPreview => 'هذا بالضبط ما سيُرسَل:';
 
   @override
   String get reportSubject => 'بلاغ عن إجابة femio';

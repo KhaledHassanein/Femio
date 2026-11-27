@@ -13,6 +13,7 @@ package com.femioapp.femio.lock
 
 import android.app.Activity
 import android.content.Context
+import android.os.SystemClock
 import android.view.WindowManager
 import com.femioapp.femio.widget.FemioWidgetProvider
 import io.flutter.plugin.common.BinaryMessenger
@@ -31,12 +32,28 @@ class SecureScreenChannel(private val activity: Activity, messenger: BinaryMesse
                     } else {
                         val changed = LockState.isOn(activity) != on
                         LockState.set(activity, on)
-                        activity.runOnUiThread { apply(activity, on) }
+                        val secure = on || LockState.isScreenHidden(activity)
+                        activity.runOnUiThread { apply(activity, secure) }
                         // The widget shows details only while no lock is set: redraw it now.
                         if (changed) FemioWidgetProvider.redraw(activity.applicationContext)
                         result.success(null)
                     }
                 }
+                // Her choice to protect the screen without a PIN (SEC-1).
+                "hide" -> {
+                    val on = call.argument<Boolean>("on")
+                    if (on == null) {
+                        result.error("bad_args", "on is required", null)
+                    } else {
+                        LockState.setScreenHidden(activity, on)
+                        val secure = on || LockState.isOn(activity)
+                        activity.runOnUiThread { apply(activity, secure) }
+                        result.success(null)
+                    }
+                }
+                "hidden" -> result.success(LockState.isScreenHidden(activity))
+                // The boot clock for the PIN wait (SEC-N2-1): the user cannot set it.
+                "elapsed" -> result.success(SystemClock.elapsedRealtime())
                 else -> result.notImplemented()
             }
         }
@@ -60,6 +77,7 @@ class SecureScreenChannel(private val activity: Activity, messenger: BinaryMesse
 object LockState {
     private const val PREFS = "femio_lock_state"
     private const val KEY_ON = "lock_on"
+    private const val KEY_SCREEN = "screen_hidden"
 
     /** True when Dart last reported a PIN as set. */
     fun isOn(context: Context): Boolean =
@@ -68,5 +86,14 @@ object LockState {
     /** Remembers whether a PIN is set. Written synchronously: it must survive a kill right after. */
     fun set(context: Context, on: Boolean) {
         context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().putBoolean(KEY_ON, on).commit()
+    }
+
+    /** True when she chose to protect the screen without a PIN (SEC-1). */
+    fun isScreenHidden(context: Context): Boolean =
+        context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getBoolean(KEY_SCREEN, false)
+
+    /** Remembers her screen choice. Synchronous, like [set]. */
+    fun setScreenHidden(context: Context, on: Boolean) {
+        context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().putBoolean(KEY_SCREEN, on).commit()
     }
 }

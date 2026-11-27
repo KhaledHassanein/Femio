@@ -74,7 +74,7 @@ femio is made by KM Digital Labs, founded by a physician in Cairo. Questions or 
 | 2 | Calendar with the fertile range | Your fertile days as an honest range |
 | 3 | Today in irregular mode | Irregular cycles or PCOS? No "late" counter |
 | 4 | Pregnancy week card | Your pregnancy, week by week |
-| 5 | Calendar with Hijri on | Your calendar, with Hijri dates beside each day |
+| 5 | Today with Gemini Nano ready on the phone: the "on this phone" chip and the say-it bar | Private AI that runs on your phone |
 | 6 | Learn: an article with its sources | Physician-written guides, with sources |
 | 7 | Today: the pregnancy tools list (movement log, contraction timer) | Movement log and contraction timer, no verdicts |
 | 8 | Ask femio: a trying-to-conceive question answered from a trusted source, with its citation | Ask a question, get an answer with its source |

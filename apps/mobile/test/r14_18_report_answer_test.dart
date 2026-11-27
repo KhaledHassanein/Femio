@@ -94,7 +94,13 @@ void main() {
         expect(find.byType(ReportAnswerSheet), findsOneWidget);
         final send = find.widgetWithText(FilledButton, l.reportSend);
         expect(tester.widget<FilledButton>(send).onPressed, isNull, reason: 'a reason first');
+        expect(find.text(l.reportPreview), findsNothing);
         await tester.tap(find.text(l.reportUnsafe));
+        await tester.pumpAndSettle();
+        // PRIV-N2-2: the exact text is shown before it leaves.
+        expect(find.text(l.reportPreview), findsOneWidget);
+        final shown = tester.widget<SelectableText>(find.descendant(of: find.byType(ReportAnswerSheet), matching: find.byType(SelectableText))).data!;
+        expect(shown, contains(summary.text));
         await _shoot(tester, '${tag}_05_report_answer');
 
         await tester.tap(send);
@@ -102,6 +108,7 @@ void main() {
         expect(sent?['to'], answerReportAddress);
         expect(sent?['subject'], l.reportSubject);
         final text = sent?['text'] as String;
+        expect(text, shown, reason: 'what was shown is what was sent');
         expect(text, contains(summary.text));
         expect(text, contains(l.reportUnsafe));
         expect(text, contains(l.askAnswerCloud));

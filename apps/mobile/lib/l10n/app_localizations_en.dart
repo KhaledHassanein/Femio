@@ -1015,6 +1015,16 @@ class L10nEn extends L10n {
       'Ask for a PIN when femio opens and after a minute away.';
 
   @override
+  String get settingsHideScreen => 'Hide femio in screenshots and recent apps';
+
+  @override
+  String get settingsHideScreenNote =>
+      'Blocks screenshots and screen recording of femio and blanks its picture in recent apps. Turn it off to take a screenshot for your clinician.';
+
+  @override
+  String get settingsHideScreenLocked => 'Always on while your PIN is set.';
+
+  @override
   String get setPin => 'Choose a PIN of 4 to 8 digits';
 
   @override
@@ -1741,6 +1751,9 @@ class L10nEn extends L10n {
 
   @override
   String get reportSend => 'Send report';
+
+  @override
+  String get reportPreview => 'This is exactly what will be sent:';
 
   @override
   String get reportSubject => 'femio answer report';

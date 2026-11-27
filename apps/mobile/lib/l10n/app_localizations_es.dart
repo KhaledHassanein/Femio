@@ -1019,6 +1019,18 @@ class L10nEs extends L10n {
       'Pedir un PIN al abrir femio y tras un minuto fuera.';
 
   @override
+  String get settingsHideScreen =>
+      'Ocultar femio en capturas de pantalla y apps recientes';
+
+  @override
+  String get settingsHideScreenNote =>
+      'Bloquea las capturas y la grabación de pantalla de femio y oculta su vista en las apps recientes. Desactívalo para hacer una captura para tu profesional de salud.';
+
+  @override
+  String get settingsHideScreenLocked =>
+      'Siempre activo mientras tengas un PIN.';
+
+  @override
   String get setPin => 'Elige un PIN de 4 a 8 dígitos';
 
   @override
@@ -1755,6 +1767,9 @@ class L10nEs extends L10n {
 
   @override
   String get reportSend => 'Enviar informe';
+
+  @override
+  String get reportPreview => 'Esto es exactamente lo que se enviará:';
 
   @override
   String get reportSubject => 'Informe sobre una respuesta de femio';
