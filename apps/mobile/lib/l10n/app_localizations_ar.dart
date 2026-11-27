@@ -1206,6 +1206,10 @@ class L10nAr extends L10n {
   String get deleteConfirmCancel => 'أبقي سجلاتي';
 
   @override
+  String get deleteConfirmAck =>
+      'أفهم أن هذا يمحو سجلاتي من هذا الهاتف نهائيًا. لا يحتفظ femio بأي نسخة في أي مكان، لذا لا يمكن استعادتها.';
+
+  @override
   String get corruptTitle => 'تعذّر فتح سجلاتكِ';
 
   @override
@@ -2039,6 +2043,214 @@ class L10nAr extends L10n {
 
   @override
   String get assistantCloudNotBuilt => 'غير متاح في هذه النسخة من التطبيق.';
+
+  @override
+  String get aiChoicesTitle => 'الذكاء الاصطناعي وCloud boost';
+
+  @override
+  String get aiChoicesSubOff => 'متوقف. يعمل femio بقواعده الخاصة فقط.';
+
+  @override
+  String get aiChoicesSubPhone =>
+      'مفعّل، على هذا الهاتف فقط. لا يُرسَل أي شيء.';
+
+  @override
+  String aiChoicesSubCloud(String purposes) {
+    return 'مفعّل، مع Cloud boost لـ: $purposes.';
+  }
+
+  @override
+  String aiWizardStep(int n) {
+    return 'الخطوة $n من 3';
+  }
+
+  @override
+  String get aiWizardChooseHeading =>
+      'كيف تريدين أن يستخدم femio الذكاء الاصطناعي؟';
+
+  @override
+  String get aiModeOff => 'بدون ذكاء اصطناعي';
+
+  @override
+  String get aiModeOffSub =>
+      'يعمل femio بالكامل بقواعده الخاصة: التوقعات والتسجيل والمقالات والإجابات من المصادر الموثوقة كما هي حرفيًا.';
+
+  @override
+  String get aiModePhone => 'ذكاء اصطناعي على هذا الهاتف فقط';
+
+  @override
+  String get aiModePhoneSub =>
+      'يعمل Gemini Nano داخل هاتفكِ. لا يغادره شيء مما تكتبينه أو تسجّلينه. الهواتف التي لا تحتوي على Gemini Nano تستخدم قواعد femio.';
+
+  @override
+  String get aiModeCloud => 'ذكاء اصطناعي على هذا الهاتف، مع Cloud boost';
+
+  @override
+  String get aiModeCloudSub =>
+      'إذا لم يكن في هاتفكِ Gemini Nano، يمكن أن يجيب ذكاء Google السحابي عمّا تختارينه وتوافقين عليه.';
+
+  @override
+  String get aiWizardReadHeading => 'ماذا يعني هذا';
+
+  @override
+  String get aiWizardOffBody =>
+      'يتوقف femio عن استخدام الذكاء الاصطناعي. تبقى سجلاتكِ وتوقعاتكِ وتذكيراتكِ ومقالاتكِ كما هي. لا يُرسَل أي شيء إلى أي مكان.';
+
+  @override
+  String get aiWizardPhoneBody =>
+      'تُقرأ كلماتكِ وسجلّكِ على هذا الهاتف فقط، بواسطة Gemini Nano إن وُجد في هاتفكِ. تعمل قواعد السلامة في femio أولًا دائمًا: علامات الخطر وأرقام المساعدة الفورية لا تنتظر الذكاء الاصطناعي. الإجابات معلومات عافية مع مصادرها، وليست تشخيصًا أو علاجًا. لا يغيّر الذكاء الاصطناعي سجلّكِ إلا بعد تأكيدكِ.';
+
+  @override
+  String get aiWizardConfirmHeading => 'التأكيد';
+
+  @override
+  String get aiAckWellness =>
+      'أفهم أن الذكاء الاصطناعي في femio يقدّم معلومات عافية من مصادر موثوقة. لا يشخّص ولا يعالج، وسأتحدث مع طبيبتي أو طبيبي بشأن صحتي.';
+
+  @override
+  String get aiAckNotice => 'قرأتُ إشعار الخصوصية الخاص بـ femio.';
+
+  @override
+  String get aiAckCloud =>
+      'أفهم ما قد يرسله Cloud boost ومن يستلمه، وأن بإمكاني إيقافه في أي وقت.';
+
+  @override
+  String get aiWizardOffConfirm =>
+      'لا حاجة لأي علامة: إيقاف الذكاء الاصطناعي خطوة واحدة دائمًا. يُسجَّل اختياركِ مع التاريخ.';
+
+  @override
+  String get aiWizardNext => 'التالي';
+
+  @override
+  String get aiWizardBack => 'رجوع';
+
+  @override
+  String get aiWizardSave => 'تأكيد اختياري';
+
+  @override
+  String get aiConfirmDialogTitle => 'هل تؤكدين هذا التغيير؟';
+
+  @override
+  String aiConfirmDialogBody(String mode, String purposes) {
+    String _temp0 = intl.Intl.selectLogic(mode, {
+      'off': 'سيتوقف femio عن استخدام الذكاء الاصطناعي.',
+      'phone': 'سيستخدم femio الذكاء الاصطناعي على هذا الهاتف فقط. لن يُرسَل أي شيء.',
+      'other':
+          'سيستخدم femio الذكاء الاصطناعي على هذا الهاتف، وCloud boost لـ: $purposes.',
+    });
+    return '$_temp0 يُحفَظ إيصال مؤرَّخ لهذا الاختيار في سجلّكِ.';
+  }
+
+  @override
+  String get aiConfirmDialogYes => 'تأكيد';
+
+  @override
+  String get aiConfirmDialogNo => 'إلغاء';
+
+  @override
+  String get aiChoiceSaved =>
+      'تم الحفظ. يوجد إيصال مؤرَّخ في «اختياراتي للذكاء الاصطناعي».';
+
+  @override
+  String get aiRecordTitle => 'اختياراتي للذكاء الاصطناعي';
+
+  @override
+  String get aiRecordSub => 'كل اختيار قمتِ به، مع تاريخه';
+
+  @override
+  String get aiRecordIntro =>
+      'في كل مرة تغيّرين فيها الذكاء الاصطناعي أو Cloud boost في femio، يحتفظ femio هنا بإيصال: ما اخترتِه، والعبارات التي أشّرتِ عليها، ومتى، وإصدار النص الذي قرأتِه ولغته. تبقى الإيصالات على هذا الهاتف وتنتقل داخل نسختكِ الاحتياطية المشفّرة. كل إيصال مختوم برمز يتغيّر إذا عُدِّل الإيصال.';
+
+  @override
+  String get aiRecordIntact => 'السجل سليم: كل إيصال يطابق ختمه.';
+
+  @override
+  String get aiRecordBroken =>
+      'تم تغيير هذا السجل خارج femio: إيصال لا يطابق ختمه.';
+
+  @override
+  String get aiRecordEmpty => 'لم يُسجَّل أي اختيار بعد.';
+
+  @override
+  String aiRecordAi(String state) {
+    String _temp0 = intl.Intl.selectLogic(state, {
+      'on': 'مفعّل',
+      'off': 'متوقف',
+      'other': 'غير مسجَّل',
+    });
+    return 'الذكاء الاصطناعي على هذا الهاتف: $_temp0';
+  }
+
+  @override
+  String aiRecordCloud(String purposes) {
+    return 'Cloud boost: $purposes';
+  }
+
+  @override
+  String get aiRecordCloudOff => 'متوقف';
+
+  @override
+  String aiRecordAcks(String statements) {
+    return 'تم التأشير على: $statements';
+  }
+
+  @override
+  String get aiAckShortWellness => 'عافية لا تشخيص';
+
+  @override
+  String get aiAckShortNotice => 'قراءة إشعار الخصوصية';
+
+  @override
+  String get aiAckShortCloud => 'فهم Cloud boost';
+
+  @override
+  String aiRecordMeta(int version, String lang, String seal) {
+    return 'إصدار النص $version · بلغة $lang · الختم $seal';
+  }
+
+  @override
+  String get aiRecordShare => 'مشاركة نسخة';
+
+  @override
+  String get aiRecordShareSubject => 'اختياراتي للذكاء الاصطناعي في femio';
+
+  @override
+  String get cloudCheckButton => 'فحص Cloud boost';
+
+  @override
+  String get cloudCheckNote =>
+      'يرسل جملة ثابتة واحدة لا تتضمن أي شيء عنكِ (\"Reply with the single word OK.\") إلى ذكاء Google السحابي، ويعرض ما حدث.';
+
+  @override
+  String get cloudCheckRunning => 'جارٍ الفحص…';
+
+  @override
+  String cloudCheckOk(String seconds) {
+    return 'Cloud boost يعمل: أجاب ذكاء Google السحابي خلال $seconds ث.';
+  }
+
+  @override
+  String cloudCheckFailed(String reason) {
+    String _temp0 = intl.Intl.selectLogic(reason, {
+      'app_check': 'لم تقبل Google هذه النسخة من femio (App Check). ثبّتي femio من Google Play أو حاولي لاحقًا.',
+      'service_disabled':
+          'خدمة الذكاء الاصطناعي السحابية متوقفة لـ femio. حاولي لاحقًا.',
+      'quota': 'بلغ Cloud boost حدّه الآن. حاولي لاحقًا.',
+      'location': 'ذكاء Google السحابي غير متاح في بلدكِ.',
+      'network': 'لا يوجد اتصال بالإنترنت.',
+      'timeout': 'لم يُجب ذكاء Google السحابي خلال 20 ثانية.',
+      'not_configured': 'هذه النسخة من femio غير مُعدّة لـ Cloud boost.',
+      'api_key': 'هذه النسخة من femio غير مُعدّة لـ Cloud boost.',
+      'permission': 'هذه النسخة من femio غير مُعدّة لـ Cloud boost.',
+      'other': 'لم يُجب Cloud boost.',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String cloudCheckCode(String code) {
+    return 'رمز للدعم: $code';
+  }
 
   @override
   String get boostTitle => 'Cloud boost';

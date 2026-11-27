@@ -2027,6 +2027,12 @@ abstract class L10n {
   /// **'Keep my records'**
   String get deleteConfirmCancel;
 
+  /// No description provided for @deleteConfirmAck.
+  ///
+  /// In en, this message translates to:
+  /// **'I understand that this erases my records from this phone for good. femio keeps no copy anywhere, so they cannot be recovered.'**
+  String get deleteConfirmAck;
+
   /// No description provided for @corruptTitle.
   ///
   /// In en, this message translates to:
@@ -3394,6 +3400,306 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Not available in this version of the app.'**
   String get assistantCloudNotBuilt;
+
+  /// No description provided for @aiChoicesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'AI and Cloud boost'**
+  String get aiChoicesTitle;
+
+  /// No description provided for @aiChoicesSubOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Off. femio works with its own rules only.'**
+  String get aiChoicesSubOff;
+
+  /// No description provided for @aiChoicesSubPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'On, on this phone only. Nothing is sent.'**
+  String get aiChoicesSubPhone;
+
+  /// No description provided for @aiChoicesSubCloud.
+  ///
+  /// In en, this message translates to:
+  /// **'On, with Cloud boost for: {purposes}.'**
+  String aiChoicesSubCloud(String purposes);
+
+  /// No description provided for @aiWizardStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Step {n} of 3'**
+  String aiWizardStep(int n);
+
+  /// No description provided for @aiWizardChooseHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'How should femio use AI?'**
+  String get aiWizardChooseHeading;
+
+  /// No description provided for @aiModeOff.
+  ///
+  /// In en, this message translates to:
+  /// **'No AI'**
+  String get aiModeOff;
+
+  /// No description provided for @aiModeOffSub.
+  ///
+  /// In en, this message translates to:
+  /// **'femio works fully with its own rules: predictions, logging, guides and answers from trusted sources word for word.'**
+  String get aiModeOffSub;
+
+  /// No description provided for @aiModePhone.
+  ///
+  /// In en, this message translates to:
+  /// **'AI on this phone only'**
+  String get aiModePhone;
+
+  /// No description provided for @aiModePhoneSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Gemini Nano runs inside your phone. Nothing you type or log leaves it. Phones without Gemini Nano use femio\'s rules.'**
+  String get aiModePhoneSub;
+
+  /// No description provided for @aiModeCloud.
+  ///
+  /// In en, this message translates to:
+  /// **'AI on this phone, plus Cloud boost'**
+  String get aiModeCloud;
+
+  /// No description provided for @aiModeCloudSub.
+  ///
+  /// In en, this message translates to:
+  /// **'If your phone has no Gemini Nano, what you choose and approve can be answered by Google\'s cloud AI.'**
+  String get aiModeCloudSub;
+
+  /// No description provided for @aiWizardReadHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'What this means'**
+  String get aiWizardReadHeading;
+
+  /// No description provided for @aiWizardOffBody.
+  ///
+  /// In en, this message translates to:
+  /// **'femio stops using AI. Your records, predictions, reminders and guides stay as they are. Nothing is sent anywhere.'**
+  String get aiWizardOffBody;
+
+  /// No description provided for @aiWizardPhoneBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Your words and your record are read only on this phone, by Gemini Nano where your phone has it. femio\'s safety rules always run first: warning signs and help-now numbers never wait for the AI. Answers are wellness information with their sources, not a diagnosis or treatment. The AI never changes your record unless you confirm.'**
+  String get aiWizardPhoneBody;
+
+  /// No description provided for @aiWizardConfirmHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get aiWizardConfirmHeading;
+
+  /// No description provided for @aiAckWellness.
+  ///
+  /// In en, this message translates to:
+  /// **'I understand that femio\'s AI gives wellness information from trusted sources. It does not diagnose or treat, and I will talk to a clinician about my health.'**
+  String get aiAckWellness;
+
+  /// No description provided for @aiAckNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'I have read femio\'s privacy notice.'**
+  String get aiAckNotice;
+
+  /// No description provided for @aiAckCloud.
+  ///
+  /// In en, this message translates to:
+  /// **'I understand what Cloud boost may send, who receives it, and that I can turn it off at any time.'**
+  String get aiAckCloud;
+
+  /// No description provided for @aiWizardOffConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing to tick: turning AI off is always one step. Your choice is recorded with the date.'**
+  String get aiWizardOffConfirm;
+
+  /// No description provided for @aiWizardNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get aiWizardNext;
+
+  /// No description provided for @aiWizardBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get aiWizardBack;
+
+  /// No description provided for @aiWizardSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm my choice'**
+  String get aiWizardSave;
+
+  /// No description provided for @aiConfirmDialogTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm this change?'**
+  String get aiConfirmDialogTitle;
+
+  /// No description provided for @aiConfirmDialogBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{mode, select, off{femio will stop using AI.} phone{femio will use AI on this phone only. Nothing will be sent.} other{femio will use AI on this phone, and Cloud boost for: {purposes}.}} A dated receipt of this choice is kept in your record.'**
+  String aiConfirmDialogBody(String mode, String purposes);
+
+  /// No description provided for @aiConfirmDialogYes.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get aiConfirmDialogYes;
+
+  /// No description provided for @aiConfirmDialogNo.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get aiConfirmDialogNo;
+
+  /// No description provided for @aiChoiceSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved. A dated receipt is in My AI choices.'**
+  String get aiChoiceSaved;
+
+  /// No description provided for @aiRecordTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'My AI choices'**
+  String get aiRecordTitle;
+
+  /// No description provided for @aiRecordSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Every choice you made, with its date'**
+  String get aiRecordSub;
+
+  /// No description provided for @aiRecordIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Each time you change femio\'s AI or Cloud boost, femio keeps a receipt here: what you chose, the statements you ticked, when, and the version and language of the text you read. Receipts stay on this phone and travel inside your encrypted backup. Each one is sealed with a code that changes if the receipt is edited.'**
+  String get aiRecordIntro;
+
+  /// No description provided for @aiRecordIntact.
+  ///
+  /// In en, this message translates to:
+  /// **'Record intact: every receipt matches its seal.'**
+  String get aiRecordIntact;
+
+  /// No description provided for @aiRecordBroken.
+  ///
+  /// In en, this message translates to:
+  /// **'This record was changed outside femio: a receipt does not match its seal.'**
+  String get aiRecordBroken;
+
+  /// No description provided for @aiRecordEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No choices recorded yet.'**
+  String get aiRecordEmpty;
+
+  /// No description provided for @aiRecordAi.
+  ///
+  /// In en, this message translates to:
+  /// **'AI on this phone: {state, select, on{On} off{Off} other{Not recorded}}'**
+  String aiRecordAi(String state);
+
+  /// No description provided for @aiRecordCloud.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloud boost: {purposes}'**
+  String aiRecordCloud(String purposes);
+
+  /// No description provided for @aiRecordCloudOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Off'**
+  String get aiRecordCloudOff;
+
+  /// No description provided for @aiRecordAcks.
+  ///
+  /// In en, this message translates to:
+  /// **'Ticked: {statements}'**
+  String aiRecordAcks(String statements);
+
+  /// No description provided for @aiAckShortWellness.
+  ///
+  /// In en, this message translates to:
+  /// **'wellness, not diagnosis'**
+  String get aiAckShortWellness;
+
+  /// No description provided for @aiAckShortNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'privacy notice read'**
+  String get aiAckShortNotice;
+
+  /// No description provided for @aiAckShortCloud.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloud boost understood'**
+  String get aiAckShortCloud;
+
+  /// No description provided for @aiRecordMeta.
+  ///
+  /// In en, this message translates to:
+  /// **'Text version {version} · shown in {lang} · seal {seal}'**
+  String aiRecordMeta(int version, String lang, String seal);
+
+  /// No description provided for @aiRecordShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Share a copy'**
+  String get aiRecordShare;
+
+  /// No description provided for @aiRecordShareSubject.
+  ///
+  /// In en, this message translates to:
+  /// **'My femio AI choices'**
+  String get aiRecordShareSubject;
+
+  /// No description provided for @cloudCheckButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Check Cloud boost'**
+  String get cloudCheckButton;
+
+  /// No description provided for @cloudCheckNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Sends one fixed sentence with nothing about you (\"Reply with the single word OK.\") to Google\'s cloud AI and shows what happened.'**
+  String get cloudCheckNote;
+
+  /// No description provided for @cloudCheckRunning.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking…'**
+  String get cloudCheckRunning;
+
+  /// No description provided for @cloudCheckOk.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloud boost works: Google\'s cloud AI answered in {seconds} s.'**
+  String cloudCheckOk(String seconds);
+
+  /// No description provided for @cloudCheckFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'{reason, select, app_check{Google did not accept this copy of femio (App Check). Install femio from Google Play, or try again later.} service_disabled{The cloud AI service is switched off for femio. Try again later.} quota{Cloud boost has reached its limit for now. Try again later.} location{Google\'s cloud AI is not offered in your country.} network{No internet connection.} timeout{Google\'s cloud AI did not answer within 20 seconds.} not_configured{This copy of femio is not set up for Cloud boost.} api_key{This copy of femio is not set up for Cloud boost.} permission{This copy of femio is not set up for Cloud boost.} other{Cloud boost did not answer.}}'**
+  String cloudCheckFailed(String reason);
+
+  /// No description provided for @cloudCheckCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Code for support: {code}'**
+  String cloudCheckCode(String code);
 
   /// No description provided for @boostTitle.
   ///

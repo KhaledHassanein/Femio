@@ -525,6 +525,7 @@
   "deleteConfirmBody": "This removes all your records and settings from femio on this phone. It cannot be undone, and we cannot restore it. Backup files you saved elsewhere are not deleted.",
   "deleteConfirmAction": "Delete everything",
   "deleteConfirmCancel": "Keep my records",
+  "deleteConfirmAck": "I understand that this erases my records from this phone for good. femio keeps no copy anywhere, so they cannot be recovered.",
   "corruptTitle": "Your records could not be opened",
   "corruptBody": "The file on this phone is damaged or was written by a different femio. It has been kept aside, not deleted. Restore a backup file if you have one, or start again.",
   "settingsReminders": "Reminders",
@@ -879,6 +880,135 @@
   "assistantCloudOff": "Off. Everything is done on this phone.",
   "assistantHowItWorks": "Your log stays on your phone. Your notes and your log are read by femio's rules and, where your phone has it, by Gemini Nano on the phone. Safety rules always come first: signs of danger open the help page, and femio never advises on avoiding pregnancy. Ask femio answers only from trusted health sources carried in the app and shows them with every answer. Cloud boost is off unless you agree to it; then only what its screen lists is sent to Google.",
   "assistantCloudNotBuilt": "Not available in this version of the app.",
+  "aiChoicesTitle": "AI and Cloud boost",
+  "aiChoicesSubOff": "Off. femio works with its own rules only.",
+  "aiChoicesSubPhone": "On, on this phone only. Nothing is sent.",
+  "aiChoicesSubCloud": "On, with Cloud boost for: {purposes}.",
+  "@aiChoicesSubCloud": {
+    "placeholders": {
+      "purposes": {
+        "type": "String"
+      }
+    }
+  },
+  "aiWizardStep": "Step {n} of 3",
+  "@aiWizardStep": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "aiWizardChooseHeading": "How should femio use AI?",
+  "aiModeOff": "No AI",
+  "aiModeOffSub": "femio works fully with its own rules: predictions, logging, guides and answers from trusted sources word for word.",
+  "aiModePhone": "AI on this phone only",
+  "aiModePhoneSub": "Gemini Nano runs inside your phone. Nothing you type or log leaves it. Phones without Gemini Nano use femio's rules.",
+  "aiModeCloud": "AI on this phone, plus Cloud boost",
+  "aiModeCloudSub": "If your phone has no Gemini Nano, what you choose and approve can be answered by Google's cloud AI.",
+  "aiWizardReadHeading": "What this means",
+  "aiWizardOffBody": "femio stops using AI. Your records, predictions, reminders and guides stay as they are. Nothing is sent anywhere.",
+  "aiWizardPhoneBody": "Your words and your record are read only on this phone, by Gemini Nano where your phone has it. femio's safety rules always run first: warning signs and help-now numbers never wait for the AI. Answers are wellness information with their sources, not a diagnosis or treatment. The AI never changes your record unless you confirm.",
+  "aiWizardConfirmHeading": "Confirm",
+  "aiAckWellness": "I understand that femio's AI gives wellness information from trusted sources. It does not diagnose or treat, and I will talk to a clinician about my health.",
+  "aiAckNotice": "I have read femio's privacy notice.",
+  "aiAckCloud": "I understand what Cloud boost may send, who receives it, and that I can turn it off at any time.",
+  "aiWizardOffConfirm": "Nothing to tick: turning AI off is always one step. Your choice is recorded with the date.",
+  "aiWizardNext": "Next",
+  "aiWizardBack": "Back",
+  "aiWizardSave": "Confirm my choice",
+  "aiConfirmDialogTitle": "Confirm this change?",
+  "aiConfirmDialogBody": "{mode, select, off{femio will stop using AI.} phone{femio will use AI on this phone only. Nothing will be sent.} other{femio will use AI on this phone, and Cloud boost for: {purposes}.}} A dated receipt of this choice is kept in your record.",
+  "@aiConfirmDialogBody": {
+    "placeholders": {
+      "mode": {
+        "type": "String"
+      },
+      "purposes": {
+        "type": "String"
+      }
+    }
+  },
+  "aiConfirmDialogYes": "Confirm",
+  "aiConfirmDialogNo": "Cancel",
+  "aiChoiceSaved": "Saved. A dated receipt is in My AI choices.",
+  "aiRecordTitle": "My AI choices",
+  "aiRecordSub": "Every choice you made, with its date",
+  "aiRecordIntro": "Each time you change femio's AI or Cloud boost, femio keeps a receipt here: what you chose, the statements you ticked, when, and the version and language of the text you read. Receipts stay on this phone and travel inside your encrypted backup. Each one is sealed with a code that changes if the receipt is edited.",
+  "aiRecordIntact": "Record intact: every receipt matches its seal.",
+  "aiRecordBroken": "This record was changed outside femio: a receipt does not match its seal.",
+  "aiRecordEmpty": "No choices recorded yet.",
+  "aiRecordAi": "AI on this phone: {state, select, on{On} off{Off} other{Not recorded}}",
+  "@aiRecordAi": {
+    "placeholders": {
+      "state": {
+        "type": "String"
+      }
+    }
+  },
+  "aiRecordCloud": "Cloud boost: {purposes}",
+  "@aiRecordCloud": {
+    "placeholders": {
+      "purposes": {
+        "type": "String"
+      }
+    }
+  },
+  "aiRecordCloudOff": "Off",
+  "aiRecordAcks": "Ticked: {statements}",
+  "@aiRecordAcks": {
+    "placeholders": {
+      "statements": {
+        "type": "String"
+      }
+    }
+  },
+  "aiAckShortWellness": "wellness, not diagnosis",
+  "aiAckShortNotice": "privacy notice read",
+  "aiAckShortCloud": "Cloud boost understood",
+  "aiRecordMeta": "Text version {version} · shown in {lang} · seal {seal}",
+  "@aiRecordMeta": {
+    "placeholders": {
+      "version": {
+        "type": "int"
+      },
+      "lang": {
+        "type": "String"
+      },
+      "seal": {
+        "type": "String"
+      }
+    }
+  },
+  "aiRecordShare": "Share a copy",
+  "aiRecordShareSubject": "My femio AI choices",
+  "cloudCheckButton": "Check Cloud boost",
+  "cloudCheckNote": "Sends one fixed sentence with nothing about you (\"Reply with the single word OK.\") to Google's cloud AI and shows what happened.",
+  "cloudCheckRunning": "Checking…",
+  "cloudCheckOk": "Cloud boost works: Google's cloud AI answered in {seconds} s.",
+  "@cloudCheckOk": {
+    "placeholders": {
+      "seconds": {
+        "type": "String"
+      }
+    }
+  },
+  "cloudCheckFailed": "{reason, select, app_check{Google did not accept this copy of femio (App Check). Install femio from Google Play, or try again later.} service_disabled{The cloud AI service is switched off for femio. Try again later.} quota{Cloud boost has reached its limit for now. Try again later.} location{Google's cloud AI is not offered in your country.} network{No internet connection.} timeout{Google's cloud AI did not answer within 20 seconds.} not_configured{This copy of femio is not set up for Cloud boost.} api_key{This copy of femio is not set up for Cloud boost.} permission{This copy of femio is not set up for Cloud boost.} other{Cloud boost did not answer.}}",
+  "@cloudCheckFailed": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "cloudCheckCode": "Code for support: {code}",
+  "@cloudCheckCode": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
   "boostTitle": "Cloud boost",
   "boostIntro": "Some phones have no on-phone AI. On those phones, Cloud boost lets Google's cloud AI summarise trusted sources for a question you approve, or put your tips in order. It is optional and stays off unless you agree below. Everything else in femio works without it.",
   "boostSendsHeading": "What may be sent",

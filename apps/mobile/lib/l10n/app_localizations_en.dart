@@ -1167,6 +1167,10 @@ class L10nEn extends L10n {
   String get deleteConfirmCancel => 'Keep my records';
 
   @override
+  String get deleteConfirmAck =>
+      'I understand that this erases my records from this phone for good. femio keeps no copy anywhere, so they cannot be recovered.';
+
+  @override
   String get corruptTitle => 'Your records could not be opened';
 
   @override
@@ -1996,6 +2000,211 @@ class L10nEn extends L10n {
   @override
   String get assistantCloudNotBuilt =>
       'Not available in this version of the app.';
+
+  @override
+  String get aiChoicesTitle => 'AI and Cloud boost';
+
+  @override
+  String get aiChoicesSubOff => 'Off. femio works with its own rules only.';
+
+  @override
+  String get aiChoicesSubPhone => 'On, on this phone only. Nothing is sent.';
+
+  @override
+  String aiChoicesSubCloud(String purposes) {
+    return 'On, with Cloud boost for: $purposes.';
+  }
+
+  @override
+  String aiWizardStep(int n) {
+    return 'Step $n of 3';
+  }
+
+  @override
+  String get aiWizardChooseHeading => 'How should femio use AI?';
+
+  @override
+  String get aiModeOff => 'No AI';
+
+  @override
+  String get aiModeOffSub =>
+      'femio works fully with its own rules: predictions, logging, guides and answers from trusted sources word for word.';
+
+  @override
+  String get aiModePhone => 'AI on this phone only';
+
+  @override
+  String get aiModePhoneSub =>
+      'Gemini Nano runs inside your phone. Nothing you type or log leaves it. Phones without Gemini Nano use femio\'s rules.';
+
+  @override
+  String get aiModeCloud => 'AI on this phone, plus Cloud boost';
+
+  @override
+  String get aiModeCloudSub =>
+      'If your phone has no Gemini Nano, what you choose and approve can be answered by Google\'s cloud AI.';
+
+  @override
+  String get aiWizardReadHeading => 'What this means';
+
+  @override
+  String get aiWizardOffBody =>
+      'femio stops using AI. Your records, predictions, reminders and guides stay as they are. Nothing is sent anywhere.';
+
+  @override
+  String get aiWizardPhoneBody =>
+      'Your words and your record are read only on this phone, by Gemini Nano where your phone has it. femio\'s safety rules always run first: warning signs and help-now numbers never wait for the AI. Answers are wellness information with their sources, not a diagnosis or treatment. The AI never changes your record unless you confirm.';
+
+  @override
+  String get aiWizardConfirmHeading => 'Confirm';
+
+  @override
+  String get aiAckWellness =>
+      'I understand that femio\'s AI gives wellness information from trusted sources. It does not diagnose or treat, and I will talk to a clinician about my health.';
+
+  @override
+  String get aiAckNotice => 'I have read femio\'s privacy notice.';
+
+  @override
+  String get aiAckCloud =>
+      'I understand what Cloud boost may send, who receives it, and that I can turn it off at any time.';
+
+  @override
+  String get aiWizardOffConfirm =>
+      'Nothing to tick: turning AI off is always one step. Your choice is recorded with the date.';
+
+  @override
+  String get aiWizardNext => 'Next';
+
+  @override
+  String get aiWizardBack => 'Back';
+
+  @override
+  String get aiWizardSave => 'Confirm my choice';
+
+  @override
+  String get aiConfirmDialogTitle => 'Confirm this change?';
+
+  @override
+  String aiConfirmDialogBody(String mode, String purposes) {
+    String _temp0 = intl.Intl.selectLogic(mode, {
+      'off': 'femio will stop using AI.',
+      'phone': 'femio will use AI on this phone only. Nothing will be sent.',
+      'other':
+          'femio will use AI on this phone, and Cloud boost for: $purposes.',
+    });
+    return '$_temp0 A dated receipt of this choice is kept in your record.';
+  }
+
+  @override
+  String get aiConfirmDialogYes => 'Confirm';
+
+  @override
+  String get aiConfirmDialogNo => 'Cancel';
+
+  @override
+  String get aiChoiceSaved => 'Saved. A dated receipt is in My AI choices.';
+
+  @override
+  String get aiRecordTitle => 'My AI choices';
+
+  @override
+  String get aiRecordSub => 'Every choice you made, with its date';
+
+  @override
+  String get aiRecordIntro =>
+      'Each time you change femio\'s AI or Cloud boost, femio keeps a receipt here: what you chose, the statements you ticked, when, and the version and language of the text you read. Receipts stay on this phone and travel inside your encrypted backup. Each one is sealed with a code that changes if the receipt is edited.';
+
+  @override
+  String get aiRecordIntact => 'Record intact: every receipt matches its seal.';
+
+  @override
+  String get aiRecordBroken =>
+      'This record was changed outside femio: a receipt does not match its seal.';
+
+  @override
+  String get aiRecordEmpty => 'No choices recorded yet.';
+
+  @override
+  String aiRecordAi(String state) {
+    String _temp0 = intl.Intl.selectLogic(state, {
+      'on': 'On',
+      'off': 'Off',
+      'other': 'Not recorded',
+    });
+    return 'AI on this phone: $_temp0';
+  }
+
+  @override
+  String aiRecordCloud(String purposes) {
+    return 'Cloud boost: $purposes';
+  }
+
+  @override
+  String get aiRecordCloudOff => 'Off';
+
+  @override
+  String aiRecordAcks(String statements) {
+    return 'Ticked: $statements';
+  }
+
+  @override
+  String get aiAckShortWellness => 'wellness, not diagnosis';
+
+  @override
+  String get aiAckShortNotice => 'privacy notice read';
+
+  @override
+  String get aiAckShortCloud => 'Cloud boost understood';
+
+  @override
+  String aiRecordMeta(int version, String lang, String seal) {
+    return 'Text version $version · shown in $lang · seal $seal';
+  }
+
+  @override
+  String get aiRecordShare => 'Share a copy';
+
+  @override
+  String get aiRecordShareSubject => 'My femio AI choices';
+
+  @override
+  String get cloudCheckButton => 'Check Cloud boost';
+
+  @override
+  String get cloudCheckNote =>
+      'Sends one fixed sentence with nothing about you (\"Reply with the single word OK.\") to Google\'s cloud AI and shows what happened.';
+
+  @override
+  String get cloudCheckRunning => 'Checking…';
+
+  @override
+  String cloudCheckOk(String seconds) {
+    return 'Cloud boost works: Google\'s cloud AI answered in $seconds s.';
+  }
+
+  @override
+  String cloudCheckFailed(String reason) {
+    String _temp0 = intl.Intl.selectLogic(reason, {
+      'app_check': 'Google did not accept this copy of femio (App Check). Install femio from Google Play, or try again later.',
+      'service_disabled':
+          'The cloud AI service is switched off for femio. Try again later.',
+      'quota': 'Cloud boost has reached its limit for now. Try again later.',
+      'location': 'Google\'s cloud AI is not offered in your country.',
+      'network': 'No internet connection.',
+      'timeout': 'Google\'s cloud AI did not answer within 20 seconds.',
+      'not_configured': 'This copy of femio is not set up for Cloud boost.',
+      'api_key': 'This copy of femio is not set up for Cloud boost.',
+      'permission': 'This copy of femio is not set up for Cloud boost.',
+      'other': 'Cloud boost did not answer.',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String cloudCheckCode(String code) {
+    return 'Code for support: $code';
+  }
 
   @override
   String get boostTitle => 'Cloud boost';

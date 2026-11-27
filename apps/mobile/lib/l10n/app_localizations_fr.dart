@@ -1183,6 +1183,10 @@ class L10nFr extends L10n {
   String get deleteConfirmCancel => 'Garder mes données';
 
   @override
+  String get deleteConfirmAck =>
+      'Je comprends que cela efface définitivement mes données de ce téléphone. femio n\'en garde aucune copie, elles ne pourront donc pas être récupérées.';
+
+  @override
   String get corruptTitle => 'Vos données n\'ont pas pu être ouvertes';
 
   @override
@@ -2023,6 +2027,216 @@ class L10nFr extends L10n {
   @override
   String get assistantCloudNotBuilt =>
       'Non disponible dans cette version de l’application.';
+
+  @override
+  String get aiChoicesTitle => 'IA et Cloud boost';
+
+  @override
+  String get aiChoicesSubOff =>
+      'Désactivée. femio fonctionne uniquement avec ses propres règles.';
+
+  @override
+  String get aiChoicesSubPhone =>
+      'Activée, sur ce téléphone uniquement. Rien n\'est envoyé.';
+
+  @override
+  String aiChoicesSubCloud(String purposes) {
+    return 'Activée, avec Cloud boost pour : $purposes.';
+  }
+
+  @override
+  String aiWizardStep(int n) {
+    return 'Étape $n sur 3';
+  }
+
+  @override
+  String get aiWizardChooseHeading => 'Comment femio doit-il utiliser l\'IA ?';
+
+  @override
+  String get aiModeOff => 'Sans IA';
+
+  @override
+  String get aiModeOffSub =>
+      'femio fonctionne entièrement avec ses propres règles : prévisions, suivi, guides et réponses tirées mot pour mot de sources fiables.';
+
+  @override
+  String get aiModePhone => 'IA sur ce téléphone uniquement';
+
+  @override
+  String get aiModePhoneSub =>
+      'Gemini Nano fonctionne dans votre téléphone. Rien de ce que vous écrivez ou notez n\'en sort. Les téléphones sans Gemini Nano utilisent les règles de femio.';
+
+  @override
+  String get aiModeCloud => 'IA sur ce téléphone, plus Cloud boost';
+
+  @override
+  String get aiModeCloudSub =>
+      'Si votre téléphone n\'a pas Gemini Nano, l\'IA cloud de Google peut répondre à ce que vous choisissez et approuvez.';
+
+  @override
+  String get aiWizardReadHeading => 'Ce que cela signifie';
+
+  @override
+  String get aiWizardOffBody =>
+      'femio cesse d\'utiliser l\'IA. Vos données, prévisions, rappels et guides restent tels quels. Rien n\'est envoyé nulle part.';
+
+  @override
+  String get aiWizardPhoneBody =>
+      'Vos mots et vos données sont lus uniquement sur ce téléphone, par Gemini Nano si votre téléphone l\'a. Les règles de sécurité de femio passent toujours en premier : les signes d\'alerte et les numéros d\'aide n\'attendent jamais l\'IA. Les réponses sont des informations de bien-être avec leurs sources, pas un diagnostic ni un traitement. L\'IA ne modifie jamais vos données sans votre confirmation.';
+
+  @override
+  String get aiWizardConfirmHeading => 'Confirmer';
+
+  @override
+  String get aiAckWellness =>
+      'Je comprends que l\'IA de femio donne des informations de bien-être issues de sources fiables. Elle ne pose pas de diagnostic et ne traite pas ; je parlerai de ma santé à un professionnel de santé.';
+
+  @override
+  String get aiAckNotice => 'J\'ai lu l\'avis de confidentialité de femio.';
+
+  @override
+  String get aiAckCloud =>
+      'Je comprends ce que Cloud boost peut envoyer, qui le reçoit, et que je peux le désactiver à tout moment.';
+
+  @override
+  String get aiWizardOffConfirm =>
+      'Rien à cocher : désactiver l\'IA se fait toujours en une étape. Votre choix est enregistré avec la date.';
+
+  @override
+  String get aiWizardNext => 'Suivant';
+
+  @override
+  String get aiWizardBack => 'Retour';
+
+  @override
+  String get aiWizardSave => 'Confirmer mon choix';
+
+  @override
+  String get aiConfirmDialogTitle => 'Confirmer ce changement ?';
+
+  @override
+  String aiConfirmDialogBody(String mode, String purposes) {
+    String _temp0 = intl.Intl.selectLogic(mode, {
+      'off': 'femio cessera d\'utiliser l\'IA.',
+      'phone': 'femio utilisera l\'IA sur ce téléphone uniquement. Rien ne sera envoyé.',
+      'other':
+          'femio utilisera l\'IA sur ce téléphone, et Cloud boost pour : $purposes.',
+    });
+    return '$_temp0 Un reçu daté de ce choix est conservé dans vos données.';
+  }
+
+  @override
+  String get aiConfirmDialogYes => 'Confirmer';
+
+  @override
+  String get aiConfirmDialogNo => 'Annuler';
+
+  @override
+  String get aiChoiceSaved =>
+      'Enregistré. Un reçu daté se trouve dans Mes choix d\'IA.';
+
+  @override
+  String get aiRecordTitle => 'Mes choix d\'IA';
+
+  @override
+  String get aiRecordSub => 'Chacun de vos choix, avec sa date';
+
+  @override
+  String get aiRecordIntro =>
+      'Chaque fois que vous modifiez l\'IA ou Cloud boost de femio, femio garde ici un reçu : ce que vous avez choisi, les phrases cochées, quand, ainsi que la version et la langue du texte lu. Les reçus restent sur ce téléphone et voyagent dans votre sauvegarde chiffrée. Chacun est scellé par un code qui change si le reçu est modifié.';
+
+  @override
+  String get aiRecordIntact =>
+      'Registre intact : chaque reçu correspond à son sceau.';
+
+  @override
+  String get aiRecordBroken =>
+      'Ce registre a été modifié en dehors de femio : un reçu ne correspond pas à son sceau.';
+
+  @override
+  String get aiRecordEmpty => 'Aucun choix enregistré pour l\'instant.';
+
+  @override
+  String aiRecordAi(String state) {
+    String _temp0 = intl.Intl.selectLogic(state, {
+      'on': 'activée',
+      'off': 'désactivée',
+      'other': 'non enregistrée',
+    });
+    return 'IA sur ce téléphone : $_temp0';
+  }
+
+  @override
+  String aiRecordCloud(String purposes) {
+    return 'Cloud boost : $purposes';
+  }
+
+  @override
+  String get aiRecordCloudOff => 'Désactivé';
+
+  @override
+  String aiRecordAcks(String statements) {
+    return 'Cochées : $statements';
+  }
+
+  @override
+  String get aiAckShortWellness => 'bien-être, pas diagnostic';
+
+  @override
+  String get aiAckShortNotice => 'avis de confidentialité lu';
+
+  @override
+  String get aiAckShortCloud => 'Cloud boost compris';
+
+  @override
+  String aiRecordMeta(int version, String lang, String seal) {
+    return 'Version du texte $version · affiché en $lang · sceau $seal';
+  }
+
+  @override
+  String get aiRecordShare => 'Partager une copie';
+
+  @override
+  String get aiRecordShareSubject => 'Mes choix d\'IA femio';
+
+  @override
+  String get cloudCheckButton => 'Vérifier Cloud boost';
+
+  @override
+  String get cloudCheckNote =>
+      'Envoie une phrase fixe qui ne dit rien de vous (« Reply with the single word OK. ») à l\'IA cloud de Google et montre le résultat.';
+
+  @override
+  String get cloudCheckRunning => 'Vérification…';
+
+  @override
+  String cloudCheckOk(String seconds) {
+    return 'Cloud boost fonctionne : l\'IA cloud de Google a répondu en $seconds s.';
+  }
+
+  @override
+  String cloudCheckFailed(String reason) {
+    String _temp0 = intl.Intl.selectLogic(reason, {
+      'app_check': 'Google n\'a pas accepté cette copie de femio (App Check). Installez femio depuis Google Play ou réessayez plus tard.',
+      'service_disabled': 'Le service d\'IA cloud est désactivé pour femio. Réessayez plus tard.',
+      'quota': 'Cloud boost a atteint sa limite pour le moment. Réessayez plus tard.',
+      'location': 'L\'IA cloud de Google n\'est pas proposée dans votre pays.',
+      'network': 'Pas de connexion internet.',
+      'timeout': 'L\'IA cloud de Google n\'a pas répondu en 20 secondes.',
+      'not_configured':
+          'Cette copie de femio n\'est pas configurée pour Cloud boost.',
+      'api_key': 'Cette copie de femio n\'est pas configurée pour Cloud boost.',
+      'permission':
+          'Cette copie de femio n\'est pas configurée pour Cloud boost.',
+      'other': 'Cloud boost n\'a pas répondu.',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String cloudCheckCode(String code) {
+    return 'Code pour l\'assistance : $code';
+  }
 
   @override
   String get boostTitle => 'Cloud boost';
