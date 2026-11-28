@@ -14,6 +14,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'data/ai_ledger_store.dart';
 import 'data/app_lock.dart';
 import 'data/assistant_channel.dart';
+import 'data/translate_channel.dart';
 import 'data/attachment_store.dart';
 import 'data/backup.dart';
 import 'data/document_source.dart';
@@ -529,12 +530,17 @@ class FemioApp extends StatefulWidget {
     required this.controller,
     this.today,
     this.assistant = const OfflineAssistant(),
+    this.translator,
   });
   final FemioController controller;
 
   /// The assistant bridge (ADR-078). Offline by default, so tests never touch a model;
   /// main.dart passes the method-channel bridge.
   final AssistantBridge assistant;
+
+  /// The phone's own translator for the AI (ADR-087 §6). None by default (tests); main.dart
+  /// passes the method-channel translator.
+  final TranslatorPort? translator;
 
   /// Fixed "today" for screenshot tests; the real app reads the clock.
   final String? today;
@@ -603,6 +609,7 @@ class _FemioAppState extends State<FemioApp> with WidgetsBindingObserver {
               bridge: widget.assistant,
               enabled: () => controller.profile?.settings.assistantOn ?? true,
               record: controller.recordAiCall,
+              translator: widget.translator,
               child: Stack(
               children: [
                 // Kept mounted under the lock so she returns exactly where she was;

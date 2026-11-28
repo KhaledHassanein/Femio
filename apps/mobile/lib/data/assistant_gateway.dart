@@ -13,6 +13,7 @@ import 'dart:async';
 import 'dart:typed_data';
 
 import '../domain/assistant/ai_ledger.dart';
+import '../domain/assistant/cited_translation.dart';
 import '../domain/assistant/cloud_consent.dart';
 import '../domain/assistant/cloud_prompt.dart';
 import '../domain/assistant/private_prompt.dart';
@@ -24,12 +25,16 @@ import '../domain/assistant/source_registry.dart';
 import '../domain/assistant/uses.dart';
 import '../domain/assistant/visit_summary.dart';
 import 'assistant_channel.dart';
+import 'translate_channel.dart';
 
 /// Kill switch 2: a build with `--dart-define=FEMIO_ASSISTANT=false` ships rules only.
 const assistantBuildEnabled = bool.fromEnvironment('FEMIO_ASSISTANT', defaultValue: true);
 
 /// How long one model call may take before the screen keeps its rules answer.
 const assistantCallTimeout = Duration(seconds: 20);
+
+/// The language Gemini Nano is validated in, and the one femio translates through.
+const englishCode = 'en';
 
 /// Unusable replies in a row after which a use runs on rules for the rest of the session.
 const assistantCircuitBreakerLimit = 3;
@@ -57,14 +62,17 @@ class AssistantResult<T> {
 class AssistantGateway {
   /// [enabled] reads her master switch (kill switch 3) at each call; absent means on.
   /// [record] keeps each call in her AI ledger (R10.3); [clock] reads "now" (fixed in tests).
+  /// [translator] is the phone's own translator (ADR-087 §6); absent means none.
   AssistantGateway(
     this._bridge, {
     bool Function()? enabled,
     Future<void> Function(LedgerEntry entry)? record,
     DateTime Function()? clock,
+    TranslatorPort? translator,
   })  : _enabled = enabled ?? _always,
         _record = record,
-        _clock = clock ?? DateTime.now;
+        _clock = clock ?? DateTime.now,
+        _translator = translator;
 
   // Named parameters cannot be private, so these are assigned in the initializer list.
   // ignore_for_file: prefer_initializing_formals
@@ -74,6 +82,7 @@ class AssistantGateway {
   final bool Function() _enabled;
   final Future<void> Function(LedgerEntry entry)? _record;
   final DateTime Function() _clock;
+  final TranslatorPort? _translator;
   final _unusable = <AssistantUse, int>{};
   String? _cloudPaused;
   DateTime? _cloudPausedAt;
@@ -192,10 +201,46 @@ class AssistantGateway {
     String languageCode,
   ) async {
     if (!(await status()).canRunPrivate) return const AssistantResult.rules();
+    final translated = await _answerThroughEnglish(question, passages, languageCode);
+    if (translated != null) return AssistantResult(translated, RanOn.phone);
     final reply = await _private(PrivatePrompt.answer(question, passages, languageCode));
     if (reply == null) return const AssistantResult.rules();
     final parsed = _judge(AssistantUse.askOnPhone, parseAnswer(reply, passages.length));
     return parsed == null ? const AssistantResult.rules() : AssistantResult(parsed, RanOn.phone);
+  }
+
+  /// The translator when it can carry [languageCode] to and from English on this phone, else
+  /// null (English needs none; a language file she has not downloaded means none).
+  Future<TranslatorPort?> _translatorFor(String languageCode) async {
+    final t = _translator;
+    if (t == null || languageCode == englishCode) return null;
+    return await t.ready(languageCode) ? t : null;
+  }
+
+  /// Gemini Nano is validated in English (ADR-087 §6): her [question] is translated to English
+  /// on the phone, answered in English, and the answer translated back with its citation marks
+  /// kept. Null when there is no translator for her language or any step fails, so the caller
+  /// asks Nano in her language as before.
+  Future<CitedAnswer?> _answerThroughEnglish(String question, List<SourceEntry> passages, String languageCode) async {
+    final t = await _translatorFor(languageCode);
+    if (t == null) return null;
+    final english = await t.translate(question, from: languageCode, to: englishCode);
+    if (english == null || english.trim().isEmpty) return null;
+    final reply = await _private(PrivatePrompt.answer(english, passages, englishCode));
+    if (reply == null) return null;
+    final parsed = _judge(AssistantUse.askOnPhone, parseAnswer(reply, passages.length));
+    if (parsed == null) return null;
+    final back = await translateCited(parsed.text, (w) => t.translate(w, from: englishCode, to: languageCode));
+    return back == null ? null : CitedAnswer(back, parsed.cited, translated: true);
+  }
+
+  /// Her [question] in English, for finding trusted passages when her own words found none.
+  /// Translated on the phone; null without a translator for [languageCode].
+  Future<String?> questionInEnglish(String question, String languageCode) async {
+    final t = await _translatorFor(languageCode);
+    if (t == null) return null;
+    final english = await t.translate(question, from: languageCode, to: englishCode);
+    return english == null || english.trim().isEmpty ? null : english;
   }
 
   /// Ask femio with Cloud boost: the general [question] she approved and public [passages].

@@ -4032,6 +4032,34 @@ class L10nEn extends L10n {
   String get aiSeesVisitWords => 'The words you typed or said about your visit';
 
   @override
+  String get translateTitle => 'Translate for the AI on this phone';
+
+  @override
+  String get translateNotReady =>
+      'Gemini Nano works best in English. Download your language file (about 30 MB) and femio translates your question and the answer on this phone. Your words are not sent.';
+
+  @override
+  String get translateReady =>
+      'On. Your question and the answer are translated on this phone.';
+
+  @override
+  String get translateDownloading => 'Downloading the language file…';
+
+  @override
+  String get translateFailed =>
+      'The download did not finish. Check your connection and try again.';
+
+  @override
+  String get translateDownload => 'Download';
+
+  @override
+  String get translateRemove => 'Remove';
+
+  @override
+  String get askAnswerTranslated =>
+      'Gemini Nano wrote this in English and your phone translated it. A machine translation can miss nuance; the sources below are the reference.';
+
+  @override
   String get recSourceImported => 'Imported';
 
   @override

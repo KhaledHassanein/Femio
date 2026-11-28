@@ -119,7 +119,12 @@ class _AskScreenState extends State<AskScreen> {
     setState(() => _stage = _Stage.working);
     final registry = widget.registry ?? await loadTrustedRegistry();
     _registryVersion = registry.version;
-    final found = searchRegistry(q, registry, goal: profile?.goal.name, lang: lang);
+    var found = searchRegistry(q, registry, goal: profile?.goal.name, lang: lang);
+    if (found.notCovered) {
+      // The passages are in English: her words, translated on the phone, may find them.
+      final english = await gateway.questionInEnglish(q, lang);
+      if (english != null) found = searchRegistry(english, registry, goal: profile?.goal.name, lang: lang);
+    }
     if (found.notCovered) {
       if (mounted) setState(() => (_found = found, _stage = _Stage.answered));
       return;

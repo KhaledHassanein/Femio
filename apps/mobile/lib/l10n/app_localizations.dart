@@ -6515,6 +6515,54 @@ abstract class L10n {
   /// **'The words you typed or said about your visit'**
   String get aiSeesVisitWords;
 
+  /// Assistant settings: title of the on-device translation row (ADR-087).
+  ///
+  /// In en, this message translates to:
+  /// **'Translate for the AI on this phone'**
+  String get translateTitle;
+
+  /// Translation row when the language file is not on the phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Gemini Nano works best in English. Download your language file (about 30 MB) and femio translates your question and the answer on this phone. Your words are not sent.'**
+  String get translateNotReady;
+
+  /// Translation row when the language file is on the phone.
+  ///
+  /// In en, this message translates to:
+  /// **'On. Your question and the answer are translated on this phone.'**
+  String get translateReady;
+
+  /// Translation row while the language file downloads.
+  ///
+  /// In en, this message translates to:
+  /// **'Downloading the language file…'**
+  String get translateDownloading;
+
+  /// Translation row after a failed download.
+  ///
+  /// In en, this message translates to:
+  /// **'The download did not finish. Check your connection and try again.'**
+  String get translateFailed;
+
+  /// Button: download the language file.
+  ///
+  /// In en, this message translates to:
+  /// **'Download'**
+  String get translateDownload;
+
+  /// Button: delete the language file from the phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get translateRemove;
+
+  /// Under an Ask answer that was translated on the phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Gemini Nano wrote this in English and your phone translated it. A machine translation can miss nuance; the sources below are the reference.'**
+  String get askAnswerTranslated;
+
   /// Record entry source: imported from a file.
   ///
   /// In en, this message translates to:

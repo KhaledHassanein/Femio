@@ -146,6 +146,10 @@ dependencies {
     implementation("com.google.firebase:firebase-appcheck-playintegrity:20.1.0")
     // FileProvider for sharing a document she chooses to send (R11.2).
     implementation("androidx.core:core:1.13.1")
+    // On-device translation for the AI on this phone (ADR-087 §6): Gemini Nano is validated in
+    // English, so her question and its answer are translated on the phone. The language file
+    // downloads only when she taps Download; her words never leave the phone.
+    implementation("com.google.mlkit:translate:17.0.3")
 }
 
 flutter {

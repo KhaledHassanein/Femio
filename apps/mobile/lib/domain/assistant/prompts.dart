@@ -95,11 +95,13 @@ $numbered
 Question: """$question"""''';
 }
 
-/// A model's answer with the passage numbers it cited (1-based).
+/// A model's answer with the passage numbers it cited (1-based). [translated] is true when
+/// the model answered in English and the phone's translator put it in her language (ADR-087).
 class CitedAnswer {
-  const CitedAnswer(this.text, this.cited);
+  const CitedAnswer(this.text, this.cited, {this.translated = false});
   final String text;
   final Set<int> cited;
+  final bool translated;
 }
 
 final _citation = RegExp(r'\[(\d{1,2})\]');

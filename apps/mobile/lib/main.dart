@@ -11,6 +11,7 @@ import 'package:intl/intl.dart' show DateFormat;
 import 'app.dart';
 import 'data/ai_ledger_store.dart';
 import 'data/assistant_channel.dart';
+import 'data/translate_channel.dart';
 import 'data/attachment_store.dart';
 import 'data/home_widget_bridge.dart';
 import 'data/key_vault.dart';
@@ -28,7 +29,11 @@ Future<void> main() async {
   final vault = SecureKeyVault();
   final controller = FemioController(EncryptedFileStore(vault: vault), vault: vault, reminders: LocalNotificationScheduler(), playStore: const GooglePlayStore(), ledger: EncryptedLedgerStore(vault: vault), homeWidget: const MethodChannelHomeWidget(), files: EncryptedAttachmentStore(vault: vault));
   await controller.load();
-  runApp(FemioApp(controller: controller, assistant: const MethodChannelAssistant()));
+  runApp(FemioApp(
+    controller: controller,
+    assistant: const MethodChannelAssistant(),
+    translator: const MethodChannelTranslator(),
+  ));
 }
 
 /// Arabic uses the same digits as English (ADR-069, owner direction). intl defaults

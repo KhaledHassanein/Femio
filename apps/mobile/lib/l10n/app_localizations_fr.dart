@@ -4083,6 +4083,34 @@ class L10nFr extends L10n {
       'Les mots que vous avez écrits ou dits sur votre consultation';
 
   @override
+  String get translateTitle => 'Traduire pour l\'IA de ce téléphone';
+
+  @override
+  String get translateNotReady =>
+      'Gemini Nano fonctionne mieux en anglais. Téléchargez le fichier de votre langue (environ 30 Mo) et femio traduit votre question et la réponse sur ce téléphone. Vos mots ne sont pas envoyés.';
+
+  @override
+  String get translateReady =>
+      'Activée. Votre question et la réponse sont traduites sur ce téléphone.';
+
+  @override
+  String get translateDownloading => 'Téléchargement du fichier de langue…';
+
+  @override
+  String get translateFailed =>
+      'Le téléchargement n\'a pas abouti. Vérifiez votre connexion et réessayez.';
+
+  @override
+  String get translateDownload => 'Télécharger';
+
+  @override
+  String get translateRemove => 'Supprimer';
+
+  @override
+  String get askAnswerTranslated =>
+      'Gemini Nano l\'a écrit en anglais et votre téléphone l\'a traduit. Une traduction automatique peut manquer des nuances ; les sources ci-dessous font foi.';
+
+  @override
   String get recSourceImported => 'Importée';
 
   @override

@@ -69,9 +69,13 @@ class AnswerCard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: space2),
-              if (s != null)
-                SelectableText(s.text, style: t.bodyLarge)
-              else ...[
+              if (s != null) ...[
+                SelectableText(s.text, style: t.bodyLarge),
+                if (s.translated) ...[
+                  const SizedBox(height: space2),
+                  Text(l.askAnswerTranslated, style: t.bodySmall),
+                ],
+              ] else ...[
                 for (var i = 0; i < answer.passages.length; i++) ...[
                   Text('[${i + 1}] ${answer.passages[i].publisher}', style: t.labelMedium),
                   const SizedBox(height: space1),

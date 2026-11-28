@@ -3,7 +3,8 @@
 // share sheet (R10.2), so she can send her visit pack with the app she picks; the
 // home-screen widget's two-string channel (R9.11); her documents' PDF pages and file
 // sharing (R11.2); the screen protection that follows her app lock (SEC-1, ADR-083); and
-// speech to text on the phone only (ADR-086). None opens a network connection.
+// speech to text on the phone only (ADR-086); and on-device translation for the AI (ADR-087).
+// None opens a network connection itself; ML Kit fetches a language file only on her tap.
 
 package com.femioapp.femio
 
@@ -14,6 +15,7 @@ import com.femioapp.femio.files.FilesChannel
 import com.femioapp.femio.lock.LockState
 import com.femioapp.femio.lock.SecureScreenChannel
 import com.femioapp.femio.speech.SpeechChannel
+import com.femioapp.femio.translate.TranslateChannel
 import com.femioapp.femio.widget.HomeWidgetChannel
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
@@ -25,6 +27,7 @@ class MainActivity : FlutterActivity() {
     private var files: FilesChannel? = null
     private var secure: SecureScreenChannel? = null
     private var speech: SpeechChannel? = null
+    private var translate: TranslateChannel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // Before the first frame: with a PIN set, not even the launch picture may be captured
@@ -60,6 +63,7 @@ class MainActivity : FlutterActivity() {
         files = FilesChannel(applicationContext, flutterEngine.dartExecutor.binaryMessenger) { startActivity(it) }
         secure = SecureScreenChannel(this, flutterEngine.dartExecutor.binaryMessenger)
         speech = SpeechChannel(this, flutterEngine.dartExecutor.binaryMessenger)
+        translate = TranslateChannel(flutterEngine.dartExecutor.binaryMessenger)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -79,6 +83,8 @@ class MainActivity : FlutterActivity() {
         secure = null
         speech?.dispose()
         speech = null
+        translate?.dispose()
+        translate = null
         super.cleanUpFlutterEngine(flutterEngine)
     }
 }

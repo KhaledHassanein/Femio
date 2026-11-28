@@ -2392,6 +2392,38 @@
   "@aiSeesVisitWords": {
     "description": "What the AI can see: input of After a visit."
   },
+  "translateTitle": "Translate for the AI on this phone",
+  "@translateTitle": {
+    "description": "Assistant settings: title of the on-device translation row (ADR-087)."
+  },
+  "translateNotReady": "Gemini Nano works best in English. Download your language file (about 30 MB) and femio translates your question and the answer on this phone. Your words are not sent.",
+  "@translateNotReady": {
+    "description": "Translation row when the language file is not on the phone."
+  },
+  "translateReady": "On. Your question and the answer are translated on this phone.",
+  "@translateReady": {
+    "description": "Translation row when the language file is on the phone."
+  },
+  "translateDownloading": "Downloading the language file…",
+  "@translateDownloading": {
+    "description": "Translation row while the language file downloads."
+  },
+  "translateFailed": "The download did not finish. Check your connection and try again.",
+  "@translateFailed": {
+    "description": "Translation row after a failed download."
+  },
+  "translateDownload": "Download",
+  "@translateDownload": {
+    "description": "Button: download the language file."
+  },
+  "translateRemove": "Remove",
+  "@translateRemove": {
+    "description": "Button: delete the language file from the phone."
+  },
+  "askAnswerTranslated": "Gemini Nano wrote this in English and your phone translated it. A machine translation can miss nuance; the sources below are the reference.",
+  "@askAnswerTranslated": {
+    "description": "Under an Ask answer that was translated on the phone."
+  },
   "recSourceImported": "Imported",
   "@recSourceImported": {
     "description": "Record entry source: imported from a file."

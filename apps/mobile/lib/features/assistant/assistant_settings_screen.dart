@@ -20,6 +20,7 @@ import 'ai_choices_wizard.dart';
 import 'ai_ledger_screen.dart';
 import 'ai_sees_screen.dart';
 import 'assistant_scope.dart';
+import 'translation_tile.dart';
 
 /// The assistant's status page.
 class AssistantSettingsScreen extends StatefulWidget {
@@ -128,6 +129,7 @@ class _AssistantSettingsScreenState extends State<AssistantSettingsScreen> {
                         )
                       : null,
                 ),
+                TranslationTile(nanoPossible: onDevice != OnDeviceModel.unavailable),
                 ListenableBuilder(
                   listenable: widget.controller,
                   builder: (context, _) {

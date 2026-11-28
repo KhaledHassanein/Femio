@@ -369,6 +369,39 @@ for (const issue of speechIssues) {
     fail(MANIFEST, `RECORD_AUDIO is allowed only for on-device speech to text (ADR-086): ${issue}`);
   }
 }
+// On-device translation (ADR-087 §6): ML Kit Translate lives only in the translate package,
+// and a language file downloads only from its "download" method, which Dart calls on her tap.
+const TRANSLATE_DIR = "apps/mobile/android/app/src/main/kotlin/com/femioapp/femio/translate";
+(function translateChecks() {
+  (function walk(dir) {
+    for (const entry of readdirSync(dir)) {
+      const full = join(dir, entry);
+      if (statSync(full).isDirectory()) { walk(full); continue; }
+      if (!/\.(kt|java)$/.test(entry)) continue;
+      const path = relative(".", full).replaceAll("\\", "/");
+      const code = readFileSync(full, "utf8").replace(/\/\/.*$/gm, "");
+      if (/com\.google\.mlkit\.nl\.translate/.test(code) && !path.startsWith(TRANSLATE_DIR)) {
+        fail(path, "ML Kit translation is allowed only in the translate package (ADR-087)");
+      }
+      if (path.startsWith(TRANSLATE_DIR) && (code.match(/RemoteModelManager\.getInstance\(\)\.download\(/g) ?? []).length > 1) {
+        fail(path, "the language file may be downloaded from one place only, the download method (ADR-087)");
+      }
+    }
+  })(ANDROID_SRC);
+  const dart = "apps/mobile/lib";
+  (function walkDart(dir) {
+    for (const entry of readdirSync(dir)) {
+      const full = join(dir, entry);
+      if (statSync(full).isDirectory()) { walkDart(full); continue; }
+      if (!entry.endsWith(".dart")) continue;
+      const path = relative(".", full).replaceAll("\\", "/");
+      const code = readFileSync(full, "utf8");
+      if (/\.download\(\s*_lang\s*\)|translator\??\.download\(/.test(code) && !path.endsWith("features/assistant/translation_tile.dart")) {
+        fail(path, "only the Assistant settings row may download a language file, on her tap (ADR-087)");
+      }
+    }
+  })(dart);
+})();
 const REVIEWED_PERSONAL = speechIssues.length === 0 ? PERSONAL_PERMISSIONS.filter((re) => re.source !== "RECORD_AUDIO") : PERSONAL_PERMISSIONS;
 try {
   const manifest = readFileSync(MANIFEST, "utf8");

@@ -96,6 +96,7 @@ const ALLOWED_GRADLE_DEPENDENCIES = new Map([
   ["com.google.firebase:firebase-appcheck-debug", "App Check debug provider, debug builds only"],
   ["com.google.firebase:firebase-appcheck-playintegrity", "App Check for the assistant's cloud calls"],
   ["androidx.core:core", "FileProvider for a document she chooses to share (R11.2)"],
+  ["com.google.mlkit:translate", "on-device translation for the AI on this phone; the language file downloads on her tap (ADR-087 §6)"],
 ]);
 
 /** Gradle plugins the build may apply. */

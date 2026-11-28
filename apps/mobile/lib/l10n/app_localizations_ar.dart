@@ -4084,6 +4084,33 @@ class L10nAr extends L10n {
   String get aiSeesVisitWords => 'الكلمات التي كتبتِها أو قلتِها عن زيارتك';
 
   @override
+  String get translateTitle => 'الترجمة للذكاء الاصطناعي على هذا الهاتف';
+
+  @override
+  String get translateNotReady =>
+      'يعمل Gemini Nano بأفضل شكل بالإنجليزية. نزّلي ملف لغتك (نحو 30 ميغابايت) ليترجم femio سؤالك والإجابة على هذا الهاتف. لا تُرسل كلماتك.';
+
+  @override
+  String get translateReady => 'مفعّلة. يُترجم سؤالك والإجابة على هذا الهاتف.';
+
+  @override
+  String get translateDownloading => 'جارٍ تنزيل ملف اللغة…';
+
+  @override
+  String get translateFailed =>
+      'لم يكتمل التنزيل. تحقّقي من اتصالك وحاولي مرة أخرى.';
+
+  @override
+  String get translateDownload => 'تنزيل';
+
+  @override
+  String get translateRemove => 'إزالة';
+
+  @override
+  String get askAnswerTranslated =>
+      'كتب Gemini Nano هذه الإجابة بالإنجليزية وترجمها هاتفك. قد تفوت الترجمة الآلية بعض التفاصيل، والمصادر أدناه هي المرجع.';
+
+  @override
   String get recSourceImported => 'مستورد';
 
   @override

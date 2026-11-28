@@ -9,6 +9,7 @@ import 'package:flutter/widgets.dart';
 
 import '../../data/assistant_channel.dart';
 import '../../data/assistant_gateway.dart';
+import '../../data/translate_channel.dart';
 import '../../domain/assistant/ai_ledger.dart';
 import '../../domain/assistant/cloud_prompt.dart';
 import '../../domain/assistant/private_prompt.dart';
@@ -35,7 +36,14 @@ class OfflineAssistant implements AssistantBridge {
 
 /// Provides the [AssistantBridge] to the app.
 class AssistantScope extends InheritedWidget {
-  const AssistantScope({super.key, required this.bridge, this.enabled, this.record, required super.child});
+  const AssistantScope({
+    super.key,
+    required this.bridge,
+    this.enabled,
+    this.record,
+    this.translator,
+    required super.child,
+  });
 
   final AssistantBridge bridge;
 
@@ -44,6 +52,13 @@ class AssistantScope extends InheritedWidget {
 
   /// Keeps each model call in the AI ledger (R10.3); null keeps none (tests).
   final Future<void> Function(LedgerEntry entry)? record;
+
+  /// The phone's own translator for the AI (ADR-087 §6); null means none (tests).
+  final TranslatorPort? translator;
+
+  /// The translator in scope, or null when there is none.
+  static TranslatorPort? translatorOf(BuildContext context) =>
+      context.dependOnInheritedWidgetOfExactType<AssistantScope>()?.translator;
 
   /// The bridge in scope, or [OfflineAssistant] when there is none.
   static AssistantBridge of(BuildContext context) =>
@@ -56,7 +71,12 @@ class AssistantScope extends InheritedWidget {
   static AssistantGateway gatewayOf(BuildContext context) {
     final scope = context.dependOnInheritedWidgetOfExactType<AssistantScope>();
     final bridge = scope?.bridge ?? const OfflineAssistant();
-    return _gateways[bridge] ??= AssistantGateway(bridge, enabled: scope?.enabled, record: scope?.record);
+    return _gateways[bridge] ??= AssistantGateway(
+      bridge,
+      enabled: scope?.enabled,
+      record: scope?.record,
+      translator: scope?.translator,
+    );
   }
 
   @override
