@@ -1891,7 +1891,13 @@ class L10nAr extends L10n {
 
   @override
   String get askNoAiHere =>
-      'الذكاء الاصطناعي غير متاح على هذا الهاتف: يعمل Gemini Nano فقط على الهواتف التي يضمّنه صانعها، وCloud boost مطفأ. يعرض femio المصادر الموثوقة كما هي حرفيًا. لاستخدام ذكاء Google السحابي في الأسئلة العامة، فعّلي Cloud boost من الإعدادات ← المساعد.';
+      'لا يحتوي هذا الهاتف على ذكاء اصطناعي مدمج (Gemini Nano)، لذا يعرض femio المصادر الموثوقة كما هي. فعّلي Cloud boost ليلخّصها الذكاء الاصطناعي السحابي من Google للأسئلة العامة. لا يُرسل أي شيء من سجلّكِ.';
+
+  @override
+  String get askTurnOnBoost => 'فعّلي Cloud boost';
+
+  @override
+  String get assistantUseBoost => 'استخدمي Cloud boost';
 
   @override
   String get askNanoNotReady =>
@@ -2091,7 +2097,7 @@ class L10nAr extends L10n {
 
   @override
   String get assistantOnDeviceUnavailable =>
-      'غير متاح على هذا الهاتف. يستخدم femio قائمة كلماته الخاصة على الهاتف بدلًا منه.';
+      'غير متاح على هذا الهاتف. ما زالت «اسألي femio» تجيب من مصادرها الموثوقة، ويمكن لـ Cloud boost تلخيصها للأسئلة العامة.';
 
   @override
   String get assistantDownload => 'تنزيل';
@@ -2101,7 +2107,7 @@ class L10nAr extends L10n {
 
   @override
   String get assistantCloudOn =>
-      'مُفعّل. يُستخدم فقط إن لم يكن على الهاتف ذكاء اصطناعي.';
+      'مفعّل. يُستخدم للأسئلة العامة على الهواتف التي لا تحتوي على ذكاء اصطناعي مدمج.';
 
   @override
   String get assistantCloudOff => 'متوقف. كل شيء يتم على هذا الهاتف.';
@@ -2293,7 +2299,7 @@ class L10nAr extends L10n {
 
   @override
   String get cloudCheckNote =>
-      'يرسل جملة ثابتة واحدة لا تتضمن أي شيء عنكِ (\"Reply with the single word OK.\") إلى ذكاء Google السحابي، ويعرض ما حدث.';
+      'يختبر الاتصال بالذكاء الاصطناعي السحابي من Google بجملة اختبار ثابتة. لا يُرسل أي شيء عنكِ.';
 
   @override
   String get cloudCheckRunning => 'جارٍ الفحص…';
@@ -2306,24 +2312,23 @@ class L10nAr extends L10n {
   @override
   String cloudCheckFailed(String reason) {
     String _temp0 = intl.Intl.selectLogic(reason, {
-      'app_check': 'لم تقبل Google هذه النسخة من femio (App Check)، لذا لا يمكن تشغيل Cloud boost عليها بعد. حاولي لاحقًا.',
-      'service_disabled':
-          'خدمة الذكاء الاصطناعي السحابية متوقفة لـ femio. حاولي لاحقًا.',
-      'quota': 'بلغ Cloud boost حدّه الآن. حاولي لاحقًا.',
-      'location': 'ذكاء Google السحابي غير متاح في بلدكِ.',
-      'network': 'لا يوجد اتصال بالإنترنت.',
-      'timeout': 'لم يُجب ذكاء Google السحابي خلال 20 ثانية.',
-      'not_configured': 'هذه النسخة من femio غير مُعدّة لـ Cloud boost.',
-      'api_key': 'هذه النسخة من femio غير مُعدّة لـ Cloud boost.',
-      'permission': 'هذه النسخة من femio غير مُعدّة لـ Cloud boost.',
-      'other': 'لم يُجب Cloud boost.',
+      'app_check': 'تعذّر على Cloud boost التحقق من نسخة femio هذه، لذا فهو غير متاح الآن. باقي femio يعمل كالمعتاد.',
+      'service_disabled': 'Cloud boost غير متاح مؤقتًا. يُرجى المحاولة لاحقًا.',
+      'quota': 'Cloud boost مشغول الآن. يُرجى المحاولة لاحقًا.',
+      'location': 'Cloud boost غير متاح في بلدكِ بعد.',
+      'network': 'لا يوجد اتصال بالإنترنت. اتصلي وحاولي مرة أخرى.',
+      'timeout': 'استغرق الذكاء الاصطناعي السحابي من Google وقتًا طويلًا للرد. يُرجى المحاولة مرة أخرى.',
+      'not_configured': 'Cloud boost غير متاح في هذا الإصدار من femio.',
+      'api_key': 'Cloud boost غير متاح في هذا الإصدار من femio.',
+      'permission': 'Cloud boost غير متاح في هذا الإصدار من femio.',
+      'other': 'لم يستجب Cloud boost. يُرجى المحاولة لاحقًا.',
     });
     return '$_temp0';
   }
 
   @override
   String cloudCheckCode(String code) {
-    return 'رمز للدعم: $code';
+    return 'رمز الدعم: $code';
   }
 
   @override

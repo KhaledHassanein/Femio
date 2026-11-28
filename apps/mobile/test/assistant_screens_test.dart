@@ -19,6 +19,7 @@ import 'package:femio/domain/assistant/cloud_prompt.dart';
 import 'package:femio/domain/assistant/private_prompt.dart';
 import 'package:femio/domain/assistant/source_registry.dart';
 import 'package:femio/domain/assistant/uses.dart';
+import 'package:femio/features/assistant/ai_choices_wizard.dart';
 import 'package:femio/features/assistant/ai_choices_record_screen.dart';
 import 'package:femio/features/assistant/ai_sees_screen.dart';
 import 'package:femio/features/assistant/ask_screen.dart';
@@ -281,6 +282,36 @@ void main() {
       expect(bridge.sentToCloud, isEmpty);
       expect(find.text('Word for word from trusted sources'), findsOneWidget);
     });
+
+    testWidgets('without Nano and with Cloud boost off, she is offered Cloud boost (owner 2026-11-28)', (
+      tester,
+    ) async {
+      final bridge = FakeAssistant(nano: false);
+      final c = await _controller(_ttc('en'));
+      await tester.pumpWidget(_app('en', Brightness.light, bridge, ask(c)));
+      await askIt(tester, 'what helps period cramps?');
+      final button = find.text('Turn on Cloud boost');
+      await tester.scrollUntilVisible(button, 200, scrollable: find.byType(Scrollable).first);
+      expect(button, findsOneWidget);
+      await tester.tap(button);
+      await tester.pumpAndSettle();
+      expect(find.byType(AiChoicesWizard), findsOneWidget);
+      expect(bridge.sentToCloud, isEmpty, reason: 'offering is not sending');
+    });
+
+    for (final (lang, b) in const [('en', Brightness.light), ('ar', Brightness.light), ('ar', Brightness.dark)]) {
+      testWidgets('screenshot: Cloud boost offered without Nano ($lang, ${b.name})', (tester) async {
+        await _size(tester);
+        final c = await _controller(_ttc(lang));
+        await tester.pumpWidget(_app(lang, b, FakeAssistant(nano: false), ask(c)));
+        await askIt(tester, lang == 'ar' ? 'ما الذي يساعد في تقلصات الدورة؟' : 'what helps period cramps?');
+        final l = lookupL10n(Locale(lang));
+        await tester.scrollUntilVisible(find.text(l.askTurnOnBoost), 200, scrollable: find.byType(Scrollable).first);
+        await tester.drag(find.byType(Scrollable).first, const Offset(0, 260));
+        await tester.pumpAndSettle();
+        await _shoot('boost_offer_${lang}_${b.name}');
+      });
+    }
 
     testWidgets(
       'with Cloud boost on, a question about her still stays on the phone',

@@ -33,6 +33,7 @@ import '../../theme/femio_theme.dart';
 import '../../theme/spacing.dart';
 import '../../widgets/notice_card.dart';
 import '../learn/article_screen.dart';
+import 'ai_choices_wizard.dart' show AiMode, openAiChoicesWizard;
 import 'answer_card.dart';
 import 'assistant_scope.dart';
 import 'input_actions.dart';
@@ -74,6 +75,10 @@ class _AskScreenState extends State<AskScreen> {
   /// comes before the passages (R7.14). The search still runs.
   bool _diagnosis = false;
   String? _note;
+
+  /// True when the notice says this phone has no on-phone AI and Cloud boost is off: a
+  /// button under it opens the AI choices at Cloud boost (owner 2026-11-28).
+  bool _offerBoost = false;
 
   /// The question as she asked it, and a counter that gives each answer a fresh save prompt.
   String _asked = '';
@@ -158,6 +163,7 @@ class _AskScreenState extends State<AskScreen> {
             : boost && paused != null
                 ? l.askCloudUnavailable(l.cloudCheckFailed(paused))
                 : _whyNoAi(l, status, profile?.settings.assistantOn ?? true);
+        _offerBoost = _note == l.askNoAiHere;
         _stage = _Stage.answered;
       }
     });
@@ -210,6 +216,15 @@ class _AskScreenState extends State<AskScreen> {
       OnDeviceModel.downloadable || OnDeviceModel.downloading => l.askNanoNotReady,
       _ => l.askNoAiHere,
     };
+  }
+
+  /// Opens the AI choices at Cloud boost; once she saves it, her question runs again so the
+  /// summary she asked for appears without retyping.
+  Future<void> _turnOnBoost() async {
+    final saved = await openAiChoicesWizard(context, widget.controller, start: AiMode.cloud);
+    if (!mounted || !saved) return;
+    setState(() => _offerBoost = false);
+    if (widget.controller.profile?.settings.cloud.allows(CloudPurpose.questions) ?? false) await _ask();
   }
 
   /// Shows the passages word for word instead of sending anything.
@@ -317,6 +332,14 @@ class _AskScreenState extends State<AskScreen> {
             if (_note != null && _stage == _Stage.answered) ...[
               const SizedBox(height: space4),
               NoticeCard(tone: NoticeTone.quiet, heading: l.askTitle, body: _note!),
+              if (_offerBoost) ...[
+                const SizedBox(height: space3),
+                OutlinedButton.icon(
+                  onPressed: _turnOnBoost,
+                  icon: const Icon(Icons.cloud_outlined),
+                  label: Text(l.askTurnOnBoost),
+                ),
+              ],
             ],
             if (_stage == _Stage.answered && found != null && found.notCovered) ...[
               const SizedBox(height: space4),

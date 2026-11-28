@@ -1876,7 +1876,13 @@ class L10nFr extends L10n {
 
   @override
   String get askNoAiHere =>
-      'L\'IA n\'est pas disponible sur ce téléphone : Gemini Nano ne fonctionne que sur les téléphones dont le fabricant l\'intègre, et Cloud boost est désactivé. femio affiche les sources fiables mot pour mot. Pour utiliser l\'IA cloud de Google pour les questions générales, activez Cloud boost dans Réglages → Assistant.';
+      'Ce téléphone n\'a pas d\'IA intégrée (Gemini Nano), femio affiche donc les sources fiables mot pour mot. Activez Cloud boost pour que l\'IA cloud de Google les résume pour les questions générales. Rien de votre dossier n\'est envoyé.';
+
+  @override
+  String get askTurnOnBoost => 'Activer Cloud boost';
+
+  @override
+  String get assistantUseBoost => 'Utiliser Cloud boost';
 
   @override
   String get askNanoNotReady =>
@@ -2075,7 +2081,7 @@ class L10nFr extends L10n {
 
   @override
   String get assistantOnDeviceUnavailable =>
-      'Indisponible sur ce téléphone. femio utilise à la place sa propre liste de mots, sur le téléphone.';
+      'Non disponible sur ce téléphone. Demander à femio répond toujours à partir de ses sources fiables, et Cloud boost peut les résumer pour les questions générales.';
 
   @override
   String get assistantDownload => 'Télécharger';
@@ -2085,7 +2091,7 @@ class L10nFr extends L10n {
 
   @override
   String get assistantCloudOn =>
-      'Activé. Utilisé seulement si ce téléphone n’a pas d’IA intégrée.';
+      'Activé. Utilisé pour les questions générales sur les téléphones sans IA intégrée.';
 
   @override
   String get assistantCloudOff => 'Désactivé. Tout se fait sur ce téléphone.';
@@ -2278,7 +2284,7 @@ class L10nFr extends L10n {
 
   @override
   String get cloudCheckNote =>
-      'Envoie une phrase fixe qui ne dit rien de vous (« Reply with the single word OK. ») à l\'IA cloud de Google et montre le résultat.';
+      'Teste la connexion à l\'IA cloud de Google avec une phrase de test fixe. Rien vous concernant n\'est envoyé.';
 
   @override
   String get cloudCheckRunning => 'Vérification…';
@@ -2291,25 +2297,29 @@ class L10nFr extends L10n {
   @override
   String cloudCheckFailed(String reason) {
     String _temp0 = intl.Intl.selectLogic(reason, {
-      'app_check': 'Google n\'a pas accepté cette copie de femio (App Check) ; Cloud boost ne peut donc pas encore y fonctionner. Réessayez plus tard.',
-      'service_disabled': 'Le service d\'IA cloud est désactivé pour femio. Réessayez plus tard.',
-      'quota': 'Cloud boost a atteint sa limite pour le moment. Réessayez plus tard.',
-      'location': 'L\'IA cloud de Google n\'est pas proposée dans votre pays.',
-      'network': 'Pas de connexion internet.',
-      'timeout': 'L\'IA cloud de Google n\'a pas répondu en 20 secondes.',
+      'app_check': 'Cloud boost n\'a pas pu vérifier cette copie de femio, il n\'est donc pas disponible pour le moment. Tout le reste de femio fonctionne normalement.',
+      'service_disabled':
+          'Cloud boost est temporairement indisponible. Réessayez plus tard.',
+      'quota':
+          'Cloud boost est très sollicité en ce moment. Réessayez plus tard.',
+      'location': 'Cloud boost n\'est pas encore proposé dans votre pays.',
+      'network': 'Pas de connexion internet. Connectez-vous et réessayez.',
+      'timeout':
+          'L\'IA cloud de Google a mis trop de temps à répondre. Réessayez.',
       'not_configured':
-          'Cette copie de femio n\'est pas configurée pour Cloud boost.',
-      'api_key': 'Cette copie de femio n\'est pas configurée pour Cloud boost.',
+          'Cloud boost n\'est pas disponible dans cette version de femio.',
+      'api_key':
+          'Cloud boost n\'est pas disponible dans cette version de femio.',
       'permission':
-          'Cette copie de femio n\'est pas configurée pour Cloud boost.',
-      'other': 'Cloud boost n\'a pas répondu.',
+          'Cloud boost n\'est pas disponible dans cette version de femio.',
+      'other': 'Cloud boost n\'a pas répondu. Réessayez plus tard.',
     });
     return '$_temp0';
   }
 
   @override
   String cloudCheckCode(String code) {
-    return 'Code pour l\'assistance : $code';
+    return 'Code d\'assistance : $code';
   }
 
   @override

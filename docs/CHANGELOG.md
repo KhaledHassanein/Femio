@@ -3,6 +3,7 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Changed
+- **Cloud boost is offered when your phone has no built-in AI.** Ask femio and Settings → Assistant show a button to turn it on, and your question is answered again once you do. The Cloud boost status messages are clearer.
 - **Add a report from wherever you talk to femio.** Every assistant text box (Ask femio, Say it, After a visit) now has a paperclip beside the mic for a photo or PDF of a report, and Log has an "Add a report, scan or PDF" button. Build 3 (1.0.0).
 - **The mic works on more phones.** femio tries your language with its usual regions, and when your phone has no offline speech pack it offers to download it.
 - **Your pregnancy week, one tap away.** Today shows a "What's happening in week N" button, and the week strip highlights your week as "Now".

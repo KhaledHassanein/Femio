@@ -1866,7 +1866,13 @@ class L10nEs extends L10n {
 
   @override
   String get askNoAiHere =>
-      'La IA no está disponible en este teléfono: Gemini Nano solo funciona en teléfonos cuyo fabricante lo incluye, y Cloud boost está desactivado. femio muestra las fuentes de confianza palabra por palabra. Para usar la IA en la nube de Google en preguntas generales, activa Cloud boost en Ajustes → Asistente.';
+      'Este teléfono no tiene IA integrada (Gemini Nano), así que femio muestra las fuentes de confianza palabra por palabra. Activa Cloud boost para que la IA en la nube de Google las resuma en preguntas generales. No se envía nada de tu registro.';
+
+  @override
+  String get askTurnOnBoost => 'Activar Cloud boost';
+
+  @override
+  String get assistantUseBoost => 'Usar Cloud boost';
 
   @override
   String get askNanoNotReady =>
@@ -2064,7 +2070,7 @@ class L10nEs extends L10n {
 
   @override
   String get assistantOnDeviceUnavailable =>
-      'No disponible en este teléfono. femio usa en su lugar su propia lista de palabras, también en el teléfono.';
+      'No disponible en este teléfono. Pregunta a femio sigue respondiendo con sus fuentes de confianza, y Cloud boost puede resumirlas para preguntas generales.';
 
   @override
   String get assistantDownload => 'Descargar';
@@ -2074,7 +2080,7 @@ class L10nEs extends L10n {
 
   @override
   String get assistantCloudOn =>
-      'Activado. Solo se usa si este teléfono no tiene IA integrada.';
+      'Activado. Se usa para preguntas generales en teléfonos sin IA integrada.';
 
   @override
   String get assistantCloudOff => 'Desactivado. Todo se hace en este teléfono.';
@@ -2267,7 +2273,7 @@ class L10nEs extends L10n {
 
   @override
   String get cloudCheckNote =>
-      'Envía una frase fija que no dice nada de ti («Reply with the single word OK.») a la IA en la nube de Google y muestra lo que pasó.';
+      'Prueba la conexión con la IA en la nube de Google con una frase de prueba fija. No se envía nada sobre ti.';
 
   @override
   String get cloudCheckRunning => 'Comprobando…';
@@ -2280,25 +2286,25 @@ class L10nEs extends L10n {
   @override
   String cloudCheckFailed(String reason) {
     String _temp0 = intl.Intl.selectLogic(reason, {
-      'app_check': 'Google no aceptó esta copia de femio (App Check), así que Cloud boost aún no puede funcionar en ella. Inténtalo más tarde.',
-      'service_disabled': 'El servicio de IA en la nube está desactivado para femio. Inténtalo más tarde.',
-      'quota':
-          'Cloud boost ha llegado a su límite por ahora. Inténtalo más tarde.',
-      'location': 'La IA en la nube de Google no se ofrece en tu país.',
-      'network': 'No hay conexión a internet.',
-      'timeout': 'La IA en la nube de Google no respondió en 20 segundos.',
+      'app_check': 'Cloud boost no pudo verificar esta copia de femio, así que no está disponible por ahora. Todo lo demás en femio funciona con normalidad.',
+      'service_disabled':
+          'Cloud boost no está disponible temporalmente. Inténtalo más tarde.',
+      'quota': 'Cloud boost está ocupado ahora. Inténtalo más tarde.',
+      'location': 'Cloud boost aún no está disponible en tu país.',
+      'network': 'Sin conexión a internet. Conéctate e inténtalo de nuevo.',
+      'timeout': 'La IA en la nube de Google tardó demasiado en responder. Inténtalo de nuevo.',
       'not_configured':
-          'Esta copia de femio no está configurada para Cloud boost.',
-      'api_key': 'Esta copia de femio no está configurada para Cloud boost.',
-      'permission': 'Esta copia de femio no está configurada para Cloud boost.',
-      'other': 'Cloud boost no respondió.',
+          'Cloud boost no está disponible en esta versión de femio.',
+      'api_key': 'Cloud boost no está disponible en esta versión de femio.',
+      'permission': 'Cloud boost no está disponible en esta versión de femio.',
+      'other': 'Cloud boost no respondió. Inténtalo más tarde.',
     });
     return '$_temp0';
   }
 
   @override
   String cloudCheckCode(String code) {
-    return 'Código para soporte: $code';
+    return 'Código de soporte: $code';
   }
 
   @override

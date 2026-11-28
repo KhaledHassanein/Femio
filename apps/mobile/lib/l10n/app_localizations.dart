@@ -3176,8 +3176,20 @@ abstract class L10n {
   /// Ask femio note: no Gemini Nano on this phone and Cloud boost off.
   ///
   /// In en, this message translates to:
-  /// **'AI is not available on this phone: Gemini Nano runs only on phones whose maker includes it, and Cloud boost is off. femio shows the trusted sources word for word. To use Google\'s cloud AI for general questions, turn on Cloud boost in Settings → Assistant.'**
+  /// **'This phone has no built-in AI (Gemini Nano), so femio shows the trusted sources word for word. Turn on Cloud boost to have Google\'s cloud AI summarise them for general questions. Nothing from your record is sent.'**
   String get askNoAiHere;
+
+  /// Under the Ask notice on a phone without Gemini Nano: opens the AI choices at Cloud boost.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn on Cloud boost'**
+  String get askTurnOnBoost;
+
+  /// Settings, on-phone AI row when Gemini Nano is unavailable and Cloud boost is off.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Cloud boost'**
+  String get assistantUseBoost;
 
   /// Ask femio note: Gemini Nano can be downloaded but is not ready.
   ///
@@ -3476,7 +3488,7 @@ abstract class L10n {
   /// No description provided for @assistantOnDeviceUnavailable.
   ///
   /// In en, this message translates to:
-  /// **'Not available on this phone. femio uses its own word list on the phone instead.'**
+  /// **'Not available on this phone. Ask femio still answers from its trusted sources, and Cloud boost can summarise them for general questions.'**
   String get assistantOnDeviceUnavailable;
 
   /// No description provided for @assistantDownload.
@@ -3494,7 +3506,7 @@ abstract class L10n {
   /// No description provided for @assistantCloudOn.
   ///
   /// In en, this message translates to:
-  /// **'On. Used only when this phone has no on-phone AI.'**
+  /// **'On. Used for general questions on phones without built-in AI.'**
   String get assistantCloudOn;
 
   /// No description provided for @assistantCloudOff.
@@ -3794,7 +3806,7 @@ abstract class L10n {
   /// No description provided for @cloudCheckNote.
   ///
   /// In en, this message translates to:
-  /// **'Sends one fixed sentence with nothing about you (\"Reply with the single word OK.\") to Google\'s cloud AI and shows what happened.'**
+  /// **'Tests the connection to Google\'s cloud AI with a fixed test sentence. Nothing about you is sent.'**
   String get cloudCheckNote;
 
   /// No description provided for @cloudCheckRunning.
@@ -3812,13 +3824,13 @@ abstract class L10n {
   /// No description provided for @cloudCheckFailed.
   ///
   /// In en, this message translates to:
-  /// **'{reason, select, app_check{Google did not accept this copy of femio (App Check), so Cloud boost cannot run on it yet. Try again later.} service_disabled{The cloud AI service is switched off for femio. Try again later.} quota{Cloud boost has reached its limit for now. Try again later.} location{Google\'s cloud AI is not offered in your country.} network{No internet connection.} timeout{Google\'s cloud AI did not answer within 20 seconds.} not_configured{This copy of femio is not set up for Cloud boost.} api_key{This copy of femio is not set up for Cloud boost.} permission{This copy of femio is not set up for Cloud boost.} other{Cloud boost did not answer.}}'**
+  /// **'{reason, select, app_check{Cloud boost could not verify this copy of femio, so it is not available right now. Everything else in femio works as usual.} service_disabled{Cloud boost is temporarily unavailable. Please try again later.} quota{Cloud boost is busy right now. Please try again later.} location{Cloud boost is not offered in your country yet.} network{No internet connection. Connect and try again.} timeout{Google\'s cloud AI took too long to answer. Please try again.} not_configured{Cloud boost is not available in this version of femio.} api_key{Cloud boost is not available in this version of femio.} permission{Cloud boost is not available in this version of femio.} other{Cloud boost did not respond. Please try again later.}}'**
   String cloudCheckFailed(String reason);
 
   /// No description provided for @cloudCheckCode.
   ///
   /// In en, this message translates to:
-  /// **'Code for support: {code}'**
+  /// **'Support code: {code}'**
   String cloudCheckCode(String code);
 
   /// No description provided for @boostTitle.

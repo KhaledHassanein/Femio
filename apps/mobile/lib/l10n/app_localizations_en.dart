@@ -1850,7 +1850,13 @@ class L10nEn extends L10n {
 
   @override
   String get askNoAiHere =>
-      'AI is not available on this phone: Gemini Nano runs only on phones whose maker includes it, and Cloud boost is off. femio shows the trusted sources word for word. To use Google\'s cloud AI for general questions, turn on Cloud boost in Settings → Assistant.';
+      'This phone has no built-in AI (Gemini Nano), so femio shows the trusted sources word for word. Turn on Cloud boost to have Google\'s cloud AI summarise them for general questions. Nothing from your record is sent.';
+
+  @override
+  String get askTurnOnBoost => 'Turn on Cloud boost';
+
+  @override
+  String get assistantUseBoost => 'Use Cloud boost';
 
   @override
   String get askNanoNotReady =>
@@ -2048,7 +2054,7 @@ class L10nEn extends L10n {
 
   @override
   String get assistantOnDeviceUnavailable =>
-      'Not available on this phone. femio uses its own word list on the phone instead.';
+      'Not available on this phone. Ask femio still answers from its trusted sources, and Cloud boost can summarise them for general questions.';
 
   @override
   String get assistantDownload => 'Download';
@@ -2058,7 +2064,7 @@ class L10nEn extends L10n {
 
   @override
   String get assistantCloudOn =>
-      'On. Used only when this phone has no on-phone AI.';
+      'On. Used for general questions on phones without built-in AI.';
 
   @override
   String get assistantCloudOff => 'Off. Everything is done on this phone.';
@@ -2249,7 +2255,7 @@ class L10nEn extends L10n {
 
   @override
   String get cloudCheckNote =>
-      'Sends one fixed sentence with nothing about you (\"Reply with the single word OK.\") to Google\'s cloud AI and shows what happened.';
+      'Tests the connection to Google\'s cloud AI with a fixed test sentence. Nothing about you is sent.';
 
   @override
   String get cloudCheckRunning => 'Checking…';
@@ -2262,24 +2268,26 @@ class L10nEn extends L10n {
   @override
   String cloudCheckFailed(String reason) {
     String _temp0 = intl.Intl.selectLogic(reason, {
-      'app_check': 'Google did not accept this copy of femio (App Check), so Cloud boost cannot run on it yet. Try again later.',
+      'app_check': 'Cloud boost could not verify this copy of femio, so it is not available right now. Everything else in femio works as usual.',
       'service_disabled':
-          'The cloud AI service is switched off for femio. Try again later.',
-      'quota': 'Cloud boost has reached its limit for now. Try again later.',
-      'location': 'Google\'s cloud AI is not offered in your country.',
-      'network': 'No internet connection.',
-      'timeout': 'Google\'s cloud AI did not answer within 20 seconds.',
-      'not_configured': 'This copy of femio is not set up for Cloud boost.',
-      'api_key': 'This copy of femio is not set up for Cloud boost.',
-      'permission': 'This copy of femio is not set up for Cloud boost.',
-      'other': 'Cloud boost did not answer.',
+          'Cloud boost is temporarily unavailable. Please try again later.',
+      'quota': 'Cloud boost is busy right now. Please try again later.',
+      'location': 'Cloud boost is not offered in your country yet.',
+      'network': 'No internet connection. Connect and try again.',
+      'timeout':
+          'Google\'s cloud AI took too long to answer. Please try again.',
+      'not_configured':
+          'Cloud boost is not available in this version of femio.',
+      'api_key': 'Cloud boost is not available in this version of femio.',
+      'permission': 'Cloud boost is not available in this version of femio.',
+      'other': 'Cloud boost did not respond. Please try again later.',
     });
     return '$_temp0';
   }
 
   @override
   String cloudCheckCode(String code) {
-    return 'Code for support: $code';
+    return 'Support code: $code';
   }
 
   @override

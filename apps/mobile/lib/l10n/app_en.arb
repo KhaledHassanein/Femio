@@ -841,9 +841,17 @@
       }
     }
   },
-  "askNoAiHere": "AI is not available on this phone: Gemini Nano runs only on phones whose maker includes it, and Cloud boost is off. femio shows the trusted sources word for word. To use Google's cloud AI for general questions, turn on Cloud boost in Settings → Assistant.",
+  "askNoAiHere": "This phone has no built-in AI (Gemini Nano), so femio shows the trusted sources word for word. Turn on Cloud boost to have Google's cloud AI summarise them for general questions. Nothing from your record is sent.",
   "@askNoAiHere": {
     "description": "Ask femio note: no Gemini Nano on this phone and Cloud boost off."
+  },
+  "askTurnOnBoost": "Turn on Cloud boost",
+  "@askTurnOnBoost": {
+    "description": "Under the Ask notice on a phone without Gemini Nano: opens the AI choices at Cloud boost."
+  },
+  "assistantUseBoost": "Use Cloud boost",
+  "@assistantUseBoost": {
+    "description": "Settings, on-phone AI row when Gemini Nano is unavailable and Cloud boost is off."
   },
   "askNanoNotReady": "Gemini Nano is not ready on this phone yet; you can download it in Settings → Assistant. Until then femio shows the trusted sources word for word.",
   "@askNanoNotReady": {
@@ -954,10 +962,10 @@
   "assistantOnDeviceAvailable": "Ready. It reads your notes on the phone, and your words are not sent.",
   "assistantOnDeviceDownloadable": "Can be downloaded to this phone.",
   "assistantOnDeviceDownloading": "Downloading…",
-  "assistantOnDeviceUnavailable": "Not available on this phone. femio uses its own word list on the phone instead.",
+  "assistantOnDeviceUnavailable": "Not available on this phone. Ask femio still answers from its trusted sources, and Cloud boost can summarise them for general questions.",
   "assistantDownload": "Download",
   "assistantCloudTitle": "Cloud boost",
-  "assistantCloudOn": "On. Used only when this phone has no on-phone AI.",
+  "assistantCloudOn": "On. Used for general questions on phones without built-in AI.",
   "assistantCloudOff": "Off. Everything is done on this phone.",
   "assistantHowItWorks": "Your log stays on your phone. Your notes and your log are read by femio's rules and, where your phone has it, by Gemini Nano on the phone. Safety rules always come first: signs of danger open the help page, and femio never advises on avoiding pregnancy. Ask femio answers only from trusted health sources carried in the app and shows them with every answer. Cloud boost is off unless you agree to it; then only what its screen lists is sent to Google.",
   "assistantCloudNotBuilt": "Not available in this version of the app.",
@@ -1068,7 +1076,7 @@
   "aiRecordShare": "Share a copy",
   "aiRecordShareSubject": "My femio AI choices",
   "cloudCheckButton": "Check Cloud boost",
-  "cloudCheckNote": "Sends one fixed sentence with nothing about you (\"Reply with the single word OK.\") to Google's cloud AI and shows what happened.",
+  "cloudCheckNote": "Tests the connection to Google's cloud AI with a fixed test sentence. Nothing about you is sent.",
   "cloudCheckRunning": "Checking…",
   "cloudCheckOk": "Cloud boost works: Google's cloud AI answered in {seconds} s.",
   "@cloudCheckOk": {
@@ -1078,7 +1086,7 @@
       }
     }
   },
-  "cloudCheckFailed": "{reason, select, app_check{Google did not accept this copy of femio (App Check), so Cloud boost cannot run on it yet. Try again later.} service_disabled{The cloud AI service is switched off for femio. Try again later.} quota{Cloud boost has reached its limit for now. Try again later.} location{Google's cloud AI is not offered in your country.} network{No internet connection.} timeout{Google's cloud AI did not answer within 20 seconds.} not_configured{This copy of femio is not set up for Cloud boost.} api_key{This copy of femio is not set up for Cloud boost.} permission{This copy of femio is not set up for Cloud boost.} other{Cloud boost did not answer.}}",
+  "cloudCheckFailed": "{reason, select, app_check{Cloud boost could not verify this copy of femio, so it is not available right now. Everything else in femio works as usual.} service_disabled{Cloud boost is temporarily unavailable. Please try again later.} quota{Cloud boost is busy right now. Please try again later.} location{Cloud boost is not offered in your country yet.} network{No internet connection. Connect and try again.} timeout{Google's cloud AI took too long to answer. Please try again.} not_configured{Cloud boost is not available in this version of femio.} api_key{Cloud boost is not available in this version of femio.} permission{Cloud boost is not available in this version of femio.} other{Cloud boost did not respond. Please try again later.}}",
   "@cloudCheckFailed": {
     "placeholders": {
       "reason": {
@@ -1086,7 +1094,7 @@
       }
     }
   },
-  "cloudCheckCode": "Code for support: {code}",
+  "cloudCheckCode": "Support code: {code}",
   "@cloudCheckCode": {
     "placeholders": {
       "code": {

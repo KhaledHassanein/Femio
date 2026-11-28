@@ -129,6 +129,18 @@ class _AssistantSettingsScreenState extends State<AssistantSettingsScreen> {
                         )
                       : null,
                 ),
+                // Owner 2026-11-28: a phone without Gemini Nano is offered Cloud boost here, one tap
+                // from the AI choices, unless it is already on.
+                if (onDevice == OnDeviceModel.unavailable &&
+                    !(widget.controller.profile?.settings.cloud.allows(CloudPurpose.questions) ?? false))
+                  Align(
+                    alignment: AlignmentDirectional.centerStart,
+                    child: OutlinedButton.icon(
+                      onPressed: () => openAiChoicesWizard(context, widget.controller, start: AiMode.cloud),
+                      icon: const Icon(Icons.cloud_outlined),
+                      label: Text(l.assistantUseBoost),
+                    ),
+                  ),
                 TranslationTile(nanoPossible: onDevice != OnDeviceModel.unavailable),
                 ListenableBuilder(
                   listenable: widget.controller,

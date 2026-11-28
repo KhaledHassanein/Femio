@@ -48,7 +48,7 @@ a{color:var(--accent)}
 
 <main>
 <header style="display:flex;flex-direction:column;gap:8px">
-  <span class="eyebrow">femio · 28 November 2026 · build 3 (1.0.0, version code 3)</span>
+  <span class="eyebrow">femio · 28 November 2026 · build 4 (1.0.0, version code 4)</span>
   <h1>femio Launch Guide</h1>
   <p>Everything left before the hackathon deadline (30 Nov, 2:00 PM PT = 1 Dec, midnight Cairo) and the Play production release, in order.</p>
 </header>
@@ -61,7 +61,7 @@ a{color:var(--accent)}
   </div>
   <div class="tw"><table>
     <tr><th>Item</th><th>State</th><th>Where</th></tr>
-    <tr><td>Android app, build 3 (paperclip + mic in every chat box, pregnancy week button, Nano 4 first)</td><td><span class="pill ok">ready</span></td><td><code>E:\femio-builds\femio-1.0.0-build3.apk</code> and <code>.aab</code>; the APK is on the GitHub release</td></tr>
+    <tr><td>Android app, build 4 (Cloud boost offered without Nano, paperclip + mic in every chat box, pregnancy week button, Nano 4 first)</td><td><span class="pill ok">ready</span></td><td><code>E:\femio-builds\femio-1.0.0-build4.apk</code> and <code>.aab</code>; the APK is on the GitHub release</td></tr>
     <tr><td>Plain store screenshots, 4 per language × 4 languages</td><td><span class="pill ok">ready</span></td><td><code>docs/store/screenshots/plain/{en,ar,fr,es}/</code></td></tr>
     <tr><td>Website: "Coming soon", new app screens, <code>/demo</code> page</td><td><span class="pill ok">deployed</span></td><td><a href="https://femioapp.com/en/demo">femioapp.com/en/demo</a></td></tr>
     <tr><td>Website demos use no AI, no tokens, no Firebase calls</td><td><span class="pill ok">checked</span></td><td>network audit: only the site's own search index loads</td></tr>
@@ -75,7 +75,7 @@ a{color:var(--accent)}
   <span class="eyebrow">1 · Your steps, in order</span>
   <h2>What to do now</h2>
   <ol class="steps">
-    <li><b>Play Console, closed testing:</b> Test and release → Closed testing → your track → Create new release → upload <code>femio-1.0.0-build3.aab</code> (release name <code>3 (1.0.0)</code>; it replaces the earlier build) → Next → Save → Send for review. Keep at least 12 testers opted in for 14 days in a row.</li>
+    <li><b>Play Console, closed testing:</b> Test and release → Closed testing → your track → Create new release → upload <code>femio-1.0.0-build4.aab</code> (release name <code>4 (1.0.0)</code>; it replaces the earlier build) → Next → Save → Send for review. Keep at least 12 testers opted in for 14 days in a row.</li>
     <li><b>Screenshots:</b> Grow users → Store presence → Main store listing → Phone screenshots: upload the four from <code>plain/en/</code>. Do the same per translation with <code>plain/ar</code>, <code>plain/fr</code>, <code>plain/es</code>.</li>
     <li><b>Translations:</b> on the same page, Manage translations → Add your own translations → Arabic, French (France), Spanish (Spain) and, if you like, Spanish (Latin America). Paste the three boxes per language from section 2.</li>
     <li><b>Firebase App Check for judges:</b> section 3, step C (10 minutes). Also set a billing budget alert in Google Cloud (for example US$10).</li>
@@ -233,7 +233,7 @@ gh repo create KhaledHassanein/femio-app --public --source . --remote origin --p
   <p>Open <a href="https://github.com/KhaledHassanein/femio-app">github.com/KhaledHassanein/femio-app</a> in a private window: you should see "Apache-2.0 license" on the right, and no <code>assistant.env</code> file.</p>
 
   <h3>B · The APK release: done (28 Nov)</h3>
-  <p><span class="pill ok">done</span> The release <a href="https://github.com/KhaledHassanein/femio-app/releases/tag/v1.0.0-hackathon">v1.0.0-hackathon</a> holds <b>build 3</b> (versionCode 3, signed with your own key). SHA-256 <code>0b03e3821e5c946782409a10e5a0899b8ce5dabf0e18dbfa9c437123b8299ec3</code>. Nothing to run. Do not run <code>gh release create</code> again: the release exists.</p>
+  <p><span class="pill ok">done</span> The release <a href="https://github.com/KhaledHassanein/femio-app/releases/tag/v1.0.0-hackathon">v1.0.0-hackathon</a> holds <b>build 4</b> (versionCode 4, signed with your own key). SHA-256 <code>11deac09f80d04fce2c25054ddc70d66bbe22e385cea13c9119d10dcbde76473</code>. Nothing to run. Do not run <code>gh release create</code> again: the release exists.</p>
   <p>Only if a newer build is made later, replace the file and keep the same link (Devpost needs no change):</p>
 <pre>cp /e/femio-builds/femio-1.0.0-buildN.apk /e/femio-hackathon.apk
 gh release upload v1.0.0-hackathon /e/femio-hackathon.apk -R KhaledHassanein/femio-app --clobber</pre>
@@ -261,7 +261,7 @@ gh release upload v1.0.0-hackathon /e/femio-hackathon.apk -R KhaledHassanein/fem
 <section>
   <span class="eyebrow">4 · Devpost</span>
   <h2>Updated form answers</h2>
-  <p>New since your last version: build 3 adds a paperclip and mic to every chat box and a tappable pregnancy week, and asks for Gemini Nano 4 first; the website demo page is in "Try it out"; the testing steps name the real release link and file. Paste each box into the field with the same name. The video link is still yours to add.</p>
+  <p>New since your last version: build 4 offers Cloud boost on phones without Gemini Nano, adds a paperclip and mic to every chat box and a tappable pregnancy week, and asks for Gemini Nano 4 first; the website demo page is in "Try it out"; the testing steps name the real release link and file. Paste each box into the field with the same name. The video link is still yours to add.</p>
   <div class="copy"><div class="copy-head"><span>Project name</span><span class="count">47 chars</span><button type="button" class="btn-copy">Copy</button></div><pre>Femio: AI Assisted Female Health &amp; Wellness App</pre></div>
 <div class="copy"><div class="copy-head"><span>Elevator pitch (200 max)</span><span class="count">192 chars</span><button type="button" class="btn-copy">Copy</button></div><pre>Private AI women&#x27;s health app: log symptoms in your words, get answers cited from trusted sources like CDC and MedlinePlus, personal tips, cycle insights and visit prep. Hybrid Gemini Nano AI.</pre></div>
 <div class="copy"><div class="copy-head"><span>About the project (paste as Markdown)</span><span class="count">10596 chars</span><button type="button" class="btn-copy">Copy</button></div><pre>## The problem
@@ -382,7 +382,7 @@ The repo contains no keys or credentials; Firebase config lives in a git-ignored
 <section>
   <span class="eyebrow">6 · Optional, recommended</span>
   <h2>Last check on a real Nano phone</h2>
-  <p>Android Studio → Device Manager → Firebase / Remote devices → choose a Pixel 9 Pro or newer → Start. Tell me "device connected" and I will install build 3, check that Nano 4 (or the stable fallback) answers, run Ask, Say it, scan and speech, and read the logs. This closes the two "not verified" rows above.</p>
+  <p>Android Studio → Device Manager → Firebase / Remote devices → choose a Pixel 9 Pro or newer → Start. Tell me "device connected" and I will install build 4, check that Nano 4 (or the stable fallback) answers, run Ask, Say it, scan and speech, and read the logs. This closes the two "not verified" rows above.</p>
 </section>
 </main>
 
