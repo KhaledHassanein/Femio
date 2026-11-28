@@ -142,14 +142,19 @@ class AddSheet extends StatelessWidget {
                     ),
                   ]),
                 ),
-                Align(
-                  alignment: AlignmentDirectional.centerStart,
-                  child: TextButton.icon(
+                Wrap(spacing: space2, children: [
+                  TextButton.icon(
                     onPressed: () => pop(AssistantDoor.visit),
                     icon: const Icon(Icons.event_note_outlined),
                     label: Text(l.addVisit),
                   ),
-                ),
+                  // ADR-087: her notes after a visit become a draft she checks.
+                  TextButton.icon(
+                    onPressed: () => pop(AssistantDoor.afterVisit),
+                    icon: const Icon(Icons.record_voice_over_outlined),
+                    label: Text(l.afterVisitTitle),
+                  ),
+                ]),
               ],
               // In pregnancy bleeding is a warning sign with its own note on the Log screen
               // (R8.7), so it is logged there, not as a one-tap chip.
@@ -205,6 +210,14 @@ class AddSheet extends StatelessWidget {
               ),
               heading(l.addResultHeading),
               Wrap(spacing: space2, runSpacing: space2, children: [
+                // ADR-087: Gemini Nano reads the report on this phone; on a phone without it
+                // the door says why and opens a lab entry to attach it by hand.
+                if (assistantOn)
+                  ActionChip(
+                    avatar: Icon(Icons.document_scanner_outlined, size: iconSizeInline, color: p.primary),
+                    label: Text(l.scanUseName),
+                    onPressed: () => pop(AssistantDoor.scanReport),
+                  ),
                 for (final kind in addSheetRecordKinds)
                   ActionChip(
                     avatar: Icon(recordKindIcon(kind), size: iconSizeInline, color: p.primary),

@@ -14,6 +14,10 @@
 // Config comes from git-ignored `apps/mobile/assistant.env` through BuildConfig; without it the
 // assistant reports "not configured" and every feature stays on the phone's rules.
 //
+// `privateImage` is the same phone-only call with one page picture of a document she chose to
+// have read (ADR-087): the image is decoded, scaled down and handed to Gemini Nano; it never
+// leaves the phone, and there is no cloud fallback.
+//
 // A third call, `check`, sends one fixed public sentence to the cloud model only, so she (and
 // the owner testing a build) can see whether Cloud boost really reaches Google, and if not,
 // why: App Check refused the app, the API is off, no network, quota, and so on. Failures are
@@ -23,6 +27,8 @@ package com.femioapp.femio.assistant
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.SystemClock
 import android.util.Log
@@ -47,6 +53,7 @@ import com.google.firebase.ai.InferenceMode
 import com.google.firebase.ai.InferenceSource
 import com.google.firebase.ai.OnDeviceConfig
 import com.google.firebase.ai.type.PublicPreviewAPI
+import com.google.firebase.ai.type.content
 import com.google.firebase.ai.type.generationConfig
 import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.MethodCall
@@ -64,6 +71,12 @@ const val ASSISTANT_CHANNEL = "com.femioapp.femio/assistant"
 
 /** Output budget for on-device calls; Google advises staying under 256 tokens. */
 private const val ON_DEVICE_MAX_OUTPUT_TOKENS = 200
+
+/** Output budget for reading one document page: about 25 short result lines. */
+private const val SCAN_MAX_OUTPUT_TOKENS = 256
+
+/** A page picture is scaled so its longer side is at most this many pixels before Nano reads it. */
+private const val SCAN_MAX_SIDE_PX = 1024
 
 /** Output budget for a cloud answer (about 120 words in any of the four languages). */
 private const val CLOUD_MAX_OUTPUT_TOKENS = 400
@@ -118,6 +131,10 @@ class FemioAssistant(private val context: Context, messenger: BinaryMessenger) :
                             "status" -> status()
                             "download" -> download()
                             "private" -> private(call.argument<String>("prompt").orEmpty())
+                            "privateImage" -> privateImage(
+                                call.argument<String>("prompt").orEmpty(),
+                                call.argument<ByteArray>("image") ?: ByteArray(0),
+                            )
                             "hybrid" -> hybrid(call.argument<String>("prompt").orEmpty())
                             "check" -> check()
                             else -> NotImplemented
@@ -166,6 +183,26 @@ class FemioAssistant(private val context: Context, messenger: BinaryMessenger) :
     }
 
     /**
+     * Runs [prompt] with one page picture [image] (PNG or JPEG bytes) on the phone only. The
+     * picture is scaled down first; an unreadable picture fails like an absent model, so Dart
+     * keeps its "attach only" path.
+     */
+    private suspend fun privateImage(prompt: String, image: ByteArray): Map<String, Any?> {
+        val bitmap = scaledPage(image) ?: throw IllegalArgumentException("unreadable_image")
+        try {
+            val model = model(InferenceMode.ONLY_ON_DEVICE, SCAN_MAX_OUTPUT_TOKENS)
+            val request = content {
+                image(bitmap)
+                text(prompt)
+            }
+            val response = withTimeout(CALL_TIMEOUT_MS) { withContext(Dispatchers.IO) { model.generateContent(request) } }
+            return mapOf("text" to response.text, "source" to sourceName(response))
+        } finally {
+            bitmap.recycle()
+        }
+    }
+
+    /**
      * Runs [prompt] on the phone when Gemini Nano is ready, otherwise in the cloud
      * (PREFER_ON_DEVICE). Dart only calls this with text built from a cloud-safe type and
      * public registry passages, and only after she switched Cloud boost on.
@@ -205,13 +242,13 @@ class FemioAssistant(private val context: Context, messenger: BinaryMessenger) :
     private fun sourceName(response: GenerateContentResponse): String =
         if (response.inferenceSource == InferenceSource.ON_DEVICE) "ON_DEVICE" else "IN_CLOUD"
 
-    private fun model(mode: InferenceMode): GenerativeModel {
+    private fun model(mode: InferenceMode, onDeviceTokens: Int = ON_DEVICE_MAX_OUTPUT_TOKENS): GenerativeModel {
         val firebase = firebase() ?: throw IllegalStateException("not_configured")
-        val maxTokens = if (mode == InferenceMode.ONLY_ON_DEVICE) ON_DEVICE_MAX_OUTPUT_TOKENS else CLOUD_MAX_OUTPUT_TOKENS
+        val maxTokens = if (mode == InferenceMode.ONLY_ON_DEVICE) onDeviceTokens else CLOUD_MAX_OUTPUT_TOKENS
         return Firebase.ai(app = firebase, backend = GenerativeBackend.googleAI()).generativeModel(
             modelName = BuildConfig.FEMIO_AI_CLOUD_MODEL,
             generationConfig = generationConfig { maxOutputTokens = maxTokens },
-            onDeviceConfig = OnDeviceConfig(mode = mode, maxOutputTokens = ON_DEVICE_MAX_OUTPUT_TOKENS),
+            onDeviceConfig = OnDeviceConfig(mode = mode, maxOutputTokens = onDeviceTokens),
         )
     }
 
@@ -233,6 +270,27 @@ class FemioAssistant(private val context: Context, messenger: BinaryMessenger) :
         app = created
         return created
     }
+}
+
+/**
+ * Decodes [bytes] and scales the picture so its longer side is at most [SCAN_MAX_SIDE_PX];
+ * null when the bytes are not a picture Android can read.
+ */
+internal fun scaledPage(bytes: ByteArray): Bitmap? {
+    if (bytes.isEmpty()) return null
+    val bounds = BitmapFactory.Options().apply { inJustDecodeBounds = true }
+    BitmapFactory.decodeByteArray(bytes, 0, bytes.size, bounds)
+    if (bounds.outWidth <= 0 || bounds.outHeight <= 0) return null
+    var sample = 1
+    while (maxOf(bounds.outWidth, bounds.outHeight) / (sample * 2) >= SCAN_MAX_SIDE_PX) sample *= 2
+    val decoded = BitmapFactory.decodeByteArray(bytes, 0, bytes.size, BitmapFactory.Options().apply { inSampleSize = sample })
+        ?: return null
+    val side = maxOf(decoded.width, decoded.height)
+    if (side <= SCAN_MAX_SIDE_PX) return decoded
+    val scale = SCAN_MAX_SIDE_PX.toFloat() / side
+    val scaled = Bitmap.createScaledBitmap(decoded, (decoded.width * scale).toInt(), (decoded.height * scale).toInt(), true)
+    if (scaled !== decoded) decoded.recycle()
+    return scaled
 }
 
 /** Marks a method femio's bridge does not know, so the channel answers notImplemented. */

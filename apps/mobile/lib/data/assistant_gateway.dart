@@ -10,6 +10,7 @@
 // Dart file that calls `runPrivate` or `runHybrid`.
 
 import 'dart:async';
+import 'dart:typed_data';
 
 import '../domain/assistant/ai_ledger.dart';
 import '../domain/assistant/cloud_consent.dart';
@@ -17,6 +18,7 @@ import '../domain/assistant/cloud_prompt.dart';
 import '../domain/assistant/private_prompt.dart';
 import '../domain/assistant/prompts.dart';
 import '../domain/assistant/pseudonymised_profile.dart';
+import '../domain/assistant/record_draft.dart';
 import '../domain/assistant/redaction.dart';
 import '../domain/assistant/source_registry.dart';
 import '../domain/assistant/uses.dart';
@@ -251,6 +253,37 @@ class AssistantGateway {
     _judge(AssistantUse.tipsOrder, order.isEmpty ? null : order);
     if (order.isEmpty) return const AssistantResult.rules();
     return AssistantResult(order, reply.onDevice ? RanOn.phone : RanOn.cloud);
+  }
+
+  /// Read a report: each of [pages] (pictures, at most [maxScanPages]) read on the phone into
+  /// one draft. [today] is the ISO day. The screen shows the draft for her to check; nothing
+  /// here writes to her record. Pages that give no usable lines are skipped.
+  Future<AssistantResult<RecordDraft>> readDocument(List<Uint8List> pages, String today) async {
+    if (pages.isEmpty || !(await status()).canRunPrivate) return const AssistantResult.rules();
+    var draft = const RecordDraft();
+    var answered = false;
+    for (final page in pages.take(maxScanPages)) {
+      final reply = await _private(PrivatePrompt.scanPage(page));
+      if (reply == null) continue;
+      answered = true;
+      draft = draft.merge(parseRecordDraft(reply, today));
+    }
+    if (!answered) return const AssistantResult.rules();
+    // A page with nothing to record is a fair answer ("NONE"), not a broken reply.
+    _judge(AssistantUse.scanDocument, draft);
+    return AssistantResult(draft, RanOn.phone);
+  }
+
+  /// After a visit: her [words] read on the phone into a draft (medicines, results, a next
+  /// visit, a note). [today] is the ISO day. Nothing here writes to her record.
+  Future<AssistantResult<RecordDraft>> readVisitWords(String words, String today) async {
+    if (words.trim().isEmpty || !(await status()).canRunPrivate) return const AssistantResult.rules();
+    final reply = await _private(PrivatePrompt.afterVisit(words.trim(), today));
+    if (reply == null) return const AssistantResult.rules();
+    final draft = parseRecordDraft(reply, today);
+    final usable = !draft.isEmpty || reply.trim().toUpperCase() == 'NONE';
+    if (_judge(AssistantUse.afterVisit, usable ? draft : null) == null) return const AssistantResult.rules();
+    return AssistantResult(draft, RanOn.phone);
   }
 
   /// Visit pack: an order for the summary's reviewed questions, on the phone only.

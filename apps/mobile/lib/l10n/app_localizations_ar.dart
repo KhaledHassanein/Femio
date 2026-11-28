@@ -3921,6 +3921,169 @@ class L10nAr extends L10n {
   String get recSourceSayIt => 'من وصفكِ ليومكِ';
 
   @override
+  String get recSourceAfterVisit => 'من ملاحظاتك بعد الزيارة';
+
+  @override
+  String get scanUseName => 'قراءة تقرير بالذكاء الاصطناعي';
+
+  @override
+  String get scanReadWithAi => 'القراءة بالذكاء الاصطناعي';
+
+  @override
+  String get scanTitle => 'راجعي ما قرأه الذكاء الاصطناعي';
+
+  @override
+  String get scanReading =>
+      'يقرأ الذكاء الاصطناعي على هذا الهاتف مستندك. قد يستغرق ذلك دقيقة.';
+
+  @override
+  String get scanIntro =>
+      'طابقي كل سطر مع تقريرك. أزيلي العلامة عن أي خطأ أو عدّليه. لا يُحفظ شيء حتى تضغطي زر الحفظ.';
+
+  @override
+  String get scanNothing =>
+      'لم يجد الذكاء الاصطناعي نتائج أو أدوية في هذا المستند. المستند محفوظ في مستنداتي، ويمكنك إضافة النتائج بنفسك.';
+
+  @override
+  String get scanFailed =>
+      'تعذّر على الذكاء الاصطناعي قراءة هذا المستند على هذا الهاتف. المستند محفوظ في مستنداتي، ويمكنك إضافة النتائج بنفسك.';
+
+  @override
+  String get scanDateLabel => 'التاريخ المطبوع على التقرير';
+
+  @override
+  String get scanDateMissing => 'اضغطي لاختيار التاريخ المطبوع على التقرير';
+
+  @override
+  String scanSaved(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'حُفظ $count إدخال في سجلّك',
+      many: 'حُفظ $count إدخالًا في سجلّك',
+      few: 'حُفظت $count إدخالات في سجلّك',
+      two: 'حُفظ إدخالان في سجلّك',
+      one: 'حُفظ إدخال واحد في سجلّك',
+      zero: 'لم يُحفظ شيء',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get scanPrivateNote =>
+      'عمل الذكاء الاصطناعي على هذا الهاتف، ولم يغادره مستندك.';
+
+  @override
+  String get scanNoAiTitle =>
+      'لا يستطيع هذا الهاتف قراءة التقارير بالذكاء الاصطناعي';
+
+  @override
+  String get scanNoAiBody =>
+      'تحتاج قراءة التقرير إلى الذكاء الاصطناعي المدمج في بعض الهواتف (Gemini Nano)، وهذا الهاتف لا يملكه أو لم يُنزّله بعد. ما زال بإمكانك إرفاق التقرير وكتابة النتائج.';
+
+  @override
+  String get scanAttachInstead => 'أرفقي تقريرًا';
+
+  @override
+  String get draftEdit => 'عدّلي هذا السطر';
+
+  @override
+  String get draftResultsHeading => 'النتائج';
+
+  @override
+  String get draftMedicinesHeading => 'الأدوية';
+
+  @override
+  String draftLabWithRange(String value, String range) {
+    return '$value · المدى المطبوع على التقرير: $range';
+  }
+
+  @override
+  String get draftFieldName => 'الاسم';
+
+  @override
+  String get draftFieldValue => 'القيمة';
+
+  @override
+  String get draftFieldUnit => 'الوحدة';
+
+  @override
+  String get draftFieldRange => 'المدى المطبوع على التقرير';
+
+  @override
+  String get draftFieldDose => 'الجرعة';
+
+  @override
+  String get draftFieldFrequency => 'كم مرة';
+
+  @override
+  String get afterVisitTitle => 'بعد الزيارة';
+
+  @override
+  String get afterVisitHint =>
+      'قولي أو اكتبي ما قاله لك الطبيب: الأدوية، والتحاليل، والزيارة القادمة. يحفظ femio كلماتك ملاحظةً للزيارة.';
+
+  @override
+  String get afterVisitExample =>
+      'مثلًا: ابدئي حمض الفوليك 5 ملغ مرة يوميًا، أعيدي تحليل TSH بعد ستة أسابيع، الزيارة القادمة في 10 يناير.';
+
+  @override
+  String get afterVisitRead => 'إعداد مسودة';
+
+  @override
+  String get afterVisitReading => 'تجري القراءة على هذا الهاتف…';
+
+  @override
+  String get afterVisitCheck =>
+      'راجعي المسودة. أزيلي العلامة عن أي خطأ أو عدّليه. تُحفظ كلماتك ملاحظةً للزيارة.';
+
+  @override
+  String get afterVisitNothing =>
+      'لم يجد الذكاء الاصطناعي ما يُضاف كإدخال. ستُحفظ كلماتك ملاحظةً للزيارة.';
+
+  @override
+  String get afterVisitNoAi =>
+      'الذكاء الاصطناعي غير متاح على هذا الهاتف، لذا ستُحفظ كلماتك ملاحظةً للزيارة يمكنك تعديلها لاحقًا.';
+
+  @override
+  String get afterVisitNoteHeading => 'باختصار';
+
+  @override
+  String afterVisitNext(String date) {
+    return 'أضيفي الزيارة القادمة في $date';
+  }
+
+  @override
+  String get afterVisitNextNote =>
+      'تُحفظ في المواعيد عند الساعة 09:00، ويمكنك تغيير الوقت هناك.';
+
+  @override
+  String get afterVisitNextType => 'الزيارة القادمة';
+
+  @override
+  String get afterVisitEntryTitle => 'زيارة الطبيب';
+
+  @override
+  String get afterVisitSaved => 'حُفظ في سجلّك.';
+
+  @override
+  String get afterVisitPrivate => 'تبقى كلماتك على هذا الهاتف.';
+
+  @override
+  String get aiHelpsScan =>
+      'يقرأ تقرير التحاليل أو الوصفة التي تختارينها ويملأ النتائج والأدوية لتراجعيها، فلا تحتاجين إلى كتابتها. من دونه يُحفظ التقرير وتكتبين النتائج بنفسك.';
+
+  @override
+  String get aiHelpsAfterVisit =>
+      'يحوّل ما تقولينه بعد الزيارة إلى مسودة أدوية ونتائج وموعد قادم لتراجعيها. من دونه تُحفظ كلماتك ملاحظةً للزيارة.';
+
+  @override
+  String get aiSeesDocument => 'صفحة واحدة من المستند الذي اخترتِه، كصورة';
+
+  @override
+  String get aiSeesVisitWords => 'الكلمات التي كتبتِها أو قلتِها عن زيارتك';
+
+  @override
   String get recSourceImported => 'مستورد';
 
   @override

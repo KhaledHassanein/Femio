@@ -3902,6 +3902,167 @@ class L10nEs extends L10n {
   String get recSourceSayIt => 'Desde lo que contaste';
 
   @override
+  String get recSourceAfterVisit => 'De tus notas después de una consulta';
+
+  @override
+  String get scanUseName => 'Leer un informe con IA';
+
+  @override
+  String get scanReadWithAi => 'Leer con IA';
+
+  @override
+  String get scanTitle => 'Revisa lo que leyó la IA';
+
+  @override
+  String get scanReading =>
+      'La IA de este teléfono está leyendo tu documento. Puede tardar hasta un minuto.';
+
+  @override
+  String get scanIntro =>
+      'Compara cada línea con tu informe. Desmarca o edita lo que esté mal. No se guarda nada hasta que pulses Guardar.';
+
+  @override
+  String get scanNothing =>
+      'La IA no encontró resultados ni medicamentos en este documento. Está guardado en Mis documentos y puedes añadir los resultados a mano.';
+
+  @override
+  String get scanFailed =>
+      'La IA no pudo leer este documento en este teléfono. Está guardado en Mis documentos y puedes añadir los resultados a mano.';
+
+  @override
+  String get scanDateLabel => 'Fecha del informe';
+
+  @override
+  String get scanDateMissing =>
+      'Toca para elegir la fecha impresa en el informe';
+
+  @override
+  String scanSaved(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count entradas guardadas en tu historial',
+      one: '1 entrada guardada en tu historial',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get scanPrivateNote =>
+      'La IA funcionó en este teléfono. Tu documento nunca salió de él.';
+
+  @override
+  String get scanNoAiTitle => 'Este teléfono no puede leer informes con IA';
+
+  @override
+  String get scanNoAiBody =>
+      'Leer un informe requiere la IA integrada en algunos teléfonos (Gemini Nano), y este teléfono no la tiene o aún no la ha descargado. Aun así puedes adjuntar el informe y escribir los resultados.';
+
+  @override
+  String get scanAttachInstead => 'Adjuntar un informe';
+
+  @override
+  String get draftEdit => 'Editar esta línea';
+
+  @override
+  String get draftResultsHeading => 'Resultados';
+
+  @override
+  String get draftMedicinesHeading => 'Medicamentos';
+
+  @override
+  String draftLabWithRange(String value, String range) {
+    return '$value · intervalo del informe: $range';
+  }
+
+  @override
+  String get draftFieldName => 'Nombre';
+
+  @override
+  String get draftFieldValue => 'Valor';
+
+  @override
+  String get draftFieldUnit => 'Unidad';
+
+  @override
+  String get draftFieldRange => 'Intervalo impreso en el informe';
+
+  @override
+  String get draftFieldDose => 'Dosis';
+
+  @override
+  String get draftFieldFrequency => 'Con qué frecuencia';
+
+  @override
+  String get afterVisitTitle => 'Después de una consulta';
+
+  @override
+  String get afterVisitHint =>
+      'Di o escribe lo que te dijo el médico: medicamentos, pruebas, la próxima cita. femio guarda tus palabras como nota de la consulta.';
+
+  @override
+  String get afterVisitExample =>
+      'Por ejemplo: empezar ácido fólico 5 mg una vez al día, repetir la TSH en seis semanas, próxima cita el 10 de enero.';
+
+  @override
+  String get afterVisitRead => 'Preparar un borrador';
+
+  @override
+  String get afterVisitReading => 'Leyendo en este teléfono…';
+
+  @override
+  String get afterVisitCheck =>
+      'Revisa el borrador. Desmarca o edita lo que esté mal. Tus palabras se guardan como nota de la consulta.';
+
+  @override
+  String get afterVisitNothing =>
+      'La IA no encontró nada que añadir como entrada. Tus palabras se guardarán como nota de la consulta.';
+
+  @override
+  String get afterVisitNoAi =>
+      'La IA no está disponible en este teléfono, así que tus palabras se guardarán como una nota de la consulta que puedes editar después.';
+
+  @override
+  String get afterVisitNoteHeading => 'En resumen';
+
+  @override
+  String afterVisitNext(String date) {
+    return 'Añadir la próxima cita el $date';
+  }
+
+  @override
+  String get afterVisitNextNote =>
+      'Se guarda a las 09:00 en Citas; cambia la hora allí.';
+
+  @override
+  String get afterVisitNextType => 'Próxima cita';
+
+  @override
+  String get afterVisitEntryTitle => 'Consulta médica';
+
+  @override
+  String get afterVisitSaved => 'Guardado en tu historial.';
+
+  @override
+  String get afterVisitPrivate => 'Tus palabras se quedan en este teléfono.';
+
+  @override
+  String get aiHelpsScan =>
+      'Lee el informe de análisis o la receta que elijas y rellena los resultados y medicamentos para que los revises, sin tener que escribirlos. Sin ella, el informe se guarda y tú escribes los resultados.';
+
+  @override
+  String get aiHelpsAfterVisit =>
+      'Convierte lo que dices después de una consulta en un borrador de medicamentos, resultados y próxima cita para que lo revises. Sin ella, tus palabras se guardan como nota.';
+
+  @override
+  String get aiSeesDocument =>
+      'Una página del documento que elegiste, como imagen';
+
+  @override
+  String get aiSeesVisitWords =>
+      'Las palabras que escribiste o dijiste sobre tu consulta';
+
+  @override
   String get recSourceImported => 'Importada';
 
   @override

@@ -30,6 +30,14 @@ enum AssistantUse {
 
   /// Doctor-visit pack: order reviewed questions from the summary's facts.
   visitQuestions,
+
+  /// Read a report: a photo or PDF page of her lab report or prescription, read on the
+  /// phone into draft entries she checks line by line (ADR-087).
+  scanDocument,
+
+  /// After a visit: what she says the doctor told her, read on the phone into draft
+  /// medicines, results, a next visit and a note she checks (ADR-087).
+  afterVisit,
 }
 
 /// What a use's prompt may contain. Each value names one input of the matching prompt
@@ -56,6 +64,12 @@ enum AssistantInput {
   /// The visit summary's facts: goal, cycles counted, shortest and longest cycle, last
   /// period date, regularity.
   visitFacts,
+
+  /// One page of a document she chose to have read (a photo, or a PDF page as a picture).
+  herDocument,
+
+  /// The words she typed or said about her visit.
+  herVisitWords,
 }
 
 /// The policy for one [AssistantUse].
@@ -112,5 +126,15 @@ const usePolicies = <AssistantUse, AssistantPolicy>{
     tier: AssistantTier.phone,
     write: AssistantWrite.none,
     sees: [AssistantInput.visitFacts, AssistantInput.reviewedIds],
+  ),
+  AssistantUse.scanDocument: AssistantPolicy(
+    tier: AssistantTier.phone,
+    write: AssistantWrite.draftSheConfirms,
+    sees: [AssistantInput.herDocument],
+  ),
+  AssistantUse.afterVisit: AssistantPolicy(
+    tier: AssistantTier.phone,
+    write: AssistantWrite.draftSheConfirms,
+    sees: [AssistantInput.herVisitWords],
   ),
 };

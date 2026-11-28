@@ -3873,6 +3873,165 @@ class L10nEn extends L10n {
   String get recSourceSayIt => 'From Say it';
 
   @override
+  String get recSourceAfterVisit => 'From your notes after a visit';
+
+  @override
+  String get scanUseName => 'Read a report with AI';
+
+  @override
+  String get scanReadWithAi => 'Read with AI';
+
+  @override
+  String get scanTitle => 'Check what the AI read';
+
+  @override
+  String get scanReading =>
+      'The AI on this phone is reading your document. This can take up to a minute.';
+
+  @override
+  String get scanIntro =>
+      'Check each line against your report. Untick or edit anything that is wrong. Nothing is saved until you tap Save.';
+
+  @override
+  String get scanNothing =>
+      'The AI found no results or medicines on this document. It is saved in My documents, and you can add results by hand.';
+
+  @override
+  String get scanFailed =>
+      'The AI could not read this document on this phone. It is saved in My documents, and you can add results by hand.';
+
+  @override
+  String get scanDateLabel => 'Date on the report';
+
+  @override
+  String get scanDateMissing => 'Tap to pick the date printed on the report';
+
+  @override
+  String scanSaved(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count entries saved to your record',
+      one: '1 entry saved to your record',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get scanPrivateNote =>
+      'The AI ran on this phone. Your document never left it.';
+
+  @override
+  String get scanNoAiTitle => 'This phone can\'t read reports with AI';
+
+  @override
+  String get scanNoAiBody =>
+      'Reading a report needs the AI built into some phones (Gemini Nano), and this phone doesn\'t have it or hasn\'t downloaded it. You can still attach the report and type the results.';
+
+  @override
+  String get scanAttachInstead => 'Attach a report';
+
+  @override
+  String get draftEdit => 'Edit this line';
+
+  @override
+  String get draftResultsHeading => 'Results';
+
+  @override
+  String get draftMedicinesHeading => 'Medicines';
+
+  @override
+  String draftLabWithRange(String value, String range) {
+    return '$value · range on the report: $range';
+  }
+
+  @override
+  String get draftFieldName => 'Name';
+
+  @override
+  String get draftFieldValue => 'Value';
+
+  @override
+  String get draftFieldUnit => 'Unit';
+
+  @override
+  String get draftFieldRange => 'Range printed on the report';
+
+  @override
+  String get draftFieldDose => 'Dose';
+
+  @override
+  String get draftFieldFrequency => 'How often';
+
+  @override
+  String get afterVisitTitle => 'After a visit';
+
+  @override
+  String get afterVisitHint =>
+      'Say or type what the doctor told you: medicines, tests, the next visit. femio keeps your words as a visit note.';
+
+  @override
+  String get afterVisitExample =>
+      'For example: start folic acid 5 mg once a day, repeat TSH in six weeks, next visit on 10 January.';
+
+  @override
+  String get afterVisitRead => 'Make a draft';
+
+  @override
+  String get afterVisitReading => 'Reading on this phone…';
+
+  @override
+  String get afterVisitCheck =>
+      'Check the draft. Untick or edit anything that is wrong. Your words are saved as the visit note.';
+
+  @override
+  String get afterVisitNothing =>
+      'The AI found nothing to add as an entry. Your words will be saved as the visit note.';
+
+  @override
+  String get afterVisitNoAi =>
+      'The AI isn\'t available on this phone, so your words will be saved as a visit note you can edit later.';
+
+  @override
+  String get afterVisitNoteHeading => 'In short';
+
+  @override
+  String afterVisitNext(String date) {
+    return 'Add the next visit on $date';
+  }
+
+  @override
+  String get afterVisitNextNote =>
+      'Saved at 09:00 in Appointments; change the time there.';
+
+  @override
+  String get afterVisitNextType => 'Next visit';
+
+  @override
+  String get afterVisitEntryTitle => 'Doctor visit';
+
+  @override
+  String get afterVisitSaved => 'Saved to your record.';
+
+  @override
+  String get afterVisitPrivate => 'Your words stay on this phone.';
+
+  @override
+  String get aiHelpsScan =>
+      'Reads a lab report or prescription you choose and fills in the results and medicines for you to check, so you don\'t have to type them. Without it, the report is saved and you type the results.';
+
+  @override
+  String get aiHelpsAfterVisit =>
+      'Turns what you say after a visit into draft medicines, results and the next visit for you to check. Without it, your words are saved as a visit note.';
+
+  @override
+  String get aiSeesDocument =>
+      'One page of the document you chose, as a picture';
+
+  @override
+  String get aiSeesVisitWords => 'The words you typed or said about your visit';
+
+  @override
   String get recSourceImported => 'Imported';
 
   @override

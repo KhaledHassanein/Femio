@@ -2198,6 +2198,200 @@
   "@recSourceSayIt": {
     "description": "Record entry source: confirmed from a Say it draft."
   },
+  "recSourceAfterVisit": "From your notes after a visit",
+  "@recSourceAfterVisit": {
+    "description": "Where an entry came from: the after-visit screen (ADR-087)."
+  },
+  "scanUseName": "Read a report with AI",
+  "@scanUseName": {
+    "description": "Name of the AI use and the + sheet chip that reads a lab report or prescription on the phone (ADR-087)."
+  },
+  "scanReadWithAi": "Read with AI",
+  "@scanReadWithAi": {
+    "description": "Document viewer button: Gemini Nano reads this document on the phone."
+  },
+  "scanTitle": "Check what the AI read",
+  "@scanTitle": {
+    "description": "Title of the draft screen after the AI read a document."
+  },
+  "scanReading": "The AI on this phone is reading your document. This can take up to a minute.",
+  "@scanReading": {
+    "description": "Shown while Gemini Nano reads the pages."
+  },
+  "scanIntro": "Check each line against your report. Untick or edit anything that is wrong. Nothing is saved until you tap Save.",
+  "@scanIntro": {
+    "description": "Above the draft lines."
+  },
+  "scanNothing": "The AI found no results or medicines on this document. It is saved in My documents, and you can add results by hand.",
+  "@scanNothing": {
+    "description": "The AI read the document but found nothing to record."
+  },
+  "scanFailed": "The AI could not read this document on this phone. It is saved in My documents, and you can add results by hand.",
+  "@scanFailed": {
+    "description": "The on-phone model gave no usable answer."
+  },
+  "scanDateLabel": "Date on the report",
+  "@scanDateLabel": {
+    "description": "Row for the report's date; every saved entry gets it."
+  },
+  "scanDateMissing": "Tap to pick the date printed on the report",
+  "@scanDateMissing": {
+    "description": "Shown when the AI found no date; saving needs one (never guessed)."
+  },
+  "scanSaved": "{count, plural, =1{1 entry saved to your record} other{{count} entries saved to your record}}",
+  "@scanSaved": {
+    "description": "Snackbar after saving the checked lines.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "scanPrivateNote": "The AI ran on this phone. Your document never left it.",
+  "@scanPrivateNote": {
+    "description": "Privacy line on the draft screen (ONLY_ON_DEVICE)."
+  },
+  "scanNoAiTitle": "This phone can't read reports with AI",
+  "@scanNoAiTitle": {
+    "description": "Dialog title on a phone without Gemini Nano."
+  },
+  "scanNoAiBody": "Reading a report needs the AI built into some phones (Gemini Nano), and this phone doesn't have it or hasn't downloaded it. You can still attach the report and type the results.",
+  "@scanNoAiBody": {
+    "description": "Why the AI cannot read reports here, and what she can do."
+  },
+  "scanAttachInstead": "Attach a report",
+  "@scanAttachInstead": {
+    "description": "Button: open a lab result entry to attach the report by hand."
+  },
+  "draftEdit": "Edit this line",
+  "@draftEdit": {
+    "description": "Pencil button and dialog title for one draft line."
+  },
+  "draftResultsHeading": "Results",
+  "@draftResultsHeading": {
+    "description": "Heading over draft lab results."
+  },
+  "draftMedicinesHeading": "Medicines",
+  "@draftMedicinesHeading": {
+    "description": "Heading over draft medicines."
+  },
+  "draftLabWithRange": "{value} · range on the report: {range}",
+  "@draftLabWithRange": {
+    "description": "A draft result's value and the range printed on her report, never judged.",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      },
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "draftFieldName": "Name",
+  "@draftFieldName": {
+    "description": "Edit dialog field."
+  },
+  "draftFieldValue": "Value",
+  "@draftFieldValue": {
+    "description": "Edit dialog field."
+  },
+  "draftFieldUnit": "Unit",
+  "@draftFieldUnit": {
+    "description": "Edit dialog field."
+  },
+  "draftFieldRange": "Range printed on the report",
+  "@draftFieldRange": {
+    "description": "Edit dialog field."
+  },
+  "draftFieldDose": "Dose",
+  "@draftFieldDose": {
+    "description": "Edit dialog field."
+  },
+  "draftFieldFrequency": "How often",
+  "@draftFieldFrequency": {
+    "description": "Edit dialog field."
+  },
+  "afterVisitTitle": "After a visit",
+  "@afterVisitTitle": {
+    "description": "Title of the after-visit screen and its button in the + sheet (ADR-087)."
+  },
+  "afterVisitHint": "Say or type what the doctor told you: medicines, tests, the next visit. femio keeps your words as a visit note.",
+  "@afterVisitHint": {
+    "description": "Intro on the after-visit screen."
+  },
+  "afterVisitExample": "For example: start folic acid 5 mg once a day, repeat TSH in six weeks, next visit on 10 January.",
+  "@afterVisitExample": {
+    "description": "Hint text in the empty field."
+  },
+  "afterVisitRead": "Make a draft",
+  "@afterVisitRead": {
+    "description": "Button: read her words into a draft (on the phone; without AI, keeps them as a note)."
+  },
+  "afterVisitReading": "Reading on this phone…",
+  "@afterVisitReading": {
+    "description": "Button label while Gemini Nano reads her words."
+  },
+  "afterVisitCheck": "Check the draft. Untick or edit anything that is wrong. Your words are saved as the visit note.",
+  "@afterVisitCheck": {
+    "description": "Above the after-visit draft."
+  },
+  "afterVisitNothing": "The AI found nothing to add as an entry. Your words will be saved as the visit note.",
+  "@afterVisitNothing": {
+    "description": "The model found nothing to draft."
+  },
+  "afterVisitNoAi": "The AI isn't available on this phone, so your words will be saved as a visit note you can edit later.",
+  "@afterVisitNoAi": {
+    "description": "No Gemini Nano, AI off, or no usable answer."
+  },
+  "afterVisitNoteHeading": "In short",
+  "@afterVisitNoteHeading": {
+    "description": "Heading over the model's one-sentence summary of her words."
+  },
+  "afterVisitNext": "Add the next visit on {date}",
+  "@afterVisitNext": {
+    "description": "Tick to save the next visit she mentioned to Appointments.",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "afterVisitNextNote": "Saved at 09:00 in Appointments; change the time there.",
+  "@afterVisitNextNote": {
+    "description": "Under the next-visit tick."
+  },
+  "afterVisitNextType": "Next visit",
+  "@afterVisitNextType": {
+    "description": "The appointment's type when saved from her after-visit words."
+  },
+  "afterVisitEntryTitle": "Doctor visit",
+  "@afterVisitEntryTitle": {
+    "description": "Title of the visit entry the after-visit screen saves."
+  },
+  "afterVisitSaved": "Saved to your record.",
+  "@afterVisitSaved": {
+    "description": "Snackbar after saving."
+  },
+  "afterVisitPrivate": "Your words stay on this phone.",
+  "@afterVisitPrivate": {
+    "description": "Privacy line on the after-visit screen."
+  },
+  "aiHelpsScan": "Reads a lab report or prescription you choose and fills in the results and medicines for you to check, so you don't have to type them. Without it, the report is saved and you type the results.",
+  "@aiHelpsScan": {
+    "description": "What the AI does for her in Read a report (owner 2026-11-27 plain-words rule)."
+  },
+  "aiHelpsAfterVisit": "Turns what you say after a visit into draft medicines, results and the next visit for you to check. Without it, your words are saved as a visit note.",
+  "@aiHelpsAfterVisit": {
+    "description": "What the AI does for her after a visit."
+  },
+  "aiSeesDocument": "One page of the document you chose, as a picture",
+  "@aiSeesDocument": {
+    "description": "What the AI can see: input of Read a report."
+  },
+  "aiSeesVisitWords": "The words you typed or said about your visit",
+  "@aiSeesVisitWords": {
+    "description": "What the AI can see: input of After a visit."
+  },
   "recSourceImported": "Imported",
   "@recSourceImported": {
     "description": "Record entry source: imported from a file."

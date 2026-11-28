@@ -969,9 +969,12 @@ Regulations; Egypt Law 151/2020) is summarised in `docs/compliance/PRIVACY_REVIE
    naming Google as processor, the United States as a possible location, Google's paid-tier
    retention (up to 55 days, abuse monitoring, no product improvement), what is never sent and what
    Google still sees (internet address, Play Integrity check). The choice is stored as a receipt
-   in her record (`CloudConsent`: purposes, UTC time, consent-text version, at most 20 entries,
-   withdrawals included), shown on the screen, invalid when the consent text version changes, and
-   not carried by a restored backup.
+   in her record (`CloudConsent`: purposes, UTC time, consent-text version, at most 50 entries,
+   withdrawals included), shown on the screen, invalid when the consent text version changes.
+   A restored backup keeps the receipts as proof but allows nothing: it adds a withdrawal, so
+   she agrees again on the new phone. *Amended 2026-11-28: the limit was 20; the one AI wizard
+   (consent version 3) writes several receipts per visit, so the code keeps 50, and the wording
+   now says what the restore does (`CloudConsent.afterRestore`).*
 4. **One honest notice.** The privacy policy (four languages) lists everything that can leave the
    phone; a separate consumer health data policy covers Washington's My Health My Data Act.
    Play Data safety declares Health info and user content for Cloud boost.
@@ -1333,3 +1336,31 @@ audio is recorded, kept or sent; the words only fill the field. The privacy trip
 microphone (fault injected 2026-11-27: 3 findings, restored).
 **Cost.** One personal permission in the manifest and a Data safety line; some phones (many
 Samsung models without Google's on-device speech service) get the explanation instead of the mic.
+
+## ADR-087 · Gemini Nano reads her reports and visit notes, on the phone only (2026-11-28)
+
+**Context.** The owner asked (28 Nov) that a phone with Gemini Nano reads an uploaded PDF or photo
+of a lab report or prescription and fills her record, history and charts, while a phone without
+Nano only uploads; and that her words after a visit become entries. Firebase AI Logic's on-device
+mode takes text plus one picture, returns short replies (Google advises under 256 tokens, 4000 in
+total) and is validated for English and Korean only
+(https://firebase.google.com/docs/ai-logic/hybrid/android/get-started, read 28 Nov).
+**Decision.**
+1. Two new uses in the policy table, both `phone` tier and `draftSheConfirms`: `scanDocument`
+   (sees one page picture of the document she chose) and `afterVisit` (sees her words).
+2. A PDF is read as pictures: its first three pages are rendered on the phone and each is one
+   `ONLY_ON_DEVICE` call (`privateImage` in the Kotlin assistant; pictures scaled to 1024 px). No
+   cloud fallback, no Cloud boost path, nothing new leaves the phone. The tripwire allows a
+   picture only in `privateImage` and only on device (fault injected 28 Nov: 1 finding, restored).
+3. The model answers in short pipe-separated lines (`DATE`, `LAB`, `MED`, `NEXT`, `NOTE`); one
+   parser keeps known shapes only, drops lab lines without a number, long parts and impossible
+   or future report dates. Values, units and printed ranges are copied, never judged or converted.
+4. She checks every line (tick, edit), confirms the report date (never guessed), then saves.
+   Entries carry source `scanned` or `afterVisit` and the document link, so the timeline and the
+   charts (R11.5) show them like typed ones.
+5. Without Nano: "Read a report" says why and opens a lab entry to attach by hand; "After a visit"
+   saves her words as a visit note. Every feature works with AI off.
+**Cost.** Two more uses to keep honest in "What the AI can see"; reading quality in Arabic, French
+and Spanish is unvalidated by Google (reports are usually printed in English in Egypt and Saudi
+Arabia [NEEDS SOURCE]), so the draft screen is the safeguard; a dense page may be cut off at 256
+output tokens.

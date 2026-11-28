@@ -127,7 +127,10 @@ class MethodChannelAssistant implements AssistantBridge, CloudChecker {
   @override
   Future<String?> runPrivate(PrivatePrompt prompt) async {
     try {
-      final m = await _channel.invokeMapMethod<String, Object?>('private', {'prompt': prompt.text});
+      final image = prompt.image;
+      final m = image == null
+          ? await _channel.invokeMapMethod<String, Object?>('private', {'prompt': prompt.text})
+          : await _channel.invokeMapMethod<String, Object?>('privateImage', {'prompt': prompt.text, 'image': image});
       // Belt and braces: a private call that somehow ran in the cloud is discarded.
       if (m == null || m['source'] != 'ON_DEVICE') return null;
       return m['text'] as String?;

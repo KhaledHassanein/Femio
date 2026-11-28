@@ -73,10 +73,12 @@ final _ids = tipEnglish.keys.take(3).toList();
 final _tipsConsent = const CloudConsent().grant({CloudPurpose.tips}, '2026-11-24T10:00:00Z');
 
 void main() {
-  test('every use has a policy; only Say it may offer a draft, and every hybrid use needs consent', () {
+  test('every use has a policy; only the phone-only reading uses may offer a draft, and every hybrid use needs consent', () {
     expect(usePolicies.keys.toSet(), AssistantUse.values.toSet());
+    const drafting = {AssistantUse.sayItToLog, AssistantUse.scanDocument, AssistantUse.afterVisit};
     for (final MapEntry(:key, :value) in usePolicies.entries) {
-      expect(value.write == AssistantWrite.draftSheConfirms, key == AssistantUse.sayItToLog, reason: '$key');
+      expect(value.write == AssistantWrite.draftSheConfirms, drafting.contains(key), reason: '$key');
+      if (drafting.contains(key)) expect(value.tier, AssistantTier.phone, reason: '$key');
       if (value.tier == AssistantTier.hybrid) expect(value.consent, isNotNull, reason: '$key');
     }
   });

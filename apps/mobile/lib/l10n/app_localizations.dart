@@ -6251,6 +6251,270 @@ abstract class L10n {
   /// **'From Say it'**
   String get recSourceSayIt;
 
+  /// Where an entry came from: the after-visit screen (ADR-087).
+  ///
+  /// In en, this message translates to:
+  /// **'From your notes after a visit'**
+  String get recSourceAfterVisit;
+
+  /// Name of the AI use and the + sheet chip that reads a lab report or prescription on the phone (ADR-087).
+  ///
+  /// In en, this message translates to:
+  /// **'Read a report with AI'**
+  String get scanUseName;
+
+  /// Document viewer button: Gemini Nano reads this document on the phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Read with AI'**
+  String get scanReadWithAi;
+
+  /// Title of the draft screen after the AI read a document.
+  ///
+  /// In en, this message translates to:
+  /// **'Check what the AI read'**
+  String get scanTitle;
+
+  /// Shown while Gemini Nano reads the pages.
+  ///
+  /// In en, this message translates to:
+  /// **'The AI on this phone is reading your document. This can take up to a minute.'**
+  String get scanReading;
+
+  /// Above the draft lines.
+  ///
+  /// In en, this message translates to:
+  /// **'Check each line against your report. Untick or edit anything that is wrong. Nothing is saved until you tap Save.'**
+  String get scanIntro;
+
+  /// The AI read the document but found nothing to record.
+  ///
+  /// In en, this message translates to:
+  /// **'The AI found no results or medicines on this document. It is saved in My documents, and you can add results by hand.'**
+  String get scanNothing;
+
+  /// The on-phone model gave no usable answer.
+  ///
+  /// In en, this message translates to:
+  /// **'The AI could not read this document on this phone. It is saved in My documents, and you can add results by hand.'**
+  String get scanFailed;
+
+  /// Row for the report's date; every saved entry gets it.
+  ///
+  /// In en, this message translates to:
+  /// **'Date on the report'**
+  String get scanDateLabel;
+
+  /// Shown when the AI found no date; saving needs one (never guessed).
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to pick the date printed on the report'**
+  String get scanDateMissing;
+
+  /// Snackbar after saving the checked lines.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 entry saved to your record} other{{count} entries saved to your record}}'**
+  String scanSaved(int count);
+
+  /// Privacy line on the draft screen (ONLY_ON_DEVICE).
+  ///
+  /// In en, this message translates to:
+  /// **'The AI ran on this phone. Your document never left it.'**
+  String get scanPrivateNote;
+
+  /// Dialog title on a phone without Gemini Nano.
+  ///
+  /// In en, this message translates to:
+  /// **'This phone can\'t read reports with AI'**
+  String get scanNoAiTitle;
+
+  /// Why the AI cannot read reports here, and what she can do.
+  ///
+  /// In en, this message translates to:
+  /// **'Reading a report needs the AI built into some phones (Gemini Nano), and this phone doesn\'t have it or hasn\'t downloaded it. You can still attach the report and type the results.'**
+  String get scanNoAiBody;
+
+  /// Button: open a lab result entry to attach the report by hand.
+  ///
+  /// In en, this message translates to:
+  /// **'Attach a report'**
+  String get scanAttachInstead;
+
+  /// Pencil button and dialog title for one draft line.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit this line'**
+  String get draftEdit;
+
+  /// Heading over draft lab results.
+  ///
+  /// In en, this message translates to:
+  /// **'Results'**
+  String get draftResultsHeading;
+
+  /// Heading over draft medicines.
+  ///
+  /// In en, this message translates to:
+  /// **'Medicines'**
+  String get draftMedicinesHeading;
+
+  /// A draft result's value and the range printed on her report, never judged.
+  ///
+  /// In en, this message translates to:
+  /// **'{value} · range on the report: {range}'**
+  String draftLabWithRange(String value, String range);
+
+  /// Edit dialog field.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get draftFieldName;
+
+  /// Edit dialog field.
+  ///
+  /// In en, this message translates to:
+  /// **'Value'**
+  String get draftFieldValue;
+
+  /// Edit dialog field.
+  ///
+  /// In en, this message translates to:
+  /// **'Unit'**
+  String get draftFieldUnit;
+
+  /// Edit dialog field.
+  ///
+  /// In en, this message translates to:
+  /// **'Range printed on the report'**
+  String get draftFieldRange;
+
+  /// Edit dialog field.
+  ///
+  /// In en, this message translates to:
+  /// **'Dose'**
+  String get draftFieldDose;
+
+  /// Edit dialog field.
+  ///
+  /// In en, this message translates to:
+  /// **'How often'**
+  String get draftFieldFrequency;
+
+  /// Title of the after-visit screen and its button in the + sheet (ADR-087).
+  ///
+  /// In en, this message translates to:
+  /// **'After a visit'**
+  String get afterVisitTitle;
+
+  /// Intro on the after-visit screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Say or type what the doctor told you: medicines, tests, the next visit. femio keeps your words as a visit note.'**
+  String get afterVisitHint;
+
+  /// Hint text in the empty field.
+  ///
+  /// In en, this message translates to:
+  /// **'For example: start folic acid 5 mg once a day, repeat TSH in six weeks, next visit on 10 January.'**
+  String get afterVisitExample;
+
+  /// Button: read her words into a draft (on the phone; without AI, keeps them as a note).
+  ///
+  /// In en, this message translates to:
+  /// **'Make a draft'**
+  String get afterVisitRead;
+
+  /// Button label while Gemini Nano reads her words.
+  ///
+  /// In en, this message translates to:
+  /// **'Reading on this phone…'**
+  String get afterVisitReading;
+
+  /// Above the after-visit draft.
+  ///
+  /// In en, this message translates to:
+  /// **'Check the draft. Untick or edit anything that is wrong. Your words are saved as the visit note.'**
+  String get afterVisitCheck;
+
+  /// The model found nothing to draft.
+  ///
+  /// In en, this message translates to:
+  /// **'The AI found nothing to add as an entry. Your words will be saved as the visit note.'**
+  String get afterVisitNothing;
+
+  /// No Gemini Nano, AI off, or no usable answer.
+  ///
+  /// In en, this message translates to:
+  /// **'The AI isn\'t available on this phone, so your words will be saved as a visit note you can edit later.'**
+  String get afterVisitNoAi;
+
+  /// Heading over the model's one-sentence summary of her words.
+  ///
+  /// In en, this message translates to:
+  /// **'In short'**
+  String get afterVisitNoteHeading;
+
+  /// Tick to save the next visit she mentioned to Appointments.
+  ///
+  /// In en, this message translates to:
+  /// **'Add the next visit on {date}'**
+  String afterVisitNext(String date);
+
+  /// Under the next-visit tick.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved at 09:00 in Appointments; change the time there.'**
+  String get afterVisitNextNote;
+
+  /// The appointment's type when saved from her after-visit words.
+  ///
+  /// In en, this message translates to:
+  /// **'Next visit'**
+  String get afterVisitNextType;
+
+  /// Title of the visit entry the after-visit screen saves.
+  ///
+  /// In en, this message translates to:
+  /// **'Doctor visit'**
+  String get afterVisitEntryTitle;
+
+  /// Snackbar after saving.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved to your record.'**
+  String get afterVisitSaved;
+
+  /// Privacy line on the after-visit screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Your words stay on this phone.'**
+  String get afterVisitPrivate;
+
+  /// What the AI does for her in Read a report (owner 2026-11-27 plain-words rule).
+  ///
+  /// In en, this message translates to:
+  /// **'Reads a lab report or prescription you choose and fills in the results and medicines for you to check, so you don\'t have to type them. Without it, the report is saved and you type the results.'**
+  String get aiHelpsScan;
+
+  /// What the AI does for her after a visit.
+  ///
+  /// In en, this message translates to:
+  /// **'Turns what you say after a visit into draft medicines, results and the next visit for you to check. Without it, your words are saved as a visit note.'**
+  String get aiHelpsAfterVisit;
+
+  /// What the AI can see: input of Read a report.
+  ///
+  /// In en, this message translates to:
+  /// **'One page of the document you chose, as a picture'**
+  String get aiSeesDocument;
+
+  /// What the AI can see: input of After a visit.
+  ///
+  /// In en, this message translates to:
+  /// **'The words you typed or said about your visit'**
+  String get aiSeesVisitWords;
+
   /// Record entry source: imported from a file.
   ///
   /// In en, this message translates to:

@@ -23,7 +23,7 @@ enum RecordKind {
 }
 
 /// Where an entry came from. Everything but [typed] started as a draft she confirmed.
-enum RecordSource { typed, scanned, askFemio, sayIt, imported }
+enum RecordSource { typed, scanned, askFemio, sayIt, imported, afterVisit }
 
 /// The named fields an entry may carry, as she or the report wrote them. Free text on
 /// purpose: a lab's units and printed range are kept exactly, never converted or judged.

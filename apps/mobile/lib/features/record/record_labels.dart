@@ -43,6 +43,7 @@ String recordSourceLabel(L10n l, RecordSource s) => switch (s) {
       RecordSource.scanned => l.recSourceScanned,
       RecordSource.askFemio => l.recSourceAsk,
       RecordSource.sayIt => l.recSourceSayIt,
+      RecordSource.afterVisit => l.recSourceAfterVisit,
       RecordSource.imported => l.recSourceImported,
     };
 

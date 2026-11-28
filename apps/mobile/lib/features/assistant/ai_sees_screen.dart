@@ -21,6 +21,8 @@ String aiUseName(L10n l, AssistantUse use) => switch (use) {
   AssistantUse.sayItToLog => l.sayItButton,
   AssistantUse.tipsOrder => l.aiUseTips,
   AssistantUse.visitQuestions => l.visitQuestionsTitle,
+  AssistantUse.scanDocument => l.scanUseName,
+  AssistantUse.afterVisit => l.afterVisitTitle,
 };
 
 /// What the use does for her, and what happens without it, in plain words (owner 2026-11-27).
@@ -30,6 +32,8 @@ String aiUseHelps(L10n l, AssistantUse use) => switch (use) {
   AssistantUse.sayItToLog => l.aiHelpsSayIt,
   AssistantUse.tipsOrder => l.aiHelpsTips,
   AssistantUse.visitQuestions => l.aiHelpsVisit,
+  AssistantUse.scanDocument => l.aiHelpsScan,
+  AssistantUse.afterVisit => l.aiHelpsAfterVisit,
 };
 
 /// One input in plain words.
@@ -41,6 +45,8 @@ String aiInputText(L10n l, AssistantInput input) => switch (input) {
   AssistantInput.fourBands => l.aiSeesBands,
   AssistantInput.reviewedIds => l.aiSeesIds,
   AssistantInput.visitFacts => l.aiSeesVisitFacts,
+  AssistantInput.herDocument => l.aiSeesDocument,
+  AssistantInput.herVisitWords => l.aiSeesVisitWords,
 };
 
 /// The list, one card per enabled use. [controller] supplies her master switch, so the page

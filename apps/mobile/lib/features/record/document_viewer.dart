@@ -15,6 +15,9 @@ import '../../domain/record_attachment.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/spacing.dart';
+import '../../domain/dates.dart';
+import '../assistant/assistant_scope.dart';
+import 'scan_report.dart';
 
 /// What the viewer did, for the screen that opened it.
 enum DocumentViewerResult { unlinked, deleted }
@@ -35,6 +38,26 @@ enum _Action { rename, unlink, delete }
 
 class _DocumentViewerState extends State<DocumentViewer> {
   late final Future<_Loaded> _content = _load();
+
+  /// Whether Gemini Nano can read this document here (ADR-087); without it the button is not
+  /// shown, and the document stays attach-only.
+  bool _canRead = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    AssistantScope.gatewayOf(context).status().then((s) {
+      if (mounted && s.canRunPrivate != _canRead) setState(() => _canRead = s.canRunPrivate);
+    });
+  }
+
+  Future<void> _readWithAi() => Navigator.of(context).push(MaterialPageRoute<void>(
+        builder: (_) => ScanDraftScreen(
+          controller: widget.controller,
+          documentId: widget.id,
+          today: toISO(DateTime.now()),
+        ),
+      ));
 
   Future<_Loaded> _load() async {
     final a = widget.controller.documents.byId(widget.id);
@@ -99,6 +122,8 @@ class _DocumentViewerState extends State<DocumentViewer> {
           appBar: AppBar(
             title: Text(isolateText(a?.name ?? ''), maxLines: 1, overflow: TextOverflow.ellipsis),
             actions: [
+              if (bytes != null && _canRead)
+                IconButton(tooltip: l.scanReadWithAi, onPressed: _readWithAi, icon: const Icon(Icons.document_scanner_outlined)),
               if (bytes != null)
                 IconButton(tooltip: l.recDocShare, onPressed: () => _share(bytes), icon: const Icon(Icons.ios_share_rounded)),
               PopupMenuButton<_Action>(

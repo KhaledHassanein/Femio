@@ -240,8 +240,16 @@ try {
     }
     // Every model call sends either the prompt Dart passed (a PrivatePrompt or a CloudPrompt) or
     // the fixed "Check Cloud boost" sentence, and only that check may run ONLY_IN_CLOUD (ADR-085).
+    // ADR-087: the one exception is `request`, the page picture plus the prompt Dart passed,
+    // and only inside privateImage, which must run ONLY_ON_DEVICE (no cloud fallback).
+    const imageCall = kt.match(/private suspend fun privateImage\([\s\S]*?\r?\n    }\r?\n/)?.[0] ?? "";
+    const imageOk = /generateContent\(request\)/.test(imageCall) && /model\(InferenceMode\.ONLY_ON_DEVICE/.test(imageCall) && !/PREFER_ON_DEVICE|ONLY_IN_CLOUD|PREFER_IN_CLOUD/.test(imageCall);
+    const requestCalls = (kt.match(/generateContent\(request\)/g) ?? []).length;
+    if (requestCalls > 0 && (!imageOk || requestCalls !== 1)) {
+      fail(rel, "a document picture may be sent only by privateImage, ONLY_ON_DEVICE (ADR-087)");
+    }
     for (const m of kt.matchAll(/generateContent\(([^)]*)\)/g)) {
-      if (!["prompt", "CLOUD_CHECK_PROMPT"].includes(m[1].trim())) {
+      if (!["prompt", "CLOUD_CHECK_PROMPT", ...(imageOk ? ["request"] : [])].includes(m[1].trim())) {
         fail(rel, `a model call sends "${m[1].trim()}"; only the prompt from Dart or CLOUD_CHECK_PROMPT may be sent (ADR-079, ADR-085)`);
       }
     }

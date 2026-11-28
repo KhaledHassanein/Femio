@@ -3921,6 +3921,168 @@ class L10nFr extends L10n {
   String get recSourceSayIt => 'Depuis votre récit du jour';
 
   @override
+  String get recSourceAfterVisit => 'D\'après vos notes après une consultation';
+
+  @override
+  String get scanUseName => 'Lire un compte rendu avec l\'IA';
+
+  @override
+  String get scanReadWithAi => 'Lire avec l\'IA';
+
+  @override
+  String get scanTitle => 'Vérifiez ce que l\'IA a lu';
+
+  @override
+  String get scanReading =>
+      'L\'IA de ce téléphone lit votre document. Cela peut prendre jusqu\'à une minute.';
+
+  @override
+  String get scanIntro =>
+      'Comparez chaque ligne avec votre compte rendu. Décochez ou modifiez ce qui est faux. Rien n\'est enregistré avant que vous appuyiez sur Enregistrer.';
+
+  @override
+  String get scanNothing =>
+      'L\'IA n\'a trouvé ni résultat ni médicament dans ce document. Il est enregistré dans Mes documents, et vous pouvez ajouter les résultats vous-même.';
+
+  @override
+  String get scanFailed =>
+      'L\'IA n\'a pas pu lire ce document sur ce téléphone. Il est enregistré dans Mes documents, et vous pouvez ajouter les résultats vous-même.';
+
+  @override
+  String get scanDateLabel => 'Date sur le compte rendu';
+
+  @override
+  String get scanDateMissing =>
+      'Touchez pour choisir la date imprimée sur le compte rendu';
+
+  @override
+  String scanSaved(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count entrées enregistrées dans votre dossier',
+      one: '1 entrée enregistrée dans votre dossier',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get scanPrivateNote =>
+      'L\'IA a fonctionné sur ce téléphone. Votre document ne l\'a jamais quitté.';
+
+  @override
+  String get scanNoAiTitle =>
+      'Ce téléphone ne peut pas lire les comptes rendus avec l\'IA';
+
+  @override
+  String get scanNoAiBody =>
+      'La lecture d\'un compte rendu demande l\'IA intégrée à certains téléphones (Gemini Nano), que ce téléphone n\'a pas ou n\'a pas encore téléchargée. Vous pouvez toujours joindre le compte rendu et saisir les résultats.';
+
+  @override
+  String get scanAttachInstead => 'Joindre un compte rendu';
+
+  @override
+  String get draftEdit => 'Modifier cette ligne';
+
+  @override
+  String get draftResultsHeading => 'Résultats';
+
+  @override
+  String get draftMedicinesHeading => 'Médicaments';
+
+  @override
+  String draftLabWithRange(String value, String range) {
+    return '$value · intervalle sur le compte rendu : $range';
+  }
+
+  @override
+  String get draftFieldName => 'Nom';
+
+  @override
+  String get draftFieldValue => 'Valeur';
+
+  @override
+  String get draftFieldUnit => 'Unité';
+
+  @override
+  String get draftFieldRange => 'Intervalle imprimé sur le compte rendu';
+
+  @override
+  String get draftFieldDose => 'Dose';
+
+  @override
+  String get draftFieldFrequency => 'Fréquence';
+
+  @override
+  String get afterVisitTitle => 'Après une consultation';
+
+  @override
+  String get afterVisitHint =>
+      'Dites ou écrivez ce que le médecin vous a dit : médicaments, examens, prochain rendez-vous. femio garde vos mots comme note de consultation.';
+
+  @override
+  String get afterVisitExample =>
+      'Par exemple : commencer l\'acide folique 5 mg une fois par jour, refaire la TSH dans six semaines, prochain rendez-vous le 10 janvier.';
+
+  @override
+  String get afterVisitRead => 'Préparer un brouillon';
+
+  @override
+  String get afterVisitReading => 'Lecture sur ce téléphone…';
+
+  @override
+  String get afterVisitCheck =>
+      'Vérifiez le brouillon. Décochez ou modifiez ce qui est faux. Vos mots sont enregistrés comme note de consultation.';
+
+  @override
+  String get afterVisitNothing =>
+      'L\'IA n\'a rien trouvé à ajouter comme entrée. Vos mots seront enregistrés comme note de consultation.';
+
+  @override
+  String get afterVisitNoAi =>
+      'L\'IA n\'est pas disponible sur ce téléphone : vos mots seront enregistrés comme note de consultation, modifiable plus tard.';
+
+  @override
+  String get afterVisitNoteHeading => 'En bref';
+
+  @override
+  String afterVisitNext(String date) {
+    return 'Ajouter le prochain rendez-vous le $date';
+  }
+
+  @override
+  String get afterVisitNextNote =>
+      'Enregistré à 09:00 dans Rendez-vous ; changez l\'heure là-bas.';
+
+  @override
+  String get afterVisitNextType => 'Prochain rendez-vous';
+
+  @override
+  String get afterVisitEntryTitle => 'Consultation';
+
+  @override
+  String get afterVisitSaved => 'Enregistré dans votre dossier.';
+
+  @override
+  String get afterVisitPrivate => 'Vos mots restent sur ce téléphone.';
+
+  @override
+  String get aiHelpsScan =>
+      'Lit le compte rendu d\'analyses ou l\'ordonnance que vous choisissez et remplit les résultats et les médicaments pour que vous les vérifiiez, sans tout saisir. Sans elle, le compte rendu est enregistré et vous saisissez les résultats.';
+
+  @override
+  String get aiHelpsAfterVisit =>
+      'Transforme ce que vous dites après une consultation en brouillon de médicaments, de résultats et de prochain rendez-vous à vérifier. Sans elle, vos mots sont enregistrés comme note.';
+
+  @override
+  String get aiSeesDocument =>
+      'Une page du document choisi, sous forme d\'image';
+
+  @override
+  String get aiSeesVisitWords =>
+      'Les mots que vous avez écrits ou dits sur votre consultation';
+
+  @override
   String get recSourceImported => 'Importée';
 
   @override

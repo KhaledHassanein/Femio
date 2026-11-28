@@ -13,6 +13,8 @@ import '../../data/library.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/spacing.dart';
+import '../record/scan_report.dart';
+import 'after_visit_screen.dart';
 import 'ask_screen.dart';
 import 'ai_choices_wizard.dart';
 import 'say_it_sheet.dart';
@@ -85,11 +87,18 @@ Future<void> _open(
       await nav.push(MaterialPageRoute<void>(
         builder: (_) => VisitSummaryScreen(controller: controller, today: today),
       ));
+    case AssistantDoor.scanReport:
+      await startScanReport(context, controller: controller, today: today);
+    case AssistantDoor.afterVisit:
+      await nav.push(MaterialPageRoute<void>(
+        builder: (_) => AfterVisitScreen(controller: controller, today: today),
+      ));
   }
 }
 
-/// The three ways into the assistant.
-enum AssistantDoor { ask, sayIt, visit }
+/// The ways into the assistant: ask, say it, the visit pack, read a report (ADR-087) and
+/// notes after a visit (ADR-087).
+enum AssistantDoor { ask, sayIt, visit, scanReport, afterVisit }
 
 /// The first-use sheet: what runs on the phone, what never happens, and Cloud boost as an
 /// option she has to choose. Pops `true` to continue to the doors. Public for screenshots.

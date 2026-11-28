@@ -8,7 +8,8 @@
 // given (GDPR Art. 7(1)). femio has no server, so the proof is a receipt kept in her own record:
 // what she agreed to, when, to which version of the consent text, and in which language that
 // text was shown. She can read it in Settings, and it travels inside her own encrypted backup
-// file.
+// file as proof; a restored backup never grants anything, because restoring adds a withdrawal
+// ([afterRestore]) and she agrees again on the new phone (ADR-080 §3).
 //
 // A consent is valid only for the text she saw: when the consent text changes, bump
 // [cloudConsentVersion] and every older consent stops counting until she agrees again.
