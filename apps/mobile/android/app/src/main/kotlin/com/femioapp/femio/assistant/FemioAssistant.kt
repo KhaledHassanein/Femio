@@ -52,6 +52,7 @@ import com.google.firebase.ai.type.UnsupportedUserLocationException
 import com.google.firebase.ai.InferenceMode
 import com.google.firebase.ai.InferenceSource
 import com.google.firebase.ai.OnDeviceConfig
+import com.google.firebase.ai.OnDeviceModelOption
 import com.google.firebase.ai.type.PublicPreviewAPI
 import com.google.firebase.ai.type.content
 import com.google.firebase.ai.type.generationConfig
@@ -106,6 +107,9 @@ class FemioAssistant(private val context: Context, messenger: BinaryMessenger) :
     private val channel = MethodChannel(messenger, ASSISTANT_CHANNEL)
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
     private var app: FirebaseApp? = null
+
+    /** Null until tried; false once this phone showed it has no preview (Nano 4) model. */
+    @Volatile private var previewWorks: Boolean? = null
 
     init {
         channel.setMethodCallHandler(this)
@@ -176,10 +180,47 @@ class FemioAssistant(private val context: Context, messenger: BinaryMessenger) :
     }
 
     /** Runs [prompt] on the phone only. Returns the text and where it ran. */
-    private suspend fun private(prompt: String): Map<String, Any?> {
-        val model = model(InferenceMode.ONLY_ON_DEVICE)
-        val response = withTimeout(CALL_TIMEOUT_MS) { withContext(Dispatchers.IO) { model.generateContent(prompt) } }
-        return mapOf("text" to response.text, "source" to sourceName(response))
+    private suspend fun private(prompt: String): Map<String, Any?> =
+        withTimeout(CALL_TIMEOUT_MS) {
+            onDevice(InferenceMode.ONLY_ON_DEVICE, ON_DEVICE_MAX_OUTPUT_TOKENS) { model ->
+                withContext(Dispatchers.IO) { model.generateContent(prompt) }
+            }
+        }
+
+    /**
+     * Runs [call] with the newest on-device model the phone has: Gemini Nano 4 (the PREVIEW
+     * category) first, then the STABLE model (Nano 3 or 2) if the phone has no preview model.
+     * A phone without the preview model is remembered, so later calls go straight to STABLE.
+     * A timeout is not a missing model and is passed on. Returns the text, where it ran and which
+     * model category answered ("preview" or "stable").
+     */
+    private suspend fun onDevice(
+        mode: InferenceMode,
+        tokens: Int,
+        call: suspend (GenerativeModel) -> GenerateContentResponse,
+    ): Map<String, Any?> {
+        val tryPreview = previewWorks != false
+        // Only a phone-only call can tell "no preview model" apart from a cloud failure, so only
+        // it retries; a hybrid call without the preview model is answered by the cloud anyway.
+        if (tryPreview && mode == InferenceMode.ONLY_ON_DEVICE) {
+            try {
+                return answer(call(model(mode, tokens, OnDeviceModelOption.PREVIEW)), "preview").also { previewWorks = true }
+            } catch (e: TimeoutCancellationException) {
+                throw e
+            } catch (e: Exception) {
+                previewWorks = false
+                logFailure("preview", failureReason(e), e)
+            }
+            return answer(call(model(mode, tokens, OnDeviceModelOption.STABLE)), "stable")
+        }
+        val option = if (tryPreview) OnDeviceModelOption.PREVIEW else OnDeviceModelOption.STABLE
+        return answer(call(model(mode, tokens, option)), if (tryPreview) "preview" else "stable")
+    }
+
+    /** The reply map; "model" names the on-device category only when the phone answered. */
+    private fun answer(response: GenerateContentResponse, category: String): Map<String, Any?> {
+        val source = sourceName(response)
+        return mapOf("text" to response.text, "source" to source, "model" to if (source == "ON_DEVICE") category else null)
     }
 
     /**
@@ -190,13 +231,15 @@ class FemioAssistant(private val context: Context, messenger: BinaryMessenger) :
     private suspend fun privateImage(prompt: String, image: ByteArray): Map<String, Any?> {
         val bitmap = scaledPage(image) ?: throw IllegalArgumentException("unreadable_image")
         try {
-            val model = model(InferenceMode.ONLY_ON_DEVICE, SCAN_MAX_OUTPUT_TOKENS)
             val request = content {
                 image(bitmap)
                 text(prompt)
             }
-            val response = withTimeout(CALL_TIMEOUT_MS) { withContext(Dispatchers.IO) { model.generateContent(request) } }
-            return mapOf("text" to response.text, "source" to sourceName(response))
+            return withTimeout(CALL_TIMEOUT_MS) {
+                onDevice(InferenceMode.ONLY_ON_DEVICE, SCAN_MAX_OUTPUT_TOKENS) { model ->
+                    withContext(Dispatchers.IO) { model.generateContent(request) }
+                }
+            }
         } finally {
             bitmap.recycle()
         }
@@ -207,11 +250,14 @@ class FemioAssistant(private val context: Context, messenger: BinaryMessenger) :
      * (PREFER_ON_DEVICE). Dart only calls this with text built from a cloud-safe type and
      * public registry passages, and only after she switched Cloud boost on.
      */
-    private suspend fun hybrid(prompt: String): Map<String, Any?> {
-        val model = model(InferenceMode.PREFER_ON_DEVICE)
-        val response = withTimeout(CALL_TIMEOUT_MS) { withContext(Dispatchers.IO) { model.generateContent(prompt) } }
-        return mapOf("text" to response.text, "source" to sourceName(response))
-    }
+    private suspend fun hybrid(prompt: String): Map<String, Any?> =
+        withTimeout(CALL_TIMEOUT_MS) {
+            // With Nano ready, PREFER_ON_DEVICE runs on the phone; the category picks Nano 4
+            // when the phone has it. Without Nano the category is ignored and the cloud answers.
+            onDevice(InferenceMode.PREFER_ON_DEVICE, ON_DEVICE_MAX_OUTPUT_TOKENS) { model ->
+                withContext(Dispatchers.IO) { model.generateContent(prompt) }
+            }
+        }
 
     /**
      * Sends [CLOUD_CHECK_PROMPT] to the cloud model only (ONLY_IN_CLOUD) and reports whether an
@@ -242,13 +288,23 @@ class FemioAssistant(private val context: Context, messenger: BinaryMessenger) :
     private fun sourceName(response: GenerateContentResponse): String =
         if (response.inferenceSource == InferenceSource.ON_DEVICE) "ON_DEVICE" else "IN_CLOUD"
 
-    private fun model(mode: InferenceMode, onDeviceTokens: Int = ON_DEVICE_MAX_OUTPUT_TOKENS): GenerativeModel {
+    /**
+     * Builds the model for one call. [option] picks the on-device model category; Firebase's
+     * default is STABLE (Nano 3 or 2), and Gemini Nano 4 is only reached with PREVIEW
+     * (https://firebase.google.com/docs/ai-logic/hybrid/android/configuration-options, read
+     * 2026-11-28). Throws "not_configured" when the build carries no Firebase config.
+     */
+    private fun model(
+        mode: InferenceMode,
+        onDeviceTokens: Int = ON_DEVICE_MAX_OUTPUT_TOKENS,
+        option: OnDeviceModelOption = OnDeviceModelOption.STABLE,
+    ): GenerativeModel {
         val firebase = firebase() ?: throw IllegalStateException("not_configured")
         val maxTokens = if (mode == InferenceMode.ONLY_ON_DEVICE) onDeviceTokens else CLOUD_MAX_OUTPUT_TOKENS
         return Firebase.ai(app = firebase, backend = GenerativeBackend.googleAI()).generativeModel(
             modelName = BuildConfig.FEMIO_AI_CLOUD_MODEL,
             generationConfig = generationConfig { maxOutputTokens = maxTokens },
-            onDeviceConfig = OnDeviceConfig(mode = mode, maxOutputTokens = onDeviceTokens),
+            onDeviceConfig = OnDeviceConfig(mode = mode, maxOutputTokens = onDeviceTokens, modelOption = option),
         )
     }
 
