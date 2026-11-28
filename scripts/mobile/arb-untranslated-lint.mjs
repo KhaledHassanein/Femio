@@ -23,6 +23,7 @@ const ALLOWED = {
     "rangeValue", // two placeholders and a dash; nothing to translate
     "calendarDayLabel", // two placeholders and a comma
     "signsValueOn", // two placeholders and a comma
+    "medMonthCellSemantics", // two placeholders and a colon (French adds its space before it)
     "listSeparator", // a comma and a space; Arabic has its own
     "sayItChipWithSection", // two placeholders and a colon
     // "Cloud boost" is a feature name kept in Latin script, like Gemini Nano (ADR-079).

@@ -4856,4 +4856,138 @@ class L10nFr extends L10n {
 
   @override
   String get feedingGuideHelp => 'Quand l\'allaitement ne fonctionne pas';
+
+  @override
+  String get chartTitle => 'Courbes';
+
+  @override
+  String get chartIntro =>
+      'femio dessine vos propres mesures à partir de votre dossier, aux dates où elles ont eu lieu. Il ne dit jamais ce qu\'un chiffre signifie : c\'est à voir avec votre soignant.';
+
+  @override
+  String get chartEmptyHeading => 'Pas encore de courbe';
+
+  @override
+  String get chartEmptyBody =>
+      'Une courbe apparaît dès que vous avez enregistré au moins deux mesures de la même chose dans la même unité, comme la tension, la glycémie ou une analyse. Ajoutez-les depuis Mon dossier.';
+
+  @override
+  String get chartNote =>
+      'Les unités sont affichées exactement comme vous les avez saisies et ne sont jamais converties. Touchez une mesure pour la corriger.';
+
+  @override
+  String get chartKindBloodPressure => 'Tension artérielle';
+
+  @override
+  String get chartKindGlucose => 'Glycémie';
+
+  @override
+  String get chartFieldSystolic => 'Chiffre du haut (systolique)';
+
+  @override
+  String get chartFieldDiastolic => 'Chiffre du bas (diastolique)';
+
+  @override
+  String get chartFieldPulse => 'Pouls, battements par minute (facultatif)';
+
+  @override
+  String get chartFieldContext => 'Moment de la mesure';
+
+  @override
+  String get chartContextFasting => 'À jeun';
+
+  @override
+  String get chartContextAfterMeal => 'Après un repas';
+
+  @override
+  String get chartContextOther => 'Autre moment';
+
+  @override
+  String get chartNeedNumber => 'Saisissez un nombre.';
+
+  @override
+  String get chartNeedUnit => 'Choisissez l\'unité affichée par votre lecteur.';
+
+  @override
+  String get chartBpLegend =>
+      'Points pleins : chiffre du haut. Anneaux : chiffre du bas.';
+
+  @override
+  String get chartBandNote =>
+      'La bande claire est la plage imprimée sur votre compte rendu d\'analyse.';
+
+  @override
+  String chartReadingsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count mesures',
+      one: '1 mesure',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String chartSemantics(String title, int count, String from, String to) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count mesures',
+      one: '1 mesure',
+    );
+    return '$title : $_temp0, du $from au $to';
+  }
+
+  @override
+  String get medMonthHeading => 'Vue du mois';
+
+  @override
+  String get medMonthPrevious => 'Mois précédent';
+
+  @override
+  String get medMonthNext => 'Mois suivant';
+
+  @override
+  String get medMonthTaken => 'Prise';
+
+  @override
+  String get medMonthPartly => 'Partiellement prise';
+
+  @override
+  String get medMonthNotTaken => 'Non prise';
+
+  @override
+  String get medMonthNotMarked => 'Non marquée';
+
+  @override
+  String medMonthCellSemantics(String day, String status) {
+    return '$day : $status';
+  }
+
+  @override
+  String medMonthCount(int taken, int planned) {
+    String _temp0 = intl.Intl.pluralLogic(
+      planned,
+      locale: localeName,
+      other: '$planned jours prévus',
+      one: '$planned jour prévu',
+    );
+    return 'Toutes les doses prévues marquées prises : $taken sur $_temp0.';
+  }
+
+  @override
+  String get medMonthCountNone =>
+      'Aucune dose prévue à compter ce mois-ci pour l\'instant.';
+
+  @override
+  String medMonthCountAsNeeded(int taken) {
+    String _temp0 = intl.Intl.pluralLogic(
+      taken,
+      locale: localeName,
+      other: 'Vous avez marqué une dose sur $taken jours ce mois-ci.',
+      one: 'Vous avez marqué une dose sur 1 jour ce mois-ci.',
+      zero: 'Vous n\'avez marqué aucune dose ce mois-ci.',
+    );
+    return '$_temp0';
+  }
 }

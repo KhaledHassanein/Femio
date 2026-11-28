@@ -7750,6 +7750,192 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'When breastfeeding is not working'**
   String get feedingGuideHelp;
+
+  /// Title of the Charts screen and the tooltip of its button on My record.
+  ///
+  /// In en, this message translates to:
+  /// **'Charts'**
+  String get chartTitle;
+
+  /// Charts screen: one sentence under the title. No verdicts (rule 1).
+  ///
+  /// In en, this message translates to:
+  /// **'femio draws your own readings from your record, on the dates they happened. It never says what a number means; that is for you and your clinician.'**
+  String get chartIntro;
+
+  /// Charts screen when no series has two readings yet: heading.
+  ///
+  /// In en, this message translates to:
+  /// **'No charts yet'**
+  String get chartEmptyHeading;
+
+  /// Charts screen when no series has two readings yet: body.
+  ///
+  /// In en, this message translates to:
+  /// **'A chart appears once you have saved at least two readings of the same thing in the same unit, such as blood pressure, glucose or a lab test. Add them from My record.'**
+  String get chartEmptyBody;
+
+  /// Charts screen footer: units are never converted; readings can be corrected.
+  ///
+  /// In en, this message translates to:
+  /// **'Units are shown exactly as you entered them and are never converted. Tap a reading to correct it.'**
+  String get chartNote;
+
+  /// Name of the blood-pressure kind of record entry and of its chart.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood pressure'**
+  String get chartKindBloodPressure;
+
+  /// Name of the glucose kind of record entry and of its chart.
+  ///
+  /// In en, this message translates to:
+  /// **'Glucose'**
+  String get chartKindGlucose;
+
+  /// Blood-pressure field label: the top number.
+  ///
+  /// In en, this message translates to:
+  /// **'Top number (systolic)'**
+  String get chartFieldSystolic;
+
+  /// Blood-pressure field label: the bottom number.
+  ///
+  /// In en, this message translates to:
+  /// **'Bottom number (diastolic)'**
+  String get chartFieldDiastolic;
+
+  /// Blood-pressure field label: pulse, optional.
+  ///
+  /// In en, this message translates to:
+  /// **'Pulse, beats per minute (optional)'**
+  String get chartFieldPulse;
+
+  /// Glucose field label: when the reading was taken.
+  ///
+  /// In en, this message translates to:
+  /// **'When you measured'**
+  String get chartFieldContext;
+
+  /// Glucose context: measured fasting.
+  ///
+  /// In en, this message translates to:
+  /// **'Fasting'**
+  String get chartContextFasting;
+
+  /// Glucose context: measured after a meal.
+  ///
+  /// In en, this message translates to:
+  /// **'After a meal'**
+  String get chartContextAfterMeal;
+
+  /// Glucose context: measured at another time.
+  ///
+  /// In en, this message translates to:
+  /// **'Other time'**
+  String get chartContextOther;
+
+  /// Error under a reading field that is empty or not a number.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a number.'**
+  String get chartNeedNumber;
+
+  /// Error under the glucose unit when none is chosen.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose the unit your meter shows.'**
+  String get chartNeedUnit;
+
+  /// Blood-pressure chart legend: filled dots and rings.
+  ///
+  /// In en, this message translates to:
+  /// **'Filled dots: top number. Rings: bottom number.'**
+  String get chartBpLegend;
+
+  /// Chart caption when the light band is shown: it is only the range printed on her own report.
+  ///
+  /// In en, this message translates to:
+  /// **'The light band is the range printed on your lab report.'**
+  String get chartBandNote;
+
+  /// How many readings a series has.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 reading} other{{count} readings}}'**
+  String chartReadingsCount(int count);
+
+  /// Screen-reader label for a chart: its title, number of readings and first and last day.
+  ///
+  /// In en, this message translates to:
+  /// **'{title}: {count, plural, =1{1 reading} other{{count} readings}}, from {from} to {to}'**
+  String chartSemantics(String title, int count, String from, String to);
+
+  /// Heading of the month grid on a medicine page.
+  ///
+  /// In en, this message translates to:
+  /// **'Month view'**
+  String get medMonthHeading;
+
+  /// Tooltip of the previous-month arrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous month'**
+  String get medMonthPrevious;
+
+  /// Tooltip of the next-month arrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Next month'**
+  String get medMonthNext;
+
+  /// Month grid: every planned dose of the day is marked taken.
+  ///
+  /// In en, this message translates to:
+  /// **'Taken'**
+  String get medMonthTaken;
+
+  /// Month grid: some doses of the day are marked taken and some are not.
+  ///
+  /// In en, this message translates to:
+  /// **'Some taken'**
+  String get medMonthPartly;
+
+  /// Month grid: the day is marked not taken.
+  ///
+  /// In en, this message translates to:
+  /// **'Not taken'**
+  String get medMonthNotTaken;
+
+  /// Month grid: a dose was planned and nothing is marked.
+  ///
+  /// In en, this message translates to:
+  /// **'Not marked'**
+  String get medMonthNotMarked;
+
+  /// Screen-reader label of one day in the month grid: the date and what is marked.
+  ///
+  /// In en, this message translates to:
+  /// **'{day}: {status}'**
+  String medMonthCellSemantics(String day, String status);
+
+  /// Plain count under the month grid. A fact about her marks, never a score or praise.
+  ///
+  /// In en, this message translates to:
+  /// **'Every planned dose marked taken on {taken} of {planned, plural, =1{{planned} planned day} other{{planned} planned days}}.'**
+  String medMonthCount(int taken, int planned);
+
+  /// Under the month grid when no dose was planned yet this month.
+  ///
+  /// In en, this message translates to:
+  /// **'No planned doses to count in this month yet.'**
+  String get medMonthCountNone;
+
+  /// Under the month grid for a medicine she takes when needed: days with a dose marked.
+  ///
+  /// In en, this message translates to:
+  /// **'{taken, plural, =0{You marked no doses this month.} =1{You marked a dose on 1 day this month.} other{You marked a dose on {taken} days this month.}}'**
+  String medMonthCountAsNeeded(int taken);
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

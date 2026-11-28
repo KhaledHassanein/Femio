@@ -3328,5 +3328,169 @@
   "feedingGuideHelp": "When breastfeeding is not working",
   "@feedingGuideHelp": {
     "description": "Link to the reviewed guide when-breastfeeding-is-not-working."
+  },
+  "chartTitle": "Charts",
+  "@chartTitle": {
+    "description": "Title of the Charts screen and the tooltip of its button on My record."
+  },
+  "chartIntro": "femio draws your own readings from your record, on the dates they happened. It never says what a number means; that is for you and your clinician.",
+  "@chartIntro": {
+    "description": "Charts screen: one sentence under the title. No verdicts (rule 1)."
+  },
+  "chartEmptyHeading": "No charts yet",
+  "@chartEmptyHeading": {
+    "description": "Charts screen when no series has two readings yet: heading."
+  },
+  "chartEmptyBody": "A chart appears once you have saved at least two readings of the same thing in the same unit, such as blood pressure, glucose or a lab test. Add them from My record.",
+  "@chartEmptyBody": {
+    "description": "Charts screen when no series has two readings yet: body."
+  },
+  "chartNote": "Units are shown exactly as you entered them and are never converted. Tap a reading to correct it.",
+  "@chartNote": {
+    "description": "Charts screen footer: units are never converted; readings can be corrected."
+  },
+  "chartKindBloodPressure": "Blood pressure",
+  "@chartKindBloodPressure": {
+    "description": "Name of the blood-pressure kind of record entry and of its chart."
+  },
+  "chartKindGlucose": "Glucose",
+  "@chartKindGlucose": {
+    "description": "Name of the glucose kind of record entry and of its chart."
+  },
+  "chartFieldSystolic": "Top number (systolic)",
+  "@chartFieldSystolic": {
+    "description": "Blood-pressure field label: the top number."
+  },
+  "chartFieldDiastolic": "Bottom number (diastolic)",
+  "@chartFieldDiastolic": {
+    "description": "Blood-pressure field label: the bottom number."
+  },
+  "chartFieldPulse": "Pulse, beats per minute (optional)",
+  "@chartFieldPulse": {
+    "description": "Blood-pressure field label: pulse, optional."
+  },
+  "chartFieldContext": "When you measured",
+  "@chartFieldContext": {
+    "description": "Glucose field label: when the reading was taken."
+  },
+  "chartContextFasting": "Fasting",
+  "@chartContextFasting": {
+    "description": "Glucose context: measured fasting."
+  },
+  "chartContextAfterMeal": "After a meal",
+  "@chartContextAfterMeal": {
+    "description": "Glucose context: measured after a meal."
+  },
+  "chartContextOther": "Other time",
+  "@chartContextOther": {
+    "description": "Glucose context: measured at another time."
+  },
+  "chartNeedNumber": "Enter a number.",
+  "@chartNeedNumber": {
+    "description": "Error under a reading field that is empty or not a number."
+  },
+  "chartNeedUnit": "Choose the unit your meter shows.",
+  "@chartNeedUnit": {
+    "description": "Error under the glucose unit when none is chosen."
+  },
+  "chartBpLegend": "Filled dots: top number. Rings: bottom number.",
+  "@chartBpLegend": {
+    "description": "Blood-pressure chart legend: filled dots and rings."
+  },
+  "chartBandNote": "The light band is the range printed on your lab report.",
+  "@chartBandNote": {
+    "description": "Chart caption when the light band is shown: it is only the range printed on her own report."
+  },
+  "chartReadingsCount": "{count, plural, =1{1 reading} other{{count} readings}}",
+  "@chartReadingsCount": {
+    "description": "How many readings a series has.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartSemantics": "{title}: {count, plural, =1{1 reading} other{{count} readings}}, from {from} to {to}",
+  "@chartSemantics": {
+    "description": "Screen-reader label for a chart: its title, number of readings and first and last day.",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      },
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "medMonthHeading": "Month view",
+  "@medMonthHeading": {
+    "description": "Heading of the month grid on a medicine page."
+  },
+  "medMonthPrevious": "Previous month",
+  "@medMonthPrevious": {
+    "description": "Tooltip of the previous-month arrow."
+  },
+  "medMonthNext": "Next month",
+  "@medMonthNext": {
+    "description": "Tooltip of the next-month arrow."
+  },
+  "medMonthTaken": "Taken",
+  "@medMonthTaken": {
+    "description": "Month grid: every planned dose of the day is marked taken."
+  },
+  "medMonthPartly": "Some taken",
+  "@medMonthPartly": {
+    "description": "Month grid: some doses of the day are marked taken and some are not."
+  },
+  "medMonthNotTaken": "Not taken",
+  "@medMonthNotTaken": {
+    "description": "Month grid: the day is marked not taken."
+  },
+  "medMonthNotMarked": "Not marked",
+  "@medMonthNotMarked": {
+    "description": "Month grid: a dose was planned and nothing is marked."
+  },
+  "medMonthCellSemantics": "{day}: {status}",
+  "@medMonthCellSemantics": {
+    "description": "Screen-reader label of one day in the month grid: the date and what is marked.",
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "medMonthCount": "Every planned dose marked taken on {taken} of {planned, plural, =1{{planned} planned day} other{{planned} planned days}}.",
+  "@medMonthCount": {
+    "description": "Plain count under the month grid. A fact about her marks, never a score or praise.",
+    "placeholders": {
+      "taken": {
+        "type": "int"
+      },
+      "planned": {
+        "type": "int"
+      }
+    }
+  },
+  "medMonthCountNone": "No planned doses to count in this month yet.",
+  "@medMonthCountNone": {
+    "description": "Under the month grid when no dose was planned yet this month."
+  },
+  "medMonthCountAsNeeded": "{taken, plural, =0{You marked no doses this month.} =1{You marked a dose on 1 day this month.} other{You marked a dose on {taken} days this month.}}",
+  "@medMonthCountAsNeeded": {
+    "description": "Under the month grid for a medicine she takes when needed: days with a dose marked.",
+    "placeholders": {
+      "taken": {
+        "type": "int"
+      }
+    }
   }
 }

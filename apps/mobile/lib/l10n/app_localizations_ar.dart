@@ -4867,4 +4867,150 @@ class L10nAr extends L10n {
 
   @override
   String get feedingGuideHelp => 'عندما لا تنجح الرضاعة الطبيعية';
+
+  @override
+  String get chartTitle => 'المخططات';
+
+  @override
+  String get chartIntro =>
+      'يرسم femio قراءاتك أنتِ من سجلّك، في التواريخ التي حدثت فيها. ولا يقول أبدًا ما تعنيه الأرقام؛ فذلك بينكِ وبين طبيبكِ.';
+
+  @override
+  String get chartEmptyHeading => 'لا مخططات بعد';
+
+  @override
+  String get chartEmptyBody =>
+      'يظهر المخطط حين تحفظين قراءتين على الأقل للشيء نفسه وبالوحدة نفسها، مثل ضغط الدم أو سكر الدم أو تحليل مخبري. أضيفيها من «سجلي».';
+
+  @override
+  String get chartNote =>
+      'تظهر الوحدات كما كتبتِها تمامًا ولا تُحوَّل أبدًا. اضغطي على أي قراءة لتصحيحها.';
+
+  @override
+  String get chartKindBloodPressure => 'ضغط الدم';
+
+  @override
+  String get chartKindGlucose => 'سكر الدم';
+
+  @override
+  String get chartFieldSystolic => 'الرقم الأعلى (الانقباضي)';
+
+  @override
+  String get chartFieldDiastolic => 'الرقم الأدنى (الانبساطي)';
+
+  @override
+  String get chartFieldPulse => 'النبض، نبضة في الدقيقة (اختياري)';
+
+  @override
+  String get chartFieldContext => 'وقت القياس';
+
+  @override
+  String get chartContextFasting => 'صائمة';
+
+  @override
+  String get chartContextAfterMeal => 'بعد وجبة';
+
+  @override
+  String get chartContextOther => 'وقت آخر';
+
+  @override
+  String get chartNeedNumber => 'أدخلي رقمًا.';
+
+  @override
+  String get chartNeedUnit => 'اختاري الوحدة التي يعرضها جهازك.';
+
+  @override
+  String get chartBpLegend =>
+      'النقاط الممتلئة: الرقم الأعلى. الحلقات: الرقم الأدنى.';
+
+  @override
+  String get chartBandNote => 'الشريط الفاتح هو المدى المطبوع في تقرير مختبرك.';
+
+  @override
+  String chartReadingsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count قراءة',
+      many: '$count قراءة',
+      few: '$count قراءات',
+      two: 'قراءتان',
+      one: 'قراءة واحدة',
+      zero: 'لا قراءات',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String chartSemantics(String title, int count, String from, String to) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count قراءة',
+      many: '$count قراءة',
+      few: '$count قراءات',
+      two: 'قراءتان',
+      one: 'قراءة واحدة',
+      zero: 'لا قراءات',
+    );
+    return '$title: $_temp0، من $from إلى $to';
+  }
+
+  @override
+  String get medMonthHeading => 'عرض الشهر';
+
+  @override
+  String get medMonthPrevious => 'الشهر السابق';
+
+  @override
+  String get medMonthNext => 'الشهر التالي';
+
+  @override
+  String get medMonthTaken => 'أُخذت';
+
+  @override
+  String get medMonthPartly => 'أُخذ بعضها';
+
+  @override
+  String get medMonthNotTaken => 'لم تُؤخذ';
+
+  @override
+  String get medMonthNotMarked => 'غير مسجّلة';
+
+  @override
+  String medMonthCellSemantics(String day, String status) {
+    return '$day: $status';
+  }
+
+  @override
+  String medMonthCount(int taken, int planned) {
+    String _temp0 = intl.Intl.pluralLogic(
+      planned,
+      locale: localeName,
+      other: '$planned يوم مخطط لها',
+      many: '$planned يومًا مخطط لها',
+      few: '$planned أيام مخطط لها',
+      two: 'يومين مخطط لهما',
+      one: 'يوم مخطط له',
+    );
+    return 'سُجّل أخذ كل الجرعات المخطط لها في $taken من أصل $_temp0.';
+  }
+
+  @override
+  String get medMonthCountNone => 'لا جرعات مخطط لها تُحتسب في هذا الشهر بعد.';
+
+  @override
+  String medMonthCountAsNeeded(int taken) {
+    String _temp0 = intl.Intl.pluralLogic(
+      taken,
+      locale: localeName,
+      other: 'سجّلتِ جرعة في $taken يوم هذا الشهر.',
+      many: 'سجّلتِ جرعة في $taken يومًا هذا الشهر.',
+      few: 'سجّلتِ جرعة في $taken أيام هذا الشهر.',
+      two: 'سجّلتِ جرعة في يومين هذا الشهر.',
+      one: 'سجّلتِ جرعة في يوم واحد هذا الشهر.',
+      zero: 'لم تسجّلي أي جرعة في هذا الشهر.',
+    );
+    return '$_temp0';
+  }
 }

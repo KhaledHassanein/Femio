@@ -14,6 +14,7 @@ import '../../app.dart';
 import '../../domain/bidi_text.dart';
 import '../../domain/dates.dart';
 import '../../domain/health_record.dart';
+import '../../domain/record_charts.dart' show parseReadingNumber;
 import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/radii.dart';
@@ -91,10 +92,36 @@ class _RecordEditorState extends State<RecordEditor> {
           if (recordDateFields.contains(k)) ...{if (_dates[k] != null) k: _dates[k]!} else k: _text[k]!.text,
       };
 
+  /// Blood pressure and glucose need no title of her own: the kind names them.
+  bool get _isReading => _kind == RecordKind.bloodPressure || _kind == RecordKind.glucose;
+
+  /// The number on a reading field, or null when it is blank or not a number above zero.
+  double? _number(String field) {
+    final v = parseReadingNumber(_text[field]!.text);
+    return v != null && v > 0 ? v : null;
+  }
+
+  /// Why [field] cannot be saved yet, or null. Only checks that a number is a number: femio
+  /// never says a reading is too high or too low.
+  String? _fieldError(L10n l, String field) {
+    if (!_tried) return null;
+    return switch ((_kind, field)) {
+      (RecordKind.bloodPressure, RecordField.systolic || RecordField.diastolic) =>
+        _number(field) == null ? l.chartNeedNumber : null,
+      (RecordKind.bloodPressure, RecordField.pulse) =>
+        _text[field]!.text.trim().isNotEmpty && _number(field) == null ? l.chartNeedNumber : null,
+      (RecordKind.glucose, RecordField.value) => _number(field) == null ? l.chartNeedNumber : null,
+      (RecordKind.glucose, RecordField.unit) => _text[field]!.text.trim().isEmpty ? l.chartNeedUnit : null,
+      _ => null,
+    };
+  }
+
   Future<void> _save() async {
     setState(() => _tried = true);
-    final title = _title.text.trim();
+    final l = L10n.of(context);
+    final title = _title.text.trim().isEmpty && _isReading ? recordKindLabel(l, _kind) : _title.text.trim();
     if (title.isEmpty || _happenedOn == null) return;
+    if (recordFieldsFor(_kind).any((k) => _fieldError(l, k) != null)) return;
     final now = DateTime.now().toIso8601String();
     final old = widget.existing;
     final entry = old == null
@@ -128,6 +155,38 @@ class _RecordEditorState extends State<RecordEditor> {
     if (yes != true) return;
     await widget.controller.deleteRecordEntry(widget.existing!.id);
     if (mounted) Navigator.of(context).pop();
+  }
+
+  /// The fields typed as a number, so the phone shows a number pad.
+  static const _numeric = {RecordField.systolic, RecordField.diastolic, RecordField.pulse};
+
+  /// A row of chips for a field with a few fixed answers (glucose unit, when it was taken).
+  /// The stored text is the option's key, exactly as listed; tapping the chosen one clears it.
+  Widget _choiceField({
+    required String label,
+    required TextEditingController controller,
+    required Map<String, String> options,
+    String? error,
+  }) {
+    final p = context.palette;
+    final t = Theme.of(context).textTheme;
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Text(label, style: t.titleSmall),
+      const SizedBox(height: space2),
+      Wrap(spacing: space2, runSpacing: space2, children: [
+        for (final o in options.entries)
+          ChoiceChip(
+            label: Text(o.value),
+            selected: controller.text == o.key,
+            onSelected: (on) => setState(() => controller.text = on ? o.key : ''),
+          ),
+      ]),
+      if (error != null)
+        Padding(
+          padding: const EdgeInsetsDirectional.only(start: space3, top: space1),
+          child: Text(error, style: t.bodySmall?.copyWith(color: p.danger)),
+        ),
+    ]);
   }
 
   @override
@@ -197,7 +256,14 @@ class _RecordEditorState extends State<RecordEditor> {
                 avatar: Icon(recordKindIcon(k), size: 18),
                 label: Text(recordKindLabel(l, k)),
                 selected: _kind == k,
-                onSelected: (_) => setState(() => _kind = k),
+                onSelected: (_) => setState(() {
+                  _kind = k;
+                  // A lab's unit typed before switching is not one of the glucose choices.
+                  if (k == RecordKind.glucose) {
+                    if (!glucoseUnits.contains(_text[RecordField.unit]!.text)) _text[RecordField.unit]!.clear();
+                    if (!glucoseContexts.contains(_text[RecordField.context]!.text)) _text[RecordField.context]!.clear();
+                  }
+                }),
               ),
           ]),
           const SizedBox(height: space4),
@@ -210,7 +276,7 @@ class _RecordEditorState extends State<RecordEditor> {
             decoration: deco(
               l.recFormTitle,
               hint: l.recFormTitleHint,
-              error: _tried && _title.text.trim().isEmpty ? l.recNeedTitle : null,
+              error: _tried && _title.text.trim().isEmpty && !_isReading ? l.recNeedTitle : null,
             ),
           ),
           const SizedBox(height: space3),
@@ -234,15 +300,26 @@ class _RecordEditorState extends State<RecordEditor> {
                 final d = await _pickDay(_dates[k], future: k == RecordField.endedOn);
                 if (d != null) setState(() => _dates[k] = d);
               })
+            else if (_kind == RecordKind.glucose && (k == RecordField.unit || k == RecordField.context))
+              _choiceField(
+                label: recordFieldLabel(l, k),
+                controller: _text[k]!,
+                options: k == RecordField.unit
+                    ? {for (final u in glucoseUnits) u: u}
+                    : {for (final c in glucoseContexts) c: glucoseContextLabel(l, c)},
+                error: _fieldError(l, k),
+              )
             else
               TextField(
                 controller: _text[k],
+                keyboardType: _numeric.contains(k) || (_kind == RecordKind.glucose && k == RecordField.value)
+                    ? const TextInputType.numberWithOptions(decimal: true) : null,
                 // "0.4 - 4.0" must read as printed, never turned around in Arabic.
                 textDirection: directionOfText(_text[k]!.text, Directionality.of(context)),
                 onChanged: (_) => setState(() {}),
                 minLines: k == RecordField.details ? 2 : 1,
                 maxLines: k == RecordField.details ? 6 : 1,
-                decoration: deco(recordFieldLabel(l, k)),
+                decoration: deco(recordFieldLabel(l, k), error: _fieldError(l, k)),
               ),
           ],
           const SizedBox(height: space5),

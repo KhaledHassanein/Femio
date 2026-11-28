@@ -4800,4 +4800,137 @@ class L10nEn extends L10n {
 
   @override
   String get feedingGuideHelp => 'When breastfeeding is not working';
+
+  @override
+  String get chartTitle => 'Charts';
+
+  @override
+  String get chartIntro =>
+      'femio draws your own readings from your record, on the dates they happened. It never says what a number means; that is for you and your clinician.';
+
+  @override
+  String get chartEmptyHeading => 'No charts yet';
+
+  @override
+  String get chartEmptyBody =>
+      'A chart appears once you have saved at least two readings of the same thing in the same unit, such as blood pressure, glucose or a lab test. Add them from My record.';
+
+  @override
+  String get chartNote =>
+      'Units are shown exactly as you entered them and are never converted. Tap a reading to correct it.';
+
+  @override
+  String get chartKindBloodPressure => 'Blood pressure';
+
+  @override
+  String get chartKindGlucose => 'Glucose';
+
+  @override
+  String get chartFieldSystolic => 'Top number (systolic)';
+
+  @override
+  String get chartFieldDiastolic => 'Bottom number (diastolic)';
+
+  @override
+  String get chartFieldPulse => 'Pulse, beats per minute (optional)';
+
+  @override
+  String get chartFieldContext => 'When you measured';
+
+  @override
+  String get chartContextFasting => 'Fasting';
+
+  @override
+  String get chartContextAfterMeal => 'After a meal';
+
+  @override
+  String get chartContextOther => 'Other time';
+
+  @override
+  String get chartNeedNumber => 'Enter a number.';
+
+  @override
+  String get chartNeedUnit => 'Choose the unit your meter shows.';
+
+  @override
+  String get chartBpLegend => 'Filled dots: top number. Rings: bottom number.';
+
+  @override
+  String get chartBandNote =>
+      'The light band is the range printed on your lab report.';
+
+  @override
+  String chartReadingsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count readings',
+      one: '1 reading',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String chartSemantics(String title, int count, String from, String to) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count readings',
+      one: '1 reading',
+    );
+    return '$title: $_temp0, from $from to $to';
+  }
+
+  @override
+  String get medMonthHeading => 'Month view';
+
+  @override
+  String get medMonthPrevious => 'Previous month';
+
+  @override
+  String get medMonthNext => 'Next month';
+
+  @override
+  String get medMonthTaken => 'Taken';
+
+  @override
+  String get medMonthPartly => 'Some taken';
+
+  @override
+  String get medMonthNotTaken => 'Not taken';
+
+  @override
+  String get medMonthNotMarked => 'Not marked';
+
+  @override
+  String medMonthCellSemantics(String day, String status) {
+    return '$day: $status';
+  }
+
+  @override
+  String medMonthCount(int taken, int planned) {
+    String _temp0 = intl.Intl.pluralLogic(
+      planned,
+      locale: localeName,
+      other: '$planned planned days',
+      one: '$planned planned day',
+    );
+    return 'Every planned dose marked taken on $taken of $_temp0.';
+  }
+
+  @override
+  String get medMonthCountNone =>
+      'No planned doses to count in this month yet.';
+
+  @override
+  String medMonthCountAsNeeded(int taken) {
+    String _temp0 = intl.Intl.pluralLogic(
+      taken,
+      locale: localeName,
+      other: 'You marked a dose on $taken days this month.',
+      one: 'You marked a dose on 1 day this month.',
+      zero: 'You marked no doses this month.',
+    );
+    return '$_temp0';
+  }
 }
