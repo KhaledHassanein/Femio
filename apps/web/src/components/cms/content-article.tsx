@@ -36,6 +36,7 @@ export async function ContentArticle({
   sectionHref,
   description,
   contentLocale = locale,
+  tool,
 }: {
   doc: ContentDoc;
   locale: string;
@@ -50,6 +51,8 @@ export async function ContentArticle({
    * (".or doctor"), seen in the v3 checkpoint photos.
    */
   contentLocale?: string;
+  /** A tool that belongs to this page, shown between the heading and the text. */
+  tool?: ReactNode;
 }) {
   const t = await getTranslations("learn");
   const tAds = await getTranslations("ads");
@@ -147,6 +150,8 @@ export async function ContentArticle({
         <p className="text-sm text-text-subtle">{t("boundaryNote")}</p>
         <ReviewLine doc={doc} locale={locale} />
       </div>
+
+      {tool}
 
       <article {...contentAttrs} className="text-md">
         <RichTextNodes nodes={head} />

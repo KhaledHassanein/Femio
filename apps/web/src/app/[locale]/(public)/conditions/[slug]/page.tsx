@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { availableLocales, getContentBySlug, allSlugs } from "@/lib/cms/client";
 import { metaDescription } from "@/lib/cms/format";
 import { ContentArticle } from "@/components/cms/content-article";
+import { VisitChecklistLink } from "@/components/checklists/visit-checklist-link";
 import { fitTitle, localizedAlternates, socialMetadata } from "@/lib/seo/metadata";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
@@ -70,6 +71,7 @@ export default async function ConditionPage({ params }: PageProps) {
       sectionHref="/conditions"
       description={metaDescription(doc)}
       contentLocale={contentLocale}
+      tool={slug === "pcos" ? <VisitChecklistLink /> : null}
     />
   );
 }

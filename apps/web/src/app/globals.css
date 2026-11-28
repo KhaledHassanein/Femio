@@ -162,7 +162,7 @@ body:has(.app-bottom-bar):has(.crisis-launcher) {
   /* Scoped to `main`: app chrome is already `print:hidden`, and flattening colour
      everywhere would take the crisis dialog's red with it. */
   main,
-  main :is(h1, h2, h3, h4, p, li, span, strong, em, td, th, dt, dd, a) {
+  main :is(h1, h2, h3, h4, p, li, span, strong, em, td, th, dt, dd, a, legend) {
     background: transparent !important;
     color: #111 !important;
   }

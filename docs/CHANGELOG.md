@@ -9,6 +9,7 @@ All notable changes to Femio V2.
 - **A month view for each medicine.** See which days you marked taken, some taken or not taken, and how many planned days were complete.
 - **Translation for the AI on this phone.** Gemini Nano works best in English, so after you download your language file (about 30 MB) femio translates your question and the answer on the phone, and says so under the answer.
 - **The mic uses Gemini Nano when your phone has it**, and Android's own on-device recognizer otherwise. Audio is never recorded or sent.
+- **PCOS visit checklist on the website.** A page to print and bring to your clinician: tick what you have noticed and take the questions with you. It is not a test: there is no score, and nothing you tick is saved or sent. You find it on the PCOS page. Printing a page now leaves out the website's menu and footer.
 - **Ask no longer freezes.** The assistant now works in the background, and when the AI cannot run femio tells you why: the AI is off, this phone has no built-in AI, or Cloud boost is off or not working right now.
 - **Speak instead of typing.** A mic on Ask femio and Say it turns your voice into text on the phone itself; nothing is recorded or sent. If your phone cannot do that, femio says why.
 - **Add a lab result, scan or report from the + button**, and open the guides from there.

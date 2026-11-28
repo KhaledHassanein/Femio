@@ -334,6 +334,7 @@ A calculator never says *diagnose, treat, prevent, safe day, infertile, late, no
 | Pregnancy calendar (R13.2) | Each week's dates, trimester, term window and the week guide (MR-54) | Milestones, tests or scans not in the register; "on track" | The current week is marked only when today is inside it |
 | Pregnancy weight gain (R13.3) | The IOM 2009 range for her pre-pregnancy BMI as reference text (MR-55) | A verdict, a colour, "too much", "too little", weight-loss advice | "Your clinician may suggest a different range"; twins with BMI under 18.5 get no range |
 | Contraction timer (R13.4) | Start and stop, duration and time between, averages over the last five (MR-31) | Any labour verdict, "5-1-1", "time to go" | Nothing is saved; closing the page clears it; the MR-31 call line always shows |
+| PCOS visit checklist (R13.6; a printable list, so the calendar input rules above do not apply) | Things she has noticed, to tick, and questions to ask, each in the words of a cited femio PCOS guide; "A list to bring to your clinician; it is not a test." | Any score, count, result or "you may have PCOS" (D-04, MR-36) | Ticks exist only on the open page: nothing computed, saved or sent; every line is tested against its guide in four languages; the urgent-care box and the help-now link always show |
 
 ---
 
