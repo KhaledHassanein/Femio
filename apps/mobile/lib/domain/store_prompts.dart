@@ -6,7 +6,7 @@
 
 /// The build number in pubspec.yaml (`version: x.y.z+build`). A test keeps them equal, so
 /// "once per version" really means once per release.
-const appBuild = 1;
+const appBuild = 2;
 
 /// She must have opened femio on this many different days before the one rating request
 /// (owner 2026-11-25).
