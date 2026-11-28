@@ -169,6 +169,33 @@ class _NanoReady implements AssistantBridge {
   Future<bool> openSource(String url) async => false;
 }
 
+// ---- the website's app screens (apps/web/public/app-screens) ---------------------------
+//
+// The site's tour shows Today and Calendar at 390×844, 2x (780×1688), in English light and
+// Arabic light and dark. These PNGs land in testing-results; scripts/web/app-screens-webp.py
+// turns them into the WebP files the site serves.
+
+const _webOut = '../../../testing-results/2026-11-28-web-screens';
+
+Future<void> _shootWeb(WidgetTester tester, String lang, Brightness b, int index) async {
+  tester.view.physicalSize = const Size(390 * 2, 844 * 2);
+  tester.view.devicePixelRatio = 2;
+  tester.platformDispatcher.platformBrightnessTestValue = b;
+  addTearDown(tester.view.reset);
+  addTearDown(tester.platformDispatcher.clearPlatformBrightnessTestValue);
+  final c = FemioController(MemoryStore(_profile(lang, index)), initialLocale: lang);
+  await c.load();
+  await tester.pumpWidget(FemioApp(controller: c, today: _today, assistant: index == 0 ? const _NanoReady() : const OfflineAssistant()));
+  await tester.pumpAndSettle();
+  if (index == 1) {
+    tester.widget<NavigationBar>(find.byType(NavigationBar)).onDestinationSelected!(1);
+    await tester.pumpAndSettle();
+  }
+  if (!autoUpdateGoldenFiles) return;
+  final screen = index == 0 ? 'today' : 'calendar';
+  await expectLater(find.byType(MaterialApp).first, matchesGoldenFile('$_webOut/$screen-$lang-${b.name}.png'));
+}
+
 void main() {
   setUpAll(() async {
     configureFormatting();
@@ -178,6 +205,12 @@ void main() {
   for (final lang in _langs) {
     for (var i = 0; i < _slugs.length; i++) {
       testWidgets('plain store screenshot ${_slugs[i]} ($lang)', (tester) => _shoot(tester, lang, i));
+    }
+  }
+
+  for (final (lang, b) in [('en', Brightness.light), ('ar', Brightness.light), ('ar', Brightness.dark)]) {
+    for (final i in [0, 1]) {
+      testWidgets('website app screen $i ($lang, ${b.name})', (tester) => _shootWeb(tester, lang, b, i));
     }
   }
 }
