@@ -677,8 +677,10 @@ void main() {
       await tapVisible(tester, find.text('AI on this phone, plus Cloud boost'));
       await tapVisible(tester, find.widgetWithText(FilledButton, 'Next'));
       expect(find.text('What may be sent'), findsOneWidget);
-      expect(find.text('Trying to conceive'), findsOneWidget, reason: 'her own bands are shown');
       await _shoot('en_light_ai_wizard_2_cloud');
+      // The longer intro (ADR-089) puts her bands below the first screen.
+      await tester.scrollUntilVisible(find.text('Trying to conceive'), 200, scrollable: find.byType(Scrollable).first);
+      expect(find.text('Trying to conceive'), findsOneWidget, reason: 'her own bands are shown');
       await tapVisible(tester, find.widgetWithText(FilledButton, 'Next'));
       final confirm = find.widgetWithText(FilledButton, 'Confirm my choice');
       expect(tester.widget<FilledButton>(confirm).onPressed, isNull, reason: 'nothing is pre-ticked');

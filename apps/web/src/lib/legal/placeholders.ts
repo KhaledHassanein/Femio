@@ -39,11 +39,14 @@ export const LEGAL_VALUES = {
  * 2026-11-27 (re-score PRIV-N2-1, PRIV-9): health data policy version 3 names Google's AI
  * usage data and reports about AI answers under "Who receives it"; both dates set to the
  * deploy day, 27 Nov (v3 privacy was deployed that morning).
+ *
+ * 2026-11-28 (ADR-089): privacy version 5 and health data version 4 name cloud reading, a
+ * report or her words sent one approved item at a time on phones without on-phone AI.
  */
 export const LEGAL_EDITIONS = {
-  privacy: { date: "2026-11-28", version: "4" },
+  privacy: { date: "2026-11-28", version: "5" },
   terms: { date: "2026-10-29", version: "1" },
-  healthData: { date: "2026-11-27", version: "3" },
+  healthData: { date: "2026-11-28", version: "4" },
 } as const;
 
 /** Matches any of the unfilled markers, so the page can highlight them. */

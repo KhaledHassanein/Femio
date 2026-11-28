@@ -53,13 +53,18 @@ abstract final class AiAck {
   static const cloud = 'cloud-boost-understood';
 }
 
-/// The two things Cloud boost may send, each agreed to separately.
+/// The things Cloud boost may send, each agreed to separately.
 enum CloudPurpose {
   /// A general question she approves each time, with the public source passages.
   questions,
 
   /// Her four coarse bands, to put her tips in order.
   tips,
+
+  /// A report, her words after a visit or a Say it note, read by the cloud AI into a draft
+  /// she checks; only on a phone without Gemini Nano, and each item only after she approved
+  /// it on a preview sheet (ADR-089, owner 2026-11-28).
+  records,
 }
 
 /// One entry in the consent log: she agreed to [purposes] (an empty set records a withdrawal)

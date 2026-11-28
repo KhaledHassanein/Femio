@@ -38,6 +38,17 @@ enum AssistantUse {
   /// After a visit: what she says the doctor told her, read on the phone into draft
   /// medicines, results, a next visit and a note she checks (ADR-087).
   afterVisit,
+
+  /// Read a report in the cloud: on a phone without Gemini Nano, page pictures she approved
+  /// on a preview sheet, read into a draft she checks (ADR-089).
+  scanInCloud,
+
+  /// After a visit in the cloud: her visit words, approved on a preview sheet (ADR-089).
+  afterVisitInCloud,
+
+  /// Say it in the cloud: her note, approved on a preview sheet, read into log terms she
+  /// ticks; the phrase rules always run first and the model only adds (ADR-089).
+  sayItInCloud,
 }
 
 /// What a use's prompt may contain. Each value names one input of the matching prompt
@@ -136,5 +147,25 @@ const usePolicies = <AssistantUse, AssistantPolicy>{
     tier: AssistantTier.phone,
     write: AssistantWrite.draftSheConfirms,
     sees: [AssistantInput.herVisitWords],
+  ),
+  // ADR-089: the same three readings in the cloud, for phones without Gemini Nano, only with
+  // her "Read my reports in the cloud" consent and her approval of each item on a preview.
+  AssistantUse.scanInCloud: AssistantPolicy(
+    tier: AssistantTier.hybrid,
+    write: AssistantWrite.draftSheConfirms,
+    sees: [AssistantInput.herDocument],
+    consent: CloudPurpose.records,
+  ),
+  AssistantUse.afterVisitInCloud: AssistantPolicy(
+    tier: AssistantTier.hybrid,
+    write: AssistantWrite.draftSheConfirms,
+    sees: [AssistantInput.herVisitWords],
+    consent: CloudPurpose.records,
+  ),
+  AssistantUse.sayItInCloud: AssistantPolicy(
+    tier: AssistantTier.hybrid,
+    write: AssistantWrite.draftSheConfirms,
+    sees: [AssistantInput.herNote],
+    consent: CloudPurpose.records,
   ),
 };

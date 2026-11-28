@@ -73,27 +73,34 @@ final _ids = tipEnglish.keys.take(3).toList();
 final _tipsConsent = const CloudConsent().grant({CloudPurpose.tips}, '2026-11-24T10:00:00Z');
 
 void main() {
-  test('every use has a policy; only the phone-only reading uses may offer a draft, and every hybrid use needs consent', () {
+  test('every use has a policy; only the reading uses may offer a draft, in the cloud only under the records consent', () {
     expect(usePolicies.keys.toSet(), AssistantUse.values.toSet());
-    const drafting = {AssistantUse.sayItToLog, AssistantUse.scanDocument, AssistantUse.afterVisit};
+    const onPhone = {AssistantUse.sayItToLog, AssistantUse.scanDocument, AssistantUse.afterVisit};
+    const inCloud = {AssistantUse.sayItInCloud, AssistantUse.scanInCloud, AssistantUse.afterVisitInCloud};
     for (final MapEntry(:key, :value) in usePolicies.entries) {
-      expect(value.write == AssistantWrite.draftSheConfirms, drafting.contains(key), reason: '$key');
-      if (drafting.contains(key)) expect(value.tier, AssistantTier.phone, reason: '$key');
+      expect(value.write == AssistantWrite.draftSheConfirms, onPhone.contains(key) || inCloud.contains(key), reason: '$key');
+      if (onPhone.contains(key)) expect(value.tier, AssistantTier.phone, reason: '$key');
+      if (inCloud.contains(key)) expect(value.consent, CloudPurpose.records, reason: '$key (ADR-089)');
       if (value.tier == AssistantTier.hybrid) expect(value.consent, isNotNull, reason: '$key');
     }
   });
 
-  test('every use names what it sees; a use that may reach the cloud never sees her note or visit facts', () {
+  test('every use names what it sees; a cloud-capable use sees her record only under the records consent, one item', () {
     const cloudSafe = {
       AssistantInput.approvedQuestion,
       AssistantInput.trustedPassages,
       AssistantInput.fourBands,
       AssistantInput.reviewedIds,
     };
+    // ADR-089: her own record reaches a cloud-capable use only under the records consent,
+    // and then only the one thing she approved on the preview sheet.
+    const approvedRecord = {AssistantInput.herDocument, AssistantInput.herVisitWords, AssistantInput.herNote};
     for (final MapEntry(:key, :value) in usePolicies.entries) {
       expect(value.sees, isNotEmpty, reason: '$key');
       if (value.tier == AssistantTier.hybrid) {
-        expect(cloudSafe.containsAll(value.sees), isTrue, reason: '$key');
+        final allowed = value.consent == CloudPurpose.records ? approvedRecord : cloudSafe;
+        expect(allowed.containsAll(value.sees), isTrue, reason: '$key');
+        expect(value.sees.length, value.consent == CloudPurpose.records ? 1 : greaterThan(0), reason: '$key');
       }
     }
   });
@@ -190,24 +197,28 @@ void main() {
       expect(await AssistantGateway(_Bridge()).checkCloud(questions), isNull);
     });
 
-    test('the check runs only with questions consent and her AI on, and is kept in her ledger', () async {
+    test('the check runs under any Cloud boost purpose with her AI on, and is kept in her ledger', () async {
       var on = true;
       final b = _Checker(const CloudCheck(ok: false, reason: 'app_check'));
       final ledger = <LedgerEntry>[];
       final g = AssistantGateway(b, enabled: () => on, record: (e) async => ledger.add(e));
       expect(await g.checkCloud(const CloudConsent()), isNull);
-      expect(await g.checkCloud(_tipsConsent), isNull, reason: 'tips consent does not cover a question');
       on = false;
       expect(await g.checkCloud(questions), isNull);
       expect(b.calls, 0);
       on = true;
+      // ADR-089: the fixed sentence holds nothing about her, so any purpose allows the check.
+      expect(await g.checkCloud(_tipsConsent), isNotNull);
+      expect(b.calls, 1);
+      on = true;
       final r = await g.checkCloud(questions);
       expect(r!.ok, isFalse);
       expect(r.reason, 'app_check');
-      expect(b.calls, 1);
+      expect(b.calls, 2);
       await Future<void>.delayed(Duration.zero);
-      expect(ledger.single.cloud, isTrue);
-      expect(ledger.single.sent, cloudCheckPrompt, reason: 'she can see exactly what the check sent');
+      expect(ledger, hasLength(2));
+      expect(ledger.last.cloud, isTrue);
+      expect(ledger.last.sent, cloudCheckPrompt, reason: 'she can see exactly what the check sent');
     });
 
     test('a bridge that throws reads as a timeout, never a crash', () async {

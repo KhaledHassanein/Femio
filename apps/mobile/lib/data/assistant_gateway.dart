@@ -13,6 +13,7 @@ import 'dart:async';
 import 'dart:typed_data';
 
 import '../domain/assistant/ai_ledger.dart';
+import '../domain/assistant/approved_record.dart';
 import '../domain/assistant/cited_translation.dart';
 import '../domain/assistant/cloud_consent.dart';
 import '../domain/assistant/cloud_prompt.dart';
@@ -46,6 +47,9 @@ const cloudLastingFailures = {'app_check', 'not_configured', 'service_disabled',
 
 /// How long femio skips Cloud boost after a lasting failure; a passing check ends it sooner.
 const cloudPauseAfterLastingFailure = Duration(minutes: 10);
+
+/// The line her AI ledger adds under a prompt that carried a page picture (ADR-089).
+const ledgerPagePicture = '[+ 1 page picture]';
 
 /// Where an answer came from, so a screen can say so.
 enum RanOn { rules, phone, cloud }
@@ -171,16 +175,19 @@ class AssistantGateway {
     _noteCloud(reply == null ? failure : null);
     // Without a reply femio cannot know where the call ran, so it keeps the receipt.
     final cloud = reply == null || !reply.onDevice;
-    _log(use, cloud: cloud, answered: reply != null, sent: cloud ? prompt.text : null);
+    _log(use, cloud: cloud, answered: reply != null, sent: cloud ? _sentText(prompt) : null);
     return reply;
   }
 
+  /// What her AI ledger shows as sent: the prompt, and a marker when a page picture went too.
+  static String _sentText(CloudPrompt prompt) => prompt.image == null ? prompt.text : '${prompt.text}\n$ledgerPagePicture';
+
   /// Tests Cloud boost end to end with [cloudCheckPrompt], a fixed sentence with nothing
   /// about her. Runs only when the bridge can check, her master switch is on and [consent]
-  /// allows questions; otherwise null. The call is kept in her AI ledger with what was sent.
+  /// allows any purpose; otherwise null. The call is kept in her AI ledger with what was sent.
   Future<CloudCheck?> checkCloud(CloudConsent consent) async {
     final bridge = _bridge;
-    if (bridge is! CloudChecker || !assistantBuildEnabled || !_enabled() || !consent.allows(CloudPurpose.questions)) {
+    if (bridge is! CloudChecker || !assistantBuildEnabled || !_enabled() || !consent.any) {
       return null;
     }
     CloudCheck result;
@@ -332,6 +339,62 @@ class AssistantGateway {
     final usable = !draft.isEmpty || reply.trim().toUpperCase() == 'NONE';
     if (_judge(AssistantUse.afterVisit, usable ? draft : null) == null) return const AssistantResult.rules();
     return AssistantResult(draft, RanOn.phone);
+  }
+
+  /// Read a report in the cloud (ADR-089): each page she [approved] on the preview sheet,
+  /// read by the hybrid model into one draft. Runs only on a phone without Gemini Nano, when
+  /// [consent] allows records; nothing here writes to her record.
+  Future<AssistantResult<RecordDraft>> readDocumentInCloud(ApprovedRecord approved, CloudConsent consent) async {
+    if (approved.reading != RecordReading.report || approved.pages.isEmpty) return const AssistantResult.rules();
+    final status = await this.status();
+    if (status.canRunPrivate || !status.canRunHybrid) return const AssistantResult.rules();
+    var draft = const RecordDraft();
+    var answered = false;
+    var cloud = false;
+    for (var i = 0; i < approved.pages.length && i < maxScanPages; i++) {
+      final reply = await _hybrid(AssistantUse.scanInCloud, CloudPrompt.record(approved, i), consent);
+      if (reply == null) {
+        draft = draft.withUnreadPages(1);
+        continue;
+      }
+      answered = true;
+      cloud = cloud || !reply.onDevice;
+      draft = draft.merge(parseRecordDraft(reply.text, approved.today));
+    }
+    if (!answered) return const AssistantResult.rules();
+    _judge(AssistantUse.scanInCloud, draft);
+    return AssistantResult(draft, cloud ? RanOn.cloud : RanOn.phone);
+  }
+
+  /// After a visit in the cloud (ADR-089): the words she [approved], read into a draft. Runs
+  /// only on a phone without Gemini Nano, when [consent] allows records.
+  Future<AssistantResult<RecordDraft>> readVisitWordsInCloud(ApprovedRecord approved, CloudConsent consent) async {
+    if (approved.reading != RecordReading.visitWords || approved.parts.isEmpty) return const AssistantResult.rules();
+    final status = await this.status();
+    if (status.canRunPrivate || !status.canRunHybrid) return const AssistantResult.rules();
+    final reply = await _hybrid(AssistantUse.afterVisitInCloud, CloudPrompt.record(approved, 0), consent);
+    if (reply == null) return const AssistantResult.rules();
+    final draft = parseRecordDraft(reply.text, approved.today);
+    final usable = !draft.isEmpty || reply.text.trim().toUpperCase() == 'NONE';
+    if (_judge(AssistantUse.afterVisitInCloud, usable ? draft : null) == null) return const AssistantResult.rules();
+    return AssistantResult(draft, reply.onDevice ? RanOn.phone : RanOn.cloud);
+  }
+
+  /// Say it in the cloud (ADR-089): log terms read from part [part] of the note she
+  /// [approved]. Runs only on a phone without Gemini Nano, when [consent] allows records.
+  /// The screen merges them into the rules' draft for her to tick.
+  Future<AssistantResult<ModelLogSuggestion>> readNoteInCloud(ApprovedRecord approved, int part, CloudConsent consent) async {
+    if (approved.reading != RecordReading.note || part < 0 || part >= approved.parts.length) {
+      return const AssistantResult.rules();
+    }
+    final status = await this.status();
+    if (status.canRunPrivate || !status.canRunHybrid) return const AssistantResult.rules();
+    final reply = await _hybrid(AssistantUse.sayItInCloud, CloudPrompt.record(approved, part), consent);
+    if (reply == null) return const AssistantResult.rules();
+    final s = parseExtraction(reply.text);
+    final usable = s.terms.isNotEmpty || s.flow != null || s.opk != null;
+    if (_judge(AssistantUse.sayItInCloud, usable ? s : null) == null) return const AssistantResult.rules();
+    return AssistantResult(s, reply.onDevice ? RanOn.phone : RanOn.cloud);
   }
 
   /// Visit pack: an order for the summary's reviewed questions, on the phone only.

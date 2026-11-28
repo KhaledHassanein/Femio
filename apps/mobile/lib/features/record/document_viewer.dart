@@ -39,15 +39,16 @@ enum _Action { rename, unlink, delete }
 class _DocumentViewerState extends State<DocumentViewer> {
   late final Future<_Loaded> _content = _load();
 
-  /// Whether Gemini Nano can read this document here (ADR-087); without it the button is not
-  /// shown, and the document stays attach-only.
+  /// Whether Gemini Nano can read this document here (ADR-087), or cloud reading could be
+  /// offered (ADR-089); without either the button is not shown, and it stays attach-only.
   bool _canRead = false;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     AssistantScope.gatewayOf(context).status().then((s) {
-      if (mounted && s.canRunPrivate != _canRead) setState(() => _canRead = s.canRunPrivate);
+      final can = s.canRunPrivate || s.canRunHybrid;
+      if (mounted && can != _canRead) setState(() => _canRead = can);
     });
   }
 

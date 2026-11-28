@@ -2308,11 +2308,104 @@ class L10nEs extends L10n {
   }
 
   @override
+  String cloudCheckDetail(String detail) {
+    return 'Detalles técnicos: $detail';
+  }
+
+  @override
+  String get boostPurposeRecords => 'Lectura de informes y notas que apruebes';
+
+  @override
+  String get boostAgreeRecords =>
+      'Acepto que, como este teléfono no tiene IA integrada, femio envíe un informe, mis palabras después de una consulta o una nota de «Dilo» a la IA en la nube de Google para convertirlo en un borrador que reviso. femio me muestra exactamente lo que se enviará cada vez y solo lo envía cuando toco Enviar.';
+
+  @override
+  String get cloudReadTitle => '¿Enviar esto a la IA en la nube de Google?';
+
+  @override
+  String get cloudReadWhy =>
+      'Este teléfono no tiene IA integrada. La IA en la nube de Google lo lee y femio te muestra un borrador para revisar. No se añade nada a tu historial hasta que lo guardes.';
+
+  @override
+  String cloudReadPages(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count imágenes de páginas del documento que elegiste',
+      one: '1 imagen de página del documento que elegiste',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get cloudReadWordsLabel => 'Exactamente lo que se enviará:';
+
+  @override
+  String get cloudReadWho =>
+      'Se envía a través de Firebase AI Logic (API Gemini Developer, plan de pago). Google lo guarda hasta 55 días para detectar abusos y no lo usa para mejorar sus productos. femio no tiene servidor y no guarda nada.';
+
+  @override
+  String get cloudReadSend => 'Enviar';
+
+  @override
+  String get cloudReadNotNow => 'Ahora no';
+
+  @override
+  String get cloudReadOfferTitle => '¿Usar la IA en la nube de Google?';
+
+  @override
+  String get cloudReadOfferBody =>
+      'Este teléfono no tiene IA integrada (Gemini Nano). Activa la lectura en la nube en Cloud boost y la IA en la nube de Google podrá leerlo por ti. Verás exactamente lo que se enviaría cada vez, y no se envía nada hasta que toques Enviar.';
+
+  @override
+  String get cloudReadTurnOn => 'Activar la lectura en la nube';
+
+  @override
+  String get cloudReadButton => 'Leerlo con la IA en la nube de Google';
+
+  @override
+  String get cloudReadDone =>
+      'Leído por la IA en la nube de Google después de que lo aprobaras. No se guarda nada hasta que toques Guardar.';
+
+  @override
+  String get scanCloudDeclined =>
+      'No se envió nada. El documento está guardado en Mis documentos y puedes añadir los resultados a mano.';
+
+  @override
+  String get scanCloudFailed =>
+      'La IA en la nube de Google no pudo leer este documento esta vez. Está guardado en Mis documentos y puedes añadir los resultados a mano.';
+
+  @override
+  String get scanCloudNote =>
+      'Leído por la IA en la nube de Google después de que lo aprobaras. El documento sigue guardado en tu teléfono.';
+
+  @override
+  String get aiUseScanCloud => 'Leer un informe con Cloud boost';
+
+  @override
+  String get aiUseAfterVisitCloud => 'Después de una consulta con Cloud boost';
+
+  @override
+  String get aiUseSayItCloud => 'Dilo con Cloud boost';
+
+  @override
+  String get aiHelpsScanCloud =>
+      'Para teléfonos sin IA integrada: después de que apruebes las páginas en una vista previa, la IA en la nube de Google lee el informe en resultados y medicamentos para que los revises.';
+
+  @override
+  String get aiHelpsAfterVisitCloud =>
+      'Para teléfonos sin IA integrada: después de que apruebes tus palabras en una vista previa, la IA en la nube de Google las convierte en un borrador de medicamentos, resultados y la próxima consulta para que lo revises.';
+
+  @override
+  String get aiHelpsSayItCloud =>
+      'Para teléfonos sin IA integrada: después de que apruebes tu nota en una vista previa, la IA en la nube de Google añade registros que las reglas de femio no vieron, para que los marques.';
+
+  @override
   String get boostTitle => 'Cloud boost';
 
   @override
   String get boostIntro =>
-      'Algunos teléfonos no tienen IA integrada. En esos teléfonos, Cloud boost permite que la IA en la nube de Google resuma fuentes fiables para una pregunta que apruebes, u ordene tus consejos. Es opcional y sigue desactivado salvo que aceptes abajo. Todo lo demás de femio funciona sin él.';
+      'Algunos teléfonos no tienen IA integrada. En esos teléfonos, Cloud boost permite que la IA en la nube de Google resuma fuentes fiables para una pregunta que apruebes, ordene tus consejos, o lea un informe o tus notas en un borrador que revisas. Cada uno es opcional y sigue desactivado salvo que aceptes abajo. Todo lo demás de femio funciona sin él.';
 
   @override
   String get boostSendsHeading => 'Qué se puede enviar';
@@ -2390,7 +2483,7 @@ class L10nEs extends L10n {
 
   @override
   String get boostNever =>
-      'Nada más de tu historial: ni tus registros, notas, fechas, duración de ciclos, medicamentos, resultados de análisis, consultas, documentos, fotos o año de nacimiento. Nunca tus contactos ni tu ID de publicidad.';
+      'Nada más de tu historial: ni tus registros, notas, fechas, duración de ciclos, medicamentos, resultados de análisis, consultas, documentos, fotos o año de nacimiento, salvo que aceptes la lectura en la nube y apruebes ese elemento en una vista previa. Nunca tus contactos ni tu ID de publicidad.';
 
   @override
   String get boostTurnOff => 'Desactivar Cloud boost';
@@ -3099,7 +3192,7 @@ class L10nEs extends L10n {
 
   @override
   String get leaveBoostBody =>
-      'Solo si aceptas: una pregunta general que apruebas, o cuatro datos generales, se envía a la IA en la nube de Google. Google Play también comprueba que la solicitud viene de la app femio auténtica.';
+      'Solo si aceptas: una pregunta general que apruebas, cuatro datos generales, o (en un teléfono sin IA integrada, si activas la lectura en la nube) un informe o tus palabras que apruebas cada vez en una vista previa, se envía a la IA en la nube de Google. Google Play también comprueba que la solicitud viene de la app femio auténtica.';
 
   @override
   String get leaveModelHeading => 'El modelo de IA del teléfono';

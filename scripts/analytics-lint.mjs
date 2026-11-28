@@ -254,8 +254,17 @@ try {
     if (requestCalls > 0 && (!imageOk || requestCalls !== 1)) {
       fail(rel, "a document picture may be sent only by privateImage, ONLY_ON_DEVICE (ADR-087)");
     }
+    // ADR-089: hybridImage is the one cloud-capable call with a picture, `pageRequest`, built from
+    // the prompt Dart passed (a CloudPrompt.record she approved); PREFER_ON_DEVICE, never ONLY_IN_CLOUD.
+    const hybridImageCall = kt.match(/private suspend fun hybridImage\([\s\S]*?\r?\n    }\r?\n/)?.[0] ?? "";
+    const pageOk = /generateContent\(pageRequest\)/.test(hybridImageCall) && /onDevice\(InferenceMode\.PREFER_ON_DEVICE/.test(hybridImageCall)
+      && /text\(prompt\)/.test(hybridImageCall) && !/ONLY_IN_CLOUD|PREFER_IN_CLOUD/.test(hybridImageCall);
+    const pageCalls = (kt.match(/generateContent\(pageRequest\)/g) ?? []).length;
+    if (pageCalls > 0 && (!pageOk || pageCalls !== 1)) {
+      fail(rel, "a picture may reach the cloud only through hybridImage, PREFER_ON_DEVICE, with the prompt from Dart (ADR-089)");
+    }
     for (const m of kt.matchAll(/generateContent\(([^)]*)\)/g)) {
-      if (!["prompt", "CLOUD_CHECK_PROMPT", ...(imageOk ? ["request"] : [])].includes(m[1].trim())) {
+      if (!["prompt", "CLOUD_CHECK_PROMPT", ...(imageOk ? ["request"] : []), ...(pageOk ? ["pageRequest"] : [])].includes(m[1].trim())) {
         fail(rel, `a model call sends "${m[1].trim()}"; only the prompt from Dart or CLOUD_CHECK_PROMPT may be sent (ADR-079, ADR-085)`);
       }
     }
@@ -285,18 +294,31 @@ try {
   const CLOUD_PROMPT = "apps/mobile/lib/domain/assistant/cloud_prompt.dart";
   const cp = readFileSync(CLOUD_PROMPT, "utf8");
   const factories = [...cp.matchAll(/factory CloudPrompt\.(\w+)\(([^,)]+)/g)].map((m) => `${m[1]}(${m[2].trim().split(/\s+/)[0]}`);
-  const allowed = new Set(["answer(CloudSafeText", "tips(PseudonymisedProfile"]);
-  if (factories.length !== 2 || factories.some((f) => !allowed.has(f))) {
-    fail(CLOUD_PROMPT, `CloudPrompt may be built only from CloudSafeText or PseudonymisedProfile; found ${factories.join(", ") || "none"} (ADR-079)`);
+  // ADR-089 adds the third: an ApprovedRecord, one item from her record she approved on a preview.
+  const allowed = new Set(["answer(CloudSafeText", "tips(PseudonymisedProfile", "record(ApprovedRecord"]);
+  if (factories.length !== 3 || factories.some((f) => !allowed.has(f))) {
+    fail(CLOUD_PROMPT, `CloudPrompt may be built only from CloudSafeText, PseudonymisedProfile or ApprovedRecord; found ${factories.join(", ") || "none"} (ADR-079, ADR-089)`);
   }
   if (/CloudPrompt\s*\(|const CloudPrompt\.(?!_\()/.test(cp.replace(/const CloudPrompt\._\(/, ""))) {
     fail(CLOUD_PROMPT, "CloudPrompt has a public constructor (ADR-079)");
   }
+  const APPROVED_RECORD = "apps/mobile/lib/domain/assistant/approved_record.dart";
+  const CLOUD_READING_SHEET = "apps/mobile/lib/features/assistant/cloud_reading.dart";
   for (const file of walk(APP_LIB).filter((f) => f.endsWith(".dart"))) {
     const rel = relative(process.cwd(), file).replace(/\\/g, "/");
-    if (rel !== CLOUD_PROMPT && /CloudPrompt\._\(/.test(readFileSync(file, "utf8"))) {
+    const src = readFileSync(file, "utf8");
+    if (rel !== CLOUD_PROMPT && /CloudPrompt\._\(/.test(src)) {
       fail(rel, "builds a CloudPrompt outside cloud_prompt.dart (ADR-079)");
     }
+    if (rel !== APPROVED_RECORD && /ApprovedRecord\._\(/.test(src)) {
+      fail(rel, "builds an ApprovedRecord outside approved_record.dart (ADR-089)");
+    }
+    if (rel !== CLOUD_READING_SHEET && rel !== APPROVED_RECORD && /ApprovedRecord\.approvedOnSheet\(/.test(src)) {
+      fail(rel, "approves her record for the cloud outside the preview sheet (ADR-089)");
+    }
+  }
+  if (!/approvedOnSheet\(/.test(readFileSync(CLOUD_READING_SHEET, "utf8")) || !/cloudReadSend/.test(readFileSync(CLOUD_READING_SHEET, "utf8"))) {
+    fail(CLOUD_READING_SHEET, "the preview sheet no longer asks before approving (ADR-089)");
   }
   // The companion boundary (ADR-081): one gateway calls the model; the on-phone call takes
   // only a PrivatePrompt; only the prompt files call the prompt builders.
@@ -453,4 +475,4 @@ if (findings.length > 0) {
   console.error(`\n${findings.length} finding(s). See docs/33_REBUILD_V3/03_LEGAL_PACK.md.`);
   process.exit(1);
 }
-console.log(`✓ privacy tripwire: no analytics, error-reporting or database client in either product; website: no Tag Manager, GA4 or Meta pixel, Vercel Web Analytics (cookieless, path only) the only measurement, AdSense host inside lib/ads only, ad units only in the article and hub; app: no ads, analytics or attribution package and no ad-ID permission (source and merged manifest), no network code of its own, Firebase AI Logic only inside the Kotlin assistant behind CloudPrompt (CloudSafeText or PseudonymisedProfile only) plus one fixed check sentence, no search grounding, no personal permission except the microphone for on-device speech to text (ADR-086); native: no network code outside the assistant package, only reviewed Gradle dependencies and plugins, merged manifest ${mergedChecked > 0 ? `checked (${mergedChecked} file(s): permissions, ad/analytics metadata, reviewed components)` : "not checked (no current build)"}.`);
+console.log(`✓ privacy tripwire: no analytics, error-reporting or database client in either product; website: no Tag Manager, GA4 or Meta pixel, Vercel Web Analytics (cookieless, path only) the only measurement, AdSense host inside lib/ads only, ad units only in the article and hub; app: no ads, analytics or attribution package and no ad-ID permission (source and merged manifest), no network code of its own, Firebase AI Logic only inside the Kotlin assistant behind CloudPrompt (CloudSafeText, PseudonymisedProfile, or an ApprovedRecord she approved on a preview, ADR-089) plus one fixed check sentence, no search grounding, no personal permission except the microphone for on-device speech to text (ADR-086); native: no network code outside the assistant package, only reviewed Gradle dependencies and plugins, merged manifest ${mergedChecked > 0 ? `checked (${mergedChecked} file(s): permissions, ad/analytics metadata, reviewed components)` : "not checked (no current build)"}.`);

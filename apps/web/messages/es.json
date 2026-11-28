@@ -1137,7 +1137,7 @@
       "items": [
         "La app femio guarda tus registros solo en tu teléfono, en un archivo cifrado con una clave que guarda el hardware de seguridad de tu teléfono. No hay cuenta ni servidor de femio. No podemos ver tus registros ni podemos recuperarlos por ti.",
         "La app no tiene anuncios, ni analítica propia, ni herramientas de rastreo. Usa internet solo para la IA de Google (descargar el modelo que funciona en el teléfono, y Cloud boost si lo aceptas) y para Google Play (instalación, actualizaciones, valoraciones y pagos). El software de IA de Google puede enviar a Google datos técnicos de uso; femio no les añade ninguno de tus registros.",
-        "Cloud boost está desactivado salvo que lo aceptes. Si lo aceptas, una pregunta general que apruebas, o cuatro datos generales sobre tu salud que se te muestran antes, se envían para femio a la IA en la nube de Google. La app guarda un registro con fecha de tu elección, y puedes desactivarlo en cualquier momento.",
+        "Cloud boost está desactivado salvo que lo aceptes. Si lo aceptas, una pregunta general que apruebas, o cuatro datos generales sobre tu salud que se te muestran antes, se envían para femio a la IA en la nube de Google. La app guarda un registro con fecha de tu elección, y puedes desactivarlo en cualquier momento. En un teléfono así también puedes activar la lectura en la nube: un informe, tus palabras después de una consulta o una nota, cada uno enviado solo después de que lo apruebes en una vista previa.",
         "El sitio web cuenta las visitas sin cookies y sin Google Analytics ni Meta. Los anuncios aparecen solo en las páginas de artículos y de temas, y solo después de que los permitas.",
         "femio es para mujeres de 18 años o más. Puedes ver, copiar y borrar tú misma, dentro de la app, todo lo que contiene. Un archivo que eliges compartir o exportar solo va adonde tú lo envíes."
       ]
@@ -1161,7 +1161,7 @@
         "items": [
           {
             "lead": "Cloud boost, solo si lo aceptas.",
-            "body": "En un teléfono sin IA integrada, y solo para los usos que marcaste: una pregunta general que apruebas, con los pasajes de fuentes públicas que se encontraron; o cuatro datos generales sobre ti, que se te muestran antes de que aceptes: tu etapa de vida (por ejemplo, buscar embarazo o estar embarazada), si tus ciclos son regulares, los tipos de síntoma que registraste en dos o más días del último mes, y cuánto tiempo llevas registrando. En una pregunta se quitan los números, las direcciones de correo y los enlaces, y ves y editas el texto exacto antes de que se envíe nada. femio no quita nombres ni otras palabras, así que borra tú lo que no quieras enviar. Una pregunta sobre ti, por ejemplo con «yo» o «mi», se queda en el teléfono. Los detalles están en la sección siguiente."
+            "body": "En un teléfono sin IA integrada, y solo para los usos que marcaste: una pregunta general que apruebas, con los pasajes de fuentes públicas que se encontraron; o cuatro datos generales sobre ti, que se te muestran antes de que aceptes: tu etapa de vida (por ejemplo, buscar embarazo o estar embarazada), si tus ciclos son regulares, los tipos de síntoma que registraste en dos o más días del último mes, y cuánto tiempo llevas registrando. En una pregunta se quitan los números, las direcciones de correo y los enlaces, y ves y editas el texto exacto antes de que se envíe nada. femio no quita nombres ni otras palabras, así que borra tú lo que no quieras enviar. Una pregunta sobre ti, por ejemplo con «yo» o «mi», se queda en el teléfono. Los detalles están en la sección siguiente. O, si activaste la lectura en la nube, un elemento que apruebas cada vez en una vista previa: imágenes de páginas de un informe que elegiste, tus palabras después de una consulta o una nota de «Dilo», leídos en un borrador que revisas."
           },
           {
             "lead": "Una comprobación de autenticidad, con cada solicitud de Cloud boost.",
@@ -1190,7 +1190,7 @@
         "items": [
           {
             "lead": "Por qué, y con qué base legal.",
-            "body": "Para resumir fuentes fiables en respuesta a tu pregunta, y para ordenar tus consejos, en los teléfonos que no pueden hacerlo en el propio teléfono. Como los cuatro datos y tus preguntas se refieren a tu salud, los usamos solo con tu consentimiento explícito, dado por separado para cada uso en la pantalla de Cloud boost."
+            "body": "Para resumir fuentes fiables en respuesta a tu pregunta, y para ordenar tus consejos, en los teléfonos que no pueden hacerlo en el propio teléfono. Como los cuatro datos y tus preguntas se refieren a tu salud, los usamos solo con tu consentimiento explícito, dado por separado para cada uso en la pantalla de Cloud boost. Y, si activas la lectura en la nube, para leer un informe, tus palabras de la consulta o una nota en un borrador que revisas; cada elemento se envía solo después de que lo apruebes en una vista previa."
           },
           {
             "lead": "Quién lo recibe, y dónde.",
@@ -1287,7 +1287,7 @@
       "items": [
         "Recogemos datos de salud del consumidor solo en tu teléfono, dentro de la app femio, y se quedan allí.",
         "No vendemos datos de salud del consumidor ni los compartimos con fines publicitarios.",
-        "Solo si aceptas Cloud boost, una pregunta general que apruebas o cuatro datos generales sobre tu salud se envían a Google, que los trata por nosotros.",
+        "Solo si aceptas Cloud boost, una pregunta general que apruebas o cuatro datos generales sobre tu salud se envían a Google, que los trata por nosotros. Con la lectura en la nube activada, también se envía un informe o tus propias palabras que apruebas cada vez en una vista previa.",
         "El sitio web no recoge datos de salud del consumidor: las calculadoras funcionan en tu navegador, y el recuento de visitas no usa cookies."
       ]
     },
@@ -1305,7 +1305,7 @@
           },
           {
             "lead": "A través de Cloud boost, solo con tu consentimiento.",
-            "body": "Una pregunta general que apruebas, sin números, direcciones de correo ni enlaces; ves y editas el texto exacto antes de que se envíe nada, y femio no quita nombres. O cuatro datos generales: etapa de vida, regularidad del ciclo, tipos de síntoma registrados en el último mes, y cuánto tiempo llevas registrando. Finalidad: resumir fuentes fiables y ordenar tus consejos en teléfonos sin IA integrada."
+            "body": "Una pregunta general que apruebas, sin números, direcciones de correo ni enlaces; ves y editas el texto exacto antes de que se envíe nada, y femio no quita nombres. O cuatro datos generales: etapa de vida, regularidad del ciclo, tipos de síntoma registrados en el último mes, y cuánto tiempo llevas registrando. Finalidad: resumir fuentes fiables y ordenar tus consejos en teléfonos sin IA integrada. O, con la lectura en la nube activada, un elemento que apruebas en una vista previa: imágenes de páginas de un informe, tus palabras después de una consulta o una nota. Finalidad: leerlo en un borrador que revisas, en teléfonos sin IA integrada."
           }
         ]
       },
@@ -1867,7 +1867,7 @@
       "items": {
         "cloud": {
           "title": "Cloud boost, solo si aceptas",
-          "body": "En un teléfono sin IA integrada, y solo para los usos que marcaste: una pregunta general que apruebas, enviada con las fuentes públicas que encontró, después de quitar números, direcciones de correo y enlaces, y de que hayas visto y editado el texto exacto; o cuatro datos generales que ves antes: tu etapa de vida, si tus ciclos son regulares, los tipos de síntoma que registraste y desde cuándo registras."
+          "body": "En un teléfono sin IA integrada, y solo para los usos que marcaste: una pregunta general que apruebas, enviada con las fuentes públicas que encontró, después de quitar números, direcciones de correo y enlaces, y de que hayas visto y editado el texto exacto; o cuatro datos generales que ves antes: tu etapa de vida, si tus ciclos son regulares, los tipos de síntoma que registraste y desde cuándo registras. O, si activaste la lectura en la nube, un elemento que apruebas cada vez en una vista previa: imágenes de páginas de un informe que elegiste, tus palabras después de una consulta o una nota de «Dilo», leídos en un borrador que revisas."
         },
         "check": {
           "title": "Una comprobación de autenticidad, con cada petición de Cloud boost",
@@ -1946,13 +1946,13 @@
       "visitTitle": "Resumen para la consulta",
       "visitIntro": "Una página para mostrar a tu profesional sanitario, hecha con lo que registraste. Se queda en tu teléfono salvo que la compartas o la copies.",
       "boostTitle": "Cloud boost",
-      "boostIntro": "Algunos teléfonos no tienen IA integrada. En esos teléfonos, Cloud boost permite que la IA en la nube de Google resuma fuentes fiables para una pregunta que apruebes, u ordene tus consejos. Es opcional y sigue desactivado salvo que aceptes abajo. Todo lo demás de femio funciona sin él.",
+      "boostIntro": "Algunos teléfonos no tienen IA integrada. En esos teléfonos, Cloud boost permite que la IA en la nube de Google resuma fuentes fiables para una pregunta que apruebes, ordene tus consejos, o lea un informe o tus notas en un borrador que revisas. Cada uno es opcional y sigue desactivado salvo que aceptes abajo. Todo lo demás de femio funciona sin él.",
       "boostStageLabel": "Etapa de vida",
       "boostRegularityLabel": "Regularidad del ciclo",
       "boostCategoriesLabel": "Tipos de síntomas registrados el último mes",
       "boostStreakLabel": "Registro continuo",
       "boostNeverHeading": "Qué no se envía nunca",
-      "boostNever": "Nada más de tu historial: ni tus registros, notas, fechas, duración de ciclos, medicamentos, resultados de análisis, consultas, documentos, fotos o año de nacimiento. Nunca tus contactos ni tu ID de publicidad.",
+      "boostNever": "Nada más de tu historial: ni tus registros, notas, fechas, duración de ciclos, medicamentos, resultados de análisis, consultas, documentos, fotos o año de nacimiento, salvo que aceptes la lectura en la nube y apruebes ese elemento en una vista previa. Nunca tus contactos ni tu ID de publicidad.",
       "boostAlsoSeen": "Como en cualquier conexión a internet, Google también ve la dirección de internet de tu teléfono y una comprobación de Google Play de que la solicitud viene de la app femio auténtica.",
       "boostWithdrawEffect": "Desactivarlo impide nuevos envíos. No puede recuperar lo que ya se envió."
     },

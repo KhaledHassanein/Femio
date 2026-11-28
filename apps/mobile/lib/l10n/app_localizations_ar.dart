@@ -2332,11 +2332,109 @@ class L10nAr extends L10n {
   }
 
   @override
+  String cloudCheckDetail(String detail) {
+    return 'تفاصيل تقنية: $detail';
+  }
+
+  @override
+  String get boostPurposeRecords =>
+      'قراءة التقارير والملاحظات التي توافقين عليها';
+
+  @override
+  String get boostAgreeRecords =>
+      'أوافق، لأن هذا الهاتف ليس عليه ذكاء اصطناعي، على أن يرسل femio تقريراً أو كلامي بعد زيارة أو ملاحظة «قوليها» إلى ذكاء Google السحابي ليحوّلها إلى مسودة أراجعها. يعرض لي femio ما سيُرسل بالضبط في كل مرة، ولا يرسله إلا حين أضغط «إرسال».';
+
+  @override
+  String get cloudReadTitle => 'إرسال هذا إلى ذكاء Google السحابي؟';
+
+  @override
+  String get cloudReadWhy =>
+      'هذا الهاتف ليس عليه ذكاء اصطناعي. يقرأه ذكاء Google السحابي ويعرض لكِ femio مسودة لتراجعيها. لا يُضاف شيء إلى سجلّكِ حتى تحفظيه.';
+
+  @override
+  String cloudReadPages(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count صورة صفحة من المستند الذي اخترتِه',
+      many: '$count صورة صفحة من المستند الذي اخترتِه',
+      few: '$count صور صفحات من المستند الذي اخترتِه',
+      two: 'صورتا صفحتين من المستند الذي اخترتِه',
+      one: 'صورة صفحة واحدة من المستند الذي اخترتِه',
+      zero: 'لا صور صفحات',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get cloudReadWordsLabel => 'ما سيُرسل بالضبط:';
+
+  @override
+  String get cloudReadWho =>
+      'يُرسل عبر Firebase AI Logic (واجهة Gemini للمطورين، الخطة المدفوعة). تحتفظ به Google حتى 55 يوماً لكشف إساءة الاستخدام، ولا تستخدمه لتحسين منتجاتها. ليس لدى femio خادم ولا يحتفظ بشيء منه.';
+
+  @override
+  String get cloudReadSend => 'إرسال';
+
+  @override
+  String get cloudReadNotNow => 'ليس الآن';
+
+  @override
+  String get cloudReadOfferTitle => 'استخدام ذكاء Google السحابي بدلاً من ذلك؟';
+
+  @override
+  String get cloudReadOfferBody =>
+      'هذا الهاتف ليس عليه ذكاء اصطناعي (Gemini Nano). فعّلي القراءة السحابية في Cloud boost ليقرأه لكِ ذكاء Google السحابي. سترين ما سيُرسل بالضبط في كل مرة، ولا يُرسل شيء حتى تضغطي «إرسال».';
+
+  @override
+  String get cloudReadTurnOn => 'تفعيل القراءة السحابية';
+
+  @override
+  String get cloudReadButton => 'اقرئيه بذكاء Google السحابي';
+
+  @override
+  String get cloudReadDone =>
+      'قرأه ذكاء Google السحابي بعد موافقتكِ. لا يُحفظ شيء حتى تضغطي «حفظ».';
+
+  @override
+  String get scanCloudDeclined =>
+      'لم يُرسل شيء. المستند محفوظ في «مستنداتي»، ويمكنكِ إضافة النتائج بنفسك.';
+
+  @override
+  String get scanCloudFailed =>
+      'تعذّر على ذكاء Google السحابي قراءة هذا المستند هذه المرة. المستند محفوظ في «مستنداتي»، ويمكنكِ إضافة النتائج بنفسك.';
+
+  @override
+  String get scanCloudNote =>
+      'قرأه ذكاء Google السحابي بعد موافقتكِ. يبقى المستند نفسه محفوظاً على هاتفكِ.';
+
+  @override
+  String get aiUseScanCloud => 'قراءة تقرير مع Cloud boost';
+
+  @override
+  String get aiUseAfterVisitCloud => 'بعد الزيارة مع Cloud boost';
+
+  @override
+  String get aiUseSayItCloud => 'قوليها مع Cloud boost';
+
+  @override
+  String get aiHelpsScanCloud =>
+      'للهواتف التي ليس عليها ذكاء اصطناعي: بعد أن توافقي على الصفحات في المعاينة، يقرأ ذكاء Google السحابي التقرير إلى نتائج وأدوية لتراجعيها.';
+
+  @override
+  String get aiHelpsAfterVisitCloud =>
+      'للهواتف التي ليس عليها ذكاء اصطناعي: بعد أن توافقي على كلامكِ في المعاينة، يحوّله ذكاء Google السحابي إلى مسودة أدوية ونتائج وموعد الزيارة القادمة لتراجعيها.';
+
+  @override
+  String get aiHelpsSayItCloud =>
+      'للهواتف التي ليس عليها ذكاء اصطناعي: بعد أن توافقي على ملاحظتكِ في المعاينة، يضيف ذكاء Google السحابي تسجيلات فاتت قواعد femio لتختاريها.';
+
+  @override
   String get boostTitle => 'Cloud boost';
 
   @override
   String get boostIntro =>
-      'بعض الهواتف ليس عليها ذكاء اصطناعي. على هذه الهواتف، يسمح Cloud boost لذكاء Google السحابي بتلخيص المصادر الموثوقة لسؤال توافقين عليه، أو بترتيب نصائحكِ. هو اختياري، ويبقى متوقفاً ما لم توافقي أدناه. وكل ما عداه في femio يعمل من دونه.';
+      'بعض الهواتف ليس عليها ذكاء اصطناعي. على هذه الهواتف، يسمح Cloud boost لذكاء Google السحابي بتلخيص المصادر الموثوقة لسؤال توافقين عليه، أو بترتيب نصائحكِ، أو بقراءة تقرير أو ملاحظاتكِ إلى مسودة تراجعينها. كل منها اختياري، ويبقى متوقفاً ما لم توافقي أدناه. وكل ما عداه في femio يعمل من دونه.';
 
   @override
   String get boostSendsHeading => 'ما قد يُرسل';
@@ -2413,7 +2511,7 @@ class L10nAr extends L10n {
 
   @override
   String get boostNever =>
-      'لا شيء آخر من سجلّكِ: لا تسجيلاتكِ، ولا ملاحظاتكِ، ولا التواريخ، ولا أطوال الدورات، ولا أدويتكِ، ولا نتائج التحاليل، ولا الزيارات، ولا المستندات، ولا الصور، ولا سنة ميلادكِ. ولا جهات اتصالكِ أو معرّف الإعلانات أبداً.';
+      'لا شيء آخر من سجلّكِ: لا تسجيلاتكِ، ولا ملاحظاتكِ، ولا التواريخ، ولا أطوال الدورات، ولا أدويتكِ، ولا نتائج التحاليل، ولا الزيارات، ولا المستندات، ولا الصور، ولا سنة ميلادكِ، إلا إذا وافقتِ على القراءة السحابية ووافقتِ على ذلك العنصر وحده في المعاينة. ولا جهات اتصالكِ أو معرّف الإعلانات أبداً.';
 
   @override
   String get boostTurnOff => 'أوقفي Cloud boost';
@@ -3123,7 +3221,7 @@ class L10nAr extends L10n {
 
   @override
   String get leaveBoostBody =>
-      'فقط إن وافقتِ: يُرسَل سؤال عام توافقين عليه، أو أربع معلومات عامة، إلى ذكاء Google الاصطناعي السحابي. ويتحقق Google Play أيضًا من أن الطلب صادر عن تطبيق femio الحقيقي.';
+      'فقط إن وافقتِ: يُرسَل سؤال عام توافقين عليه، أو أربع معلومات عامة، أو (على هاتف ليس عليه ذكاء اصطناعي، إن فعّلتِ القراءة السحابية) تقرير أو كلامكِ بعد أن توافقي عليه في كل مرة في المعاينة، إلى ذكاء Google الاصطناعي السحابي. ويتحقق Google Play أيضًا من أن الطلب صادر عن تطبيق femio الحقيقي.';
 
   @override
   String get leaveModelHeading => 'نموذج الذكاء الاصطناعي على الهاتف';

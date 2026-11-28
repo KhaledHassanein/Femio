@@ -2323,11 +2323,105 @@ class L10nFr extends L10n {
   }
 
   @override
+  String cloudCheckDetail(String detail) {
+    return 'Détails techniques : $detail';
+  }
+
+  @override
+  String get boostPurposeRecords =>
+      'Lecture des comptes rendus et notes que vous approuvez';
+
+  @override
+  String get boostAgreeRecords =>
+      'J’accepte que, ce téléphone n’ayant pas d’IA intégrée, femio envoie un compte rendu, mes mots après un rendez-vous ou une note « Dites-le » à l’IA cloud de Google pour en faire un brouillon que je vérifie. femio me montre exactement ce qui sera envoyé à chaque fois et ne l’envoie que lorsque j’appuie sur Envoyer.';
+
+  @override
+  String get cloudReadTitle => 'Envoyer ceci à l’IA cloud de Google ?';
+
+  @override
+  String get cloudReadWhy =>
+      'Ce téléphone n’a pas d’IA intégrée. L’IA cloud de Google le lit et femio vous montre un brouillon à vérifier. Rien n’est ajouté à votre dossier avant que vous l’enregistriez.';
+
+  @override
+  String cloudReadPages(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count images de pages du document choisi',
+      one: '1 image de page du document choisi',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get cloudReadWordsLabel => 'Exactement ce qui sera envoyé :';
+
+  @override
+  String get cloudReadWho =>
+      'Envoyé via Firebase AI Logic (API Gemini Developer, offre payante). Google le conserve jusqu’à 55 jours pour détecter les abus et ne l’utilise pas pour améliorer ses produits. femio n’a pas de serveur et n’en garde rien.';
+
+  @override
+  String get cloudReadSend => 'Envoyer';
+
+  @override
+  String get cloudReadNotNow => 'Pas maintenant';
+
+  @override
+  String get cloudReadOfferTitle => 'Utiliser plutôt l’IA cloud de Google ?';
+
+  @override
+  String get cloudReadOfferBody =>
+      'Ce téléphone n’a pas d’IA intégrée (Gemini Nano). Activez la lecture dans le cloud dans Cloud boost et l’IA cloud de Google pourra le lire pour vous. Vous verrez exactement ce qui serait envoyé à chaque fois, et rien ne part avant que vous appuyiez sur Envoyer.';
+
+  @override
+  String get cloudReadTurnOn => 'Activer la lecture dans le cloud';
+
+  @override
+  String get cloudReadButton => 'Le faire lire par l’IA cloud de Google';
+
+  @override
+  String get cloudReadDone =>
+      'Lu par l’IA cloud de Google après votre accord. Rien n’est enregistré avant que vous appuyiez sur Enregistrer.';
+
+  @override
+  String get scanCloudDeclined =>
+      'Rien n’a été envoyé. Le document est enregistré dans Mes documents, et vous pouvez ajouter les résultats vous-même.';
+
+  @override
+  String get scanCloudFailed =>
+      'L’IA cloud de Google n’a pas pu lire ce document cette fois. Il est enregistré dans Mes documents, et vous pouvez ajouter les résultats vous-même.';
+
+  @override
+  String get scanCloudNote =>
+      'Lu par l’IA cloud de Google après votre accord. Le document lui-même reste enregistré sur votre téléphone.';
+
+  @override
+  String get aiUseScanCloud => 'Lire un compte rendu avec Cloud boost';
+
+  @override
+  String get aiUseAfterVisitCloud => 'Après un rendez-vous avec Cloud boost';
+
+  @override
+  String get aiUseSayItCloud => 'Dites-le avec Cloud boost';
+
+  @override
+  String get aiHelpsScanCloud =>
+      'Pour les téléphones sans IA intégrée : après votre accord sur les pages dans un aperçu, l’IA cloud de Google lit le compte rendu en résultats et médicaments que vous vérifiez.';
+
+  @override
+  String get aiHelpsAfterVisitCloud =>
+      'Pour les téléphones sans IA intégrée : après votre accord sur vos mots dans un aperçu, l’IA cloud de Google en fait un brouillon de médicaments, résultats et prochain rendez-vous que vous vérifiez.';
+
+  @override
+  String get aiHelpsSayItCloud =>
+      'Pour les téléphones sans IA intégrée : après votre accord sur votre note dans un aperçu, l’IA cloud de Google ajoute les éléments que les règles de femio ont manqués, à cocher.';
+
+  @override
   String get boostTitle => 'Cloud boost';
 
   @override
   String get boostIntro =>
-      'Certains téléphones n’ont pas d’IA intégrée. Sur ces téléphones, Cloud boost permet à l’IA cloud de Google de résumer des sources fiables pour une question que vous approuvez, ou d’ordonner vos conseils. C’est facultatif et cela reste désactivé tant que vous n’acceptez pas ci-dessous. Tout le reste de femio fonctionne sans.';
+      'Certains téléphones n’ont pas d’IA intégrée. Sur ces téléphones, Cloud boost permet à l’IA cloud de Google de résumer des sources fiables pour une question que vous approuvez, d’ordonner vos conseils, ou de lire un compte rendu ou vos notes en un brouillon que vous vérifiez. Chacun est facultatif et reste désactivé tant que vous n’acceptez pas ci-dessous. Tout le reste de femio fonctionne sans.';
 
   @override
   String get boostSendsHeading => 'Ce qui peut être envoyé';
@@ -2404,7 +2498,7 @@ class L10nFr extends L10n {
 
   @override
   String get boostNever =>
-      'Rien d’autre de votre dossier : ni votre journal, ni vos notes, dates, durées de cycle, médicaments, résultats d’analyses, rendez-vous, documents, photos ou année de naissance. Jamais vos contacts ni votre identifiant publicitaire.';
+      'Rien d’autre de votre dossier : ni votre journal, ni vos notes, dates, durées de cycle, médicaments, résultats d’analyses, rendez-vous, documents, photos ou année de naissance, sauf si vous acceptez la lecture dans le cloud et approuvez cet élément dans un aperçu. Jamais vos contacts ni votre identifiant publicitaire.';
 
   @override
   String get boostTurnOff => 'Désactiver Cloud boost';
@@ -3114,7 +3208,7 @@ class L10nFr extends L10n {
 
   @override
   String get leaveBoostBody =>
-      'Seulement si vous l\'acceptez : une question générale que vous approuvez, ou quatre informations générales, est envoyée à l\'IA cloud de Google. Google Play vérifie aussi que la demande vient de la vraie application femio.';
+      'Seulement si vous l\'acceptez : une question générale que vous approuvez, quatre informations générales, ou (sur un téléphone sans IA intégrée, si vous activez la lecture dans le cloud) un compte rendu ou vos mots que vous approuvez à chaque fois dans un aperçu, est envoyé à l\'IA cloud de Google. Google Play vérifie aussi que la demande vient de la vraie application femio.';
 
   @override
   String get leaveModelHeading => 'Le modèle d\'IA sur le téléphone';

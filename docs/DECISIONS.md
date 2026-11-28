@@ -1393,3 +1393,28 @@ keeps GenAI speech in the speech package, microphone-only and download-free (fau
 Nov, caught). ADR-086 still holds for the fallback and the permission flow.
 **Cost.** An alpha library (pinned); Arabic is beta; ML Kit GenAI sends technical usage data with
 identifiers (not audio or text), to be disclosed with ADR-087 §6. Not yet tried on a Nano phone.
+
+## ADR-089 · Cloud reading: a report or her words may go to the cloud, one approved item at a time (2026-11-28)
+
+**Context.** ADR-079/080 let Cloud boost send only a redacted question she approved or her four
+bands; ADR-087 kept reports and visit words on the phone (Gemini Nano, no cloud fallback). On a
+phone without Nano that meant "this phone can't read reports" with no way forward. The owner ruled
+(28 Nov): every AI feature on such a phone must offer Cloud boost, with an opt-in cloud reading
+that asks each time with a preview.
+**Decision.** A third Cloud boost purpose, `CloudPurpose.records` ("Reading reports and notes you
+approve"), its own unticked box in the one AI wizard. Three hybrid uses (`scanInCloud`,
+`afterVisitInCloud`, `sayItInCloud`) need it, write only drafts she checks, and each sees one input.
+Two gates: the consent, then a preview sheet per item (`features/assistant/cloud_reading.dart`)
+showing her words exactly or the number of page pictures, who receives it and how long it is kept,
+with Send and Not now. Only Send makes an `ApprovedRecord` (private constructor; the tripwire
+allows `approvedOnSheet` only in that file), and `CloudPrompt.record(ApprovedRecord …)` is the only
+new factory and the only one that may carry a picture. Kotlin `hybridImage` sends it with
+PREFER_ON_DEVICE (the tripwire checks it is the one cloud-capable picture call). A phone with Nano
+never takes this path; rules still run first (Say it offers the cloud only after the rules draft,
+never on a red flag). Consent version stays 3: the existing purposes' wording is unchanged and the
+new purpose is a separate, unticked choice; `boostIntro`, `boostNever` and "What can leave this
+phone" now name cloud reading. The Cloud boost check now runs under any purpose and shows
+Android's technical line, and a disabled API is no longer mislabelled `app_check`.
+**Cost.** Her record can now leave the phone, one approved item at a time: the privacy notice must
+say so (owner action, website legal pages), and CLAUDE.md rule 4 is amended. Not yet tried on a
+real phone: Cloud boost itself still fails App Check on the owner's phone.

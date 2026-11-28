@@ -1137,7 +1137,7 @@
       "items": [
         "The femio app keeps your records on your phone only, in a file encrypted with a key held by your phone’s secure hardware. There is no account and no femio server. We cannot see your records, and we cannot get them back for you.",
         "The app has no ads, no analytics of its own and no tracking tools. It uses the internet only for Google’s AI (to download the on-phone model, and for Cloud boost if you agree to it) and for Google Play (installs, updates, ratings and payments). Google’s AI software may send Google technical usage data; femio adds none of your records to it.",
-        "Cloud boost is off unless you agree. If you do, a general question you approve, or four broad facts about your health shown to you first, are sent to Google’s cloud AI for femio. The app keeps a dated record of your choice, and you can turn it off at any time.",
+        "Cloud boost is off unless you agree. If you do, a general question you approve, or four broad facts about your health shown to you first, are sent to Google’s cloud AI for femio. The app keeps a dated record of your choice, and you can turn it off at any time. On such a phone you can also turn on cloud reading: a report, your words after a visit or a note, each sent only after you approve it on a preview.",
         "The website counts visits without cookies and without Google Analytics or Meta. Ads appear only on article and topic pages, and only after you allow them.",
         "femio is for women aged 18 and over. You can see, copy and delete everything the app holds, yourself, inside the app. A file you choose to share or export goes only where you send it."
       ]
@@ -1161,7 +1161,7 @@
         "items": [
           {
             "lead": "Cloud boost, only if you agree.",
-            "body": "On a phone without on-phone AI, and only for the uses you ticked: a general question you approve, with the public source passages it found; or four broad facts about you, shown to you before you agree: your life stage (for example trying to conceive or pregnant), whether your cycles are regular, the kinds of symptom you logged on two or more days in the last month, and how long you have been logging. In a question, numbers, e-mail addresses and links are removed, and you see and edit the exact text before anything is sent. femio does not remove names or other words, so take out anything you do not want to send. A question about yourself, for example one that says “I” or “my”, stays on the phone. The details are in the next section."
+            "body": "On a phone without on-phone AI, and only for the uses you ticked: a general question you approve, with the public source passages it found; or four broad facts about you, shown to you before you agree: your life stage (for example trying to conceive or pregnant), whether your cycles are regular, the kinds of symptom you logged on two or more days in the last month, and how long you have been logging. In a question, numbers, e-mail addresses and links are removed, and you see and edit the exact text before anything is sent. femio does not remove names or other words, so take out anything you do not want to send. A question about yourself, for example one that says “I” or “my”, stays on the phone. The details are in the next section. Or, if you turned on cloud reading, one item you approve on a preview each time: page pictures of a report you chose, your words after a visit, or a Say it note, read into a draft you check."
           },
           {
             "lead": "A genuineness check, with each Cloud boost request.",
@@ -1190,7 +1190,7 @@
         "items": [
           {
             "lead": "Why, and on what legal basis.",
-            "body": "To summarise trusted sources for your question, and to put your tips in order, on phones that cannot do it on the phone. Because the four facts and your questions are about your health, we use them only with your explicit consent, given separately for each use on the Cloud boost screen."
+            "body": "To summarise trusted sources for your question, and to put your tips in order, on phones that cannot do it on the phone. Because the four facts and your questions are about your health, we use them only with your explicit consent, given separately for each use on the Cloud boost screen. And, if you turn on cloud reading, to read a report, your visit words or a note into a draft you check; each item is sent only after you approve it on a preview."
           },
           {
             "lead": "Who receives it, and where.",
@@ -1287,7 +1287,7 @@
       "items": [
         "We collect consumer health data only on your phone, inside the femio app, and it stays there.",
         "We do not sell consumer health data, and we do not share it for advertising.",
-        "Only if you agree to Cloud boost, a general question you approve or four broad facts about your health are sent to Google, which processes them for us.",
+        "Only if you agree to Cloud boost, a general question you approve or four broad facts about your health are sent to Google, which processes them for us. With cloud reading turned on, a report or your own words that you approve each time on a preview are sent too.",
         "The website collects no consumer health data: calculators run in your browser, and visit counts use no cookies."
       ]
     },
@@ -1305,7 +1305,7 @@
           },
           {
             "lead": "Through Cloud boost, only with your consent.",
-            "body": "A general question you approve, with numbers, e-mail addresses and links removed; you see and edit the exact text before anything is sent, and femio does not remove names. Or four broad facts: life stage, cycle regularity, kinds of symptom logged in the last month, and how long you have been logging. Purpose: to summarise trusted sources and order your tips on phones without on-phone AI."
+            "body": "A general question you approve, with numbers, e-mail addresses and links removed; you see and edit the exact text before anything is sent, and femio does not remove names. Or four broad facts: life stage, cycle regularity, kinds of symptom logged in the last month, and how long you have been logging. Purpose: to summarise trusted sources and order your tips on phones without on-phone AI. Or, with cloud reading turned on, one item you approve on a preview: page pictures of a report, your words after a visit or a note. Purpose: to read it into a draft you check, on phones without on-phone AI."
           }
         ]
       },
@@ -1867,7 +1867,7 @@
       "items": {
         "cloud": {
           "title": "Cloud boost, only if you agree",
-          "body": "On a phone without on-phone AI, and only for the uses you ticked: a general question you approve, sent with the public sources it found, after numbers, e-mail addresses and links are removed and you have seen and edited the exact text; or four broad facts shown to you first: your life stage, whether your cycles are regular, the kinds of symptom you logged, and how long you have been logging."
+          "body": "On a phone without on-phone AI, and only for the uses you ticked: a general question you approve, sent with the public sources it found, after numbers, e-mail addresses and links are removed and you have seen and edited the exact text; or four broad facts shown to you first: your life stage, whether your cycles are regular, the kinds of symptom you logged, and how long you have been logging. Or, if you turned on cloud reading, one item you approve on a preview each time: page pictures of a report you chose, your words after a visit, or a Say it note, read into a draft you check."
         },
         "check": {
           "title": "A genuineness check, with each Cloud boost request",
@@ -1946,13 +1946,13 @@
       "visitTitle": "Visit summary",
       "visitIntro": "A page to show your clinician, made from what you logged. It stays on your phone unless you share or copy it.",
       "boostTitle": "Cloud boost",
-      "boostIntro": "Some phones have no on-phone AI. On those phones, Cloud boost lets Google's cloud AI summarise trusted sources for a question you approve, or put your tips in order. It is optional and stays off unless you agree below. Everything else in femio works without it.",
+      "boostIntro": "Some phones have no on-phone AI. On those phones, Cloud boost lets Google's cloud AI summarise trusted sources for a question you approve, put your tips in order, or read a report or your notes into a draft you check. Each is optional and stays off unless you agree below. Everything else in femio works without it.",
       "boostStageLabel": "Life stage",
       "boostRegularityLabel": "Cycle regularity",
       "boostCategoriesLabel": "Kinds of symptom logged in the last month",
       "boostStreakLabel": "Logging streak",
       "boostNeverHeading": "What is never sent",
-      "boostNever": "Nothing else from your record: not your log, notes, dates, cycle lengths, medicines, lab results, visits, documents, photos or birth year. Never your contacts or advertising ID.",
+      "boostNever": "Nothing else from your record: not your log, notes, dates, cycle lengths, medicines, lab results, visits, documents, photos or birth year, unless you agree to cloud reading and approve that one item on a preview. Never your contacts or advertising ID.",
       "boostAlsoSeen": "Like any internet connection, Google also sees your phone's internet address, and a check from Google Play that the request comes from the real femio app.",
       "boostWithdrawEffect": "Turning it off stops anything new being sent. It cannot recall what was already sent."
     },

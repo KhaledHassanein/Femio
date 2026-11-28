@@ -3,6 +3,8 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Changed
+- **Reports and notes can be read in the cloud on phones without built-in AI.** If you turn on cloud reading in Cloud boost, Read a report, After a visit and Say it can use Google's cloud AI. Each time, femio shows you exactly what would be sent and sends it only when you tap Send. Build 5 (1.0.0).
+- **Check Cloud boost shows technical details** when it fails, so the exact cause can be read from one screenshot.
 - **Cloud boost is offered when your phone has no built-in AI.** Ask femio and Settings → Assistant show a button to turn it on, and your question is answered again once you do. The Cloud boost status messages are clearer.
 - **Add a report from wherever you talk to femio.** Every assistant text box (Ask femio, Say it, After a visit) now has a paperclip beside the mic for a photo or PDF of a report, and Log has an "Add a report, scan or PDF" button. Build 3 (1.0.0).
 - **The mic works on more phones.** femio tries your language with its usual regions, and when your phone has no offline speech pack it offers to download it.

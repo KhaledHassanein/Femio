@@ -157,13 +157,18 @@ class _AssistantSettingsScreenState extends State<AssistantSettingsScreen> {
                           leading: Icon(Icons.cloud_outlined, color: p.primary),
                           title: Text(l.assistantCloudTitle),
                           subtitle: Text(
-                            !s.canRunHybrid ? l.assistantCloudNotBuilt : (on ? l.assistantCloudOn : l.assistantCloudOff),
+                            !s.canRunHybrid
+                                ? l.assistantCloudNotBuilt
+                                // Name each purpose she agreed to, so cloud reading shows too (ADR-089).
+                                : (on
+                                    ? l.leaveBoostOn(purposeNames(l, CloudPurpose.values.where(consent.allows)))
+                                    : l.assistantCloudOff),
                           ),
                         ),
                         // The check exists only on the real Android bridge, and only while
-                        // Cloud boost for questions is on (it sends one fixed sentence).
+                        // any Cloud boost purpose is on (it sends one fixed sentence).
                         if (on &&
-                            consent.allows(CloudPurpose.questions) &&
+                            consent.any &&
                             AssistantScope.of(context) is CloudChecker) ...[
                           Text(l.cloudCheckNote, style: t.bodySmall),
                           const SizedBox(height: space2),
@@ -185,6 +190,9 @@ class _AssistantSettingsScreenState extends State<AssistantSettingsScreen> {
                             ),
                             if (!check.ok)
                               Text(l.cloudCheckCode(check.reason ?? 'other'), style: t.labelSmall?.copyWith(color: p.textMuted)),
+                            // The raw cause, selectable, so one screenshot or a copy names it.
+                            if (!check.ok && (check.detail ?? '').isNotEmpty)
+                              SelectableText(l.cloudCheckDetail(check.detail!), style: t.labelSmall?.copyWith(color: p.textMuted)),
                           ],
                           const SizedBox(height: space2),
                         ],

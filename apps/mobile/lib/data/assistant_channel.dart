@@ -45,12 +45,16 @@ class HybridReply {
 
 /// What the Cloud boost check found: [ok] when Google's cloud model answered, else a
 /// [reason] code (`app_check`, `service_disabled`, `quota`, `network`, `timeout`, ...);
-/// [ms] is how long it took.
+/// [ms] is how long it took; [detail] is the technical line Android reported on a failure
+/// (exception classes and messages, any API key masked), shown small under the result so one
+/// screenshot names the exact cause. The check sends only a fixed sentence, so it holds
+/// nothing about her.
 class CloudCheck {
-  const CloudCheck({required this.ok, this.reason, this.ms});
+  const CloudCheck({required this.ok, this.reason, this.ms, this.detail});
   final bool ok;
   final String? reason;
   final int? ms;
+  final String? detail;
 }
 
 /// The fixed, public sentence the check sends: nothing about her. Same text as
@@ -149,7 +153,11 @@ class MethodChannelAssistant implements AssistantBridge, CloudChecker {
   Future<HybridReply?> runHybrid(CloudPrompt prompt) async {
     _lastHybridFailure = null;
     try {
-      final m = await _channel.invokeMapMethod<String, Object?>('hybrid', {'prompt': prompt.text});
+      // A page picture travels only inside a CloudPrompt.record she approved (ADR-089).
+      final image = prompt.image;
+      final m = image == null
+          ? await _channel.invokeMapMethod<String, Object?>('hybrid', {'prompt': prompt.text})
+          : await _channel.invokeMapMethod<String, Object?>('hybridImage', {'prompt': prompt.text, 'image': image});
       final text = m?['text'] as String?;
       if (m == null || text == null || text.trim().isEmpty) {
         _lastHybridFailure = 'empty';
@@ -181,10 +189,15 @@ class MethodChannelAssistant implements AssistantBridge, CloudChecker {
     try {
       final m = await _channel.invokeMapMethod<String, Object?>('check');
       if (m == null) return const CloudCheck(ok: false, reason: 'other');
-      return CloudCheck(ok: m['ok'] == true, reason: m['reason'] as String?, ms: (m['ms'] as num?)?.toInt());
+      return CloudCheck(
+        ok: m['ok'] == true,
+        reason: m['reason'] as String?,
+        ms: (m['ms'] as num?)?.toInt(),
+        detail: m['detail'] as String?,
+      );
     } on PlatformException catch (e) {
       final details = e.details;
-      return CloudCheck(ok: false, reason: details is String ? details : 'other');
+      return CloudCheck(ok: false, reason: details is String ? details : 'other', detail: e.message);
     } on Object {
       return const CloudCheck(ok: false, reason: 'other');
     }

@@ -260,6 +260,11 @@ void main() {
       await _pump(tester, 'en', Brightness.light, _Bridge(nano: false), AfterVisitScreen(controller: c, today: _today));
       await tester.enterText(find.byType(TextField), 'Repeat TSH in six weeks.');
       await tester.tap(find.text('Make a draft'));
+      // No Nano: femio offers cloud reading first (ADR-089); she says Not now and nothing is sent.
+      for (var i = 0; i < 10; i++) {
+        await tester.pump(const Duration(milliseconds: 100));
+      }
+      await tester.tap(find.text('Not now'));
       await tester.pumpAndSettle();
       expect(find.textContaining("isn't available on this phone"), findsOneWidget);
       await tester.tap(find.text('Save to my record'));

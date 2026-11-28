@@ -43,6 +43,7 @@ String purposeNames(L10n l, Iterable<CloudPurpose> purposes) => [
           switch (p) {
             CloudPurpose.questions => l.boostPurposeQuestions,
             CloudPurpose.tips => l.boostPurposeTips,
+            CloudPurpose.records => l.boostPurposeRecords,
           },
     ].join(' · ');
 
@@ -256,6 +257,8 @@ class _AiChoicesWizardState extends State<AiChoicesWizard> {
         const SizedBox(height: space2),
         Text(l.boostAgreeTips, style: t.bodyMedium),
         if (bands != null) _BandsTable(bands: bands),
+        const SizedBox(height: space2),
+        Text(l.boostAgreeRecords, style: t.bodyMedium),
         const SizedBox(height: space4),
         _Heading(l.boostWhoHeading),
         Text(l.boostWho, style: t.bodyMedium),
@@ -318,6 +321,7 @@ class _AiChoicesWizardState extends State<AiChoicesWizard> {
         _Heading(l.boostSendsHeading),
         box(_purposes.contains(CloudPurpose.questions), l.boostAgreeQuestions, (v) => purpose(CloudPurpose.questions, v)),
         box(_purposes.contains(CloudPurpose.tips), l.boostAgreeTips, (v) => purpose(CloudPurpose.tips, v)),
+        box(_purposes.contains(CloudPurpose.records), l.boostAgreeRecords, (v) => purpose(CloudPurpose.records, v)),
         box(_acks.contains(AiAck.cloud), l.aiAckCloud, (v) => ack(AiAck.cloud, v)),
         const SizedBox(height: space2),
         Text(l.boostExplicit, style: t.bodySmall),

@@ -4,12 +4,16 @@
 // dictates with her keyboard) a note in any of the four languages, perhaps naming several days
 // ("yesterday cramps, today spotting"); femio's phrase rules read it day by day, Gemini Nano
 // adds what the rules missed when the phone has it, and she confirms every day's chips before
-// anything is saved, in one counted save. Her note itself is never stored or sent.
+// anything is saved, in one counted save. Her note itself is never stored; on the phone it is
+// never sent. On a phone without Nano, femio offers to have Google's cloud AI read it too
+// (ADR-089): only with that consent, after she approved the note on a preview, and the cloud
+// only adds to the rules' draft, as Nano does.
 
 import 'package:flutter/material.dart';
 
 import '../../app.dart';
 import '../../data/assistant_gateway.dart' show RanOn;
+import '../../domain/assistant/approved_record.dart';
 import '../../data/profile.dart';
 import '../../domain/assistant/log_phrases.dart';
 import '../../domain/assistant/safety.dart';
@@ -20,6 +24,7 @@ import '../../theme/femio_theme.dart';
 import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
 import 'assistant_scope.dart';
+import 'cloud_reading.dart';
 import 'input_actions.dart';
 import 'safety_notice.dart';
 import 'say_it_day_card.dart';
@@ -66,6 +71,15 @@ class _SayItSheetState extends State<SayItSheet> {
   Set<SayItRefusal> _refused = const {};
   final List<_DayDraft> _days = [];
 
+  /// No Gemini Nano here, but Cloud boost can be reached: cloud reading may be offered.
+  bool _cloudPossible = false;
+
+  /// Google's cloud AI read the note (ADR-089).
+  bool _cloud = false;
+
+  /// The day parts of the last note, as the rules split it: what cloud reading would send.
+  List<({String date, String text})> _parts = const [];
+
   @override
   void dispose() {
     _text.dispose();
@@ -91,6 +105,7 @@ class _SayItSheetState extends State<SayItSheet> {
       _usedModel = false;
       _ranModel = false;
     });
+    final status = await gateway.status();
     final drafts = <_DayDraft>[];
     var usedModel = false;
     var ranModel = false;
@@ -115,7 +130,53 @@ class _SayItSheetState extends State<SayItSheet> {
       _read = true;
       _usedModel = usedModel;
       _ranModel = ranModel;
+      _cloud = false;
+      _cloudPossible = !status.canRunPrivate && status.canRunHybrid;
+      _parts = [for (final d in reading.days) (date: d.date, text: d.text)];
       _days.addAll(drafts);
+    });
+  }
+
+  /// "Read it with Google's cloud AI": asks her with the note's day parts on a preview, then
+  /// adds what the cloud read to each day's rules draft (ADR-089). Never on a red flag.
+  Future<void> _readInCloud() async {
+    final parts = _parts;
+    if (parts.isEmpty || _signal != SafetySignal.none) return;
+    final approved = await approveCloudReading(
+      context,
+      widget.controller,
+      reading: RecordReading.note,
+      parts: [for (final p in parts) p.text],
+      today: widget.today ?? todayISO(),
+    );
+    final consent = widget.controller.profile?.settings.cloud;
+    if (approved == null || consent == null || !mounted) return;
+    final gateway = AssistantScope.gatewayOf(context);
+    setState(() => _busy = true);
+    var added = false;
+    var answered = false;
+    for (var i = 0; i < parts.length; i++) {
+      final result = await gateway.readNoteInCloud(approved, i, consent);
+      final s = result.value;
+      if (s == null) continue;
+      answered = true;
+      final existing = _days.where((d) => d.date == parts[i].date).firstOrNull;
+      final base = existing?.draft ?? const LogDraft();
+      final merged = mergeDrafts(base, modelTerms: s.terms, modelFlow: s.flow, modelOpk: s.opk);
+      if (merged.terms.length == base.terms.length && merged.flow == base.flow && merged.opk == base.opk) continue;
+      added = true;
+      if (existing != null) {
+        _days[_days.indexOf(existing)] = _DayDraft(existing.date, merged)..unticked.addAll(existing.unticked);
+      } else {
+        _days.add(_DayDraft(parts[i].date, merged));
+      }
+    }
+    if (!mounted) return;
+    setState(() {
+      _busy = false;
+      _cloud = answered;
+      _usedModel = _usedModel || added;
+      _cloudPossible = !answered;
     });
   }
 
@@ -200,6 +261,14 @@ class _SayItSheetState extends State<SayItSheet> {
               const SizedBox(height: space4),
               Text(l.sayItNothing, style: t.bodyMedium),
             ],
+            if (_read && _cloudPossible && _parts.isNotEmpty && _signal == SafetySignal.none) ...[
+              const SizedBox(height: space3),
+              OutlinedButton.icon(
+                onPressed: _busy ? null : _readInCloud,
+                icon: const Icon(Icons.cloud_outlined),
+                label: Text(l.cloudReadButton),
+              ),
+            ],
             if (_days.isNotEmpty) ...[
               const SizedBox(height: space4),
               Text(_days.length == 1 ? l.sayItFound : l.sayItFoundDays, style: t.bodyMedium),
@@ -229,7 +298,9 @@ class _SayItSheetState extends State<SayItSheet> {
                 const SizedBox(width: space1h),
                 Expanded(
                   child: Text(
-                    _usedModel
+                    _cloud
+                        ? l.cloudReadDone
+                        : _usedModel
                         ? '${l.assistantPrivateNote} ${l.assistantModelNote}'
                         : _ranModel
                             ? '${l.assistantPrivateNote} ${l.sayItCheckedNano}'

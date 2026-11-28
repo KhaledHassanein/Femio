@@ -23,6 +23,9 @@ String aiUseName(L10n l, AssistantUse use) => switch (use) {
   AssistantUse.visitQuestions => l.visitQuestionsTitle,
   AssistantUse.scanDocument => l.scanUseName,
   AssistantUse.afterVisit => l.afterVisitTitle,
+  AssistantUse.scanInCloud => l.aiUseScanCloud,
+  AssistantUse.afterVisitInCloud => l.aiUseAfterVisitCloud,
+  AssistantUse.sayItInCloud => l.aiUseSayItCloud,
 };
 
 /// What the use does for her, and what happens without it, in plain words (owner 2026-11-27).
@@ -34,6 +37,9 @@ String aiUseHelps(L10n l, AssistantUse use) => switch (use) {
   AssistantUse.visitQuestions => l.aiHelpsVisit,
   AssistantUse.scanDocument => l.aiHelpsScan,
   AssistantUse.afterVisit => l.aiHelpsAfterVisit,
+  AssistantUse.scanInCloud => l.aiHelpsScanCloud,
+  AssistantUse.afterVisitInCloud => l.aiHelpsAfterVisitCloud,
+  AssistantUse.sayItInCloud => l.aiHelpsSayItCloud,
 };
 
 /// One input in plain words.

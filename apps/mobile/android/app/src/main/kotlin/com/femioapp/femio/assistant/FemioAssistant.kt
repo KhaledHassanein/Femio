@@ -18,6 +18,10 @@
 // have read (ADR-087): the image is decoded, scaled down and handed to Gemini Nano; it never
 // leaves the phone, and there is no cloud fallback.
 //
+// `hybridImage` is the one exception (ADR-089, owner 2026-11-28): on a phone without Gemini
+// Nano, with her "Read my reports in the cloud" consent and her approval of that one page on a
+// preview sheet, the same page picture goes with a CloudPrompt through PREFER_ON_DEVICE.
+//
 // A third call, `check`, sends one fixed public sentence to the cloud model only, so she (and
 // the owner testing a build) can see whether Cloud boost really reaches Google, and if not,
 // why: App Check refused the app, the API is off, no network, quota, and so on. Failures are
@@ -99,6 +103,9 @@ private const val LOG_TAG = "femio-ai"
 /** The longest part of an exception message written to logcat. */
 private const val LOG_MESSAGE_LIMIT = 300
 
+/** The longest technical detail the Cloud boost check shows her under its result. */
+private const val DETAIL_LIMIT = 240
+
 /** The fixed, public sentence the Cloud boost check sends. Nothing about her. */
 const val CLOUD_CHECK_PROMPT = "Reply with the single word OK."
 
@@ -140,6 +147,10 @@ class FemioAssistant(private val context: Context, messenger: BinaryMessenger) :
                                 call.argument<ByteArray>("image") ?: ByteArray(0),
                             )
                             "hybrid" -> hybrid(call.argument<String>("prompt").orEmpty())
+                            "hybridImage" -> hybridImage(
+                                call.argument<String>("prompt").orEmpty(),
+                                call.argument<ByteArray>("image") ?: ByteArray(0),
+                            )
                             "check" -> check()
                             else -> NotImplemented
                         }
@@ -260,6 +271,28 @@ class FemioAssistant(private val context: Context, messenger: BinaryMessenger) :
         }
 
     /**
+     * Runs [prompt] with one page picture [image] on the phone when Gemini Nano is ready,
+     * otherwise in the cloud (PREFER_ON_DEVICE). Dart calls it only with a CloudPrompt built
+     * from an ApprovedRecord: she agreed to cloud reading and approved this page (ADR-089).
+     */
+    private suspend fun hybridImage(prompt: String, image: ByteArray): Map<String, Any?> {
+        val bitmap = scaledPage(image) ?: throw IllegalArgumentException("unreadable_image")
+        try {
+            val pageRequest = content {
+                image(bitmap)
+                text(prompt)
+            }
+            return withTimeout(CALL_TIMEOUT_MS) {
+                onDevice(InferenceMode.PREFER_ON_DEVICE, SCAN_MAX_OUTPUT_TOKENS) { model ->
+                    withContext(Dispatchers.IO) { model.generateContent(pageRequest) }
+                }
+            }
+        } finally {
+            bitmap.recycle()
+        }
+    }
+
+    /**
      * Sends [CLOUD_CHECK_PROMPT] to the cloud model only (ONLY_IN_CLOUD) and reports whether an
      * answer came back, how long it took, or the reason it failed. Dart calls it only while
      * Cloud boost is on.
@@ -280,7 +313,12 @@ class FemioAssistant(private val context: Context, messenger: BinaryMessenger) :
         } catch (e: Exception) {
             val reason = failureReason(e)
             logFailure("check", reason, e)
-            mapOf("ok" to false, "reason" to reason, "ms" to (SystemClock.elapsedRealtime() - started).toInt())
+            mapOf(
+                "ok" to false,
+                "reason" to reason,
+                "detail" to failureDetail(e),
+                "ms" to (SystemClock.elapsedRealtime() - started).toInt(),
+            )
         }
     }
 
@@ -371,8 +409,10 @@ internal fun failureReason(e: Throwable): String {
     return when {
         any { it is IllegalStateException && it.message == "not_configured" } -> "not_configured"
         any { it is TimeoutCancellationException || it is RequestTimeoutException } -> "timeout"
-        "app check" in text || "appcheck" in text || "app_check" in text || "attestation" in text -> "app_check"
+        // A switched-off API names App Check in its text too ("Firebase App Check API has not
+        // been used in project ..."), so it is read first and points at the right fix.
         any { it is ServiceDisabledException } || "service_disabled" in text || "has not been used" in text -> "service_disabled"
+        "app check" in text || "appcheck" in text || "app_check" in text || "attestation" in text -> "app_check"
         any { it is InvalidAPIKeyException } || "api key not valid" in text -> "api_key"
         any { it is QuotaExceededException } || "quota" in text || "billing" in text || "resource_exhausted" in text -> "quota"
         any { it is UnsupportedUserLocationException } || "location is not supported" in text -> "location"
@@ -382,6 +422,17 @@ internal fun failureReason(e: Throwable): String {
         else -> "other"
     }
 }
+
+/**
+ * A short technical line for the Cloud boost check: each exception class in the chain and its
+ * message, with any API key masked. The check sends only a fixed sentence, so
+ * the line holds nothing about her; it lets one screenshot name the exact cause.
+ */
+internal fun failureDetail(e: Throwable): String =
+    generateSequence(e) { it.cause }.take(4)
+        .joinToString(" <- ") { "${it.javaClass.simpleName}: ${it.message.orEmpty().lineSequence().firstOrNull().orEmpty()}" }
+        .replace(Regex("AIza[0-9A-Za-z_\\-]{20,}"), "AIza…")
+        .take(DETAIL_LIMIT)
 
 /** Writes one failure to logcat: the call, the reason code, the exception class and a short message. */
 private fun logFailure(method: String?, reason: String, e: Throwable) {

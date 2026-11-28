@@ -39,8 +39,9 @@ ambition (one record for her whole health life) stays the direction, not the lau
    she agrees to **Cloud boost** (off by default; explicit consent per purpose, stored as a dated,
    versioned receipt, ADR-080) may a phone without Nano send
    a `CloudPrompt` to Google's cloud model through Firebase AI Logic on the paid tier: a
-   redacted general question she approved, or her four-band `PseudonymisedProfile`, nothing
-   else. Rules (red flags, contraception refusal) always run before the model and always win.
+   redacted general question she approved, her four-band `PseudonymisedProfile`, or (ADR-089,
+   only with her separate "cloud reading" consent) one `ApprovedRecord` she approved on a
+   preview sheet: a report's page pictures, her visit words or a Say it note. Nothing else. Rules (red flags, contraception refusal) always run before the model and always win.
 5. **One constant record, additive layers.** A life-stage change re-layers the experience over an
    unchanged record; never rebuilds or deletes.
 6. **Arabic and RTL are first-class.** Western digits in Arabic (ADR-069); Hijri shown beside

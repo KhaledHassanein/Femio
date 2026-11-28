@@ -2291,11 +2291,104 @@ class L10nEn extends L10n {
   }
 
   @override
+  String cloudCheckDetail(String detail) {
+    return 'Technical details: $detail';
+  }
+
+  @override
+  String get boostPurposeRecords => 'Reading reports and notes you approve';
+
+  @override
+  String get boostAgreeRecords =>
+      'I agree that, because this phone has no on-phone AI, femio may send a report, my words after a visit or a Say it note to Google\'s cloud AI to turn into a draft I check. femio shows me exactly what will be sent each time and sends it only when I tap Send.';
+
+  @override
+  String get cloudReadTitle => 'Send this to Google\'s cloud AI?';
+
+  @override
+  String get cloudReadWhy =>
+      'This phone has no on-phone AI. Google\'s cloud AI reads it and femio shows you a draft to check. Nothing is added to your record until you save it.';
+
+  @override
+  String cloudReadPages(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count page pictures of the document you chose',
+      one: '1 page picture of the document you chose',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get cloudReadWordsLabel => 'Exactly what will be sent:';
+
+  @override
+  String get cloudReadWho =>
+      'Sent through Firebase AI Logic (Gemini Developer API, paid tier). Google keeps it for up to 55 days to detect misuse and does not use it to improve its products. femio has no server and keeps none of it.';
+
+  @override
+  String get cloudReadSend => 'Send';
+
+  @override
+  String get cloudReadNotNow => 'Not now';
+
+  @override
+  String get cloudReadOfferTitle => 'Use Google\'s cloud AI instead?';
+
+  @override
+  String get cloudReadOfferBody =>
+      'This phone has no on-phone AI (Gemini Nano). Turn on cloud reading in Cloud boost and Google\'s cloud AI can read it for you. You\'ll see exactly what would be sent each time, and nothing goes until you tap Send.';
+
+  @override
+  String get cloudReadTurnOn => 'Turn on cloud reading';
+
+  @override
+  String get cloudReadButton => 'Read it with Google\'s cloud AI';
+
+  @override
+  String get cloudReadDone =>
+      'Read by Google\'s cloud AI after you approved it. Nothing is saved until you tap Save.';
+
+  @override
+  String get scanCloudDeclined =>
+      'Nothing was sent. The document is saved in My documents, and you can add results by hand.';
+
+  @override
+  String get scanCloudFailed =>
+      'Google\'s cloud AI could not read this document this time. It is saved in My documents, and you can add results by hand.';
+
+  @override
+  String get scanCloudNote =>
+      'Read by Google\'s cloud AI after you approved it. The document itself stays saved on your phone.';
+
+  @override
+  String get aiUseScanCloud => 'Read a report with Cloud boost';
+
+  @override
+  String get aiUseAfterVisitCloud => 'After a visit with Cloud boost';
+
+  @override
+  String get aiUseSayItCloud => 'Say it with Cloud boost';
+
+  @override
+  String get aiHelpsScanCloud =>
+      'For phones without AI built in: after you approve the pages on a preview, Google\'s cloud AI reads the report into results and medicines for you to check.';
+
+  @override
+  String get aiHelpsAfterVisitCloud =>
+      'For phones without AI built in: after you approve your words on a preview, Google\'s cloud AI turns them into draft medicines, results and the next visit for you to check.';
+
+  @override
+  String get aiHelpsSayItCloud =>
+      'For phones without AI built in: after you approve your note on a preview, Google\'s cloud AI adds log entries femio\'s own rules missed, for you to tick.';
+
+  @override
   String get boostTitle => 'Cloud boost';
 
   @override
   String get boostIntro =>
-      'Some phones have no on-phone AI. On those phones, Cloud boost lets Google\'s cloud AI summarise trusted sources for a question you approve, or put your tips in order. It is optional and stays off unless you agree below. Everything else in femio works without it.';
+      'Some phones have no on-phone AI. On those phones, Cloud boost lets Google\'s cloud AI summarise trusted sources for a question you approve, put your tips in order, or read a report or your notes into a draft you check. Each is optional and stays off unless you agree below. Everything else in femio works without it.';
 
   @override
   String get boostSendsHeading => 'What may be sent';
@@ -2373,7 +2466,7 @@ class L10nEn extends L10n {
 
   @override
   String get boostNever =>
-      'Nothing else from your record: not your log, notes, dates, cycle lengths, medicines, lab results, visits, documents, photos or birth year. Never your contacts or advertising ID.';
+      'Nothing else from your record: not your log, notes, dates, cycle lengths, medicines, lab results, visits, documents, photos or birth year, unless you agree to cloud reading and approve that one item on a preview. Never your contacts or advertising ID.';
 
   @override
   String get boostTurnOff => 'Turn off Cloud boost';
@@ -3081,7 +3174,7 @@ class L10nEn extends L10n {
 
   @override
   String get leaveBoostBody =>
-      'Only if you agree: a general question you approve, or four broad facts, goes to Google\'s cloud AI. Google Play also confirms the request comes from the real femio app.';
+      'Only if you agree: a general question you approve, four broad facts, or (on a phone without on-phone AI, if you turn on cloud reading) a report or your words that you approve each time on a preview, goes to Google\'s cloud AI. Google Play also confirms the request comes from the real femio app.';
 
   @override
   String get leaveModelHeading => 'The on-phone AI model';

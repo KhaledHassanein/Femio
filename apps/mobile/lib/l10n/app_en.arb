@@ -1102,8 +1102,114 @@
       }
     }
   },
+  "cloudCheckDetail": "Technical details: {detail}",
+  "@cloudCheckDetail": {
+    "description": "Small line under a failed Cloud boost check: Android's technical error, so a screenshot names the cause.",
+    "placeholders": {
+      "detail": {
+        "type": "String"
+      }
+    }
+  },
+  "boostPurposeRecords": "Reading reports and notes you approve",
+  "@boostPurposeRecords": {
+    "description": "Short name of the cloud reading purpose (ADR-089)."
+  },
+  "boostAgreeRecords": "I agree that, because this phone has no on-phone AI, femio may send a report, my words after a visit or a Say it note to Google's cloud AI to turn into a draft I check. femio shows me exactly what will be sent each time and sends it only when I tap Send.",
+  "@boostAgreeRecords": {
+    "description": "Consent box for the cloud reading purpose (ADR-089)."
+  },
+  "cloudReadTitle": "Send this to Google's cloud AI?",
+  "@cloudReadTitle": {
+    "description": "Title of the preview sheet before a report or her words go to the cloud."
+  },
+  "cloudReadWhy": "This phone has no on-phone AI. Google's cloud AI reads it and femio shows you a draft to check. Nothing is added to your record until you save it.",
+  "@cloudReadWhy": {
+    "description": "Preview sheet: why the cloud is used and that she checks a draft."
+  },
+  "cloudReadPages": "{count, plural, =1{1 page picture of the document you chose} other{{count} page pictures of the document you chose}}",
+  "@cloudReadPages": {
+    "description": "Preview sheet: what is sent for a report.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cloudReadWordsLabel": "Exactly what will be sent:",
+  "@cloudReadWordsLabel": {
+    "description": "Preview sheet: label above her words as they will be sent."
+  },
+  "cloudReadWho": "Sent through Firebase AI Logic (Gemini Developer API, paid tier). Google keeps it for up to 55 days to detect misuse and does not use it to improve its products. femio has no server and keeps none of it.",
+  "@cloudReadWho": {
+    "description": "Preview sheet: who receives it and how long it is kept."
+  },
+  "cloudReadSend": "Send",
+  "@cloudReadSend": {
+    "description": "Preview sheet: send button."
+  },
+  "cloudReadNotNow": "Not now",
+  "@cloudReadNotNow": {
+    "description": "Preview sheet: decline button."
+  },
+  "cloudReadOfferTitle": "Use Google's cloud AI instead?",
+  "@cloudReadOfferTitle": {
+    "description": "Dialog title when cloud reading is off on a phone without Gemini Nano."
+  },
+  "cloudReadOfferBody": "This phone has no on-phone AI (Gemini Nano). Turn on cloud reading in Cloud boost and Google's cloud AI can read it for you. You'll see exactly what would be sent each time, and nothing goes until you tap Send.",
+  "@cloudReadOfferBody": {
+    "description": "Dialog body offering to turn on cloud reading."
+  },
+  "cloudReadTurnOn": "Turn on cloud reading",
+  "@cloudReadTurnOn": {
+    "description": "Button that opens the AI wizard at Cloud boost."
+  },
+  "cloudReadButton": "Read it with Google's cloud AI",
+  "@cloudReadButton": {
+    "description": "Button offering to read a report or her words with the cloud AI."
+  },
+  "cloudReadDone": "Read by Google's cloud AI after you approved it. Nothing is saved until you tap Save.",
+  "@cloudReadDone": {
+    "description": "Footer after her words were read in the cloud (After a visit, Say it)."
+  },
+  "scanCloudDeclined": "Nothing was sent. The document is saved in My documents, and you can add results by hand.",
+  "@scanCloudDeclined": {
+    "description": "Report draft screen when she chose not to send the pages to the cloud."
+  },
+  "scanCloudFailed": "Google's cloud AI could not read this document this time. It is saved in My documents, and you can add results by hand.",
+  "@scanCloudFailed": {
+    "description": "Report draft screen when the cloud reading gave no answer."
+  },
+  "scanCloudNote": "Read by Google's cloud AI after you approved it. The document itself stays saved on your phone.",
+  "@scanCloudNote": {
+    "description": "Footer of a report draft read in the cloud."
+  },
+  "aiUseScanCloud": "Read a report with Cloud boost",
+  "@aiUseScanCloud": {
+    "description": "What the AI can see: name of the cloud report reading."
+  },
+  "aiUseAfterVisitCloud": "After a visit with Cloud boost",
+  "@aiUseAfterVisitCloud": {
+    "description": "What the AI can see: name of the cloud After a visit reading."
+  },
+  "aiUseSayItCloud": "Say it with Cloud boost",
+  "@aiUseSayItCloud": {
+    "description": "What the AI can see: name of the cloud Say it reading."
+  },
+  "aiHelpsScanCloud": "For phones without AI built in: after you approve the pages on a preview, Google's cloud AI reads the report into results and medicines for you to check.",
+  "@aiHelpsScanCloud": {
+    "description": "What the AI can see: what the cloud report reading does."
+  },
+  "aiHelpsAfterVisitCloud": "For phones without AI built in: after you approve your words on a preview, Google's cloud AI turns them into draft medicines, results and the next visit for you to check.",
+  "@aiHelpsAfterVisitCloud": {
+    "description": "What the AI can see: what the cloud After a visit reading does."
+  },
+  "aiHelpsSayItCloud": "For phones without AI built in: after you approve your note on a preview, Google's cloud AI adds log entries femio's own rules missed, for you to tick.",
+  "@aiHelpsSayItCloud": {
+    "description": "What the AI can see: what the cloud Say it reading does."
+  },
   "boostTitle": "Cloud boost",
-  "boostIntro": "Some phones have no on-phone AI. On those phones, Cloud boost lets Google's cloud AI summarise trusted sources for a question you approve, or put your tips in order. It is optional and stays off unless you agree below. Everything else in femio works without it.",
+  "boostIntro": "Some phones have no on-phone AI. On those phones, Cloud boost lets Google's cloud AI summarise trusted sources for a question you approve, put your tips in order, or read a report or your notes into a draft you check. Each is optional and stays off unless you agree below. Everything else in femio works without it.",
   "boostSendsHeading": "What may be sent",
   "boostStageLabel": "Life stage",
   "boostStage": "{value, select, period{Tracking periods} ttc{Trying to conceive} pregnant{Pregnant} postpartum{After birth} menopause{Menopause} other{Not set}}",
@@ -1143,7 +1249,7 @@
     }
   },
   "boostNeverHeading": "What is never sent",
-  "boostNever": "Nothing else from your record: not your log, notes, dates, cycle lengths, medicines, lab results, visits, documents, photos or birth year. Never your contacts or advertising ID.",
+  "boostNever": "Nothing else from your record: not your log, notes, dates, cycle lengths, medicines, lab results, visits, documents, photos or birth year, unless you agree to cloud reading and approve that one item on a preview. Never your contacts or advertising ID.",
   "boostTurnOff": "Turn off Cloud boost",
   "boostNotNow": "Not now",
   "boostAgreeQuestions": "I agree that femio may send a general question I approve, one at a time, with the public sources it found and the language to answer in, so Google's cloud AI can summarise them. femio removes numbers, e-mail addresses and links first, and I see and can edit the exact text before anything is sent.",
@@ -1483,7 +1589,7 @@
       }
     }
   },
-  "leaveBoostBody": "Only if you agree: a general question you approve, or four broad facts, goes to Google's cloud AI. Google Play also confirms the request comes from the real femio app.",
+  "leaveBoostBody": "Only if you agree: a general question you approve, four broad facts, or (on a phone without on-phone AI, if you turn on cloud reading) a report or your words that you approve each time on a preview, goes to Google's cloud AI. Google Play also confirms the request comes from the real femio app.",
   "leaveModelHeading": "The on-phone AI model",
   "leaveModelBody": "If you tap Download, Android's AI service (AICore, run by Google) downloads Gemini Nano and keeps it up to date. Whenever the on-phone AI runs, Google's AI software may send Google technical usage information, such as an identifier for this installation, device and app details, errors, speed and the size of a request. It does not include your words, and femio adds none of your records to it. If you tap Download under “Translate for the AI on this phone”, Google’s ML Kit downloads a language file of about 30 MB; translation then runs on the phone, and the pair of languages may be part of that usage data. Speech to text, translation and reading your documents all run on the phone: no audio, text or document is sent.",
   "leavePlayHeading": "Google Play",

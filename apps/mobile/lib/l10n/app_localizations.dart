@@ -3833,6 +3833,150 @@ abstract class L10n {
   /// **'Support code: {code}'**
   String cloudCheckCode(String code);
 
+  /// Small line under a failed Cloud boost check: Android's technical error, so a screenshot names the cause.
+  ///
+  /// In en, this message translates to:
+  /// **'Technical details: {detail}'**
+  String cloudCheckDetail(String detail);
+
+  /// Short name of the cloud reading purpose (ADR-089).
+  ///
+  /// In en, this message translates to:
+  /// **'Reading reports and notes you approve'**
+  String get boostPurposeRecords;
+
+  /// Consent box for the cloud reading purpose (ADR-089).
+  ///
+  /// In en, this message translates to:
+  /// **'I agree that, because this phone has no on-phone AI, femio may send a report, my words after a visit or a Say it note to Google\'s cloud AI to turn into a draft I check. femio shows me exactly what will be sent each time and sends it only when I tap Send.'**
+  String get boostAgreeRecords;
+
+  /// Title of the preview sheet before a report or her words go to the cloud.
+  ///
+  /// In en, this message translates to:
+  /// **'Send this to Google\'s cloud AI?'**
+  String get cloudReadTitle;
+
+  /// Preview sheet: why the cloud is used and that she checks a draft.
+  ///
+  /// In en, this message translates to:
+  /// **'This phone has no on-phone AI. Google\'s cloud AI reads it and femio shows you a draft to check. Nothing is added to your record until you save it.'**
+  String get cloudReadWhy;
+
+  /// Preview sheet: what is sent for a report.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 page picture of the document you chose} other{{count} page pictures of the document you chose}}'**
+  String cloudReadPages(int count);
+
+  /// Preview sheet: label above her words as they will be sent.
+  ///
+  /// In en, this message translates to:
+  /// **'Exactly what will be sent:'**
+  String get cloudReadWordsLabel;
+
+  /// Preview sheet: who receives it and how long it is kept.
+  ///
+  /// In en, this message translates to:
+  /// **'Sent through Firebase AI Logic (Gemini Developer API, paid tier). Google keeps it for up to 55 days to detect misuse and does not use it to improve its products. femio has no server and keeps none of it.'**
+  String get cloudReadWho;
+
+  /// Preview sheet: send button.
+  ///
+  /// In en, this message translates to:
+  /// **'Send'**
+  String get cloudReadSend;
+
+  /// Preview sheet: decline button.
+  ///
+  /// In en, this message translates to:
+  /// **'Not now'**
+  String get cloudReadNotNow;
+
+  /// Dialog title when cloud reading is off on a phone without Gemini Nano.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Google\'s cloud AI instead?'**
+  String get cloudReadOfferTitle;
+
+  /// Dialog body offering to turn on cloud reading.
+  ///
+  /// In en, this message translates to:
+  /// **'This phone has no on-phone AI (Gemini Nano). Turn on cloud reading in Cloud boost and Google\'s cloud AI can read it for you. You\'ll see exactly what would be sent each time, and nothing goes until you tap Send.'**
+  String get cloudReadOfferBody;
+
+  /// Button that opens the AI wizard at Cloud boost.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn on cloud reading'**
+  String get cloudReadTurnOn;
+
+  /// Button offering to read a report or her words with the cloud AI.
+  ///
+  /// In en, this message translates to:
+  /// **'Read it with Google\'s cloud AI'**
+  String get cloudReadButton;
+
+  /// Footer after her words were read in the cloud (After a visit, Say it).
+  ///
+  /// In en, this message translates to:
+  /// **'Read by Google\'s cloud AI after you approved it. Nothing is saved until you tap Save.'**
+  String get cloudReadDone;
+
+  /// Report draft screen when she chose not to send the pages to the cloud.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing was sent. The document is saved in My documents, and you can add results by hand.'**
+  String get scanCloudDeclined;
+
+  /// Report draft screen when the cloud reading gave no answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Google\'s cloud AI could not read this document this time. It is saved in My documents, and you can add results by hand.'**
+  String get scanCloudFailed;
+
+  /// Footer of a report draft read in the cloud.
+  ///
+  /// In en, this message translates to:
+  /// **'Read by Google\'s cloud AI after you approved it. The document itself stays saved on your phone.'**
+  String get scanCloudNote;
+
+  /// What the AI can see: name of the cloud report reading.
+  ///
+  /// In en, this message translates to:
+  /// **'Read a report with Cloud boost'**
+  String get aiUseScanCloud;
+
+  /// What the AI can see: name of the cloud After a visit reading.
+  ///
+  /// In en, this message translates to:
+  /// **'After a visit with Cloud boost'**
+  String get aiUseAfterVisitCloud;
+
+  /// What the AI can see: name of the cloud Say it reading.
+  ///
+  /// In en, this message translates to:
+  /// **'Say it with Cloud boost'**
+  String get aiUseSayItCloud;
+
+  /// What the AI can see: what the cloud report reading does.
+  ///
+  /// In en, this message translates to:
+  /// **'For phones without AI built in: after you approve the pages on a preview, Google\'s cloud AI reads the report into results and medicines for you to check.'**
+  String get aiHelpsScanCloud;
+
+  /// What the AI can see: what the cloud After a visit reading does.
+  ///
+  /// In en, this message translates to:
+  /// **'For phones without AI built in: after you approve your words on a preview, Google\'s cloud AI turns them into draft medicines, results and the next visit for you to check.'**
+  String get aiHelpsAfterVisitCloud;
+
+  /// What the AI can see: what the cloud Say it reading does.
+  ///
+  /// In en, this message translates to:
+  /// **'For phones without AI built in: after you approve your note on a preview, Google\'s cloud AI adds log entries femio\'s own rules missed, for you to tick.'**
+  String get aiHelpsSayItCloud;
+
   /// No description provided for @boostTitle.
   ///
   /// In en, this message translates to:
@@ -3842,7 +3986,7 @@ abstract class L10n {
   /// No description provided for @boostIntro.
   ///
   /// In en, this message translates to:
-  /// **'Some phones have no on-phone AI. On those phones, Cloud boost lets Google\'s cloud AI summarise trusted sources for a question you approve, or put your tips in order. It is optional and stays off unless you agree below. Everything else in femio works without it.'**
+  /// **'Some phones have no on-phone AI. On those phones, Cloud boost lets Google\'s cloud AI summarise trusted sources for a question you approve, put your tips in order, or read a report or your notes into a draft you check. Each is optional and stays off unless you agree below. Everything else in femio works without it.'**
   String get boostIntro;
 
   /// No description provided for @boostSendsHeading.
@@ -3914,7 +4058,7 @@ abstract class L10n {
   /// No description provided for @boostNever.
   ///
   /// In en, this message translates to:
-  /// **'Nothing else from your record: not your log, notes, dates, cycle lengths, medicines, lab results, visits, documents, photos or birth year. Never your contacts or advertising ID.'**
+  /// **'Nothing else from your record: not your log, notes, dates, cycle lengths, medicines, lab results, visits, documents, photos or birth year, unless you agree to cloud reading and approve that one item on a preview. Never your contacts or advertising ID.'**
   String get boostNever;
 
   /// No description provided for @boostTurnOff.
@@ -5000,7 +5144,7 @@ abstract class L10n {
   /// No description provided for @leaveBoostBody.
   ///
   /// In en, this message translates to:
-  /// **'Only if you agree: a general question you approve, or four broad facts, goes to Google\'s cloud AI. Google Play also confirms the request comes from the real femio app.'**
+  /// **'Only if you agree: a general question you approve, four broad facts, or (on a phone without on-phone AI, if you turn on cloud reading) a report or your words that you approve each time on a preview, goes to Google\'s cloud AI. Google Play also confirms the request comes from the real femio app.'**
   String get leaveBoostBody;
 
   /// No description provided for @leaveModelHeading.

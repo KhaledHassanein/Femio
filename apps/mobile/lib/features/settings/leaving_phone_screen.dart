@@ -30,6 +30,7 @@ class LeavingPhoneScreen extends StatelessWidget {
     final on = [
       if (consent.allows(CloudPurpose.questions)) l.boostPurposeQuestions,
       if (consent.allows(CloudPurpose.tips)) l.boostPurposeTips,
+      if (consent.allows(CloudPurpose.records)) l.boostPurposeRecords,
     ];
     final lang = Localizations.localeOf(context).languageCode;
     return Scaffold(
