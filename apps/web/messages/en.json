@@ -1030,7 +1030,8 @@
     "glossary": "Glossary",
     "signIn": "Sign in",
     "getApp": "Get the app",
-    "healthData": "Consumer health data"
+    "healthData": "Consumer health data",
+    "demo": "App demos"
   },
   "footer": {
     "explore": "Explore",
@@ -1691,7 +1692,7 @@
     "title": "Your records never leave your phone.",
     "body": "A private Android app for trying to conceive and pregnancy, with an assistant that runs on your phone. Your calendar, logs and pregnancy tools stay on your phone, behind a PIN if you choose. No account, and nothing from your records goes to the cloud unless you turn on Cloud boost. Coming to Google Play.",
     "android": "Google Play",
-    "androidStatus": "Closed testing comes later",
+    "androidStatus": "Coming soon",
     "androidLive": "Get it on Google Play",
     "bodyLive": "A private Android app for trying to conceive and pregnancy, with an assistant that runs on your phone. Your calendar, logs and pregnancy tools stay on your phone, behind a PIN if you choose. No account, and nothing from your records goes to the cloud unless you turn on Cloud boost.",
     "ios": "iPhone",
@@ -1754,7 +1755,7 @@
     "companion": "The assistant is a companion, not the engine: every feature works with it switched off, and it never adds anything to your log without you.",
     "testBuild": {
       "title": "Early test build (APK)",
-      "body": "For people testing or reviewing femio: an Android build you install yourself, before femio is on Google Play. Google Play closed testing comes later.",
+      "body": "For people testing or reviewing femio: an Android build you install yourself, before femio is on Google Play.",
       "soon": "Download link coming soon",
       "soonBody": "The test build will be linked here once it is published. Until then, everything on this website is free to use.",
       "download": "Download the APK",
@@ -1948,7 +1949,9 @@
       "boostNever": "Nothing else from your record: not your log, notes, dates, cycle lengths, medicines, lab results, visits, documents, photos or birth year. Never your contacts or advertising ID.",
       "boostAlsoSeen": "Like any internet connection, Google also sees your phone's internet address, and a check from Google Play that the request comes from the real femio app.",
       "boostWithdrawEffect": "Turning it off stops anything new being sent. It cannot recall what was already sent."
-    }
+    },
+    "label": "Demo",
+    "scripted": "A scripted example of what the app does. It runs in your browser and sends nothing."
   },
   "helpNow": {
     "heading": "Numbers in your country",
@@ -2093,5 +2096,11 @@
       "sleepCheck": "Should I have a sleep check if I snore and feel tired during the day?",
       "weightTalk": "Can we talk about weight only when I say yes?"
     }
+  },
+  "demoPage": {
+    "metaTitle": "See femio in action",
+    "title": "See femio in action",
+    "intro": "These are scripted demos of the Android app. They run in your browser and nothing is sent anywhere. The full product is the app itself.",
+    "cta": "About the app"
   }
 }

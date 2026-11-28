@@ -26,6 +26,7 @@ import {
 
 import { AppTour } from "./app-tour";
 import { AskDemo } from "./ask-demo";
+import { DemoLabel } from "./demo-label";
 import { PeriodsDemo, type PeriodView } from "./periods-demo";
 import { SayItDemo } from "./say-it-demo";
 
@@ -37,13 +38,25 @@ function utcDay(iso: string): Date {
   return new Date(`${iso}T00:00:00Z`);
 }
 
-function Heading({ eyebrow, title, body }: { eyebrow: string; title: string; body?: string }) {
+function Heading({
+  eyebrow,
+  title,
+  body,
+  demo,
+}: {
+  eyebrow: string;
+  title: string;
+  body?: string;
+  /** When set, the heading carries the "Demo" label and its scripted-example note. */
+  demo?: { label: string; note: string };
+}) {
   return (
     <div className="flex flex-col gap-2">
       <p className="text-2xs font-semibold uppercase tracking-wider text-primary rtl:normal-case rtl:tracking-normal">
         {eyebrow}
       </p>
       <h2 className="font-display text-xl text-text rtl:font-bold">{title}</h2>
+      {demo && <DemoLabel strings={demo} />}
       {body && <p className="text-sm leading-relaxed text-text-muted">{body}</p>}
     </div>
   );
@@ -82,6 +95,7 @@ export async function AppTourSection({ locale }: { locale: string }) {
 export async function TryDemosSection({ locale }: { locale: string }) {
   const t = await getTranslations({ locale, namespace: "appDemo" });
   const format = await getFormatter({ locale });
+  const demo = { label: t("label"), note: t("scripted") };
   const reviewed = format.dateTime(utcDay(ASK_SOURCE.reviewed), { dateStyle: "medium", timeZone: "UTC" });
 
   // Every date is formatted here, once: Node and the browser put different spaces in a
@@ -119,7 +133,7 @@ export async function TryDemosSection({ locale }: { locale: string }) {
     <section className="bg-surface-sunken">
       <div className="mx-auto grid w-full max-w-5xl gap-12 px-6 py-14 lg:grid-cols-2">
         <div className="flex flex-col gap-5 lg:col-span-2 lg:max-w-2xl">
-          <Heading eyebrow={t("periods.eyebrow")} title={t("periods.heading")} body={t("periods.body")} />
+          <Heading eyebrow={t("periods.eyebrow")} title={t("periods.heading")} body={t("periods.body")} demo={demo} />
           <PeriodsDemo
             views={periodViews}
             strings={{
@@ -132,7 +146,7 @@ export async function TryDemosSection({ locale }: { locale: string }) {
         </div>
 
         <div className="flex flex-col gap-5">
-          <Heading eyebrow={t("sayIt.eyebrow")} title={t("sayIt.heading")} body={t("sayIt.body")} />
+          <Heading eyebrow={t("sayIt.eyebrow")} title={t("sayIt.heading")} body={t("sayIt.body")} demo={demo} />
           <SayItDemo
             strings={{
               samplesLabel: t("sayIt.samplesLabel"),
@@ -162,7 +176,7 @@ export async function TryDemosSection({ locale }: { locale: string }) {
         </div>
 
         <div className="flex flex-col gap-5">
-          <Heading eyebrow={t("ask.eyebrow")} title={t("ask.heading")} />
+          <Heading eyebrow={t("ask.eyebrow")} title={t("ask.heading")} demo={demo} />
           <AskDemo
             strings={{
               questionsLabel: t("ask.questionsLabel"),
