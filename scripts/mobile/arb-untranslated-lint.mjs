@@ -41,6 +41,7 @@ const ALLOWED = {
     // Health record, day note and CSV (R11.1, R9.8, R9.10): the same words in French.
     "recKindDocument", "recKindNote", "recFormKind", "logNoteSection", "csvColumnDate",
     "recDocsCount", // R11.2: "document(s)" is the French word too
+    "draftFieldDose", // ADR-087: "Dose" is the French word too
   ],
   es: ["logIrritable", "weightUnitKg", "weightUnitLb", "enterPin", "helpNowCountry_kuwait", "recDocSizeMb", "recDocSizeKb"], // R11.2: MB and KB are the Spanish units too
 };
