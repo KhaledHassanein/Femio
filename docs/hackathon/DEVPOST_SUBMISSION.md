@@ -1,4 +1,4 @@
-# Devpost submission: #BuildHybridAI 2026 (final answers, revised 2026-11-27)
+# Devpost submission: #BuildHybridAI 2026 (final answers, revised 2026-11-28)
 
 Agent-facing record of what femio's Devpost entry promises. **The build must match this text exactly.**
 Anything not working by the deadline (2026-11-30, 2:00 PM PT) must be cut from the submission text, never faked.
@@ -75,7 +75,7 @@ What the AI never does: diagnose, predict her dates, see her whole record, or ch
 without her tick.
 
 ## How femio uses Firebase AI Logic: hybrid inference with privacy built into the code
-1. **Her record stays on the phone.** Logging from her words, answers to questions about her, and the order of her tips and visit questions run with `ONLY_ON_DEVICE` on Gemini Nano. If Nano isn't available, the feature falls back to deterministic rules on the phone, never silently to the cloud; a private reply that did not run on the device is discarded.
+1. **Her record stays on the phone.** Logging from her words, answers to questions about her, and the order of her tips and visit questions run with `ONLY_ON_DEVICE` on Gemini Nano. Where the phone offers it, femio asks for the newest on-device model first (`OnDeviceModelOption.PREVIEW`, Gemini Nano 4) and falls back to the stable Nano model if the phone does not have it. If Nano isn't available at all, the feature falls back to deterministic rules on the phone, never silently to the cloud; a private reply that did not run on the device is discarded.
 2. **Opt-in Cloud boost, pseudonymised only.** Only on a phone without Nano, and only if she agrees, the hybrid call (`PREFER_ON_DEVICE`, cloud Gemini model) may receive her `PseudonymisedProfile`: four coarse bands (life stage, cycle regularity, kinds of symptom, logging streak). No dates, no free text, intimate terms excluded, and femio attaches no account or identifier; like any connection, Google still sees the phone's internet address and an App Check token. The consent screen shows her own values, names Google as processor, where and how long, and asks per purpose (one unticked box for general questions, one for tips), then "Confirm my choice" and a confirmation dialog; every choice is kept on the phone as a dated, versioned receipt she can read under "My AI choices". The cloud is offered every tip for her life stage, never the subset that fits her. She can step down or switch the AI off at any time with no boxes to tick, and that is recorded too.
 3. **General questions are cleaned first, and she approves the exact text.** A question written about herself ("I", "my", "we" and their Arabic, French and Spanish forms) stays on the phone. Any other question becomes `CloudSafeText`: numbers, e-mail addresses and links are removed, and she sees and can edit the exact text in a box before anything is sent.
 4. **Grounded, never from memory.** Every answer retrieves passages from a versioned registry of trusted sources bundled on the phone. The model may only summarise them and must cite them by number; an answer that cites nothing is discarded and the passages are shown word for word. No Google Search grounding, no tools. Tips and visit questions are reviewed sentences with sources; the model only puts them in order.
@@ -105,7 +105,7 @@ Google Play release, iOS with Apple Foundation Models through Firebase AI Logic,
 Firebase AI Logic, Gemini Nano, Gemini API, Firebase App Check, Play Integrity, Flutter, Dart, Kotlin, Android, Next.js, TypeScript, Tailwind CSS, next-intl, Vercel
 
 ## Other fields
-- Try it out: https://femioapp.com · https://github.com/KhaledHassanein/femio-app · APK: <https://github.com/KhaledHassanein/femio-app/releases/tag/v1.0.0-hackathon> (live after `RELEASE_STEPS.md` B)
+- Try it out: https://femioapp.com · https://femioapp.com/en/demo (scripted demos of the app's screens; no AI runs on the website) · https://github.com/KhaledHassanein/femio-app · APK: https://github.com/KhaledHassanein/femio-app/releases/tag/v1.0.0-hackathon (live after `RELEASE_STEPS.md` B)
 - Video: <YouTube, public, ≤3 min, English>
 - Submitter: Individual · Egypt · KM Digital Labs · start date 07-21-26 · Existing · Platform: Android
 
@@ -119,7 +119,7 @@ femio's Android app imports and calls Firebase AI Logic at runtime (Kotlin layer
 
 ## Testing instructions
 No account or login needed. Android 8.0 or later, 64-bit.
-1. **Install.** Download the APK from the GitHub Release (<APK link>) on the phone. Allow your browser to install unknown apps when asked, open the file, and if Play Protect warns, tap More details, then Install anyway. Finish the short setup.
+1. **Install.** On the phone, open https://github.com/KhaledHassanein/femio-app/releases/tag/v1.0.0-hackathon and download `femio-hackathon.apk`. Allow your browser to install unknown apps when asked, open the file, and if Play Protect warns, tap More details, then Install anyway. Finish the short setup.
 2. **Say it.** On Today, tap the box "Tell femio anything, like “cramps since this morning”" (or **+** → **Log with femio**). Type *yesterday light spotting, today cramps and I could sleep for a week*, tap **Turn into log entries**, check the two days of chips, untick anything wrong, and tap **Save**.
 3. **Ask femio.** On Today, tap **Ask femio**, type *When should a couple see a doctor about getting pregnant?* and tap **Ask**. Check the numbered sources (publisher, link, date). On a Gemini Nano phone the answer says "Summarised on your phone by Gemini Nano"; otherwise it says "Word for word from trusted sources".
 4. **Safety.** In Ask femio type *heavy bleeding and dizzy*: ACOG's emergency guidance and Help now appear before any AI runs.

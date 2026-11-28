@@ -14,6 +14,10 @@ history and `docs/archive/`.
 >
 > First, run `git branch --list "wip/*"`. A branch there means the last session stopped mid-item.
 
+## Latest (2026-11-28)
+
+Build 2 (1.0.0, versionCode 2) is built and signed: Nano 4 preview first, stable fallback (R14.33). Plain store shots, `/demo` page and new website app screens are on main (R14.34). The owner's remaining steps are in `docs/hackathon/FINAL_GUIDE.html` (R14.35): closed-track upload of build 2, listings, App Check for judges, `femio-app` repo + release, video, Devpost by 30 Nov 2:00 PM PT. Not verified: Nano 4 and Cloud boost on a real phone.
+
 ## Where things stand (2026-10-28)
 
 - **AI ideas 1–5 built (2026-11-28, owner request of 28 Nov; ADR-087, ADR-087 §6, ADR-088).** Read a report with AI (Nano reads a photo or the first 3 PDF pages as pictures, on the phone only; without Nano: upload only), After a visit, charts from her record (BP, glucose, repeated labs; only her report's printed range), a medicine month view, the ML Kit translation bridge for Ask, and Gemini Nano speech with the ADR-086 recognizer as fallback. Privacy notice v4 and the app's "What can leave this phone" now list the translation file and say speech, translation and documents stay on the phone. Full suite 1545 pass (synthetic). **Not run on a Nano phone**; the ML Kit usage-data disclosure needs the lawyer's look (owner rows 34–36). Read aloud (idea 6) is postponed.

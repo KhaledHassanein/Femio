@@ -1,0 +1,179 @@
+<title>femio Launch Guide</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Plus+Jakarta+Sans:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+/* Layout: one reading column, a verdict band on top, then numbered owner steps. Template for scripts/hackathon/build-final-guide.py. */
+:root{
+  --bg:#FAF6F8; --surface:#FFFFFF; --sunken:#F3EAF0; --fg:#2A1726; --muted:#6E5A69;
+  --line:#E6D7E1; --accent:#8A3572; --accent-soft:#F5E3EF; --ok:#2F7A4F; --ok-soft:#E3F2E9;
+  --warn:#9A5B00; --warn-soft:#FBEFD9;
+  --f-display:"Newsreader",Georgia,serif; --f-body:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;
+  --f-ar:"IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif; --f-mono:"JetBrains Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#1A1219; --surface:#241A22; --sunken:#19111A; --fg:#F4E9F0; --muted:#BBA6B5; --line:#3D2C39;
+  --accent:#DDA2C8; --accent-soft:#3F1534; --ok:#7FD0A0; --ok-soft:#173326; --warn:#F2C26B; --warn-soft:#3A2A10; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1A1219; --surface:#241A22; --sunken:#19111A; --fg:#F4E9F0; --muted:#BBA6B5; --line:#3D2C39;
+  --accent:#DDA2C8; --accent-soft:#3F1534; --ok:#7FD0A0; --ok-soft:#173326; --warn:#F2C26B; --warn-soft:#3A2A10; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 var(--f-body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 64px}
+main{max-width:46rem;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:2.3rem} h2{font-size:1.6rem} h3{font-size:1.15rem;font-family:var(--f-body);font-weight:700}
+p,li{max-width:65ch} p{margin:0} ul,ol{margin:0;padding-inline-start:1.3rem;display:flex;flex-direction:column;gap:6px}
+section{display:flex;flex-direction:column;gap:14px}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.verdict{background:var(--ok-soft);border:1px solid var(--ok);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.verdict strong.big{font-family:var(--f-display);font-size:1.5rem;color:var(--ok)}
+.note{background:var(--warn-soft);border-inline-start:3px solid var(--warn);padding:12px 14px;border-radius:6px}
+code,.mono{font-family:var(--f-mono);font-size:.86em;background:var(--sunken);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+pre{font-family:var(--f-mono);font-size:.82rem;background:var(--sunken);padding:12px;border-radius:8px;overflow-x:auto;white-space:pre-wrap;margin:0;line-height:1.5}
+pre[dir="rtl"]{font-family:var(--f-ar);font-size:.95rem}
+table{border-collapse:collapse;width:100%;font-size:.93rem} .tw{overflow-x:auto}
+th,td{text-align:start;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:700;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
+.copy{display:flex;flex-direction:column;gap:6px;min-width:0}
+.copy-head{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-weight:700;font-size:.92rem}
+.count{color:var(--muted);font-weight:400;font-size:.8rem;font-variant-numeric:tabular-nums}
+.btn-copy{margin-inline-start:auto;font:inherit;font-size:.82rem;padding:4px 12px;border-radius:999px;border:1px solid var(--accent);background:var(--surface);color:var(--accent);cursor:pointer}
+.btn-copy:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+details.lang{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--surface)}
+details.lang[open]{display:flex;flex-direction:column;gap:14px}
+summary{cursor:pointer;font-weight:700}
+.steps>li::marker{color:var(--accent);font-weight:700}
+.pill{display:inline-block;font-size:.75rem;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.pill.ok{background:var(--ok-soft);color:var(--ok)} .pill.warn{background:var(--warn-soft);color:var(--warn)}
+a{color:var(--accent)}
+</style>
+
+<main>
+<header style="display:flex;flex-direction:column;gap:8px">
+  <span class="eyebrow">femio · 28 November 2026 · build 2 (1.0.0, version code 2)</span>
+  <h1>femio Launch Guide</h1>
+  <p>Everything left before the hackathon deadline (30 Nov, 2:00 PM PT = 1 Dec, midnight Cairo) and the Play production release, in order.</p>
+</header>
+
+<section>
+  <div class="verdict">
+    <span class="eyebrow">Are we set to go?</span>
+    <strong class="big">Yes, from the code side.</strong>
+    <p>Build 2 is built, signed with your upload key and tested: all 1,457 app tests pass, and the website gate passes. What is left is yours to do: console clicks, the GitHub release, the video and the Devpost form.</p>
+  </div>
+  <div class="tw"><table>
+    <tr><th>Item</th><th>State</th><th>Where</th></tr>
+    <tr><td>Android app, build 2 (Nano 4 first, stable Nano fallback)</td><td><span class="pill ok">ready</span></td><td><code>E:\femio-builds\femio-1.0.0-build2.apk</code> and <code>.aab</code></td></tr>
+    <tr><td>Plain store screenshots, 4 per language × 4 languages</td><td><span class="pill ok">ready</span></td><td><code>docs/store/screenshots/plain/{en,ar,fr,es}/</code></td></tr>
+    <tr><td>Website: "Coming soon", new app screens, <code>/demo</code> page</td><td><span class="pill ok">deployed</span></td><td><a href="https://femioapp.com/en/demo">femioapp.com/en/demo</a></td></tr>
+    <tr><td>Website demos use no AI, no tokens, no Firebase calls</td><td><span class="pill ok">checked</span></td><td>network audit: only the site's own search index loads</td></tr>
+    <tr><td>Store listings EN / AR / FR / ES</td><td><span class="pill ok">ready</span></td><td>section 2 below</td></tr>
+    <tr><td>Gemini Nano 4 on a real phone</td><td><span class="pill warn">not verified</span></td><td>remote-device test with me (section 6)</td></tr>
+    <tr><td>Cloud boost from the sideloaded APK with App Check on</td><td><span class="pill warn">not verified</span></td><td>section 3, step C</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <span class="eyebrow">1 · Your steps, in order</span>
+  <h2>What to do now</h2>
+  <ol class="steps">
+    <li><b>Play Console, closed testing:</b> Test and release → Closed testing → your track → Create new release → upload <code>femio-1.0.0-build2.aab</code> (it replaces build 1) → Next → Save → Send for review. Keep at least 12 testers opted in for 14 days in a row.</li>
+    <li><b>Screenshots:</b> Grow users → Store presence → Main store listing → Phone screenshots: upload the four from <code>plain/en/</code>. Do the same per translation with <code>plain/ar</code>, <code>plain/fr</code>, <code>plain/es</code>.</li>
+    <li><b>Translations:</b> on the same page, Manage translations → Add your own translations → Arabic, French (France), Spanish (Spain) and, if you like, Spanish (Latin America). Paste the three boxes per language from section 2.</li>
+    <li><b>Firebase App Check for judges:</b> section 3, step C (10 minutes). Also set a billing budget alert in Google Cloud (for example US$10).</li>
+    <li><b>GitHub repository and release:</b> section 3 (about 30 minutes).</li>
+    <li><b>Video:</b> 3 minutes or less, English, public on YouTube. Script: <code>docs/hackathon/VIDEO_SCRIPT.md</code>. Paste the link into the Devpost "Video" field.</li>
+    <li><b>Devpost:</b> paste the answers from section 4, add the thumbnail <code>docs/hackathon/thumbnail.png</code>, and submit before the deadline.</li>
+  </ol>
+</section>
+
+<section>
+  <span class="eyebrow">2 · Google Play</span>
+  <h2>Store listing translations</h2>
+  <p>Each box fits Play's limits. The Arabic one keeps the Latin wordmark <b>femio</b> and Western digits. A native reader has not checked these yet; that can happen after launch.</p>
+  <!--LISTINGS-->
+</section>
+
+<section>
+  <span class="eyebrow">3 · For the judges</span>
+  <h2>Your first GitHub release, step by step</h2>
+  <p><b>In plain words:</b> a <i>repository</i> is a project folder on GitHub. A <i>release</i> is a page in that repository with a version name (the <i>tag</i>, here <code>v1.0.0-hackathon</code>) and files people can download, here the APK. Judges open the release page on their phone, tap the APK and install it.</p>
+  <p><b>My recommendation:</b> make a new, clean public repository <code>femio-app</code> holding only the app (your Devpost text already points there). The export script copies only committed app files and refuses to run if it finds a secret.</p>
+  <div class="note"><b>Your big <code>Femio</code> repository is public right now.</b> It holds no keys, but it shows your personal e-mail and the internal plans. Once <code>femio-app</code> is live, I recommend making <code>Femio</code> private again: GitHub → Femio → Settings → General → Danger Zone → Change visibility → Private. Vercel keeps deploying the website either way.</div>
+
+  <h3>A · Create the public repository (Git Bash, about 10 minutes)</h3>
+<pre>cd /e/Femio
+git pull
+node scripts/hackathon/export-public-app.mjs /e/femio-app-public</pre>
+  <p>It must end with <code>secret scan clean</code>. If it says <code>refusing</code>, stop and paste the output to me.</p>
+<pre>cd /e/femio-app-public
+git init -b main
+git add README.md LICENSE HISTORY.md .github scripts apps fixtures
+git commit -m "femio app: public export for #BuildHybridAI"
+gh repo create KhaledHassanein/femio-app --public --source . --remote origin --push --description "femio: private women's health app with hybrid AI (Gemini Nano on the phone, opt-in Cloud boost) via Firebase AI Logic" --homepage https://femioapp.com</pre>
+  <p>Open <a href="https://github.com/KhaledHassanein/femio-app">github.com/KhaledHassanein/femio-app</a> in a private window: you should see "Apache-2.0 license" on the right, and no <code>assistant.env</code> file.</p>
+
+  <h3>B · Attach the APK as a release (about 5 minutes)</h3>
+  <p>The build 2 APK is already built and checked: it is signed with your own key (<code>CN=Khaled Hassanein</code>, not a debug key) and has version code 2.</p>
+<pre>cp /e/femio-builds/femio-1.0.0-build2.apk /e/femio-hackathon.apk
+gh release create v1.0.0-hackathon /e/femio-hackathon.apk -R KhaledHassanein/femio-app --title "femio 1.0.0 for #BuildHybridAI" --notes "Android 8.0 or later, 64-bit. Install: allow your browser to install unknown apps, open the APK, and if Play Protect warns, choose More details, then Install anyway. If femio from Google Play is already on the phone, uninstall it first. SHA-256: b6d83592227634bd33651eb535de246375ac6b9305602643f199ce024d833ded. Gemini Nano runs on supported phones (for example Pixel 9 or newer). Cloud boost needs a real phone with Google Play services."</pre>
+  <p><b>No commands option:</b> on the repository page, Releases → Draft a new release → Choose a tag → type <code>v1.0.0-hackathon</code> → Create new tag → title and notes as above → drag <code>femio-hackathon.apk</code> into the box → Publish release.</p>
+
+  <h3>C · App Check, so judges' copies can use Cloud boost (Firebase console, 10 minutes)</h3>
+  <ol>
+    <li>Project settings → your Android app → Add fingerprint → paste the upload-key SHA-256:<br><code>66:71:d6:bd:79:cd:25:65:1e:b8:ba:87:ab:b3:6b:e0:be:c9:6c:06:83:c6:05:b5:21:48:40:b1:80:dd:0b:01</code></li>
+    <li>App Check → Apps → Android app → Play Integrity → settings: app recognition <b>not required</b>, licensing <b>not required</b>, device integrity <b>required</b>. Console labels may differ a little from these words.</li>
+    <li>App Check → APIs → Firebase AI Logic: leave it <b>Enforced</b>.</li>
+    <li>After judging, set app recognition back to <b>required</b>, so copies from outside Play are refused again.</li>
+  </ol>
+
+  <h3>What to expect</h3>
+  <ul>
+    <li><b>The release page</b> shows your APK plus two automatic "Source code" downloads. GitHub counts downloads per file.</li>
+    <li><b>On a judge's phone:</b> Chrome warns "file might be harmful" (they tap Download anyway). Android asks to allow installs from Chrome. Play Protect may say "unknown app" or offer a scan (they tap More details → Install anyway). This is normal for every app shared outside Play.</li>
+    <li><b>"App not installed":</b> a copy from your Play closed test is signed by Google's key, the GitHub copy by yours, so Android refuses to mix them. The fix is to uninstall the first one.</li>
+    <li><b>Gemini Nano</b> works only on phones with Android AICore (recent Pixels, some Galaxy and other flagships). On the first use the model downloads in the background. On other phones every feature still works on femio's rules.</li>
+    <li><b>Cost:</b> only Cloud boost calls cost money (Gemini paid tier). Judge traffic is small, and the budget alert covers you.</li>
+    <li><b>After the deadline</b>, changes you push are not judged. Leave the release as it is until results come out.</li>
+  </ul>
+</section>
+
+<section>
+  <span class="eyebrow">4 · Devpost</span>
+  <h2>Updated form answers</h2>
+  <p>New since your last version: build 2 asks for Gemini Nano 4 first and falls back to the stable model; the website demo page is in "Try it out"; the testing steps name the real release link and file. Paste each box into the field with the same name. The video link is still yours to add.</p>
+  <!--DEVPOST-->
+</section>
+
+<section>
+  <span class="eyebrow">5 · Privacy</span>
+  <h2>Is it safe to say "private by design"?</h2>
+  <p><b>Yes, keep it.</b> Saying it is not what got Flo in trouble. The trouble was saying it while the app did the opposite. In 2021 the US FTC found that Flo promised to keep health data private yet sent users' period and pregnancy events to Facebook and Google analytics through SDKs (<a href="https://www.ftc.gov/legal-library/browse/cases-proceedings/192-3133-flo-health-inc">FTC case page</a>). Premom got the same treatment in 2023 (<a href="https://www.ftc.gov/news-events/news/press-releases/2023/05/ovulation-tracking-app-premom-will-be-barred-sharing-health-data-advertising-under-proposed-ftc">FTC</a>). The risk is a promise that the code does not keep.</p>
+  <p><b>Why femio is on the safe side:</b> the app has no ads, no analytics and no tracking SDK. Her record stays on the phone. Cloud boost is off by default, asks per purpose, shows the exact text, and keeps a dated receipt. The privacy notice lists everything that can leave the phone, including Google's ML Kit technical usage data and the model download. The lawyer has the full review (sent 27 Nov).</p>
+  <h3>Wording rules that keep you safe</h3>
+  <div class="tw"><table>
+    <tr><th>Say</th><th>Avoid</th></tr>
+    <tr><td>"Your records stay on your phone."</td><td>"Nothing ever leaves your phone." (Cloud boost and the model download do, with her choice)</td></tr>
+    <tr><td>"No account, no ads, no analytics in the app."</td><td>"100% anonymous", "untraceable", "HIPAA-compliant"</td></tr>
+    <tr><td>"Cloud boost is off unless you turn it on; you see the exact text first."</td><td>"Your data is never shared with anyone."</td></tr>
+    <tr><td>"Private by design" next to one line that says how</td><td>"Private by design" alone as the whole promise</td></tr>
+  </table></div>
+  <div class="note"><b>One line to fix (my recommendation):</b> the website's app page says "Your records never leave your phone." That is true for the record itself, but it reads as absolute next to Cloud boost. I suggest "Your records stay on your phone. Cloud boost is opt-in." Say yes and I will change it in all four languages.</div>
+  <p class="mono" style="background:none;padding:0">This is guidance, not legal advice. The lawyer's review is the final word.</p>
+</section>
+
+<section>
+  <span class="eyebrow">6 · Optional, recommended</span>
+  <h2>Last check on a real Nano phone</h2>
+  <p>Android Studio → Device Manager → Firebase / Remote devices → choose a Pixel 9 Pro or newer → Start. Tell me "device connected" and I will install build 2, check that Nano 4 (or the stable fallback) answers, run Ask, Say it, scan and speech, and read the logs. This closes the two "not verified" rows above.</p>
+</section>
+</main>
+
+<script>
+document.querySelectorAll('.btn-copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var pre=b.closest('.copy').querySelector('pre');var t=pre.textContent;
+    var done=function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1500)};
+    var sel=function(){var r=document.createRange();r.selectNodeContents(pre);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected: press Ctrl+C'};
+    try{navigator.clipboard.writeText(t).then(done,sel)}catch(e){sel()}
+  });
+});
+</script>

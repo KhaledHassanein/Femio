@@ -1,0 +1,397 @@
+<title>femio Launch Guide</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Plus+Jakarta+Sans:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+/* Layout: one reading column, a verdict band on top, then numbered owner steps. Template for scripts/hackathon/build-final-guide.py. */
+:root{
+  --bg:#FAF6F8; --surface:#FFFFFF; --sunken:#F3EAF0; --fg:#2A1726; --muted:#6E5A69;
+  --line:#E6D7E1; --accent:#8A3572; --accent-soft:#F5E3EF; --ok:#2F7A4F; --ok-soft:#E3F2E9;
+  --warn:#9A5B00; --warn-soft:#FBEFD9;
+  --f-display:"Newsreader",Georgia,serif; --f-body:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;
+  --f-ar:"IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif; --f-mono:"JetBrains Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#1A1219; --surface:#241A22; --sunken:#19111A; --fg:#F4E9F0; --muted:#BBA6B5; --line:#3D2C39;
+  --accent:#DDA2C8; --accent-soft:#3F1534; --ok:#7FD0A0; --ok-soft:#173326; --warn:#F2C26B; --warn-soft:#3A2A10; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1A1219; --surface:#241A22; --sunken:#19111A; --fg:#F4E9F0; --muted:#BBA6B5; --line:#3D2C39;
+  --accent:#DDA2C8; --accent-soft:#3F1534; --ok:#7FD0A0; --ok-soft:#173326; --warn:#F2C26B; --warn-soft:#3A2A10; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 var(--f-body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 64px}
+main{max-width:46rem;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:2.3rem} h2{font-size:1.6rem} h3{font-size:1.15rem;font-family:var(--f-body);font-weight:700}
+p,li{max-width:65ch} p{margin:0} ul,ol{margin:0;padding-inline-start:1.3rem;display:flex;flex-direction:column;gap:6px}
+section{display:flex;flex-direction:column;gap:14px}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.verdict{background:var(--ok-soft);border:1px solid var(--ok);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.verdict strong.big{font-family:var(--f-display);font-size:1.5rem;color:var(--ok)}
+.note{background:var(--warn-soft);border-inline-start:3px solid var(--warn);padding:12px 14px;border-radius:6px}
+code,.mono{font-family:var(--f-mono);font-size:.86em;background:var(--sunken);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+pre{font-family:var(--f-mono);font-size:.82rem;background:var(--sunken);padding:12px;border-radius:8px;overflow-x:auto;white-space:pre-wrap;margin:0;line-height:1.5}
+pre[dir="rtl"]{font-family:var(--f-ar);font-size:.95rem}
+table{border-collapse:collapse;width:100%;font-size:.93rem} .tw{overflow-x:auto}
+th,td{text-align:start;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:700;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
+.copy{display:flex;flex-direction:column;gap:6px;min-width:0}
+.copy-head{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-weight:700;font-size:.92rem}
+.count{color:var(--muted);font-weight:400;font-size:.8rem;font-variant-numeric:tabular-nums}
+.btn-copy{margin-inline-start:auto;font:inherit;font-size:.82rem;padding:4px 12px;border-radius:999px;border:1px solid var(--accent);background:var(--surface);color:var(--accent);cursor:pointer}
+.btn-copy:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+details.lang{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--surface)}
+details.lang[open]{display:flex;flex-direction:column;gap:14px}
+summary{cursor:pointer;font-weight:700}
+.steps>li::marker{color:var(--accent);font-weight:700}
+.pill{display:inline-block;font-size:.75rem;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.pill.ok{background:var(--ok-soft);color:var(--ok)} .pill.warn{background:var(--warn-soft);color:var(--warn)}
+a{color:var(--accent)}
+</style>
+
+<main>
+<header style="display:flex;flex-direction:column;gap:8px">
+  <span class="eyebrow">femio · 28 November 2026 · build 2 (1.0.0, version code 2)</span>
+  <h1>femio Launch Guide</h1>
+  <p>Everything left before the hackathon deadline (30 Nov, 2:00 PM PT = 1 Dec, midnight Cairo) and the Play production release, in order.</p>
+</header>
+
+<section>
+  <div class="verdict">
+    <span class="eyebrow">Are we set to go?</span>
+    <strong class="big">Yes, from the code side.</strong>
+    <p>Build 2 is built, signed with your upload key and tested: all 1,457 app tests pass, and the website gate passes. What is left is yours to do: console clicks, the GitHub release, the video and the Devpost form.</p>
+  </div>
+  <div class="tw"><table>
+    <tr><th>Item</th><th>State</th><th>Where</th></tr>
+    <tr><td>Android app, build 2 (Nano 4 first, stable Nano fallback)</td><td><span class="pill ok">ready</span></td><td><code>E:\femio-builds\femio-1.0.0-build2.apk</code> and <code>.aab</code></td></tr>
+    <tr><td>Plain store screenshots, 4 per language × 4 languages</td><td><span class="pill ok">ready</span></td><td><code>docs/store/screenshots/plain/{en,ar,fr,es}/</code></td></tr>
+    <tr><td>Website: "Coming soon", new app screens, <code>/demo</code> page</td><td><span class="pill ok">deployed</span></td><td><a href="https://femioapp.com/en/demo">femioapp.com/en/demo</a></td></tr>
+    <tr><td>Website demos use no AI, no tokens, no Firebase calls</td><td><span class="pill ok">checked</span></td><td>network audit: only the site's own search index loads</td></tr>
+    <tr><td>Store listings EN / AR / FR / ES</td><td><span class="pill ok">ready</span></td><td>section 2 below</td></tr>
+    <tr><td>Gemini Nano 4 on a real phone</td><td><span class="pill warn">not verified</span></td><td>remote-device test with me (section 6)</td></tr>
+    <tr><td>Cloud boost from the sideloaded APK with App Check on</td><td><span class="pill warn">not verified</span></td><td>section 3, step C</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <span class="eyebrow">1 · Your steps, in order</span>
+  <h2>What to do now</h2>
+  <ol class="steps">
+    <li><b>Play Console, closed testing:</b> Test and release → Closed testing → your track → Create new release → upload <code>femio-1.0.0-build2.aab</code> (it replaces build 1) → Next → Save → Send for review. Keep at least 12 testers opted in for 14 days in a row.</li>
+    <li><b>Screenshots:</b> Grow users → Store presence → Main store listing → Phone screenshots: upload the four from <code>plain/en/</code>. Do the same per translation with <code>plain/ar</code>, <code>plain/fr</code>, <code>plain/es</code>.</li>
+    <li><b>Translations:</b> on the same page, Manage translations → Add your own translations → Arabic, French (France), Spanish (Spain) and, if you like, Spanish (Latin America). Paste the three boxes per language from section 2.</li>
+    <li><b>Firebase App Check for judges:</b> section 3, step C (10 minutes). Also set a billing budget alert in Google Cloud (for example US$10).</li>
+    <li><b>GitHub repository and release:</b> section 3 (about 30 minutes).</li>
+    <li><b>Video:</b> 3 minutes or less, English, public on YouTube. Script: <code>docs/hackathon/VIDEO_SCRIPT.md</code>. Paste the link into the Devpost "Video" field.</li>
+    <li><b>Devpost:</b> paste the answers from section 4, add the thumbnail <code>docs/hackathon/thumbnail.png</code>, and submit before the deadline.</li>
+  </ol>
+</section>
+
+<section>
+  <span class="eyebrow">2 · Google Play</span>
+  <h2>Store listing translations</h2>
+  <p>Each box fits Play's limits. The Arabic one keeps the Latin wordmark <b>femio</b> and Western digits. A native reader has not checked these yet; that can happen after launch.</p>
+  <details class="lang"><summary>Arabic</summary><div class="copy"><div class="copy-head"><span>App name (max 30)</span><span class="count">29 chars</span><button type="button" class="btn-copy">Copy</button></div><pre dir="rtl" lang="ar">femio: الدورة والتبويض والحمل</pre></div><div class="copy"><div class="copy-head"><span>Short description (max 80)</span><span class="count">65 chars</span><button type="button" class="btn-copy">Copy</button></div><pre dir="rtl" lang="ar">تتبّعي الدورة والتبويض والحمل. سجلاتكِ تبقى على هاتفكِ وبلا حساب.</pre></div><div class="copy"><div class="copy-head"><span>Full description (max 4,000)</span><span class="count">3694 chars</span><button type="button" class="btn-copy">Copy</button></div><pre dir="rtl" lang="ar">femio: صحة المرأة وعافيتها بمساعدة الذكاء الاصطناعي. تطبيق خاص لتتبّع الدورة الشهرية والتبويض ومحاولة الحمل ثم الحمل. اعرفي موعد دورتكِ القادمة وأيام الخصوبة كنطاق صادق، ثم تابعي حملكِ أسبوعًا بأسبوع. سجلاتكِ تبقى على هاتفكِ: بلا حساب ولا إعلانات ولا أدوات تحليل خاصة بنا.
+
+لماذا femio؟
+• خصوصية في التصميم: بلا حساب ولا تسجيل ولا إعلانات ولا أدوات تحليل خاصة بنا. تُحفظ بياناتكِ مشفّرة على هاتفكِ خلف قفل تختارينه أنتِ، وأنتِ من تقرّر متى تحفظين ملف نسخة احتياطية وأين.
+• توقعات أمينة: يعرض femio موعد دورتكِ القادمة وأيام الخصوبة كنطاق مع درجة ثقة، لا كيوم واحد &quot;مؤكد&quot;. وإن كانت دورتكِ غير منتظمة أو لديكِ تكيس المبايض، فلا عدّاد للتأخير ولا دقة زائفة.
+• مساعد يحترم خصوصيتكِ: «اسألي femio» يجيب من المصادر الموثوقة وحدها، مع ذكر المصدر. و«قوليها بكلماتكِ» يحوّل &quot;أمس تقلصات واليوم تنقيط&quot;، حتى لو شملت عدة أيام في ملاحظة واحدة، إلى سجلات تراجعينها أولًا؛ ولا يُحفظ شيء حتى تضغطي الزر الذي يذكر عدد ما سيُحفظ. وقسم «لكِ» يقترح نصائح، و«لماذا أرى هذا؟» يعرض المعطيات وراء كل نصيحة، و«ماذا فعل الذكاء الاصطناعي» يسرد كل مرة استخدم فيها femio نموذجًا. كل ذلك يعمل على هاتفكِ حيث يدعم Gemini Nano، وإلا يستخدم femio قائمة كلماته الخاصة.
+• معلومات كتبها طبيب، مع مصادرها: مكتبة داخل التطبيق تشرح التبويض وتكيس المبايض وبداية الحمل وكل أسبوع من أسابيعه، وكل مقال يذكر مصادره.
+• كل شيء متاح لكِ: تتكيّف الشاشة الرئيسية مع مرحلتكِ (متابعة الدورة أو محاولة الحمل أو الحمل أو تكيس المبايض)، ويبقى كل مقال وكل أداة على بُعد لمسة.
+• سجل واحد يكبر معكِ: حين تنتقلين من محاولة الحمل إلى الحمل، يضيف femio الحمل إلى السجل نفسه، ولا يُحذف شيء.
+• العربية والإنجليزية والفرنسية والإسبانية، بتخطيط من اليمين إلى اليسار، مع التاريخ الهجري إلى جانب الميلادي.
+
+محاولة الحمل
+• متابعة الدورة والتبويض (الإباضة) على تقويم واضح
+• حاسبة أيام الخصوبة كنطاق يتجدد من أطوال دوراتكِ أنتِ
+• تسجيل الأعراض واختبارات التبويض وإفرازات عنق الرحم
+• «علامات سجّلتِها في هذه الدورة»: آخر إفرازات واختبار تبويض ودرجة حرارة، كما سجّلتِها، دون أي حكم
+• إرشاد واضح عن الوقت المناسب للحديث مع الطبيب
+
+تكيس المبايض والدورة غير المنتظمة
+• وضع مخصص للدورات الطويلة أو غير المتوقعة
+• تابعي ما يهم طبيبتكِ: طول الدورة والبشرة والشعر والوزن
+• مقالات موثّقة عن تكيس المبايض والحمل
+
+الحمل
+• موعد الولادة المتوقع وأسبوع الحمل والثلث الذي أنتِ فيه
+• دليل أسبوعي من الأسبوع 4 حتى الأسبوع 40
+• حاسبة موعد الولادة وتقويم الحمل ونطاق زيادة الوزن، بلا حفظ لأي شيء
+• سجل لحركة الجنين ومؤقّت للانقباضات، لا يُصدران حكمًا، ويوجّهانكِ إلى الرعاية حين يلزم
+• مواعيدكِ محفوظة على هاتفكِ، مع تذكير قبلها بيوم إن رغبتِ
+
+خصوصية في التصميم
+• ملف زيارة بأسئلتكِ أنتِ، بلغة ثانية إن احتاجت العيادة، تشاركينه عبر قائمة المشاركة في هاتفكِ
+• التذكيرات تسأل أولًا: تختارين تذكير التسجيل اليومي أو نطاق الدورة أو الموعد أو الدواء. ولا تقول إلا &quot;femio: افتحي التطبيق&quot;، ما لم تكتبي كلماتكِ لتذكير دواء
+• قفل للتطبيق وتخزين مشفّر على هاتفكِ
+• نسخة احتياطية واستعادتها من ملف تحفظينه بنفسكِ
+• حذف كل شيء بخطوة واحدة
+• «Cloud boost» متوقف ما لم تفعّليه. وللهواتف التي لا تحمل ذكاءً اصطناعيًا على الجهاز فقط، ولا يعمل إلا بموافقتكِ: يرسل سؤالًا عامًا توافقين عليه (بعد حذف الأرقام وعناوين البريد الإلكتروني والروابط منه، وترين النص كما هو وتعدّلينه قبل إرساله) أو أربع معلومات عامة إلى ذكاء Google الاصطناعي. لا يرسل سجلّكِ ولا ملاحظاتكِ ولا تواريخكِ أبدًا.
+• يتولى Google Play طلب التقييم العارض وتحديثات التطبيق، ولا يرسل femio أي شيء من بياناتكِ في الحالتين.
+
+تنبيه مهم
+femio للتثقيف والمتابعة فقط. ليس جهازًا طبيًا، ولا يشخّص أي حالة صحية ولا يعالجها ولا يشفيها ولا يقي منها. التوقعات تقديرات وليست ضمانات، ولا تصلح وسيلةً لمنع الحمل. استشيري طبيبتكِ أو طبيبكِ دائمًا في ما يخص صحتكِ. وإن لاحظتِ نزيفًا شديدًا أو ألمًا قويًا أو قلّة في حركة الجنين، فاطلبي الرعاية الطبية فورًا.
+
+femio من KM Digital Labs، وقد أسّسها طبيب في القاهرة. للأسئلة والملاحظات: info@femioapp.com.</pre></div></details>
+<details class="lang"><summary>French</summary><div class="copy"><div class="copy-head"><span>App name (max 30)</span><span class="count">30 chars</span><button type="button" class="btn-copy">Copy</button></div><pre>femio : ovulation et grossesse</pre></div><div class="copy"><div class="copy-head"><span>Short description (max 80)</span><span class="count">70 chars</span><button type="button" class="btn-copy">Copy</button></div><pre>Règles, ovulation, grossesse. Vos données restent sur votre téléphone.</pre></div><div class="copy"><div class="copy-head"><span>Full description (max 4,000)</span><span class="count">3995 chars</span><button type="button" class="btn-copy">Copy</button></div><pre>femio : santé et bien-être des femmes, assistés par l&#x27;IA. Une application privée pour suivre vos règles, votre ovulation, votre projet de bébé et votre grossesse. Voyez vos prochaines règles et vos jours fertiles en fourchette, puis suivez votre grossesse semaine après semaine. Vos données restent sur votre téléphone : pas de compte, de publicité ni d&#x27;analyse de notre part.
+
+Pourquoi femio
+• Confidentialité dès la conception. Ni compte, ni publicité, ni analyse de notre part. Journal chiffré sur votre téléphone, derrière un verrouillage de votre choix. Vous décidez quand enregistrer une sauvegarde, et où.
+• Des prévisions réalistes. femio affiche vos prochaines règles et votre fenêtre de fertilité sous forme de fourchette avec un niveau de confiance, jamais une date « certaine ». Cycles irréguliers ou SOPK (syndrome des ovaires polykystiques) : pas de compteur de retard ni de fausse précision.
+• Un assistant respectueux de votre vie privée. « Demander à femio » répond uniquement à partir de sources fiables, avec références. « Dites-le avec vos mots » transforme « hier crampes, aujourd&#x27;hui spotting » en entrées à vérifier ; rien n&#x27;est enregistré avant votre appui. « Pour vous » propose des conseils, et « Pourquoi je vois ça ? » montre les faits derrière chacun. « Ce que l&#x27;IA a fait » liste chaque usage d&#x27;un modèle. Tout tourne sur votre téléphone s&#x27;il a Gemini Nano ; sinon, femio utilise sa propre liste de mots.
+• Rédigé par un médecin : chaque article de la bibliothèque cite ses sources.
+• Un seul dossier qui évolue avec vous : la grossesse s&#x27;ajoute au même dossier, rien n&#x27;est supprimé.
+• Anglais, arabe, français, espagnol ; de droite à gauche ; dates hégiriennes et grégoriennes.
+
+Projet de bébé
+• Suivi des règles et de l&#x27;ovulation sur un calendrier
+• Votre fenêtre de fertilité sous forme de fourchette, mise à jour d&#x27;après vos propres cycles
+• Notez symptômes, tests d&#x27;ovulation et glaire cervicale
+• « Signes notés ce cycle » : sécrétions, test d&#x27;ovulation et température tels que notés, sans verdict
+
+SOPK et cycles irréguliers
+• Un mode conçu pour les cycles longs ou imprévisibles
+• Suivez ce qui compte pour votre médecin : cycle, peau, poids
+
+Grossesse
+• Date prévue d&#x27;accouchement, semaine de grossesse et trimestre
+• Guide semaine par semaine, des semaines 4 à 40
+• Calculateur de date d&#x27;accouchement, calendrier de grossesse, prise de poids : rien n&#x27;est enregistré
+• Journal des mouvements du bébé et minuteur de contractions, sans verdict, qui vous orientent vers des soins au besoin
+• Rendez-vous sur votre téléphone, avec rappel la veille si besoin
+
+Confidentialité dès la conception
+• Dossier de consultation avec vos questions, en deuxième langue si besoin, partagé via le menu de partage
+• Rappels après accord. Ils disent seulement « femio : Ouvrez l&#x27;application », sauf si vous écrivez vos mots pour un rappel de médicament
+• Sauvegarde et restauration depuis un fichier que vous enregistrez
+• Tout supprimer en une seule étape
+• Cloud boost reste désactivé sauf si vous l&#x27;activez. Pour les téléphones sans IA embarquée, et avec votre accord seulement, il envoie à l&#x27;IA de Google une question générale que vous approuvez (sans nombres, e-mails ni liens ; texte exact visible et modifiable avant) ou quatre faits généraux. Jamais votre journal, vos notes ni vos dates.
+• Google Play gère les mises à jour et la demande d&#x27;avis ; femio ne lui envoie rien de vous.
+
+Important
+femio est destiné à l&#x27;éducation et au suivi uniquement. Ce n&#x27;est pas un dispositif médical : il ne diagnostique, ne traite, ne guérit ni ne prévient aucune affection médicale. Les prévisions sont des estimations, non des garanties, et ne constituent pas un moyen de contraception. Parlez toujours de votre santé à votre médecin ou à votre sage-femme. En cas de saignements abondants, de douleur intense ou de moins de mouvements du bébé, consultez immédiatement.
+
+femio est créé par KM Digital Labs, fondé par un médecin au Caire. Questions ou remarques : info@femioapp.com.</pre></div></details>
+<details class="lang"><summary>Spanish</summary><div class="copy"><div class="copy-head"><span>App name (max 30)</span><span class="count">27 chars</span><button type="button" class="btn-copy">Copy</button></div><pre>femio: ovulación y embarazo</pre></div><div class="copy"><div class="copy-head"><span>Short description (max 80)</span><span class="count">68 chars</span><button type="button" class="btn-copy">Copy</button></div><pre>Regla, ovulación y embarazo. Tus registros se quedan en tu teléfono.</pre></div><div class="copy"><div class="copy-head"><span>Full description (max 4,000)</span><span class="count">3975 chars</span><button type="button" class="btn-copy">Copy</button></div><pre>femio: salud y bienestar de la mujer, con ayuda de IA. Una aplicación privada para seguir tu regla (período), tu ovulación, la búsqueda de embarazo y el embarazo. Ve tu próxima regla y tu ventana fértil como un rango realista y sigue después tu embarazo semana a semana. Tus registros se quedan en tu teléfono: sin cuenta, sin anuncios, sin analítica propia.
+
+Por qué femio
+• Privacidad desde el diseño. Sin cuenta, sin anuncios, sin analítica propia. Diario cifrado en tu teléfono, tras un bloqueo que tú eliges. Tú decides cuándo guardar un archivo de copia de seguridad, y dónde.
+• Predicciones realistas. femio muestra tu próxima regla y tu ventana fértil como un rango con un nivel de confianza, nunca una fecha «segura». Si tus ciclos son irregulares o tienes SOP (síndrome de ovario poliquístico), no hay contador de retraso ni falsa precisión.
+• Un asistente que respeta tu privacidad. «Pregunta a femio» responde solo con fuentes fiables y las cita. «Dilo con tus palabras» convierte «ayer cólicos, hoy manchado» en entradas que revisas; no se guarda nada hasta que tocas el botón. «Para ti» sugiere consejos, y «¿Por qué veo esto?» muestra los datos detrás de cada uno. «Lo que hizo la IA» lista cada uso de un modelo. Todo funciona en tu teléfono si admite Gemini Nano; si no, femio usa su propia lista de palabras.
+• Escrito por un médico. Cada artículo de la biblioteca enumera sus fuentes.
+• Todo sigue a tu alcance, en un solo registro que crece contigo: cuando pasas de buscar embarazo a estar embarazada, femio añade el embarazo al mismo registro. No se borra nada.
+• Inglés, árabe, francés y español, con diseño de derecha a izquierda y fechas hiyrí junto a las gregorianas.
+
+Búsqueda de embarazo
+• Seguimiento de la regla y la ovulación en un calendario
+• Tu ventana fértil como un rango, actualizada con tus propios ciclos
+• Registra síntomas, pruebas de ovulación y moco cervical
+• «Señales de este ciclo»: tu último flujo, prueba de ovulación y temperatura, tal como los registraste, sin veredicto
+• Cuándo hablar con un médico, con claridad
+
+SOP y ciclos irregulares
+• Un modo pensado para ciclos largos o imprevisibles
+• Sigue lo que le importa a tu médico: duración del ciclo, piel, cabello y peso
+
+Embarazo
+• Fecha probable de parto, semana de embarazo y trimestre
+• Una guía semana a semana, de la semana 4 a la 40
+• Calculadora de fecha de parto, calendario del embarazo y rango de aumento de peso, sin guardar nada
+• Registro de movimientos del bebé y temporizador de contracciones que nunca dan un veredicto y te indican cuándo buscar atención
+• Tus citas en tu teléfono, con aviso el día anterior si quieres
+
+Privacidad desde el diseño
+• Carpeta de consulta con tus propias preguntas, en un segundo idioma si hace falta, compartida con el menú de compartir
+• Los recordatorios preguntan primero. Solo dicen «femio: Abre la app», salvo que escribas tus palabras para un recordatorio de medicamento
+• Copia de seguridad y restauración desde un archivo que tú guardas
+• Borra todo en un solo paso
+• Cloud boost está desactivado salvo que tú lo actives. Solo para teléfonos sin IA integrada, y solo si tú lo aceptas, envía a la IA de Google una pregunta general que tú apruebas (sin números, correos ni enlaces; ves y editas el texto exacto antes) o cuatro datos generales. Nunca tu diario, tus notas ni tus fechas.
+• Google Play gestiona las actualizaciones y la solicitud ocasional de valoración; femio no le envía nada tuyo.
+
+Importante
+femio es solo para educación y seguimiento. No es un producto sanitario y no diagnostica, trata, cura ni previene ninguna afección médica. Las predicciones son estimaciones, no garantías, y no sirven como método anticonceptivo. Consulta siempre a tu médico o matrona sobre tu salud. Si notas sangrado abundante, dolor intenso o menos movimientos del bebé, busca atención médica de inmediato.
+
+femio lo desarrolla KM Digital Labs, fundado por un médico en El Cairo. Preguntas o comentarios: info@femioapp.com.</pre></div></details>
+</section>
+
+<section>
+  <span class="eyebrow">3 · For the judges</span>
+  <h2>Your first GitHub release, step by step</h2>
+  <p><b>In plain words:</b> a <i>repository</i> is a project folder on GitHub. A <i>release</i> is a page in that repository with a version name (the <i>tag</i>, here <code>v1.0.0-hackathon</code>) and files people can download, here the APK. Judges open the release page on their phone, tap the APK and install it.</p>
+  <p><b>My recommendation:</b> make a new, clean public repository <code>femio-app</code> holding only the app (your Devpost text already points there). The export script copies only committed app files and refuses to run if it finds a secret.</p>
+  <div class="note"><b>Your big <code>Femio</code> repository is public right now.</b> It holds no keys, but it shows your personal e-mail and the internal plans. Once <code>femio-app</code> is live, I recommend making <code>Femio</code> private again: GitHub → Femio → Settings → General → Danger Zone → Change visibility → Private. Vercel keeps deploying the website either way.</div>
+
+  <h3>A · Create the public repository (Git Bash, about 10 minutes)</h3>
+<pre>cd /e/Femio
+git pull
+node scripts/hackathon/export-public-app.mjs /e/femio-app-public</pre>
+  <p>It must end with <code>secret scan clean</code>. If it says <code>refusing</code>, stop and paste the output to me.</p>
+<pre>cd /e/femio-app-public
+git init -b main
+git add README.md LICENSE HISTORY.md .github scripts apps fixtures
+git commit -m "femio app: public export for #BuildHybridAI"
+gh repo create KhaledHassanein/femio-app --public --source . --remote origin --push --description "femio: private women's health app with hybrid AI (Gemini Nano on the phone, opt-in Cloud boost) via Firebase AI Logic" --homepage https://femioapp.com</pre>
+  <p>Open <a href="https://github.com/KhaledHassanein/femio-app">github.com/KhaledHassanein/femio-app</a> in a private window: you should see "Apache-2.0 license" on the right, and no <code>assistant.env</code> file.</p>
+
+  <h3>B · Attach the APK as a release (about 5 minutes)</h3>
+  <p>The build 2 APK is already built and checked: it is signed with your own key (<code>CN=Khaled Hassanein</code>, not a debug key) and has version code 2.</p>
+<pre>cp /e/femio-builds/femio-1.0.0-build2.apk /e/femio-hackathon.apk
+gh release create v1.0.0-hackathon /e/femio-hackathon.apk -R KhaledHassanein/femio-app --title "femio 1.0.0 for #BuildHybridAI" --notes "Android 8.0 or later, 64-bit. Install: allow your browser to install unknown apps, open the APK, and if Play Protect warns, choose More details, then Install anyway. If femio from Google Play is already on the phone, uninstall it first. SHA-256: b6d83592227634bd33651eb535de246375ac6b9305602643f199ce024d833ded. Gemini Nano runs on supported phones (for example Pixel 9 or newer). Cloud boost needs a real phone with Google Play services."</pre>
+  <p><b>No commands option:</b> on the repository page, Releases → Draft a new release → Choose a tag → type <code>v1.0.0-hackathon</code> → Create new tag → title and notes as above → drag <code>femio-hackathon.apk</code> into the box → Publish release.</p>
+
+  <h3>C · App Check, so judges' copies can use Cloud boost (Firebase console, 10 minutes)</h3>
+  <ol>
+    <li>Project settings → your Android app → Add fingerprint → paste the upload-key SHA-256:<br><code>66:71:d6:bd:79:cd:25:65:1e:b8:ba:87:ab:b3:6b:e0:be:c9:6c:06:83:c6:05:b5:21:48:40:b1:80:dd:0b:01</code></li>
+    <li>App Check → Apps → Android app → Play Integrity → settings: app recognition <b>not required</b>, licensing <b>not required</b>, device integrity <b>required</b>. Console labels may differ a little from these words.</li>
+    <li>App Check → APIs → Firebase AI Logic: leave it <b>Enforced</b>.</li>
+    <li>After judging, set app recognition back to <b>required</b>, so copies from outside Play are refused again.</li>
+  </ol>
+
+  <h3>What to expect</h3>
+  <ul>
+    <li><b>The release page</b> shows your APK plus two automatic "Source code" downloads. GitHub counts downloads per file.</li>
+    <li><b>On a judge's phone:</b> Chrome warns "file might be harmful" (they tap Download anyway). Android asks to allow installs from Chrome. Play Protect may say "unknown app" or offer a scan (they tap More details → Install anyway). This is normal for every app shared outside Play.</li>
+    <li><b>"App not installed":</b> a copy from your Play closed test is signed by Google's key, the GitHub copy by yours, so Android refuses to mix them. The fix is to uninstall the first one.</li>
+    <li><b>Gemini Nano</b> works only on phones with Android AICore (recent Pixels, some Galaxy and other flagships). On the first use the model downloads in the background. On other phones every feature still works on femio's rules.</li>
+    <li><b>Cost:</b> only Cloud boost calls cost money (Gemini paid tier). Judge traffic is small, and the budget alert covers you.</li>
+    <li><b>After the deadline</b>, changes you push are not judged. Leave the release as it is until results come out.</li>
+  </ul>
+</section>
+
+<section>
+  <span class="eyebrow">4 · Devpost</span>
+  <h2>Updated form answers</h2>
+  <p>New since your last version: build 2 asks for Gemini Nano 4 first and falls back to the stable model; the website demo page is in "Try it out"; the testing steps name the real release link and file. Paste each box into the field with the same name. The video link is still yours to add.</p>
+  <div class="copy"><div class="copy-head"><span>Project name</span><span class="count">47 chars</span><button type="button" class="btn-copy">Copy</button></div><pre>Femio: AI Assisted Female Health &amp; Wellness App</pre></div>
+<div class="copy"><div class="copy-head"><span>Elevator pitch (200 max)</span><span class="count">192 chars</span><button type="button" class="btn-copy">Copy</button></div><pre>Private AI women&#x27;s health app: log symptoms in your words, get answers cited from trusted sources like CDC and MedlinePlus, personal tips, cycle insights and visit prep. Hybrid Gemini Nano AI.</pre></div>
+<div class="copy"><div class="copy-head"><span>About the project (paste as Markdown)</span><span class="count">10596 chars</span><button type="button" class="btn-copy">Copy</button></div><pre>## The problem
+A woman&#x27;s health questions don&#x27;t wait for clinic hours. At midnight she gets ads, forum guesses, or confident AI answers with no source. The apps that track her health usually ask her to upload the most private data she owns. Infertility affects about 1 in 6 people worldwide ([WHO, 2023](https://www.who.int/news/item/04-04-2023-1-in-6-people-globally-affected-by-infertility)), and PCOS affects an estimated 10–13% of women of reproductive age ([WHO fact sheet](https://www.who.int/news-room/fact-sheets/detail/polycystic-ovary-syndrome)). Yet good, private, sourced help is still hard to find.
+
+I&#x27;m a physician and clinical claims auditor. I built femio as the assistant I wanted my own patients to have: useful, sourced and private at the same time.
+
+## What femio does
+One app for her whole health life. It adapts its emphasis to her life stage without hiding anything: periods and cycle health, trying to conceive, pregnancy, the year after birth, PCOS and endometriosis, and perimenopause.
+
+- **Say it in your words.** She types how she feels (&quot;bad cramps and a headache since this morning&quot;, or &quot;yesterday light spotting, today cramps&quot;). femio&#x27;s word rules and, where the phone has it, Gemini Nano on the phone turn it into draft entries for each day she mentions: symptoms (including sleep problems), flow, mood and ovulation tests. She unticks anything wrong; nothing is saved until she taps Save.
+- **Ask femio.** Health questions answered only from a library of trusted sources carried on the phone: passages from CDC, MedlinePlus, the US Office on Women&#x27;s Health and NIH, with further reading from WHO, NHS, ACOG, RCOG and NICE. It works offline. Every answer numbers its sources and shows publisher, link and date. If the sources don&#x27;t cover it, femio says so instead of guessing.
+- **Cycle and pregnancy views.** Predictions shown as ranges with confidence, never a single certain date or a verdict.
+- **Personal tips.** Reviewed tips, each with its source, chosen on her phone from her life stage and what she logs; Gemini Nano only puts them in order. Reminders stay neutral.
+- **Visit prep.** A one-page summary of her recent months and a question list for her next appointment; she can write her worry in her own words and femio offers reviewed questions to match.
+- **She can check the AI.** &quot;What the AI can see&quot; lists, for each AI feature, where it runs and exactly what it receives. &quot;What the AI did&quot; is a list, kept only on her phone, of every model call; for a Cloud boost call it keeps the exact text that was sent, as her receipt.
+- **AI off, everything still works.** One switch turns every AI use off, on the phone and in the cloud. Each feature then answers from femio&#x27;s rules and shows the sources word for word.
+- **Safety before AI.** Red-flag wording (heavy bleeding with dizziness, reduced fetal movement, warning signs in the year after birth, thoughts of self-harm) opens emergency guidance and local help numbers before any model runs. femio educates and tracks; it never diagnoses and never replaces a clinician.
+- **Private by design.** No account, no ads, no analytics or tracking SDK in the app. Backup is a file she saves herself. The app has no network code of its own: it reaches the internet only through Firebase AI Logic and App Check, Android&#x27;s AICore (to download Gemini Nano), and Google Play (updates, ratings, purchases). Available in English, Arabic, French and Spanish.
+
+## Where the AI helps her, in plain words
+
+femio never asks her to &quot;chat with the AI&quot;. The AI shows up inside things she already does, and
+every one of them still works when the AI is off.
+
+- **She says her day in one sentence.** &quot;Cramps since this morning, tired, didn&#x27;t sleep&quot; becomes
+  today&#x27;s log, ready for her to tick and save, instead of hunting through forty buttons. She can
+  type it or tap the mic, and her voice is turned into text on the phone.
+- **She asks a question and gets a short answer she can trust.** Instead of a wall of search
+  results, she reads two or three plain sentences built only from the trusted medical sources
+  bundled in femio, with each source linked. Red-flag questions get the safety message first,
+  always, AI or not.
+- **Before a doctor visit**, the questions that matter most for her situation rise to the top of
+  her visit sheet, so the short appointment goes to what counts.
+- **Her tips follow where she is** (trying to conceive, pregnant, after birth, perimenopause, how
+  regular her cycles are, what she logs), so the first tip she sees fits her, not everyone.
+- **She photographs a lab report or prescription** (or picks a PDF), and Gemini Nano reads it on
+  the phone into results and medicines she checks line by line, with the report&#x27;s own date. The
+  page never leaves the phone; on a phone without Nano the document is simply saved.
+- **After a visit she says what the doctor told her**, and it becomes a draft of new medicines,
+  results and the next appointment for her to confirm.
+- **She asks in Arabic, French or Spanish**, and an on-device translator carries the question to
+  English for Gemini Nano and the cited answer back, still on the phone.
+- **Her voice becomes text with Gemini Nano** on phones that have it, and with Android&#x27;s own
+  on-device recognizer on the rest. No audio is ever sent.
+- **On a phone without built-in AI**, she can choose Cloud boost: her question, with anything
+  personal taken out and approved by her, goes to Google&#x27;s AI, which writes the same kind of
+  short, sourced answer. Without Cloud boost she reads the sources word for word, and femio says
+  why the AI did not run.
+
+What the AI never does: diagnose, predict her dates, see her whole record, or change her record
+without her tick.
+
+## How femio uses Firebase AI Logic: hybrid inference with privacy built into the code
+1. **Her record stays on the phone.** Logging from her words, answers to questions about her, and the order of her tips and visit questions run with `ONLY_ON_DEVICE` on Gemini Nano. Where the phone offers it, femio asks for the newest on-device model first (`OnDeviceModelOption.PREVIEW`, Gemini Nano 4) and falls back to the stable Nano model if the phone does not have it. If Nano isn&#x27;t available at all, the feature falls back to deterministic rules on the phone, never silently to the cloud; a private reply that did not run on the device is discarded.
+2. **Opt-in Cloud boost, pseudonymised only.** Only on a phone without Nano, and only if she agrees, the hybrid call (`PREFER_ON_DEVICE`, cloud Gemini model) may receive her `PseudonymisedProfile`: four coarse bands (life stage, cycle regularity, kinds of symptom, logging streak). No dates, no free text, intimate terms excluded, and femio attaches no account or identifier; like any connection, Google still sees the phone&#x27;s internet address and an App Check token. The consent screen shows her own values, names Google as processor, where and how long, and asks per purpose (one unticked box for general questions, one for tips), then &quot;Confirm my choice&quot; and a confirmation dialog; every choice is kept on the phone as a dated, versioned receipt she can read under &quot;My AI choices&quot;. The cloud is offered every tip for her life stage, never the subset that fits her. She can step down or switch the AI off at any time with no boxes to tick, and that is recorded too.
+3. **General questions are cleaned first, and she approves the exact text.** A question written about herself (&quot;I&quot;, &quot;my&quot;, &quot;we&quot; and their Arabic, French and Spanish forms) stays on the phone. Any other question becomes `CloudSafeText`: numbers, e-mail addresses and links are removed, and she sees and can edit the exact text in a box before anything is sent.
+4. **Grounded, never from memory.** Every answer retrieves passages from a versioned registry of trusted sources bundled on the phone. The model may only summarise them and must cite them by number; an answer that cites nothing is discarded and the passages are shown word for word. No Google Search grounding, no tools. Tips and visit questions are reviewed sentences with sources; the model only puts them in order.
+5. **Rules outrank the model.** Red flags and birth-control questions are handled by fixed, reviewed rules that run first and always win, and run again before a cloud send.
+6. **App Check on every call:** debug provider in development, Play Integrity in release. femio uses no other Firebase product: Analytics and Remote Config would add a per-install identifier, and Auth an account, which the privacy promise rules out.
+
+The privacy boundary is enforced by the type system and checked in CI: the cloud-capable call that carries anything of hers accepts one type, `CloudPrompt`, which can be built only from a `CloudSafeText` question or the `PseudonymisedProfile`. The only other cloud call, &quot;Check Cloud boost&quot;, sends one fixed sentence (&quot;Reply with the single word OK.&quot;) and nothing about her, so she can see whether Cloud boost works and why not. A privacy tripwire in CI fails if either changes, if search grounding is wired in, if Firebase appears outside the Kotlin assistant package, or if the app&#x27;s Dart code gains network code. One gateway is the only caller of the model; it waits at most 20 seconds and returns the rules answer on any failure.
+
+## How I built it
+- Flutter app; Firebase AI Logic calls in a Kotlin layer behind one method channel and one gateway.
+- One domain layer holds every medical threshold and prediction rule, bound by golden fixtures shared with the website.
+- Companion website (Next.js, static) with cited articles and interactive calendar calculators.
+- Over 800 unit and widget tests (812 pass in the public repo; its screenshot tests are skipped there), plus guards for wording, translations, medical claims and crisis content before every commit.
+
+## Challenges
+- **Languages.** On-device Gemini Nano is validated for English and Korean; other languages go through a phrase lexicon first and the model is used for classification and extraction.
+- **Trust.** Limiting the model to retrieved, cited passages, and letting it say &quot;not covered&quot;, mattered more than any prompt.
+- **Provable privacy.** Typed boundaries, opt-in consent with a receipt, an on-phone ledger and a CI tripwire make it checkable.
+
+## What I learned
+Hybrid AI is at its best when the device/cloud split follows the data&#x27;s sensitivity. In health, the model should choose and explain, never invent.
+
+## What&#x27;s next
+Google Play release, iOS with Apple Foundation Models through Firebase AI Logic, more life stages, and a clinician review loop for the source registry.</pre></div>
+<div class="copy"><div class="copy-head"><span>Built with</span><span class="count">164 chars</span><button type="button" class="btn-copy">Copy</button></div><pre>Firebase AI Logic, Gemini Nano, Gemini API, Firebase App Check, Play Integrity, Flutter, Dart, Kotlin, Android, Next.js, TypeScript, Tailwind CSS, next-intl, Vercel</pre></div>
+<div class="copy"><div class="copy-head"><span>Try it out, video, submitter</span><span class="count">440 chars</span><button type="button" class="btn-copy">Copy</button></div><pre>- Try it out: https://femioapp.com · https://femioapp.com/en/demo (scripted demos of the app&#x27;s screens; no AI runs on the website) · https://github.com/KhaledHassanein/femio-app · APK: https://github.com/KhaledHassanein/femio-app/releases/tag/v1.0.0-hackathon (live after `RELEASE_STEPS.md` B)
+- Video: &lt;YouTube, public, ≤3 min, English&gt;
+- Submitter: Individual · Egypt · KM Digital Labs · start date 07-21-26 · Existing · Platform: Android</pre></div>
+<div class="copy"><div class="copy-head"><span>What existed before vs what you built</span><span class="count">1480 chars</span><button type="button" class="btn-copy">Copy</button></div><pre>Before Nov 11, 2026: femio&#x27;s app had never been released and had no users. What existed was a Flutter tracker (records kept on the phone, backup file, PIN lock), shared medical rules with test fixtures, four-language scaffolding, and a signed release candidate (0.5.0) with a draft store listing that was never published. The companion website with articles and calendar calculators has been public at femioapp.com since October 2026. The app had no AI features and no network code of its own; an ad SDK (AdMob) added on 29 October 2026 was removed on 24 November 2026, during the period, when I decided the app ships no ads.
+
+Built during the submission period (the public repo&#x27;s HISTORY.md lists the commits with dates): the AI layer across the whole app. That covers on-device logging from her own words, over several days in one note; Ask femio grounded in a trusted-source registry with citations; personal tips and visit questions with sources, and the visit companion; the opt-in Cloud boost with the pseudonymised profile and recorded consent; redaction; the Kotlin Firebase AI Logic bridge with hybrid inference and App Check; one gateway with typed prompts; &quot;What the AI can see&quot;, the &quot;What the AI did&quot; ledger and the AI-off switch; the updated privacy tripwire; and the public Apache-2.0 repository. Also new in the period: removing in-app ads, her health record with documents and medicines, the after-birth and perimenopause views, and the calendar&#x27;s widening ranges.</pre></div>
+<div class="copy"><div class="copy-head"><span>Main technology requirement</span><span class="count">600 chars</span><button type="button" class="btn-copy">Copy</button></div><pre>femio&#x27;s Android app imports and calls Firebase AI Logic at runtime (Kotlin layer, `assistant/FemioAssistant.kt`) using hybrid inference with Gemini Nano. Requests involving her record run `ONLY_ON_DEVICE`. With her opt-in, on a phone without Nano, a pseudonymised four-band profile, or a general question she approved after redaction on the phone, may use `PREFER_ON_DEVICE` with a cloud Gemini model. All answers are grounded in a bundled registry of trusted medical sources and shown with citations. Firebase App Check protects every call (debug provider in development, Play Integrity in release).</pre></div>
+<div class="copy"><div class="copy-head"><span>Testing instructions</span><span class="count">2728 chars</span><button type="button" class="btn-copy">Copy</button></div><pre>No account or login needed. Android 8.0 or later, 64-bit.
+1. **Install.** On the phone, open https://github.com/KhaledHassanein/femio-app/releases/tag/v1.0.0-hackathon and download `femio-hackathon.apk`. Allow your browser to install unknown apps when asked, open the file, and if Play Protect warns, tap More details, then Install anyway. Finish the short setup.
+2. **Say it.** On Today, tap the box &quot;Tell femio anything, like “cramps since this morning”&quot; (or **+** → **Log with femio**). Type *yesterday light spotting, today cramps and I could sleep for a week*, tap **Turn into log entries**, check the two days of chips, untick anything wrong, and tap **Save**.
+3. **Ask femio.** On Today, tap **Ask femio**, type *When should a couple see a doctor about getting pregnant?* and tap **Ask**. Check the numbered sources (publisher, link, date). On a Gemini Nano phone the answer says &quot;Summarised on your phone by Gemini Nano&quot;; otherwise it says &quot;Word for word from trusted sources&quot;.
+4. **Safety.** In Ask femio type *heavy bleeding and dizzy*: ACOG&#x27;s emergency guidance and Help now appear before any AI runs.
+5. **See what the AI did.** Settings → Assistant → &quot;What the AI can see&quot; (each feature and what it receives) and &quot;What the AI did&quot; (every model call).
+6. **AI off.** Settings → Assistant → **AI and Cloud boost** → **No AI** → **Next** → **Next** → **Confirm my choice** → **Confirm** (nothing to tick: withdrawing is one step). Ask femio (step 3) and Log → **Say it in your words** still work, on femio&#x27;s rules (with the assistant off, the &quot;+&quot; sheet hides its AI shortcuts).
+7. **Cloud boost.** Settings → Assistant → **AI and Cloud boost** → **AI on this phone, plus Cloud boost** → **Next** (your own four values and what may be sent) → **Next** → tick the statements and at least one purpose → **Confirm my choice** → **Confirm**. **Check Cloud boost** then says whether Google&#x27;s cloud AI answered or names the reason, and **My AI choices** lists your dated receipt. **App Check enforcement is on.** The release APK attests with Play Integrity, set up for an app installed outside Google Play, so Cloud boost needs a real phone with Google Play services (not rooted, not an emulator). You see the exact question to approve before anything is sent; if the check fails, femio says no summary was available and shows the sources word for word. The video shows a real Cloud boost run (1:30).
+**On a phone without Gemini Nano (most phones today), steps 1 to 6 all work:** Say it uses femio&#x27;s word rules, Ask femio shows the trusted passages word for word, and nothing leaves the phone unless you agree to Cloud boost.
+The repo contains no keys or credentials; Firebase config lives in a git-ignored file (see README).</pre></div>
+<div class="copy"><div class="copy-head"><span>License</span><span class="count">116 chars</span><button type="button" class="btn-copy">Copy</button></div><pre>Apache-2.0 at `https://github.com/KhaledHassanein/femio-app/blob/main/LICENSE`, visible in the repo&#x27;s About section.</pre></div>
+</section>
+
+<section>
+  <span class="eyebrow">5 · Privacy</span>
+  <h2>Is it safe to say "private by design"?</h2>
+  <p><b>Yes, keep it.</b> Saying it is not what got Flo in trouble. The trouble was saying it while the app did the opposite. In 2021 the US FTC found that Flo promised to keep health data private yet sent users' period and pregnancy events to Facebook and Google analytics through SDKs (<a href="https://www.ftc.gov/legal-library/browse/cases-proceedings/192-3133-flo-health-inc">FTC case page</a>). Premom got the same treatment in 2023 (<a href="https://www.ftc.gov/news-events/news/press-releases/2023/05/ovulation-tracking-app-premom-will-be-barred-sharing-health-data-advertising-under-proposed-ftc">FTC</a>). The risk is a promise that the code does not keep.</p>
+  <p><b>Why femio is on the safe side:</b> the app has no ads, no analytics and no tracking SDK. Her record stays on the phone. Cloud boost is off by default, asks per purpose, shows the exact text, and keeps a dated receipt. The privacy notice lists everything that can leave the phone, including Google's ML Kit technical usage data and the model download. The lawyer has the full review (sent 27 Nov).</p>
+  <h3>Wording rules that keep you safe</h3>
+  <div class="tw"><table>
+    <tr><th>Say</th><th>Avoid</th></tr>
+    <tr><td>"Your records stay on your phone."</td><td>"Nothing ever leaves your phone." (Cloud boost and the model download do, with her choice)</td></tr>
+    <tr><td>"No account, no ads, no analytics in the app."</td><td>"100% anonymous", "untraceable", "HIPAA-compliant"</td></tr>
+    <tr><td>"Cloud boost is off unless you turn it on; you see the exact text first."</td><td>"Your data is never shared with anyone."</td></tr>
+    <tr><td>"Private by design" next to one line that says how</td><td>"Private by design" alone as the whole promise</td></tr>
+  </table></div>
+  <div class="note"><b>One line to fix (my recommendation):</b> the website's app page says "Your records never leave your phone." That is true for the record itself, but it reads as absolute next to Cloud boost. I suggest "Your records stay on your phone. Cloud boost is opt-in." Say yes and I will change it in all four languages.</div>
+  <p class="mono" style="background:none;padding:0">This is guidance, not legal advice. The lawyer's review is the final word.</p>
+</section>
+
+<section>
+  <span class="eyebrow">6 · Optional, recommended</span>
+  <h2>Last check on a real Nano phone</h2>
+  <p>Android Studio → Device Manager → Firebase / Remote devices → choose a Pixel 9 Pro or newer → Start. Tell me "device connected" and I will install build 2, check that Nano 4 (or the stable fallback) answers, run Ask, Say it, scan and speech, and read the logs. This closes the two "not verified" rows above.</p>
+</section>
+</main>
+
+<script>
+document.querySelectorAll('.btn-copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var pre=b.closest('.copy').querySelector('pre');var t=pre.textContent;
+    var done=function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1500)};
+    var sel=function(){var r=document.createRange();r.selectNodeContents(pre);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected: press Ctrl+C'};
+    try{navigator.clipboard.writeText(t).then(done,sel)}catch(e){sel()}
+  });
+});
+</script>
