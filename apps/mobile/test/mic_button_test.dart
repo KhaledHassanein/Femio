@@ -30,6 +30,14 @@ class _Speech implements SpeechPort {
 
   @override
   Future<void> openAppSettings() async => settingsOpened++;
+
+  String? packAsked;
+
+  @override
+  Future<bool> downloadPack(String locale) async {
+    packAsked = locale;
+    return true;
+  }
 }
 
 Future<TextEditingController> _pump(WidgetTester tester, SpeechPort port, {String typed = '', Locale locale = const Locale('en')}) async {
@@ -82,5 +90,18 @@ void main() {
     expect(find.text(l.micNoPermissionSettings), findsOneWidget);
     await tester.tap(find.text(l.notifOpenSettings));
     expect(port.settingsOpened, 1);
+  });
+
+  testWidgets('no offline pack for her language: one tap asks Android to download it', (tester) async {
+    final port = _Speech(const SpeechOutcome.failed(SpeechProblem.language));
+    await _pump(tester, port, locale: const Locale('fr'));
+    final l = await L10n.delegate.load(const Locale('fr'));
+    await tester.tap(find.byType(MicButton));
+    await tester.pumpAndSettle();
+    expect(find.text(l.micLanguage), findsOneWidget);
+    await tester.tap(find.text(l.micDownloadPack));
+    await tester.pumpAndSettle();
+    expect(port.packAsked, 'fr');
+    expect(find.text(l.micDownloadStarted), findsOneWidget);
   });
 }

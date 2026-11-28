@@ -136,6 +136,8 @@ void main() {
       ));
       await tester.pumpAndSettle();
       expect(find.bySemanticsLabel(l.pregWeekCurrentLabel(_week)), findsOneWidget);
+      // Her week reads as the one to tap: filled, labelled Now (owner 2026-11-28).
+      expect(find.text(l.pregWeekNow), findsOneWidget);
       await _shoot('${tag}_week_strip');
       await tester.tap(find.text('23'));
       await tester.pumpAndSettle();

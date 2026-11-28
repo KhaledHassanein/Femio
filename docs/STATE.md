@@ -16,7 +16,7 @@ history and `docs/archive/`.
 
 ## Latest (2026-11-28)
 
-Build 2 (1.0.0, versionCode 2) is built and signed: Nano 4 preview first, stable fallback (R14.33). Plain store shots, `/demo` page and new website app screens are on main (R14.34). The owner's remaining steps are in `docs/hackathon/FINAL_GUIDE.html` (R14.35): closed-track upload of build 2, listings, App Check for judges, `femio-app` repo + release, video, Devpost by 30 Nov 2:00 PM PT. Not verified: Nano 4 and Cloud boost on a real phone.
+Build 3 (1.0.0, versionCode 3) is built and signed and is the GitHub release APK: paperclip + mic in every assistant box, mic download prompt, pregnancy week button, multi-date report fix (R14.36-38). Build 2 brought Nano 4 preview first, stable fallback (R14.33). Plain store shots, `/demo` page and new website app screens are on main (R14.34). The owner's remaining steps are in `docs/hackathon/FINAL_GUIDE.html` (R14.35): closed-track upload of build 3, listings, App Check for judges, `femio-app` repo + release, video, Devpost by 30 Nov 2:00 PM PT. Not verified: Nano 4 and Cloud boost on a real phone.
 
 ## Where things stand (2026-10-28)
 

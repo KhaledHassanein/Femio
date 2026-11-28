@@ -19,10 +19,13 @@ import '../../theme/spacing.dart';
 /// shows postpartum weeks (never below zero); with a due date, the trimester, week,
 /// days to go (or overdue) and the progress bar; with neither, a prompt for the date.
 class PregnancyHero extends StatelessWidget {
-  const PregnancyHero({super.key, required this.profile, required this.today, required this.date});
+  const PregnancyHero({super.key, required this.profile, required this.today, required this.date, this.onOpenWeek});
   final Profile profile;
   final String today;
   final IsoDateFormatter date;
+
+  /// Opens the guide for her current week; null hides the button (no guide for this week).
+  final VoidCallback? onOpenWeek;
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +49,7 @@ class PregnancyHero extends StatelessWidget {
         HeroLine(l.pregTermFrom(date(progress.termStart))),
         const SizedBox(height: space4h),
         PregnancyBar(totalDays: progress.totalDays),
+        if (onOpenWeek != null) HeroAction(label: l.pregOpenWeek(progress.weeks), onTap: onOpenWeek!),
       ],
     );
   }

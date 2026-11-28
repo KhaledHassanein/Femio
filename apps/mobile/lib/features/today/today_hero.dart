@@ -23,6 +23,7 @@ class TodayHero extends StatelessWidget {
     required this.range,
     required this.date,
     this.onAddLength,
+    this.onOpenWeek,
   });
   final Profile profile;
   final String today;
@@ -32,10 +33,13 @@ class TodayHero extends StatelessWidget {
   /// Asks her cycle length again (passed to [PeriodHero]).
   final VoidCallback? onAddLength;
 
+  /// Opens her pregnancy week's guide (passed to [PregnancyHero]).
+  final VoidCallback? onOpenWeek;
+
   @override
   Widget build(BuildContext context) => switch (profile.goal) {
         Goal.period || Goal.ttc => PeriodHero(profile: profile, today: today, range: range, date: date, onAddLength: onAddLength),
-        Goal.pregnant => PregnancyHero(profile: profile, today: today, date: date),
+        Goal.pregnant => PregnancyHero(profile: profile, today: today, date: date, onOpenWeek: onOpenWeek),
         Goal.menopause => MenopauseHero(profile: profile, today: today, range: range),
       };
 }

@@ -6,9 +6,11 @@
 // her record (CLAUDE.md rule 7: it never writes without her confirming).
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../../domain/assistant/record_draft.dart';
 import '../../domain/bidi_text.dart';
+import '../../domain/dates.dart';
 import '../../domain/health_record.dart';
 import '../../l10n/app_localizations.dart';
 import '../../theme/spacing.dart';
@@ -32,6 +34,7 @@ class DraftLinesList extends StatelessWidget {
   Widget build(BuildContext context) {
     final l = L10n.of(context);
     final t = Theme.of(context).textTheme;
+    final locale = Localizations.localeOf(context).toLanguageTag();
     Widget group(String heading, DraftKind kind) {
       final indexes = [for (final (i, line) in lines.indexed) if (line.kind == kind) i];
       if (indexes.isEmpty) return const SizedBox.shrink();
@@ -47,7 +50,12 @@ class DraftLinesList extends StatelessWidget {
             value: kept.contains(i),
             onChanged: (_) => onToggle(i),
             title: Text(isolateText(lines[i].title)),
-            subtitle: Text(isolateText(draftLineSummary(l, lines[i]))),
+            subtitle: Text(isolateText([
+              draftLineSummary(l, lines[i]),
+              // A line from a page that printed another date shows that date, so she sees it
+              // will be filed on its own day.
+              if (lines[i].date case final d?) l.draftLineDate(DateFormat.yMMMd(locale).format(fromISO(d))),
+            ].where((s) => s.isNotEmpty).join(' · '))),
             secondary: IconButton(
               tooltip: l.draftEdit,
               icon: const Icon(Icons.edit_outlined),
@@ -144,7 +152,7 @@ class _EditLineDialogState extends State<_EditLineDialog> {
           onPressed: () {
             final title = _title.text.trim();
             if (title.isEmpty) return;
-            Navigator.of(context).pop(DraftLine(widget.line.kind, title, {
+            Navigator.of(context).pop(DraftLine(widget.line.kind, title, date: widget.line.date, {
               for (final e in _fields.entries)
                 if (e.value.text.trim().isNotEmpty) e.key: e.value.text.trim(),
             }));

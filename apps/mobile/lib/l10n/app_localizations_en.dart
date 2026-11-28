@@ -3901,6 +3901,48 @@ class L10nEn extends L10n {
       'The AI could not read this document on this phone. It is saved in My documents, and you can add results by hand.';
 
   @override
+  String draftLineDate(String date) {
+    return 'dated $date on its page';
+  }
+
+  @override
+  String scanUnreadPages(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          '$count pages could not be read. Check them on the document and add anything missing by hand.',
+      one: '1 page could not be read. Check it on the document and add anything missing by hand.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get micDownloadPack => 'Download';
+
+  @override
+  String get micDownloadStarted =>
+      'Your phone is downloading the speech pack. Try the mic again in a minute.';
+
+  @override
+  String get attachReport => 'Add a report, photo or PDF';
+
+  @override
+  String get attachReportButton => 'Add a report, scan or PDF';
+
+  @override
+  String pregOpenWeek(int week) {
+    return 'What\'s happening in week $week';
+  }
+
+  @override
+  String get pregWeekNow => 'Now';
+
+  @override
+  String get askAnswerOnPhoneNano4 =>
+      'Summarised on your phone by Gemini Nano 4, from the sources below';
+
+  @override
   String get scanDateLabel => 'Date on the report';
 
   @override

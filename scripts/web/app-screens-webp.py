@@ -12,7 +12,7 @@ from PIL import Image
 
 SRC = Path("testing-results/2026-11-28-web-screens")
 DST = Path("apps/web/public/app-screens")
-NAMES = [f"{s}-{v}" for s in ("today", "calendar") for v in ("en-light", "ar-light", "ar-dark")]
+NAMES = [f"{s}-{v}" for s in ("today", "calendar", "pregnancy") for v in ("en-light", "ar-light", "ar-dark")]
 
 for name in NAMES:
     src = SRC / f"{name}.png"

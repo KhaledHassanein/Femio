@@ -95,6 +95,11 @@ class MethodChannelAssistant implements AssistantBridge, CloudChecker {
   // Static because the bridge is const; one engine, one bridge.
   static String? _lastHybridFailure;
 
+  /// Which on-phone model answered last: "preview" (Gemini Nano 4) or "stable" (the standard
+  /// Gemini Nano), as Kotlin reports it; null before any on-phone answer. Screens use it only
+  /// to name the model under an answer.
+  static String? lastOnDeviceModel;
+
   @override
   String? get lastHybridFailure => _lastHybridFailure;
 
@@ -133,6 +138,7 @@ class MethodChannelAssistant implements AssistantBridge, CloudChecker {
           : await _channel.invokeMapMethod<String, Object?>('privateImage', {'prompt': prompt.text, 'image': image});
       // Belt and braces: a private call that somehow ran in the cloud is discarded.
       if (m == null || m['source'] != 'ON_DEVICE') return null;
+      lastOnDeviceModel = m['model'] as String? ?? lastOnDeviceModel;
       return m['text'] as String?;
     } on Object {
       return null;
@@ -149,6 +155,7 @@ class MethodChannelAssistant implements AssistantBridge, CloudChecker {
         _lastHybridFailure = 'empty';
         return null;
       }
+      if (m['source'] == 'ON_DEVICE') lastOnDeviceModel = m['model'] as String? ?? lastOnDeviceModel;
       return HybridReply(text: text.trim(), onDevice: m['source'] == 'ON_DEVICE');
     } on PlatformException catch (e) {
       final details = e.details;

@@ -9,6 +9,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
+import '../../data/assistant_channel.dart' show MethodChannelAssistant;
 import '../../domain/assistant/prompts.dart';
 import '../../domain/assistant/source_registry.dart';
 import '../../l10n/app_localizations.dart';
@@ -39,7 +40,8 @@ class AnswerCard extends StatelessWidget {
     final english = Localizations.localeOf(context).languageCode != 'en';
     final s = summary;
     final label = switch (origin) {
-      AnswerOrigin.onPhone => l.askAnswerOnPhone,
+      // Name Gemini Nano 4 only when Kotlin reported the preview model answered.
+      AnswerOrigin.onPhone => MethodChannelAssistant.lastOnDeviceModel == 'preview' ? l.askAnswerOnPhoneNano4 : l.askAnswerOnPhone,
       AnswerOrigin.cloud => l.askAnswerCloud,
       AnswerOrigin.verbatim => l.askVerbatimLabel,
     };

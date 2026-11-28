@@ -191,6 +191,13 @@ class LogScreen extends StatelessWidget {
                 icon: const Icon(Icons.auto_awesome_rounded),
                 label: Text(l.sayItButton),
               ),
+              const SizedBox(height: space2),
+              // A report, scan or PDF from the page where she logs (owner 2026-11-28).
+              OutlinedButton.icon(
+                onPressed: () => openAssistantDoor(context, AssistantDoor.scanReport, controller: controller, today: today),
+                icon: const Icon(Icons.attach_file_rounded),
+                label: Text(l.attachReportButton),
+              ),
               section(pregnant ? l.sectionBleedingPregnant : (profile.isPostpartum ? l.ppBleedingSection : l.sectionPeriod), [
                 LogChip(
                   label: l.flowNone,

@@ -24,7 +24,7 @@ import '../../theme/spacing.dart';
 import '../../theme/type_sizes.dart';
 import '../record/draft_lines.dart';
 import 'assistant_scope.dart';
-import 'mic_button.dart';
+import 'input_actions.dart';
 
 /// The time a next visit gets when she said only a day, matching the appointment editor's
 /// default; she changes it under Appointments.
@@ -147,7 +147,7 @@ class _AfterVisitScreenState extends State<AfterVisitScreen> {
             },
             decoration: InputDecoration(
               hintText: l.afterVisitExample,
-              suffixIcon: MicButton(controller: _words, enabled: !_reading),
+              suffixIcon: AssistantInputActions(text: _words, controller: widget.controller, today: widget.today, enabled: !_reading),
             ),
           ),
           if (draft == null)

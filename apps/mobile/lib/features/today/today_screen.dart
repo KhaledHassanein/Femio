@@ -150,6 +150,11 @@ class TodayScreen extends StatelessWidget {
               range: range,
               date: date,
               onAddLength: () => showCycleLengthSheet(context, controller),
+              onOpenWeek: switch (profile.edd == null ? null : pregnancyProgress(profile.edd!, now)) {
+                final progress? when progress.weeks >= firstGuideWeek && progress.weeks <= lastGuideWeek =>
+                  () => showWeekSheet(context, library: library ?? Library(), week: progress.weeks, current: true),
+                _ => null,
+              },
             ),
             if (profile.goal == Goal.ttc) PregnantNowButton(controller: controller),
             // MR-35: after a pregnancy ended, what femio changed and when to get help.

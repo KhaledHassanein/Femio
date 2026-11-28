@@ -2230,6 +2230,57 @@
   "@scanFailed": {
     "description": "The on-phone model gave no usable answer."
   },
+  "draftLineDate": "dated {date} on its page",
+  "@draftLineDate": {
+    "description": "After a draft line from a report page that printed its own date.",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "scanUnreadPages": "{count, plural, =1{1 page could not be read. Check it on the document and add anything missing by hand.} other{{count} pages could not be read. Check them on the document and add anything missing by hand.}}",
+  "@scanUnreadPages": {
+    "description": "Report reader: pages the on-phone model gave no answer for.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "micDownloadPack": "Download",
+  "@micDownloadPack": {
+    "description": "Snackbar action: ask Android to download the offline speech pack."
+  },
+  "micDownloadStarted": "Your phone is downloading the speech pack. Try the mic again in a minute.",
+  "@micDownloadStarted": {
+    "description": "After Android started downloading the speech pack."
+  },
+  "attachReport": "Add a report, photo or PDF",
+  "@attachReport": {
+    "description": "Tooltip of the paperclip in every assistant text box."
+  },
+  "attachReportButton": "Add a report, scan or PDF",
+  "@attachReportButton": {
+    "description": "Log page button that starts reading a report."
+  },
+  "pregOpenWeek": "What's happening in week {week}",
+  "@pregOpenWeek": {
+    "description": "Button on the pregnancy Today card that opens her week's guide.",
+    "placeholders": {
+      "week": {
+        "type": "int"
+      }
+    }
+  },
+  "pregWeekNow": "Now",
+  "@pregWeekNow": {
+    "description": "Label on her current week in the pregnancy week strip."
+  },
+  "askAnswerOnPhoneNano4": "Summarised on your phone by Gemini Nano 4, from the sources below",
+  "@askAnswerOnPhoneNano4": {
+    "description": "Under an Ask femio answer when Gemini Nano 4 (the preview model) wrote it."
+  },
   "scanDateLabel": "Date on the report",
   "@scanDateLabel": {
     "description": "Row for the report's date; every saved entry gets it."

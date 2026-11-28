@@ -124,7 +124,8 @@ export const ASK_SOURCE = {
 /** The app screens the tour shows, with their pixel size (all rendered at 780 px wide). */
 export const TOUR_SCREENS = [
   { key: "today", height: 4200 },
-  { key: "calendar", height: 2300 },
+  { key: "calendar", height: 2200 },
+  { key: "pregnancy", height: 2740 },
   { key: "ask", height: 1688 },
   { key: "boost", height: 1688 },
   { key: "visit", height: 1688 },

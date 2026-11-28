@@ -3949,6 +3949,49 @@ class L10nFr extends L10n {
       'L\'IA n\'a pas pu lire ce document sur ce téléphone. Il est enregistré dans Mes documents, et vous pouvez ajouter les résultats vous-même.';
 
   @override
+  String draftLineDate(String date) {
+    return 'daté du $date sur sa page';
+  }
+
+  @override
+  String scanUnreadPages(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          '$count pages n\'ont pas pu être lues. Vérifiez-les sur le document et ajoutez vous-même ce qui manque.',
+      one: '1 page n\'a pas pu être lue. Vérifiez-la sur le document et ajoutez vous-même ce qui manque.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get micDownloadPack => 'Télécharger';
+
+  @override
+  String get micDownloadStarted =>
+      'Votre téléphone télécharge le pack vocal. Réessayez le micro dans une minute.';
+
+  @override
+  String get attachReport => 'Ajouter un compte rendu, une photo ou un PDF';
+
+  @override
+  String get attachReportButton =>
+      'Ajouter un compte rendu, une photo ou un PDF';
+
+  @override
+  String pregOpenWeek(int week) {
+    return 'Ce qui se passe en semaine $week';
+  }
+
+  @override
+  String get pregWeekNow => 'Maintenant';
+
+  @override
+  String get askAnswerOnPhoneNano4 =>
+      'Résumé sur votre téléphone par Gemini Nano 4, à partir des sources ci-dessous';
+
+  @override
   String get scanDateLabel => 'Date sur le compte rendu';
 
   @override

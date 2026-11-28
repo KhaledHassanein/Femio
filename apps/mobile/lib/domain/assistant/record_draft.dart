@@ -36,44 +36,68 @@ const earliestDraftYear = 1990;
 enum DraftKind { lab, medicine }
 
 /// One suggested entry. [fields] uses the RecordField names (`value`, `unit`,
-/// `printedRange`, `dose`, `frequency`).
+/// `printedRange`, `dose`, `frequency`). [date] is the date printed on the page the line came
+/// from, when that page printed one; a line without it takes the date she confirms.
 class DraftLine {
-  const DraftLine(this.kind, this.title, this.fields);
+  const DraftLine(this.kind, this.title, this.fields, {this.date});
   final DraftKind kind;
   final String title;
   final Map<String, String> fields;
+  final String? date;
+
+  /// This line with [date] set, keeping a date it already has.
+  DraftLine dated(String? date) => this.date != null || date == null ? this : DraftLine(kind, title, fields, date: date);
 }
 
 /// Everything one reply proposed. [date] is the report or collection date printed on the
 /// page (never guessed by femio; she confirms or picks it). [nextVisit] and [note] come only
 /// from her after-visit words.
 class RecordDraft {
-  const RecordDraft({this.date, this.lines = const [], this.nextVisit, this.note});
+  const RecordDraft({this.date, this.lines = const [], this.nextVisit, this.note, this.unreadPages = 0});
   final String? date;
   final List<DraftLine> lines;
   final String? nextVisit;
   final String? note;
 
+  /// Pages the model could not read (no answer); she is told to check them herself.
+  final int unreadPages;
+
   bool get isEmpty => lines.isEmpty && nextVisit == null && (note == null || note!.isEmpty);
 
-  /// This draft followed by [other] (the next page): the first date found wins, lines are
-  /// added up to [maxDraftLines], a line already present is not repeated.
+  /// This draft followed by [other] (the next page). A line from a page that printed another
+  /// date keeps that date, so it is never filed under the first page's day. The first date
+  /// found is the draft's date, the one she confirms for every line without its own date. Lines
+  /// are added up to [maxDraftLines]; only a line identical in kind, name, value, dose,
+  /// frequency and date is not repeated, so the same medicine at another dose is kept.
   RecordDraft merge(RecordDraft other) {
+    final main = date ?? other.date;
+    // A page dated like the draft stays undated, so her correction of the draft date reaches it.
+    final ownDate = other.date == null || other.date == main ? null : other.date;
     final seen = {for (final l in lines) _key(l)};
     final added = [
       ...lines,
-      for (final l in other.lines)
+      for (final l in other.lines.map((l) => l.dated(ownDate)))
         if (seen.add(_key(l))) l,
     ];
     return RecordDraft(
-      date: date ?? other.date,
+      date: main,
       lines: added.take(maxDraftLines).toList(),
       nextVisit: nextVisit ?? other.nextVisit,
       note: note ?? other.note,
+      unreadPages: unreadPages + other.unreadPages,
     );
   }
 
-  static String _key(DraftLine l) => '${l.kind.name}|${l.title.toLowerCase()}|${l.fields['value'] ?? ''}';
+  /// This draft with [count] more pages the model could not read.
+  RecordDraft withUnreadPages(int count) =>
+      RecordDraft(date: date, lines: lines, nextVisit: nextVisit, note: note, unreadPages: unreadPages + count);
+
+  static String _key(DraftLine l) => [
+        l.kind.name,
+        l.title.toLowerCase(),
+        for (final f in ['value', 'unit', 'dose', 'frequency']) (l.fields[f] ?? '').toLowerCase(),
+        l.date ?? '',
+      ].join('|');
 }
 
 /// The instruction sent with one page image of her report or prescription.
@@ -161,8 +185,9 @@ DateTime? _day(String s) {
   return date.year == y && date.month == mo && date.day == d ? date : null;
 }
 
-/// The record entries for the [chosen] lines she kept, all dated [happenedOn] (the report
-/// date she confirmed) and stamped [addedOn]. [idPrefix] makes each id unique (the caller
+/// The record entries for the [chosen] lines she kept, each dated by its own page's printed
+/// date, or [happenedOn] (the report date she confirmed) when its page printed none, and
+/// stamped [addedOn]. [idPrefix] makes each id unique (the caller
 /// passes something random or time-based, never her words); [attachmentId] links each entry
 /// to the document it was read from. Medicines start on [happenedOn].
 List<RecordEntry> entriesFromDraft(
@@ -179,12 +204,12 @@ List<RecordEntry> entriesFromDraft(
           id: '$idPrefix-$i',
           kind: line.kind == DraftKind.lab ? RecordKind.lab : RecordKind.medicine,
           title: line.title,
-          happenedOn: happenedOn,
+          happenedOn: line.date ?? happenedOn,
           addedOn: addedOn,
           source: source,
           fields: {
             ...line.fields,
-            if (line.kind == DraftKind.medicine) RecordField.startedOn: happenedOn,
+            if (line.kind == DraftKind.medicine) RecordField.startedOn: line.date ?? happenedOn,
           },
           attachmentIds: [?attachmentId],
         ),

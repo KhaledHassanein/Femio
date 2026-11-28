@@ -133,7 +133,7 @@ Future<void> _shoot(WidgetTester tester, String lang, int index) async {
   } else {
     final c = FemioController(MemoryStore(_profile(lang, index)), initialLocale: lang);
     await c.load();
-    await tester.pumpWidget(FemioApp(controller: c, today: _today, assistant: index == 0 ? const _NanoReady() : const OfflineAssistant()));
+    await tester.pumpWidget(FemioApp(controller: c, today: _today, assistant: index == 1 ? const OfflineAssistant() : const _NanoReady()));
     await tester.pumpAndSettle();
     if (index == 1) {
       // The "+" takes bar slot 2; Calendar is slot 1.
@@ -171,14 +171,19 @@ class _NanoReady implements AssistantBridge {
 
 // ---- the website's app screens (apps/web/public/app-screens) ---------------------------
 //
-// The site's tour shows Today and Calendar at 390×844, 2x (780×1688), in English light and
-// Arabic light and dark. These PNGs land in testing-results; scripts/web/app-screens-webp.py
+// The site's tour pans down Today and Calendar, so they are rendered tall: 390 px wide at 2x
+// with the window as high as the whole page (TOUR_SCREENS in apps/web/src/lib/demos/samples.ts
+// holds the same heights), in English light and Arabic light and dark. A 844-high render
+// left the tour panning into empty cream (owner 2026-11-28). These PNGs land in testing-results; scripts/web/app-screens-webp.py
 // turns them into the WebP files the site serves.
 
 const _webOut = '../../../testing-results/2026-11-28-web-screens';
 
+/// The tour screens rendered here, by store profile index, and each one's logical height.
+const _webScreens = {0: ('today', 2100), 1: ('calendar', 1100), 2: ('pregnancy', 1370)};
+
 Future<void> _shootWeb(WidgetTester tester, String lang, Brightness b, int index) async {
-  tester.view.physicalSize = const Size(390 * 2, 844 * 2);
+  tester.view.physicalSize = Size(390 * 2, _webScreens[index]!.$2 * 2.0);
   tester.view.devicePixelRatio = 2;
   tester.platformDispatcher.platformBrightnessTestValue = b;
   addTearDown(tester.view.reset);
@@ -192,7 +197,7 @@ Future<void> _shootWeb(WidgetTester tester, String lang, Brightness b, int index
     await tester.pumpAndSettle();
   }
   if (!autoUpdateGoldenFiles) return;
-  final screen = index == 0 ? 'today' : 'calendar';
+  final screen = _webScreens[index]!.$1;
   await expectLater(find.byType(MaterialApp).first, matchesGoldenFile('$_webOut/$screen-$lang-${b.name}.png'));
 }
 
@@ -209,7 +214,7 @@ void main() {
   }
 
   for (final (lang, b) in [('en', Brightness.light), ('ar', Brightness.light), ('ar', Brightness.dark)]) {
-    for (final i in [0, 1]) {
+    for (final i in _webScreens.keys) {
       testWidgets('website app screen $i ($lang, ${b.name})', (tester) => _shootWeb(tester, lang, b, i));
     }
   }

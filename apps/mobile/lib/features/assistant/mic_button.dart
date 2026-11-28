@@ -61,9 +61,18 @@ class _MicButtonState extends State<MicButton> {
       ..showSnackBar(SnackBar(
         content: Text(micProblemText(l, problem)),
         duration: const Duration(seconds: 8),
-        action: problem == SpeechProblem.noPermissionSettings
-            ? SnackBarAction(label: l.notifOpenSettings, onPressed: widget.port.openAppSettings)
-            : null,
+        action: switch (problem) {
+          SpeechProblem.noPermissionSettings => SnackBarAction(label: l.notifOpenSettings, onPressed: widget.port.openAppSettings),
+          // The phone lacks its offline pack for this language: Android can fetch it.
+          SpeechProblem.language => SnackBarAction(
+              label: l.micDownloadPack,
+              onPressed: () async {
+                final started = await widget.port.downloadPack(locale);
+                if (started) messenger.showSnackBar(SnackBar(content: Text(l.micDownloadStarted)));
+              },
+            ),
+          _ => null,
+        },
       ));
   }
 

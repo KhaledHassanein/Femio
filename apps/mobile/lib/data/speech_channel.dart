@@ -65,6 +65,10 @@ abstract interface class SpeechPort {
 
   /// Opens femio's page in the phone's settings, to allow the microphone again.
   Future<void> openAppSettings();
+
+  /// Asks the phone to download its offline speech pack for [locale]. True when Android's own
+  /// download prompt was started; false when a settings page was opened instead.
+  Future<bool> downloadPack(String locale);
 }
 
 /// The real bridge over the `femio/speech` channel.
@@ -108,6 +112,15 @@ class MethodChannelSpeech implements SpeechPort {
       await _channel.invokeMethod<void>('appSettings');
     } on Object {
       // No settings page on this platform.
+    }
+  }
+
+  @override
+  Future<bool> downloadPack(String locale) async {
+    try {
+      return await _channel.invokeMethod<String>('downloadPack', {'locale': locale}) == 'started';
+    } on Object {
+      return false;
     }
   }
 }

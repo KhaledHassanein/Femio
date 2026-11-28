@@ -3949,6 +3949,54 @@ class L10nAr extends L10n {
       'تعذّر على الذكاء الاصطناعي قراءة هذا المستند على هذا الهاتف. المستند محفوظ في مستنداتي، ويمكنك إضافة النتائج بنفسك.';
 
   @override
+  String draftLineDate(String date) {
+    return 'بتاريخ $date على صفحته';
+  }
+
+  @override
+  String scanUnreadPages(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          'تعذّرت قراءة $count صفحة. راجعيها في المستند وأضيفي ما ينقص بنفسك.',
+      many:
+          'تعذّرت قراءة $count صفحة. راجعيها في المستند وأضيفي ما ينقص بنفسك.',
+      few:
+          'تعذّرت قراءة $count صفحات. راجعيها في المستند وأضيفي ما ينقص بنفسك.',
+      two: 'تعذّرت قراءة صفحتين. راجعيهما في المستند وأضيفي ما ينقص بنفسك.',
+      one: 'تعذّرت قراءة صفحة واحدة. راجعيها في المستند وأضيفي ما ينقص بنفسك.',
+      zero: 'قُرئت كل الصفحات.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get micDownloadPack => 'تنزيل';
+
+  @override
+  String get micDownloadStarted =>
+      'يُنزّل هاتفكِ حزمة الكلام. جرّبي الميكروفون مرة أخرى بعد دقيقة.';
+
+  @override
+  String get attachReport => 'أضيفي تقريرًا أو صورة أو ملف PDF';
+
+  @override
+  String get attachReportButton => 'أضيفي تقريرًا أو صورة أو ملف PDF';
+
+  @override
+  String pregOpenWeek(int week) {
+    return 'ماذا يحدث في الأسبوع $week';
+  }
+
+  @override
+  String get pregWeekNow => 'الآن';
+
+  @override
+  String get askAnswerOnPhoneNano4 =>
+      'لخّصه Gemini Nano 4 على هاتفكِ من المصادر أدناه';
+
+  @override
   String get scanDateLabel => 'التاريخ المطبوع على التقرير';
 
   @override

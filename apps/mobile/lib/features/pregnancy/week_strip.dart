@@ -15,6 +15,7 @@ import '../../l10n/app_localizations.dart';
 import '../../theme/femio_theme.dart';
 import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
+import '../../theme/type_sizes.dart';
 import 'this_week_card.dart';
 
 /// Width of one week tile: the week number and a two-line date range.
@@ -87,14 +88,21 @@ class _PregnancyWeekStripState extends State<PregnancyWeekStrip> {
                   width: _tileWidth,
                   padding: const EdgeInsets.all(space2),
                   decoration: BoxDecoration(
-                    color: current ? p.primarySoft : p.surface,
+                    color: current ? p.primarySolid : p.surface,
                     borderRadius: BorderRadius.circular(radiusMd),
                     border: Border.all(color: current ? p.primarySolid : p.border, width: current ? 2 : 1),
+                    boxShadow: current ? [BoxShadow(color: p.primarySolid.withValues(alpha: 0.3), blurRadius: 8, offset: const Offset(0, 2))] : null,
                   ),
                   child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                    Text('${row.week}', style: t.titleLarge),
-                    Text(day(row.start), style: t.labelSmall, maxLines: 1),
-                    Text(day(row.end), style: t.labelSmall, maxLines: 1),
+                    // Her week is filled and says "Now" with an arrow, so it reads as the one to tap.
+                    if (current)
+                      Row(mainAxisSize: MainAxisSize.min, children: [
+                        Text(l.pregWeekNow, style: t.labelSmall?.copyWith(color: p.onPrimarySolid, fontWeight: FontWeight.w700)),
+                        Icon(Icons.chevron_right_rounded, size: iconSizeInline, color: p.onPrimarySolid, textDirection: Directionality.of(context)),
+                      ]),
+                    Text('${row.week}', style: t.titleLarge?.copyWith(color: current ? p.onPrimarySolid : null)),
+                    Text(day(row.start), style: t.labelSmall?.copyWith(color: current ? p.onPrimarySolid : null), maxLines: 1),
+                    if (!current) Text(day(row.end), style: t.labelSmall, maxLines: 1),
                   ]),
                 ),
               ),

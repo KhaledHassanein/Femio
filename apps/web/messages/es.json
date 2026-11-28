@@ -1789,6 +1789,12 @@
           "body": "Cada regla posterior es un rango más amplio, y la de baja confianza se dibuja con trazos. Cuando tus ciclos varían, solo se muestra la próxima.",
           "alt": "El calendario de femio con los días previstos en contorno y una tarjeta con las tres próximas reglas, cada una con su nivel de confianza."
         },
+        "pregnancy": {
+          "label": "Embarazo",
+          "title": "Tu semana, a un toque",
+          "body": "En modo embarazo, Hoy muestra tu semana y la fecha probable de parto, y un botón abre lo que pasa esta semana: tu bebé, tu cuerpo y qué preguntar en la consulta.",
+          "alt": "La pantalla Hoy de femio en modo embarazo: la semana y la fecha probable en la tarjeta de color, un botón a la guía de la semana y la franja de semanas."
+        },
         "ask": {
           "label": "Pregunta a femio",
           "title": "Respuestas que muestran sus fuentes",

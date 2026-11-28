@@ -3,7 +3,8 @@
 // Why it exists: she asked for a microphone on Ask femio, Say it and After a visit. On a phone
 // with Gemini Nano speech ready, GeminiDictation transcribes on the phone with it; otherwise
 // Android's own on-device recognizer (SpeechRecognizer.createOnDeviceSpeechRecognizer, Android
-// 12+) turns her voice into words on the phone. femio never records, keeps or sends audio. There
+// 12+) turns her voice into words on the phone. When its offline pack for her language is
+// missing, she can ask Android to download it ("downloadPack"). femio never records, keeps or sends audio. There
 // is deliberately no
 // fallback to the ordinary recognizer, which may send audio to a server: when the phone has no
 // on-device recognizer, Dart says why and suggests the keyboard's own mic. The privacy tripwire
@@ -27,6 +28,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.MethodChannel
+import java.util.Locale
 
 class SpeechChannel(private val activity: Activity, messenger: BinaryMessenger) {
     private val channel = MethodChannel(messenger, "femio/speech")
@@ -49,6 +51,7 @@ class SpeechChannel(private val activity: Activity, messenger: BinaryMessenger) 
                     openAppSettings()
                     result.success(null)
                 }
+                "downloadPack" -> result.success(downloadPack(call.argument<String>("locale").orEmpty()))
                 else -> result.notImplemented()
             }
         }
@@ -95,8 +98,30 @@ class SpeechChannel(private val activity: Activity, messenger: BinaryMessenger) 
         nano.start(locale, fallback = { startOnDevice(locale) }, done = { text, error -> finish(text, error) })
     }
 
-    private fun startOnDevice(locale: String) {
+    /**
+     * The language tags to try, best first. Recognizers name their offline packs by region
+     * ("en-US", "ar-EG"), and a bare "en" can be refused although an English pack is installed,
+     * so the phone's own region comes first when it speaks the same language, then a common
+     * region, then the bare language.
+     */
+    private fun speechTags(locale: String): List<String> {
+        val lang = locale.substringBefore('-').lowercase()
+        if (lang.isEmpty()) return listOf("")
+        val device = Locale.getDefault()
+        return listOfNotNull(
+            locale.takeIf { it.contains('-') },
+            device.toLanguageTag().takeIf { device.language == lang && device.country.isNotEmpty() },
+            DEFAULT_REGION[lang]?.let { "$lang-$it" },
+            lang,
+        ).distinct()
+    }
+
+    private fun startOnDevice(locale: String) = startOnDevice(speechTags(locale))
+
+    /** Tries [tags] in order; a "language" refusal moves on to the next tag. */
+    private fun startOnDevice(tags: List<String>) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) return finish(error = "old_android")
+        val tag = tags.firstOrNull() ?: return finish(error = "language")
         val r = try {
             SpeechRecognizer.createOnDeviceSpeechRecognizer(activity)
         } catch (e: Exception) {
@@ -108,7 +133,16 @@ class SpeechChannel(private val activity: Activity, messenger: BinaryMessenger) 
                 firstWords(partialResults)?.let { channel.invokeMethod("partial", it) }
             }
             override fun onResults(results: Bundle?) = finish(text = firstWords(results).orEmpty())
-            override fun onError(error: Int) = finish(error = reason(error))
+            override fun onError(error: Int) {
+                val why = reason(error)
+                if (why == "language" && tags.size > 1) {
+                    recognizer?.destroy()
+                    recognizer = null
+                    startOnDevice(tags.drop(1))
+                } else {
+                    finish(error = why)
+                }
+            }
             override fun onReadyForSpeech(params: Bundle?) {}
             override fun onBeginningOfSpeech() {}
             override fun onRmsChanged(rmsdB: Float) {}
@@ -118,7 +152,7 @@ class SpeechChannel(private val activity: Activity, messenger: BinaryMessenger) 
         })
         val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
             putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
-            if (locale.isNotEmpty()) putExtra(RecognizerIntent.EXTRA_LANGUAGE, locale)
+            if (tag.isNotEmpty()) putExtra(RecognizerIntent.EXTRA_LANGUAGE, tag)
             putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true)
             putExtra(RecognizerIntent.EXTRA_PREFER_OFFLINE, true)
         }
@@ -150,6 +184,33 @@ class SpeechChannel(private val activity: Activity, messenger: BinaryMessenger) 
         if (error == null) r.success(text) else r.error(error, null, error)
     }
 
+    /**
+     * Asks Android to download the offline speech pack for [locale] (Android 13+: the system
+     * shows its own download prompt, and the pack comes from the phone's speech service, not
+     * femio). Older phones open the voice input settings instead. Returns "started" or "settings".
+     */
+    private fun downloadPack(locale: String): String {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            try {
+                val r = SpeechRecognizer.createOnDeviceSpeechRecognizer(activity)
+                val tag = speechTags(locale).first()
+                r.triggerModelDownload(Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
+                    if (tag.isNotEmpty()) putExtra(RecognizerIntent.EXTRA_LANGUAGE, tag)
+                })
+                r.destroy()
+                return "started"
+            } catch (e: Exception) {
+                // Fall through to the settings page.
+            }
+        }
+        try {
+            activity.startActivity(Intent(Settings.ACTION_VOICE_INPUT_SETTINGS))
+        } catch (e: Exception) {
+            openAppSettings()
+        }
+        return "settings"
+    }
+
     private fun openAppSettings() {
         val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.fromParts("package", activity.packageName, null))
         activity.startActivity(intent)
@@ -163,5 +224,8 @@ class SpeechChannel(private val activity: Activity, messenger: BinaryMessenger) 
 
     private companion object {
         const val PERMISSION_REQUEST = 0x5EE
+
+        /** A common region per app language, tried when the phone's own region is another language's. */
+        val DEFAULT_REGION = mapOf("en" to "US", "ar" to "EG", "fr" to "FR", "es" to "ES")
     }
 }

@@ -155,12 +155,31 @@ void main() {
       expect(parseRecordDraft(many, _today).lines, hasLength(maxDraftLines));
     });
 
-    test('pages merge: the first date wins and a repeated line is kept once', () {
+    test('pages merge: the first date wins and a repeated line on the same day is kept once', () {
       final a = parseRecordDraft('DATE|2026-11-02\nLAB|TSH|3.1|mIU/L|', _today);
-      final b = parseRecordDraft('DATE|2026-10-01\nLAB|TSH|3.1|mIU/L|\nLAB|AMH|2.0|ng/mL|', _today);
+      final b = parseRecordDraft('DATE|2026-11-02\nLAB|TSH|3.1|mIU/L|\nLAB|AMH|2.0|ng/mL|', _today);
       final m = a.merge(b);
       expect(m.date, '2026-11-02');
       expect([for (final l in m.lines) l.title], ['TSH', 'AMH']);
+      expect(m.lines.every((l) => l.date == null), isTrue, reason: 'same day as the report: no own date');
+    });
+
+    test('pages with another date keep every line and their own date (owner bug 2026-11-28)', () {
+      final a = parseRecordDraft('DATE|2026-11-20\nMED|Letrozole|5 mg|once a day\nLAB|TSH|3.1|mIU/L|', _today);
+      final b = parseRecordDraft('DATE|2026-11-22\nMED|Letrozole|10 mg|once a day\nLAB|TSH|3.1|mIU/L|', _today);
+      final m = a.merge(b);
+      expect(m.date, '2026-11-20');
+      expect([for (final l in m.lines) '${l.title} ${l.date}'],
+          ['Letrozole null', 'TSH null', 'Letrozole 2026-11-22', 'TSH 2026-11-22']);
+      final e = entriesFromDraft(m.lines, happenedOn: m.date!, addedOn: '2026-11-28T10:00:00', idPrefix: 'r', source: RecordSource.scanned);
+      expect([for (final x in e) x.happenedOn], ['2026-11-20', '2026-11-20', '2026-11-22', '2026-11-22']);
+      expect(e[2].fields[RecordField.startedOn], '2026-11-22');
+      expect(e[2].fields['dose'], '10 mg');
+    });
+
+    test('unread pages add up across a merge', () {
+      final m = const RecordDraft().withUnreadPages(1).merge(const RecordDraft().withUnreadPages(2));
+      expect(m.unreadPages, 3);
     });
 
     test('entries carry the confirmed date, the source, the document link and a medicine start', () {
@@ -181,6 +200,11 @@ void main() {
       expect(b.prompts, hasLength(maxScanPages));
       expect(b.prompts.every((p) => p.use == AssistantUse.scanDocument && p.image != null), isTrue);
       expect(r.value!.lines, hasLength(3));
+    });
+
+    test('a page the phone gives no answer for is counted, not dropped silently', () async {
+      final r = await AssistantGateway(_Bridge(reply: null)).readDocument([_png, _png], _today);
+      expect(r.value?.unreadPages ?? 2, 2);
     });
 
     test('a phone without Gemini Nano never calls the model', () async {

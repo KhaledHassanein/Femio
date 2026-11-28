@@ -35,7 +35,7 @@ import '../../widgets/notice_card.dart';
 import '../learn/article_screen.dart';
 import 'answer_card.dart';
 import 'assistant_scope.dart';
-import 'mic_button.dart';
+import 'input_actions.dart';
 import 'safety_notice.dart';
 import 'save_to_record_card.dart';
 import 'stage_hints.dart';
@@ -269,7 +269,7 @@ class _AskScreenState extends State<AskScreen> {
               decoration: InputDecoration(
                 hintText: askHintFor(l, hintStage(_profile)),
                 border: const OutlineInputBorder(),
-                suffixIcon: MicButton(controller: _question, enabled: _stage == _Stage.asking),
+                suffixIcon: AssistantInputActions(text: _question, controller: widget.controller, today: _today(), enabled: _stage == _Stage.asking),
               ),
             ),
             if (_stage == _Stage.asking) ...[

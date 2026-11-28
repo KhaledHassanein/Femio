@@ -19,6 +19,7 @@ import 'package:femio/features/assistant/ask_screen.dart';
 import 'package:femio/features/assistant/assistant_pill.dart'
     show AssistantDoor;
 import 'package:femio/features/home/add_sheet.dart';
+import 'package:femio/features/assistant/mic_button.dart';
 import 'package:femio/l10n/app_localizations.dart';
 import 'package:femio/l10n/log_labels.g.dart';
 import 'package:femio/main.dart' show configureFormatting;
@@ -253,6 +254,19 @@ void main() {
       expect(find.text(en.addLogWithFemio), findsNothing);
       expect(find.text(en.addVisit), findsNothing);
       expect(find.text(en.sectionMood), findsOneWidget);
+    });
+  });
+
+  group('every assistant box ends with a paperclip and a mic (owner 2026-11-28)', () {
+    testWidgets('Ask femio: Add a report and the mic sit in the text box', (tester) async {
+      _size(tester, Brightness.light);
+      final c = await _controller(_profile('en'));
+      await tester.pumpWidget(_app('en', Brightness.light, AskScreen(controller: c, registry: _registry, today: _today)));
+      await tester.pumpAndSettle();
+      final en = lookupL10n(const Locale('en'));
+      final field = find.byType(TextField).first;
+      expect(find.descendant(of: field, matching: find.byTooltip(en.attachReport)), findsOneWidget);
+      expect(find.descendant(of: field, matching: find.byType(MicButton)), findsOneWidget);
     });
   });
 

@@ -6299,6 +6299,60 @@ abstract class L10n {
   /// **'The AI could not read this document on this phone. It is saved in My documents, and you can add results by hand.'**
   String get scanFailed;
 
+  /// After a draft line from a report page that printed its own date.
+  ///
+  /// In en, this message translates to:
+  /// **'dated {date} on its page'**
+  String draftLineDate(String date);
+
+  /// Report reader: pages the on-phone model gave no answer for.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 page could not be read. Check it on the document and add anything missing by hand.} other{{count} pages could not be read. Check them on the document and add anything missing by hand.}}'**
+  String scanUnreadPages(int count);
+
+  /// Snackbar action: ask Android to download the offline speech pack.
+  ///
+  /// In en, this message translates to:
+  /// **'Download'**
+  String get micDownloadPack;
+
+  /// After Android started downloading the speech pack.
+  ///
+  /// In en, this message translates to:
+  /// **'Your phone is downloading the speech pack. Try the mic again in a minute.'**
+  String get micDownloadStarted;
+
+  /// Tooltip of the paperclip in every assistant text box.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a report, photo or PDF'**
+  String get attachReport;
+
+  /// Log page button that starts reading a report.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a report, scan or PDF'**
+  String get attachReportButton;
+
+  /// Button on the pregnancy Today card that opens her week's guide.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s happening in week {week}'**
+  String pregOpenWeek(int week);
+
+  /// Label on her current week in the pregnancy week strip.
+  ///
+  /// In en, this message translates to:
+  /// **'Now'**
+  String get pregWeekNow;
+
+  /// Under an Ask femio answer when Gemini Nano 4 (the preview model) wrote it.
+  ///
+  /// In en, this message translates to:
+  /// **'Summarised on your phone by Gemini Nano 4, from the sources below'**
+  String get askAnswerOnPhoneNano4;
+
   /// Row for the report's date; every saved entry gets it.
   ///
   /// In en, this message translates to:

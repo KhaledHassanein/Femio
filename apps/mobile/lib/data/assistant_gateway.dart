@@ -309,7 +309,10 @@ class AssistantGateway {
     var answered = false;
     for (final page in pages.take(maxScanPages)) {
       final reply = await _private(PrivatePrompt.scanPage(page));
-      if (reply == null) continue;
+      if (reply == null) {
+        draft = draft.withUnreadPages(1);
+        continue;
+      }
       answered = true;
       draft = draft.merge(parseRecordDraft(reply, today));
     }

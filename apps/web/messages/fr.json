@@ -1789,6 +1789,12 @@
           "body": "Chaque période suivante est une fourchette plus large, et celle de faible confiance est tracée en pointillés. Quand vos cycles varient, seule la prochaine est affichée.",
           "alt": "Le calendrier de femio avec les jours prévus en contour et une carte listant les trois prochaines règles, chacune avec un degré de confiance."
         },
+        "pregnancy": {
+          "label": "Grossesse",
+          "title": "Votre semaine, à un geste",
+          "body": "En mode grossesse, Aujourd'hui montre votre semaine et la date prévue, et un bouton ouvre ce qui se passe cette semaine : votre bébé, votre corps et quoi demander à la consultation.",
+          "alt": "L'écran Aujourd'hui de femio en mode grossesse : la semaine et la date prévue sur la carte colorée, un bouton vers le guide de la semaine et la frise des semaines."
+        },
         "ask": {
           "label": "Demandez à femio",
           "title": "Des réponses qui montrent leurs sources",

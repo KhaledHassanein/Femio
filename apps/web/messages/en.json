@@ -1789,6 +1789,12 @@
           "body": "Each later period is a wider range, and a low-confidence one is drawn dashed. When your cycles vary, only the next one is shown.",
           "alt": "The femio calendar with predicted days in outline and a card listing the next three periods, each with a confidence word."
         },
+        "pregnancy": {
+          "label": "Pregnancy",
+          "title": "Your week, one tap away",
+          "body": "In pregnancy mode Today shows your week and due date, and a button opens what is happening this week: your baby, your body and what to ask at your visit.",
+          "alt": "The femio Today screen in pregnancy mode: the week and due date on the colour card, a button to open this week's guide, and the week strip."
+        },
         "ask": {
           "label": "Ask femio",
           "title": "Answers that show their sources",

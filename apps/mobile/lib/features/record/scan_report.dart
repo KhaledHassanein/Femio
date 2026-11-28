@@ -116,6 +116,7 @@ class _ScanDraftScreenState extends State<ScanDraftScreen> {
   List<DraftLine> _lines = const [];
   final _kept = <int>{};
   String? _date;
+  int _unread = 0;
   bool _tried = false;
   bool _saving = false;
 
@@ -142,6 +143,7 @@ class _ScanDraftScreenState extends State<ScanDraftScreen> {
       _lines = draft?.lines ?? const [];
       _kept.addAll(List.generate(_lines.length, (i) => i));
       _date = draft?.date;
+      _unread = draft?.unreadPages ?? 0;
     });
   }
 
@@ -216,6 +218,14 @@ class _ScanDraftScreenState extends State<ScanDraftScreen> {
                   _failed ? l.scanFailed : (_lines.isEmpty ? l.scanNothing : l.scanIntro),
                   style: t.bodyMedium,
                 ),
+                if (_unread > 0) ...[
+                  const SizedBox(height: space3),
+                  Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                    Icon(Icons.report_gmailerrorred_outlined, size: iconSizeInline, color: p.warning),
+                    const SizedBox(width: space1h),
+                    Expanded(child: Text(l.scanUnreadPages(_unread), style: t.bodySmall)),
+                  ]),
+                ],
                 if (_lines.isNotEmpty) ...[
                   const SizedBox(height: space4),
                   ListTile(

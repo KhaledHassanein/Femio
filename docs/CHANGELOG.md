@@ -3,6 +3,11 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Changed
+- **Add a report from wherever you talk to femio.** Every assistant text box (Ask femio, Say it, After a visit) now has a paperclip beside the mic for a photo or PDF of a report, and Log has an "Add a report, scan or PDF" button. Build 3 (1.0.0).
+- **The mic works on more phones.** femio tries your language with its usual regions, and when your phone has no offline speech pack it offers to download it.
+- **Your pregnancy week, one tap away.** Today shows a "What's happening in week N" button, and the week strip highlights your week as "Now".
+- **Reports with several dates.** When pages of a report carry different dates, each result keeps its own date instead of being merged away, and femio tells you if a page could not be read.
+- **The website's app tour scrolls through each screen**, and now includes pregnancy.
 - **The newest Gemini Nano first.** On phones that offer Gemini Nano 4, femio uses it; on others it uses the stable Nano model, with nothing for you to set. Build 2 (1.0.0).
 - **A page of demos on the website.** `/demo` ("See femio in action") collects the screen tour, next periods, Say it and Ask femio. Every demo now says "Demo" and that it is scripted and sends nothing. The Google Play badge on the home and app pages now reads "Coming soon", like the iPhone one.
 - **Read a report with AI.** On a phone with Gemini Nano, femio reads a photo or PDF of a lab report or prescription on the phone and drafts the results and medicines; you check each line and the date, then save. On other phones the document is saved and you type the results.
