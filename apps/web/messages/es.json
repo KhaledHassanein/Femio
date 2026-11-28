@@ -1030,7 +1030,8 @@
     "glossary": "Glosario",
     "signIn": "Iniciar sesión",
     "getApp": "Descargar la app",
-    "healthData": "Datos de salud del consumidor"
+    "healthData": "Datos de salud del consumidor",
+    "demo": "Demos de la app"
   },
   "footer": {
     "explore": "Explorar",
@@ -1691,7 +1692,7 @@
     "title": "Tus registros nunca salen de tu teléfono.",
     "body": "Una app de Android privada para buscar un embarazo y vivirlo, con un asistente que funciona en tu teléfono. Tu calendario, tus registros y tus herramientas de embarazo se quedan en tu teléfono, tras un PIN si lo eliges. Sin cuenta, y nada de tus registros va a la nube salvo que actives Cloud boost. Muy pronto en Google Play.",
     "android": "Google Play",
-    "androidStatus": "Prueba cerrada más adelante",
+    "androidStatus": "Muy pronto",
     "androidLive": "Disponible en Google Play",
     "bodyLive": "Una app de Android privada para buscar un embarazo y vivirlo, con un asistente que funciona en tu teléfono. Tu calendario, tus registros y tus herramientas de embarazo se quedan en tu teléfono, tras un PIN si lo eliges. Sin cuenta, y nada de tus registros va a la nube salvo que actives Cloud boost.",
     "ios": "iPhone",
@@ -1754,7 +1755,7 @@
     "companion": "El asistente es un acompañante, no el motor: cada función sirve con él apagado, y nunca añade nada a tu registro sin ti.",
     "testBuild": {
       "title": "Versión de prueba anticipada (APK)",
-      "body": "Para quienes prueban o evalúan femio: una versión de Android que instalas por tu cuenta, antes de que femio llegue a Google Play. La prueba cerrada en Google Play llegará más adelante.",
+      "body": "Para quienes prueban o evalúan femio: una versión de Android que instalas por tu cuenta, antes de que femio llegue a Google Play.",
       "soon": "Enlace de descarga muy pronto",
       "soonBody": "El enlace a la versión de prueba aparecerá aquí en cuanto se publique. Mientras tanto, todo este sitio es gratuito.",
       "download": "Descargar el APK",
@@ -1948,7 +1949,9 @@
       "boostNever": "Nada más de tu historial: ni tus registros, notas, fechas, duración de ciclos, medicamentos, resultados de análisis, consultas, documentos, fotos o año de nacimiento. Nunca tus contactos ni tu ID de publicidad.",
       "boostAlsoSeen": "Como en cualquier conexión a internet, Google también ve la dirección de internet de tu teléfono y una comprobación de Google Play de que la solicitud viene de la app femio auténtica.",
       "boostWithdrawEffect": "Desactivarlo impide nuevos envíos. No puede recuperar lo que ya se envió."
-    }
+    },
+    "label": "Demostración",
+    "scripted": "Un ejemplo guionizado de lo que hace la app. Se ejecuta en tu navegador y no envía nada."
   },
   "helpNow": {
     "heading": "Números en tu país",
@@ -2093,5 +2096,11 @@
       "sleepCheck": "¿Debería hacerme un control del sueño si ronco y me siento cansada durante el día?",
       "weightTalk": "¿Podemos hablar del peso solo cuando yo diga que sí?"
     }
+  },
+  "demoPage": {
+    "metaTitle": "Mira femio en acción",
+    "title": "Mira femio en acción",
+    "intro": "Estas son demos guionizadas de la app de Android. Se ejecutan en tu navegador y no se envía nada. El producto completo es la propia app.",
+    "cta": "Sobre la app"
   }
 }

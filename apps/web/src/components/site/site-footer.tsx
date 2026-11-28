@@ -14,6 +14,7 @@ const EXPLORE = [
   { href: "/calculators", key: "calculators" },
   { href: "/faq", key: "faq" },
   { href: "/glossary", key: "glossary" },
+  { href: "/demo", key: "demo" },
 ] as const;
 const TRUST = [
   { href: "/about", key: "about" },

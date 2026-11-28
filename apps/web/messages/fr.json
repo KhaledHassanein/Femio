@@ -1030,7 +1030,8 @@
     "glossary": "Glossaire",
     "signIn": "Se connecter",
     "getApp": "Obtenir l'app",
-    "healthData": "Données de santé des consommateurs"
+    "healthData": "Données de santé des consommateurs",
+    "demo": "Démos de l'app"
   },
   "footer": {
     "explore": "Explorer",
@@ -1691,7 +1692,7 @@
     "title": "Vos données ne quittent jamais votre téléphone.",
     "body": "Une application Android privée pour le projet de grossesse et la grossesse, avec un assistant qui fonctionne sur votre téléphone. Votre calendrier, vos notes et vos outils de grossesse restent sur votre téléphone, derrière un code PIN si vous le souhaitez. Sans compte, et rien de vos données ne part dans le cloud sauf si vous activez Cloud boost. Bientôt sur Google Play.",
     "android": "Google Play",
-    "androidStatus": "Test fermé à venir",
+    "androidStatus": "Bientôt",
     "androidLive": "Disponible sur Google Play",
     "bodyLive": "Une application Android privée pour le projet de grossesse et la grossesse, avec un assistant qui fonctionne sur votre téléphone. Votre calendrier, vos notes et vos outils de grossesse restent sur votre téléphone, derrière un code PIN si vous le souhaitez. Sans compte, et rien de vos données ne part dans le cloud sauf si vous activez Cloud boost.",
     "ios": "iPhone",
@@ -1754,7 +1755,7 @@
     "companion": "L'assistant est un compagnon, pas le moteur : chaque fonction marche quand il est désactivé, et il n'ajoute jamais rien à votre suivi sans vous.",
     "testBuild": {
       "title": "Version de test anticipée (APK)",
-      "body": "Pour les personnes qui testent ou évaluent femio : une version Android que vous installez vous-même, avant l'arrivée de femio sur Google Play. Le test fermé sur Google Play viendra plus tard.",
+      "body": "Pour les personnes qui testent ou évaluent femio : une version Android que vous installez vous-même, avant l'arrivée de femio sur Google Play.",
       "soon": "Lien de téléchargement bientôt disponible",
       "soonBody": "Le lien vers la version de test sera ajouté ici dès sa publication. En attendant, tout ce site est gratuit.",
       "download": "Télécharger l'APK",
@@ -1948,7 +1949,9 @@
       "boostNever": "Rien d’autre de votre dossier : ni votre journal, ni vos notes, dates, durées de cycle, médicaments, résultats d’analyses, rendez-vous, documents, photos ou année de naissance. Jamais vos contacts ni votre identifiant publicitaire.",
       "boostAlsoSeen": "Comme pour toute connexion à Internet, Google voit aussi l’adresse Internet de votre téléphone, et une vérification de Google Play confirmant que la demande vient de la vraie application femio.",
       "boostWithdrawEffect": "La désactiver arrête tout nouvel envoi. Cela ne peut pas rappeler ce qui a déjà été envoyé."
-    }
+    },
+    "label": "Démo",
+    "scripted": "Un exemple scénarisé de ce que fait l'application. Il s'exécute dans votre navigateur et n'envoie rien."
   },
   "helpNow": {
     "heading": "Numéros dans votre pays",
@@ -2093,5 +2096,11 @@
       "sleepCheck": "Dois-je faire un bilan du sommeil si je ronfle et que je me sens fatiguée dans la journée ?",
       "weightTalk": "Pouvons-nous parler du poids seulement lorsque j’y consens ?"
     }
+  },
+  "demoPage": {
+    "metaTitle": "Voir femio en action",
+    "title": "Voir femio en action",
+    "intro": "Ce sont des démos scénarisées de l'application Android. Elles s'exécutent dans votre navigateur et rien n'est envoyé. Le produit complet, c'est l'application elle-même.",
+    "cta": "À propos de l'app"
   }
 }

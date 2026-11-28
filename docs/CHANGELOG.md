@@ -3,6 +3,7 @@ All notable changes to Femio V2.
 
 ## [Unreleased]
 ### Changed
+- **A page of demos on the website.** `/demo` ("See femio in action") collects the screen tour, next periods, Say it and Ask femio. Every demo now says "Demo" and that it is scripted and sends nothing. The Google Play badge on the home and app pages now reads "Coming soon", like the iPhone one.
 - **Read a report with AI.** On a phone with Gemini Nano, femio reads a photo or PDF of a lab report or prescription on the phone and drafts the results and medicines; you check each line and the date, then save. On other phones the document is saved and you type the results.
 - **After a visit.** Say or type what the doctor told you; with Gemini Nano femio drafts the medicines, results and next visit for you to check, and without it your words are saved as a visit note.
 - **Charts from your record.** Blood pressure, glucose and any lab result you logged twice in the same unit are drawn by date, with the range printed on your own report and nothing else.
