@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "femio: ciclo, fertilidad y embarazo en privado",
-    "description": "La compañera privada para buscar un embarazo y vivirlo. Guías con fuentes, calculadoras y registros que nunca salen de tu teléfono."
+    "description": "La compañera privada para buscar un embarazo y vivirlo. Guías con fuentes, calculadoras y registros que se quedan en tu teléfono."
   },
   "home": {
     "rail": {
@@ -82,7 +82,7 @@
       "heading": "Empieza a leer ahora."
     },
     "close": {
-      "heading": "Tus registros nunca salen de tu teléfono."
+      "heading": "Tus registros se quedan en tu teléfono. Cloud boost es opcional."
     },
     "disclaimer": "femio sirve para aprender y llevar un registro — no es consejo médico ni una forma de evitar el embarazo. Habla siempre con tu profesional sanitario sobre tu atención.",
     "sections": {
@@ -119,7 +119,7 @@
     "hero": {
       "eyebrow": "Salud y bienestar de la mujer, con ayuda de IA",
       "title": "femio es tu compañera privada con IA para buscar un embarazo y vivirlo.",
-      "body": "Su IA funciona en tu teléfono; la nube solo se usa si aceptas Cloud boost. Rangos honestos en lugar de promesas, guías que muestran sus fuentes y registros que nunca salen de tu teléfono. Sin cuenta y sin anuncios en la app.",
+      "body": "Su IA funciona en tu teléfono; la nube solo se usa si aceptas Cloud boost. Rangos honestos en lugar de promesas, guías que muestran sus fuentes y registros que se quedan en tu teléfono. Sin cuenta y sin anuncios en la app.",
       "cta": "Descargar la app",
       "ctaSecondary": "Probar la calculadora de ovulación"
     },
@@ -1689,7 +1689,7 @@
   "getApp": {
     "metaTitle": "Descarga la app de femio",
     "eyebrow": "Salud y bienestar de la mujer, con ayuda de IA",
-    "title": "Tus registros nunca salen de tu teléfono.",
+    "title": "Tus registros se quedan en tu teléfono. Cloud boost es opcional.",
     "body": "Una app de Android privada para buscar un embarazo y vivirlo, con un asistente que funciona en tu teléfono. Tu calendario, tus registros y tus herramientas de embarazo se quedan en tu teléfono, tras un PIN si lo eliges. Sin cuenta, y nada de tus registros va a la nube salvo que actives Cloud boost. Muy pronto en Google Play.",
     "android": "Google Play",
     "androidStatus": "Muy pronto",

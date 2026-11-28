@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "femio: private period, fertility & pregnancy guide",
-    "description": "The private companion for trying to conceive and pregnancy. Cited guides, calculators, and records that never leave your phone."
+    "description": "The private companion for trying to conceive and pregnancy. Cited guides, calculators, and records that stay on your phone."
   },
   "home": {
     "rail": {
@@ -82,7 +82,7 @@
       "heading": "Start reading now."
     },
     "close": {
-      "heading": "Your records never leave your phone."
+      "heading": "Your records stay on your phone. Cloud boost is opt-in."
     },
     "disclaimer": "femio is for learning and tracking — not medical advice, and not a way to avoid pregnancy. Always speak to your clinician about your care.",
     "sections": {
@@ -119,7 +119,7 @@
     "hero": {
       "eyebrow": "AI-assisted women's health & wellness",
       "title": "femio is your private AI companion, from trying to conceive through pregnancy.",
-      "body": "Its AI runs on your phone; the cloud is used only if you agree to Cloud boost. Honest ranges instead of promises, guides that show their sources, and records that never leave your phone. No account, and no ads in the app.",
+      "body": "Its AI runs on your phone; the cloud is used only if you agree to Cloud boost. Honest ranges instead of promises, guides that show their sources, and records that stay on your phone. No account, and no ads in the app.",
       "cta": "Get the app",
       "ctaSecondary": "Try the ovulation calculator"
     },
@@ -1689,7 +1689,7 @@
   "getApp": {
     "metaTitle": "Get the femio app",
     "eyebrow": "AI-assisted women's health & wellness",
-    "title": "Your records never leave your phone.",
+    "title": "Your records stay on your phone. Cloud boost is opt-in.",
     "body": "A private Android app for trying to conceive and pregnancy, with an assistant that runs on your phone. Your calendar, logs and pregnancy tools stay on your phone, behind a PIN if you choose. No account, and nothing from your records goes to the cloud unless you turn on Cloud boost. Coming to Google Play.",
     "android": "Google Play",
     "androidStatus": "Coming soon",

@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "femio : cycle, fertilité et grossesse en privé",
-    "description": "Le compagnon privé du projet de grossesse et de la grossesse. Guides sourcés, calculateurs et données qui ne quittent jamais votre téléphone."
+    "description": "Le compagnon privé du projet de grossesse et de la grossesse. Guides sourcés, calculateurs et données qui restent sur votre téléphone."
   },
   "home": {
     "rail": {
@@ -82,7 +82,7 @@
       "heading": "Commencez à lire maintenant."
     },
     "close": {
-      "heading": "Vos données ne quittent jamais votre téléphone."
+      "heading": "Vos données restent sur votre téléphone. Cloud boost est facultatif."
     },
     "disclaimer": "femio sert à s’informer et à suivre — ce n’est pas un avis médical, ni un moyen d’éviter une grossesse. Parlez toujours de vos soins à votre professionnel de santé.",
     "sections": {
@@ -119,7 +119,7 @@
     "hero": {
       "eyebrow": "Santé et bien-être des femmes, assistés par l'IA",
       "title": "femio est votre compagnon IA privé, du projet de grossesse jusqu'à la naissance.",
-      "body": "Son IA fonctionne sur votre téléphone ; le cloud n'est utilisé que si vous acceptez Cloud boost. Des fourchettes honnêtes plutôt que des promesses, des guides qui montrent leurs sources, et des données qui ne quittent jamais votre téléphone. Sans compte, et sans publicité dans l'application.",
+      "body": "Son IA fonctionne sur votre téléphone ; le cloud n'est utilisé que si vous acceptez Cloud boost. Des fourchettes honnêtes plutôt que des promesses, des guides qui montrent leurs sources, et des données qui restent sur votre téléphone. Sans compte, et sans publicité dans l'application.",
       "cta": "Obtenir l'app",
       "ctaSecondary": "Essayer le calculateur d'ovulation"
     },
@@ -1689,7 +1689,7 @@
   "getApp": {
     "metaTitle": "Téléchargez l'application femio",
     "eyebrow": "Santé et bien-être des femmes, assistés par l'IA",
-    "title": "Vos données ne quittent jamais votre téléphone.",
+    "title": "Vos données restent sur votre téléphone. Cloud boost est facultatif.",
     "body": "Une application Android privée pour le projet de grossesse et la grossesse, avec un assistant qui fonctionne sur votre téléphone. Votre calendrier, vos notes et vos outils de grossesse restent sur votre téléphone, derrière un code PIN si vous le souhaitez. Sans compte, et rien de vos données ne part dans le cloud sauf si vous activez Cloud boost. Bientôt sur Google Play.",
     "android": "Google Play",
     "androidStatus": "Bientôt",
