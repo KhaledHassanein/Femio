@@ -16,6 +16,7 @@ import '../../theme/femio_theme.dart';
 import '../../theme/radii.dart';
 import '../../theme/spacing.dart';
 import '../../widgets/notice_card.dart';
+import 'charts_screen.dart';
 import 'documents_section.dart';
 import 'medicines_screen.dart';
 import 'record_editor.dart';
@@ -56,6 +57,11 @@ class _RecordScreenState extends State<RecordScreen> {
         final present = {for (final e in all) e.kind};
         return Scaffold(
           appBar: AppBar(title: Text(l.recTitle), actions: [
+            IconButton(
+              tooltip: l.chartTitle,
+              icon: const Icon(Icons.show_chart_rounded),
+              onPressed: () => openCharts(context, widget.controller, widget.today),
+            ),
             IconButton(
               tooltip: l.medTitle,
               icon: const Icon(Icons.medication_outlined),
@@ -137,7 +143,7 @@ class _Row extends StatelessWidget {
     final locale = Localizations.localeOf(context).toLanguageTag();
     final happened = DateFormat.yMMMd(locale).format(fromISO(entry.happenedOn));
     final added = DateFormat.yMMMd(locale).format(DateTime.parse(entry.addedOn));
-    final summary = recordSummary(entry);
+    final summary = recordSummary(entry, l: l);
     return Padding(
       padding: const EdgeInsets.only(bottom: space2h),
       child: Material(

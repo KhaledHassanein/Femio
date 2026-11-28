@@ -12,6 +12,12 @@ import 'dates.dart';
 enum RecordKind {
   visit,
   lab,
+
+  /// A blood-pressure reading: systolic, diastolic and an optional pulse (R11.5).
+  bloodPressure,
+
+  /// A glucose reading with the unit as she entered it and when she took it (R11.5).
+  glucose,
   imaging,
   medicine,
   condition,
@@ -41,9 +47,42 @@ abstract final class RecordField {
   static const place = 'place';
   static const details = 'details';
 
+  /// Blood pressure, in mmHg, as she typed the two numbers (R11.5).
+  static const systolic = 'systolic';
+  static const diastolic = 'diastolic';
+
+  /// Beats per minute, optional on a blood-pressure reading.
+  static const pulse = 'pulse';
+
+  /// When a glucose reading was taken, one of [glucoseContexts].
+  static const context = 'context';
+
   /// Every field the app knows, in the order forms and exports show them.
-  static const all = [value, unit, printedRange, dose, frequency, startedOn, endedOn, prescriber, place, details];
+  static const all = [
+    value,
+    unit,
+    printedRange,
+    dose,
+    frequency,
+    startedOn,
+    endedOn,
+    prescriber,
+    place,
+    details,
+    systolic,
+    diastolic,
+    pulse,
+    context,
+  ];
 }
+
+/// The stored values of [RecordField.context] on a glucose reading. Her words for when she
+/// measured, never a target: femio does not say what a reading means in any of them.
+const glucoseContexts = ['fasting', 'afterMeal', 'other'];
+
+/// The units femio offers for a glucose reading, stored exactly as written on screen. Never
+/// converted from one to the other (R11.5).
+const glucoseUnits = ['mg/dL', 'mmol/L'];
 
 /// One change to an entry: when, and which fields changed. Old values are not kept in
 /// the trail: the entry itself is the record, the trail only says it was edited.

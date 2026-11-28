@@ -23,6 +23,7 @@ import '../../theme/spacing.dart';
 import '../../widgets/notice_card.dart';
 import '../settings/notification_consent_screen.dart';
 import 'medicine_doses.dart';
+import 'medicine_month_view.dart';
 import 'record_editor.dart';
 import 'record_labels.dart';
 
@@ -270,6 +271,8 @@ class _MedicinePageState extends State<MedicinePage> {
                 ],
               ),
             ],
+            heading(l.medMonthHeading),
+            MedicineMonthView(controller: widget.controller, entry: entry, today: widget.today),
             heading(l.medHistory),
             if (marks.isEmpty)
               Text(l.medHistoryEmpty, style: t.bodySmall)
