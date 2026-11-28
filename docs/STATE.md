@@ -1,6 +1,6 @@
 # Femio — current state (living document)
 
-**Last updated: 2026-11-27.** Rewrite in place; never add a dated copy. Older versions are in git
+**Last updated: 2026-11-28.** Rewrite in place; never add a dated copy. Older versions are in git
 history and `docs/archive/`.
 
 ## ▶ Resume prompt
@@ -15,6 +15,8 @@ history and `docs/archive/`.
 > First, run `git branch --list "wip/*"`. A branch there means the last session stopped mid-item.
 
 ## Where things stand (2026-10-28)
+
+- **AI ideas 1–5 built (2026-11-28, owner request of 28 Nov; ADR-087, ADR-087 §6, ADR-088).** Read a report with AI (Nano reads a photo or the first 3 PDF pages as pictures, on the phone only; without Nano: upload only), After a visit, charts from her record (BP, glucose, repeated labs; only her report's printed range), a medicine month view, the ML Kit translation bridge for Ask, and Gemini Nano speech with the ADR-086 recognizer as fallback. Privacy notice v4 and the app's "What can leave this phone" now list the translation file and say speech, translation and documents stay on the phone. Full suite 1545 pass (synthetic). **Not run on a Nano phone**; the ML Kit usage-data disclosure needs the lawyer's look (owner rows 34–36). Read aloud (idea 6) is postponed.
 
 - **After Lab 0 (R14.25–R14.31, ADR-086).** Ask's freeze (an ANR: Firebase set-up on Android's main thread) and the App Check failure (no project number for Play Integrity) are fixed in code; femio says why the AI did not run and pauses a failing Cloud boost for 10 minutes. New: an on-device-only mic on Ask and Say it (`RECORD_AUDIO`, tripwire-guarded), "Open settings" when notifications or the mic are off, lab/scan/document in the + sheet, symptoms folded to five plus "Other", plain-words AI descriptions, Play links behind `PLAY_LISTING_LIVE`. Lab 6 answered (rows 36–39, 46). **Open:** real-phone check of Ask and Check Cloud boost on the rebuilt APK; the PCOS visit checklist (R13.6); which repo is public (owner action 47, R14.32).
 

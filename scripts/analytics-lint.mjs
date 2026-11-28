@@ -360,6 +360,13 @@ function speechProblems() {
     }
     if (/\bAudioRecord\b|\bMediaRecorder\b/.test(code)) problems.push(`${path} records audio`);
     if (/RECORD_AUDIO/.test(code) && !path.startsWith(SPEECH_DIR)) problems.push(`${path} uses the microphone outside the speech package`);
+    // Gemini Nano speech (ADR-088): only in the speech package, only from the live
+    // microphone, and never a download started from femio's code.
+    if (/com\.google\.mlkit\.genai\.speechrecognition/.test(code)) {
+      if (!path.startsWith(SPEECH_DIR)) problems.push(`${path} uses Gemini Nano speech outside the speech package`);
+      if (/AudioSource\.from(File|Uri|Pfd)\(/.test(code)) problems.push(`${path} transcribes audio other than the live microphone`);
+      if (/\.download\(/.test(code)) problems.push(`${path} starts a speech model download`);
+    }
   }
   return problems;
 }

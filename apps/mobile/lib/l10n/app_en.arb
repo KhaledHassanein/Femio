@@ -1477,7 +1477,7 @@
   },
   "leaveBoostBody": "Only if you agree: a general question you approve, or four broad facts, goes to Google's cloud AI. Google Play also confirms the request comes from the real femio app.",
   "leaveModelHeading": "The on-phone AI model",
-  "leaveModelBody": "If you tap Download, Android's AI service (AICore, run by Google) downloads Gemini Nano and keeps it up to date. Whenever the on-phone AI runs, Google's AI software may send Google technical usage information, such as an identifier for this installation, device and app details, errors, speed and the size of a request. It does not include your words, and femio adds none of your records to it.",
+  "leaveModelBody": "If you tap Download, Android's AI service (AICore, run by Google) downloads Gemini Nano and keeps it up to date. Whenever the on-phone AI runs, Google's AI software may send Google technical usage information, such as an identifier for this installation, device and app details, errors, speed and the size of a request. It does not include your words, and femio adds none of your records to it. If you tap Download under “Translate for the AI on this phone”, Google’s ML Kit downloads a language file of about 30 MB; translation then runs on the phone, and the pair of languages may be part of that usage data. Speech to text, translation and reading your documents all run on the phone: no audio, text or document is sent.",
   "leavePlayHeading": "Google Play",
   "leavePlayBody": "Google Play installs and updates femio, may show its rating request, and handles femio Plus payments. It tells us only totals, such as installs and crashes. femio sends Google Play nothing of yours.",
   "leaveBackupHeading": "Your backup",

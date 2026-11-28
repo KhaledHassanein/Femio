@@ -57,6 +57,15 @@ every one of them still works when the AI is off.
   her visit sheet, so the short appointment goes to what counts.
 - **Her tips follow where she is** (trying to conceive, pregnant, after birth, perimenopause, how
   regular her cycles are, what she logs), so the first tip she sees fits her, not everyone.
+- **She photographs a lab report or prescription** (or picks a PDF), and Gemini Nano reads it on
+  the phone into results and medicines she checks line by line, with the report's own date. The
+  page never leaves the phone; on a phone without Nano the document is simply saved.
+- **After a visit she says what the doctor told her**, and it becomes a draft of new medicines,
+  results and the next appointment for her to confirm.
+- **She asks in Arabic, French or Spanish**, and an on-device translator carries the question to
+  English for Gemini Nano and the cited answer back, still on the phone.
+- **Her voice becomes text with Gemini Nano** on phones that have it, and with Android's own
+  on-device recognizer on the rest. No audio is ever sent.
 - **On a phone without built-in AI**, she can choose Cloud boost: her question, with anything
   personal taken out and approved by her, goes to Google's AI, which writes the same kind of
   short, sourced answer. Without Cloud boost she reads the sources word for word, and femio says

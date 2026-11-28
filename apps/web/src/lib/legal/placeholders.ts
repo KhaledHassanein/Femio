@@ -41,7 +41,7 @@ export const LEGAL_VALUES = {
  * deploy day, 27 Nov (v3 privacy was deployed that morning).
  */
 export const LEGAL_EDITIONS = {
-  privacy: { date: "2026-11-27", version: "3" },
+  privacy: { date: "2026-11-28", version: "4" },
   terms: { date: "2026-10-29", version: "1" },
   healthData: { date: "2026-11-27", version: "3" },
 } as const;

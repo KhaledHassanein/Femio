@@ -1,8 +1,10 @@
-// Speech to text that never leaves the phone (owner 2026-11-27, ADR-086).
+// Speech to text that never leaves the phone (owner 2026-11-27 and 2026-11-28, ADR-086).
 //
-// Why it exists: she asked for a microphone on Ask femio and Say it. Android's own on-device
-// recognizer (SpeechRecognizer.createOnDeviceSpeechRecognizer, Android 12+) turns her voice
-// into words on the phone; femio never records, keeps or sends audio. There is deliberately no
+// Why it exists: she asked for a microphone on Ask femio, Say it and After a visit. On a phone
+// with Gemini Nano speech ready, GeminiDictation transcribes on the phone with it; otherwise
+// Android's own on-device recognizer (SpeechRecognizer.createOnDeviceSpeechRecognizer, Android
+// 12+) turns her voice into words on the phone. femio never records, keeps or sends audio. There
+// is deliberately no
 // fallback to the ordinary recognizer, which may send audio to a server: when the phone has no
 // on-device recognizer, Dart says why and suggests the keyboard's own mic. The privacy tripwire
 // (scripts/analytics-lint.mjs) allows RECORD_AUDIO only while this file keeps to that.
@@ -29,6 +31,7 @@ import io.flutter.plugin.common.MethodChannel
 class SpeechChannel(private val activity: Activity, messenger: BinaryMessenger) {
     private val channel = MethodChannel(messenger, "femio/speech")
     private var recognizer: SpeechRecognizer? = null
+    private val nano = GeminiDictation { channel.invokeMethod("partial", it) }
 
     // The "listen" call waiting for her words, and its language while the permission is asked.
     private var pending: MethodChannel.Result? = null
@@ -39,7 +42,7 @@ class SpeechChannel(private val activity: Activity, messenger: BinaryMessenger) 
             when (call.method) {
                 "listen" -> listen(call.argument<String>("locale").orEmpty(), result)
                 "stop" -> {
-                    recognizer?.stopListening()
+                    if (nano.active) nano.stop() else recognizer?.stopListening()
                     result.success(null)
                 }
                 "appSettings" -> {
@@ -87,7 +90,12 @@ class SpeechChannel(private val activity: Activity, messenger: BinaryMessenger) 
         return true
     }
 
+    /** Gemini Nano speech when the phone has it ready, else Android's on-device recognizer. */
     private fun start(locale: String) {
+        nano.start(locale, fallback = { startOnDevice(locale) }, done = { text, error -> finish(text, error) })
+    }
+
+    private fun startOnDevice(locale: String) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) return finish(error = "old_android")
         val r = try {
             SpeechRecognizer.createOnDeviceSpeechRecognizer(activity)
@@ -148,6 +156,7 @@ class SpeechChannel(private val activity: Activity, messenger: BinaryMessenger) 
     }
 
     fun dispose() {
+        nano.dispose()
         finish(error = "other")
         channel.setMethodCallHandler(null)
     }

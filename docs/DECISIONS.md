@@ -1364,3 +1364,32 @@ total) and is validated for English and Korean only
 and Spanish is unvalidated by Google (reports are usually printed in English in Egypt and Saudi
 Arabia [NEEDS SOURCE]), so the draft screen is the safeguard; a dense page may be cut off at 256
 output tokens.
+6. **Translation bridge (added 28 Nov).** Because Nano is validated in English, Ask on the phone
+   may translate her question to English and the answer back with Google ML Kit on-device
+   translation (`com.google.mlkit:translate:17.0.3`, Kotlin `translate/`). The language file
+   (about 30 MB) downloads only when she taps Download in Settings > Assistant; translation then
+   runs offline. Citation marks are kept outside the translated words; any failed step falls back
+   to asking Nano in her language, so a half-translated answer is never shown. The answer card
+   says it was machine-translated on her phone. The tripwire keeps ML Kit Translate inside the
+   translate package and the download on the settings row (fault injected 28 Nov, caught).
+**Cost of 6.** ML Kit sends Google technical usage data (device and app details, identifiers,
+timings, sizes, error codes, and for Translate the language pair), never her text
+(https://developers.google.com/ml-kit/android-data-disclosure, read 28 Nov). The privacy notice,
+Play Data safety and the lawyer's review must list it.
+
+## ADR-088 · The mic prefers Gemini Nano speech, on the phone only (2026-11-28)
+
+**Context.** ADR-086 chose Android's on-device recognizer. The owner asked (28 Nov) that speech to
+text use Gemini Nano when the phone has it. ML Kit GenAI Speech Recognition
+(`com.google.mlkit:genai-speech-recognition:1.0.0-alpha2`) has an Advanced mode on Gemini Nano
+through AICore (ar-SA beta, en-US, es-ES, fr-FR; Pixel 10/11 and named Snapdragon, Dimensity and
+Exynos chipsets) that transcribes the live microphone on the device
+(https://developers.google.com/ml-kit/genai/speech-recognition/android, read 28 Nov).
+**Decision.** `speech/GeminiDictation.kt` tries Advanced mode first when the feature reports
+AVAILABLE for her language; otherwise, or if it fails before hearing a word, the ADR-086 on-device
+recognizer runs exactly as before. femio starts no speech-model download. It listens to the live
+microphone only and stops after 2.5 s of quiet, 8 s with nothing heard, or 60 s. The tripwire
+keeps GenAI speech in the speech package, microphone-only and download-free (fault injected 28
+Nov, caught). ADR-086 still holds for the fallback and the permission flow.
+**Cost.** An alpha library (pinned); Arabic is beta; ML Kit GenAI sends technical usage data with
+identifiers (not audio or text), to be disclosed with ADR-087 §6. Not yet tried on a Nano phone.

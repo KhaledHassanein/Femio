@@ -150,6 +150,9 @@ dependencies {
     // English, so her question and its answer are translated on the phone. The language file
     // downloads only when she taps Download; her words never leave the phone.
     implementation("com.google.mlkit:translate:17.0.3")
+    // Speech to text with Gemini Nano on the phone when it is ready (ADR-088);
+    // Android's on-device recognizer is the fallback. Audio is never sent.
+    implementation("com.google.mlkit:genai-speech-recognition:1.0.0-alpha2")
 }
 
 flutter {

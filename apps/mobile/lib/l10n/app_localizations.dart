@@ -5000,7 +5000,7 @@ abstract class L10n {
   /// No description provided for @leaveModelBody.
   ///
   /// In en, this message translates to:
-  /// **'If you tap Download, Android\'s AI service (AICore, run by Google) downloads Gemini Nano and keeps it up to date. Whenever the on-phone AI runs, Google\'s AI software may send Google technical usage information, such as an identifier for this installation, device and app details, errors, speed and the size of a request. It does not include your words, and femio adds none of your records to it.'**
+  /// **'If you tap Download, Android\'s AI service (AICore, run by Google) downloads Gemini Nano and keeps it up to date. Whenever the on-phone AI runs, Google\'s AI software may send Google technical usage information, such as an identifier for this installation, device and app details, errors, speed and the size of a request. It does not include your words, and femio adds none of your records to it. If you tap Download under “Translate for the AI on this phone”, Google’s ML Kit downloads a language file of about 30 MB; translation then runs on the phone, and the pair of languages may be part of that usage data. Speech to text, translation and reading your documents all run on the phone: no audio, text or document is sent.'**
   String get leaveModelBody;
 
   /// No description provided for @leavePlayHeading.

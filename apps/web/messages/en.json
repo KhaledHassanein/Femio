@@ -1168,7 +1168,7 @@
           },
           {
             "lead": "Google’s on-phone AI.",
-            "body": "If your phone supports Gemini Nano and you tap Download, Android’s AI system service (AICore, run by Google) downloads the model and keeps it up to date, under Google’s terms. Whenever the app uses Google’s AI software, even with Cloud boost off, that software may send Google technical usage data. Google says this can include device and app details, identifiers for this installation, how long a request took, the size of what went in and out, and error codes. femio does not add your records to it."
+            "body": "If your phone supports Gemini Nano and you tap Download, Android’s AI system service (AICore, run by Google) downloads the model and keeps it up to date, under Google’s terms. Whenever the app uses Google’s AI software, even with Cloud boost off, that software may send Google technical usage data. Google says this can include device and app details, identifiers for this installation, how long a request took, the size of what went in and out, and error codes. femio does not add your records to it. If you tap Download under “Translate for the AI on this phone”, Google’s ML Kit downloads a language file of about 30 MB; translation then runs on the phone, and the pair of languages may be part of that usage data. Speech to text, translation and reading your documents all run on the phone: no audio, text or document is sent."
           },
           {
             "lead": "Google Play.",
@@ -1868,7 +1868,7 @@
         },
         "model": {
           "title": "Google's on-phone AI",
-          "body": "Whenever the app uses Google's AI software, even with Cloud boost off, it may send Google technical usage data, such as device details, an identifier for this installation, errors and performance. If you tap Download, Android's AI service (AICore, run by Google) downloads Gemini Nano and keeps it up to date. femio adds none of your records to it."
+          "body": "Whenever the app uses Google's AI software, even with Cloud boost off, it may send Google technical usage data, such as device details, an identifier for this installation, errors and performance. If you tap Download, Android's AI service (AICore, run by Google) downloads Gemini Nano and keeps it up to date. femio adds none of your records to it. If you tap Download under “Translate for the AI on this phone”, Google’s ML Kit downloads a language file of about 30 MB; translation then runs on the phone, and the pair of languages may be part of that usage data. Speech to text, translation and reading your documents all run on the phone: no audio, text or document is sent."
         },
         "play": {
           "title": "Google Play",

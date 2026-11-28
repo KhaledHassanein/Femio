@@ -3111,7 +3111,7 @@ class L10nFr extends L10n {
 
   @override
   String get leaveModelBody =>
-      'Si vous touchez Télécharger, le service d\'IA d\'Android (AICore, géré par Google) télécharge Gemini Nano et le tient à jour. Chaque fois que l\'IA du téléphone fonctionne, le logiciel d\'IA de Google peut envoyer à Google des informations techniques d\'utilisation, comme un identifiant de cette installation, des détails sur l\'appareil et l\'application, les erreurs, la vitesse et la taille d\'une demande. Elles ne contiennent pas vos mots, et femio n\'y ajoute aucune de vos données.';
+      'Si vous touchez Télécharger, le service d\'IA d\'Android (AICore, géré par Google) télécharge Gemini Nano et le tient à jour. Chaque fois que l\'IA du téléphone fonctionne, le logiciel d\'IA de Google peut envoyer à Google des informations techniques d\'utilisation, comme un identifiant de cette installation, des détails sur l\'appareil et l\'application, les erreurs, la vitesse et la taille d\'une demande. Elles ne contiennent pas vos mots, et femio n\'y ajoute aucune de vos données. Si vous touchez Télécharger sous « Traduire pour l\'IA de ce téléphone », ML Kit de Google télécharge un fichier de langue d\'environ 30 Mo ; la traduction se fait ensuite sur le téléphone, et la paire de langues peut figurer dans ces informations d\'utilisation. La dictée, la traduction et la lecture de vos documents se font toutes sur le téléphone : aucun son, texte ou document n\'est envoyé.';
 
   @override
   String get leavePlayHeading => 'Google Play';

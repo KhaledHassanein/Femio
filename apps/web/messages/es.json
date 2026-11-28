@@ -1168,7 +1168,7 @@
           },
           {
             "lead": "La IA de Google en el teléfono.",
-            "body": "Si tu teléfono admite Gemini Nano y pulsas Descargar, el servicio de IA de Android (AICore, gestionado por Google) descarga el modelo y lo mantiene actualizado, según las condiciones de Google. Siempre que la app usa el software de IA de Google, incluso con Cloud boost desactivado, ese software puede enviar a Google datos técnicos de uso. Según Google, pueden incluir datos del dispositivo y de la app, identificadores de esta instalación, cuánto tardó una petición, el tamaño de lo que entró y salió, y códigos de error. femio no le añade tus registros."
+            "body": "Si tu teléfono admite Gemini Nano y pulsas Descargar, el servicio de IA de Android (AICore, gestionado por Google) descarga el modelo y lo mantiene actualizado, según las condiciones de Google. Siempre que la app usa el software de IA de Google, incluso con Cloud boost desactivado, ese software puede enviar a Google datos técnicos de uso. Según Google, pueden incluir datos del dispositivo y de la app, identificadores de esta instalación, cuánto tardó una petición, el tamaño de lo que entró y salió, y códigos de error. femio no le añade tus registros. Si tocas Descargar en «Traducir para la IA de este teléfono», ML Kit de Google descarga un archivo de idioma de unos 30 MB; después la traducción se hace en el teléfono, y el par de idiomas puede formar parte de esa información de uso. El dictado, la traducción y la lectura de tus documentos se hacen en el teléfono: no se envía ningún audio, texto ni documento."
           },
           {
             "lead": "Compras en Google Play.",
@@ -1868,7 +1868,7 @@
         },
         "model": {
           "title": "La IA de Google en el teléfono",
-          "body": "Siempre que la app usa el software de IA de Google, incluso con Cloud boost desactivado, puede enviar a Google datos técnicos de uso, como datos del dispositivo, un identificador de esta instalación, errores y rendimiento. Si tocas Descargar, el servicio de IA de Android (AICore, gestionado por Google) descarga Gemini Nano y lo mantiene al día. femio no le añade ninguno de tus registros."
+          "body": "Siempre que la app usa el software de IA de Google, incluso con Cloud boost desactivado, puede enviar a Google datos técnicos de uso, como datos del dispositivo, un identificador de esta instalación, errores y rendimiento. Si tocas Descargar, el servicio de IA de Android (AICore, gestionado por Google) descarga Gemini Nano y lo mantiene al día. femio no le añade ninguno de tus registros. Si tocas Descargar en «Traducir para la IA de este teléfono», ML Kit de Google descarga un archivo de idioma de unos 30 MB; después la traducción se hace en el teléfono, y el par de idiomas puede formar parte de esa información de uso. El dictado, la traducción y la lectura de tus documentos se hacen en el teléfono: no se envía ningún audio, texto ni documento."
         },
         "play": {
           "title": "Google Play",
