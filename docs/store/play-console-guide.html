@@ -102,7 +102,7 @@ dl.gloss dt{font-weight:700} dl.gloss dd{margin:0;color:var(--muted)}
   </dl>
 </section>
 
-<div class="note info"><strong>Is the release build broken?</strong> No. It is ready except for one thing only you can make: the upload key (Step 1). Without it the build signs itself with a test key, and Play refuses that on purpose, so nothing wrong can be uploaded by mistake. Claude built a test release bundle on 25 November (60 MB) and read what is inside: the permissions are internet, network state, notifications, start-after-restart, vibrate, Google Play billing and the on-phone AI service; there is no advertising ID, and Firebase's installation-ID library is not in it.</div>
+<div class="note ok"><strong>Where you are (28 Nov):</strong> upload key made and bundle uploaded, so Steps 1 and 4 are done. Next is <a href="#s2">Step 2, "Set up your app"</a>, starting with the privacy policy. Step 2 was re-checked on 28 November against the signed build <code>cde4448</code>. That build's permissions are internet, network state, microphone (asked on first tap, speech turned into text on the phone), notifications, start-after-restart, vibrate, Google Play billing and the on-phone AI service. There is no advertising ID.</div>
 
 <section class="step" id="s1">
   <div class="step-head"><span class="num">1</span><div><h2>Make your upload key</h2><p class="time">Once · about 10 minutes · on this PC</p></div></div>
@@ -138,11 +138,12 @@ keyPassword=YOUR_PASSWORD</div>
   <div class="step-head"><span class="num">2</span><div><h2>Finish "Set up your app" in Play Console</h2><p class="time">Once · about 45 minutes · play.google.com/console → femio → Dashboard</p></div></div>
   <p class="muted small">You already created the app. The Dashboard shows a list called "Set up your app". Open each item, answer, and press <strong>Save</strong>. Play changes its wording now and then; if a question here does not match the screen, choose the closest and tell Claude.</p>
   <ol class="do">
-    <li><input type="checkbox" id="s2a"><div><p class="path">Privacy policy</p><p>Paste and Save:</p><div class="copy">https://femioapp.com/en/privacy</div></div></li>
-    <li><input type="checkbox" id="s2b"><div><p class="path">App access</p><p>Choose <span class="ans">All functionality in my app is available without any access restrictions</span>. Save.</p></div></li>
+    <li><input type="checkbox" id="s2a"><div><p class="path">Privacy policy</p><p>Paste and Save:</p><div class="copy">https://femioapp.com/en/privacy</div><p class="small muted">Live now as version 4 (28 Nov): it names Cloud boost, Gemini Nano, ML Kit speech and translation, and Google Play. Use the English URL; the page switches language itself.</p></div></li>
+    <li><input type="checkbox" id="s2b"><div><p class="path">App access</p><p>Choose <span class="ans">All functionality in my app is available without any access restrictions</span>. Save.</p><p class="small muted">No account, no login, no code. If Play still shows an instructions box, paste:</p><div class="copy">No account or login is needed. Every feature is open on first launch after the user confirms she is 18 or over. AI features use Gemini Nano on phones that have it; on other phones the app shows trusted sources word for word, and Cloud boost (Google's cloud AI) is off unless the user turns it on in Settings, Assistant.</div></div></li>
     <li><input type="checkbox" id="s2c"><div><p class="path">Ads</p><p>Choose <span class="ans">No, my app does not contain ads</span>. Save.</p></div></li>
     <li><input type="checkbox" id="s2d"><div><p class="path">Content rating</p><p>Start questionnaire. Email: <code>info@femioapp.com</code>. Category: <span class="ans">All Other App Types</span> (the closest; there is no health category). Then answer each question <span class="ans">No</span>: violence, fear, sexuality or nudity, bad language, drugs, alcohol or tobacco, gambling, crude humour.</p>
       <p>For "Does the app allow users to interact or exchange content?": <span class="ans">No</span>. "Shares the user's current location?": <span class="ans">No</span>. "Allows users to purchase digital goods?": <span class="ans">No</span>. "Unrestricted internet access (a browser)?": <span class="ans">No</span>.</p>
+      <p>If it asks whether the app has <strong>AI-generated content</strong> or generative AI: <span class="ans">Yes</span> (the assistant writes answers, tips and visit questions; every answer can be reported in the app with "Report this answer").</p>
       <p class="small muted">Reproductive-health education is not sexual content. Accept the rating it gives; do not try to steer it. Save → Submit.</p></div></li>
     <li><input type="checkbox" id="s2e"><div><p class="path">Target audience and content</p><p>Age groups: tick <span class="ans">18 and over</span> only. "Could your store listing unintentionally appeal to children?": <span class="ans">No</span>. Save.</p></div></li>
     <li><input type="checkbox" id="s2f"><div><p class="path">News apps</p><p><span class="ans">No</span>. Save.</p></div></li>
@@ -150,9 +151,11 @@ keyPassword=YOUR_PASSWORD</div>
     <li><input type="checkbox" id="s2h"><div><p class="path">Government apps</p><p><span class="ans">No</span>. Save.</p></div></li>
     <li><input type="checkbox" id="s2i"><div><p class="path">Financial features</p><p>Tick <span class="ans">My app doesn't provide any financial features</span>. Save.</p></div></li>
     <li><input type="checkbox" id="s2j"><div><p class="path">Health apps</p><p>Tick only what femio really does:</p>
-      <ul><li><span class="ans">Period tracking</span> (under Health and fitness)</li><li><span class="ans">Reproductive and sexual health</span> (fertile window, contraction timer, baby-movement log)</li><li><span class="ans">Medical reference and education</span> (the Learn library)</li></ul>
-      <p>Do <strong>not</strong> tick medical device, clinical decision support or disease prevention, and do not choose "My app doesn't provide any health features". Save.</p></div></li>
+      <ul><li><span class="ans">Period tracking</span> (under Health and fitness)</li><li><span class="ans">Reproductive and sexual health</span> (fertile window, contraction timer, baby-movement log)</li><li><span class="ans">Medical reference and education</span> (the Learn library)</li><li><span class="ans">Emergency and first aid</span> (Help now lists emergency numbers; ticking it is the safer side)</li></ul>
+      <p>Do <strong>not</strong> tick medical device, clinical decision support or disease prevention, and do not choose "My app doesn't provide any health features". Health Connect: <span class="ans">No</span>. Save.</p>
+      <p class="small muted">Play's option names may differ a little; pick the closest one for each line.</p></div></li>
     <li><input type="checkbox" id="s2k"><div><p class="path">Data safety</p><p>Five pages. Answers below.</p></div></li>
+    <li><input type="checkbox" id="s2l"><div><p class="path">Anything else in the list</p><p>COVID-19 contact tracing: <span class="ans">My app is not a publicly available COVID-19 contact tracing or status app</span>. The build asks for no photos, videos, location, exact alarms, foreground service or full-screen alerts, so Play should not show those forms. If one appears, stop there and tell Claude what it says.</p></div></li>
   </ol>
 
   <div class="tbl"><table>
@@ -162,14 +165,28 @@ keyPassword=YOUR_PASSWORD</div>
     <tr><td>Is all of the user data collected by your app encrypted in transit?</td><td class="ans">Yes</td></tr>
     <tr><td>Account creation</td><td class="ans">My app does not allow users to create an account</td></tr>
     <tr><td>Do you provide a way for users to request that their data is deleted?</td><td class="ans">Yes</td></tr>
-    <tr><td>Data types: tick these</td><td>Health and fitness → <span class="ans">Health info</span><br>App activity → <span class="ans">Other user-generated content</span><br>Device or other IDs → <span class="ans">leave unticked</span> (checked in the bundle: Firebase's installation-ID library is not included; your phone traffic check, board card #33, confirms it)</td></tr>
-    <tr><td>For each ticked type: collected or shared?</td><td><span class="ans">Collected</span> only (Google processes it for femio; that is not "sharing")</td></tr>
+    <tr><td>Data types: tick exactly these five</td><td>Health and fitness → <span class="ans">Health info</span><br>App activity → <span class="ans">Other user-generated content</span><br>Device or other IDs → <span class="ans">Device or other IDs</span><br>App info and performance → <span class="ans">Diagnostics</span><br>App info and performance → <span class="ans">Other app performance data</span><br><span class="small muted">Leave everything else unticked, including Audio, Location, Contacts, Photos, Files, Messages, Financial info, Personal info.</span></td></tr>
+    <tr><td>Independent security review</td><td class="ans">No</td></tr>
+  </table></div>
+  <p class="path">Then Play asks four questions for each ticked type. Answer from this table:</p>
+  <div class="tbl"><table>
+    <tr><th colspan="2">Health info · Other user-generated content</th></tr>
+    <tr><td>Collected or shared?</td><td class="ans">Collected (not shared)</td></tr>
     <tr><td>Processed ephemerally?</td><td class="ans">No</td></tr>
     <tr><td>Required or optional?</td><td class="ans">Users can choose whether this data is collected</td></tr>
     <tr><td>Why is it collected?</td><td class="ans">App functionality, Personalization</td></tr>
-    <tr><td>Independent security review</td><td class="ans">No</td></tr>
   </table></div>
-  <p class="small muted">Why "Yes" at all: when she switches on Cloud boost, an approved question or four broad facts go to Google's AI. Everything else stays on the phone.</p>
+  <div class="tbl"><table>
+    <tr><th colspan="2">Device or other IDs · Diagnostics · Other app performance data</th></tr>
+    <tr><td>Collected or shared?</td><td class="ans">Collected (not shared)</td></tr>
+    <tr><td>Processed ephemerally?</td><td class="ans">No</td></tr>
+    <tr><td>Required or optional?</td><td class="ans">Data collection is required</td></tr>
+    <tr><td>Why is it collected?</td><td class="ans">Analytics</td></tr>
+  </table></div>
+  <p class="small muted">Why each answer:
+  <strong>Health info and user content:</strong> sent only when she turns on Cloud boost. That means a question she approved, or four broad facts. Google keeps it up to 55 days, so it is not "ephemeral". Google works for femio here, so it counts as "collected", not "shared".
+  <strong>IDs, diagnostics and performance:</strong> Google's ML Kit runs Gemini Nano, speech and translation on the phone. Google's own disclosure says ML Kit sends Google an installation ID, device details, errors and timings, never her words. We have not yet proved when it sends them (the phone traffic check, owner #33). So the cautious answer is "required".
+  Google treats data its libraries send as the app's own, and under-declaring is what gets apps removed.</p>
 </section>
 
 <section class="step" id="s3">
@@ -444,7 +461,7 @@ femio es para educación y seguimiento, no es un producto sanitario.
   </ol>
 </section>
 
-<p class="small muted">Answers checked against the build on 25 November 2026. Play's own wording is read on the day; where this page says "closest", that is a judgement, not a quote.</p>
+<p class="small muted">Step 2 answers checked against the signed build on 28 November 2026 (source: <code>docs/store/data-safety-and-declarations.md</code>); the rest on 25 November. Play's own wording is read on the day; where this page says "closest", that is a judgement, not a quote.</p>
 </div>
 
 <script>
