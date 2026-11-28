@@ -243,7 +243,13 @@ try {
     // ADR-087: the one exception is `request`, the page picture plus the prompt Dart passed,
     // and only inside privateImage, which must run ONLY_ON_DEVICE (no cloud fallback).
     const imageCall = kt.match(/private suspend fun privateImage\([\s\S]*?\r?\n    }\r?\n/)?.[0] ?? "";
-    const imageOk = /generateContent\(request\)/.test(imageCall) && /model\(InferenceMode\.ONLY_ON_DEVICE/.test(imageCall) && !/PREFER_ON_DEVICE|ONLY_IN_CLOUD|PREFER_IN_CLOUD/.test(imageCall);
+    // The call may go through the onDevice helper (Nano 4 preview, then stable), but only if
+    // that helper builds every model with the mode it was given and never names another mode.
+    const helper = kt.match(/private suspend fun onDevice\([\s\S]*?\r?\n    }\r?\n/)?.[0] ?? "";
+    const helperForwards = helper !== "" && !/InferenceMode\.(PREFER_ON_DEVICE|ONLY_IN_CLOUD|PREFER_IN_CLOUD)/.test(helper)
+      && (helper.match(/model\(/g) ?? []).length === (helper.match(/model\(mode,/g) ?? []).length;
+    const onPhone = /model\(InferenceMode\.ONLY_ON_DEVICE/.test(imageCall) || (helperForwards && /onDevice\(InferenceMode\.ONLY_ON_DEVICE/.test(imageCall));
+    const imageOk = /generateContent\(request\)/.test(imageCall) && onPhone && !/PREFER_ON_DEVICE|ONLY_IN_CLOUD|PREFER_IN_CLOUD/.test(imageCall);
     const requestCalls = (kt.match(/generateContent\(request\)/g) ?? []).length;
     if (requestCalls > 0 && (!imageOk || requestCalls !== 1)) {
       fail(rel, "a document picture may be sent only by privateImage, ONLY_ON_DEVICE (ADR-087)");
